@@ -11,7 +11,7 @@ def deaths_costs(num_deaths, country = "GM"):
         deaths_dist = DEATHS_DIST[country]
         vsly = VSLY[country]
         life_table = DEATHS_ACTUARIAL_TABLE[country]
-        mt = Actuarial(nt=eval(life_table) , i =0)
+        mt = Actuarial(nt=life_table , i =0)
         cost_pp = 0
         for key in deaths_dist:
             percentage = deaths_dist[key]
