@@ -136,5 +136,5 @@ DEATHS_ACTUARIAL_TABLE = {"GM": [
 
 # Hospitalization Costs Per Country
 DAILY_HOSPITALIZATION_COST = {
-       "DE": {"Inpatient": None, "ICU bed": 795, "Ventilated ICU bed": 1539, "Currency": "euro"}
+       "GM": {"Inpatient": None, "ICU bed": 795, "Ventilated ICU bed": 1539, "Currency": "euro"}
 }

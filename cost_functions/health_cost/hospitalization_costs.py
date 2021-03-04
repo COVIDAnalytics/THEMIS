@@ -1,13 +1,18 @@
 ## Authors: Saksham Soni (sakshams@mit.edu)
 import numpy as np
-from params import DAILY_HOSPITALIZATION_COST 
+from .health_data.health_params import DAILY_HOSPITALIZATION_COST 
 
-def hospitalization_costs(active_hospitalized, active_icu, active_ventilated, country="DE"):
-    inpatient_daily = DAILY_HOSPITALIZATION_COST[country]["Inpatient"]
-    inpatient_daily = inpatient_daily if inpatient_daily is not None else 0
-    icu_daily = DAILY_HOSPITALIZATION_COST[country]["ICU bed"]
-    icu_daily = icu_daily if icu_daily is not None else 0
-    ventilated_daily = DAILY_HOSPITALIZATION_COST[country]["Ventilated ICU bed"]
-    ventilated_daily = ventilated_daily if ventilated_daily is not None else 0
+def hospitalization_costs(policy):
+    region = policy.region
+    total_hospitalized_days = policy.hospitalization_days
+    total_icu_days = policy.icu_days
+    total_ventilated_days = policy.ventilated_days
+    
+    inpatient_daily_cost = DAILY_HOSPITALIZATION_COST[region]["Inpatient"]
+    inpatient_daily_cost = inpatient_daily_cost if inpatient_daily_cost is not None else 0
+    icu_daily_cost = DAILY_HOSPITALIZATION_COST[region]["ICU bed"]
+    icu_daily_cost = icu_daily_cost if icu_daily_cost is not None else 0
+    ventilated_daily_cost = DAILY_HOSPITALIZATION_COST[region]["Ventilated ICU bed"]
+    ventilated_daily_cost = ventilated_daily_cost if ventilated_daily_cost is not None else 0
 
-    return icu_daily*np.nansum(active_icu) + ventilated_daily*np.nansum(active_ventilated) + inpatient_daily*np.nansum(active_hospitalized)
+    return icu_daily_cost*total_icu_days + ventilated_daily_cost*total_ventilated_days + inpatient_daily_cost*total_hospitalized_days
