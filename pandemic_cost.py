@@ -20,12 +20,14 @@ class PandemicCost:
         
 
 
-def get_pandemic_cost(policy):
+def get_pandemic_cost(pandemic):
 # apply it to the various costs we have
-    st_economic_costs = short_term_economic_costs(policy)
-    lt_economic_costs = long_term_economic_costs(policy)
-    d_costs = death_costs(policy)
-    h_costs = hospitalization_costs(policy)
-    mh_costs = mental_health_costs(policy)
+    st_economic_costs = short_term_economic_costs(pandemic)
+    lt_economic_costs = long_term_economic_costs(pandemic)
+    d_costs = death_costs(pandemic)
+    h_costs = hospitalization_costs(pandemic)
+    mh_costs = mental_health_costs(pandemic)
     pandemic_cost = PandemicCost(st_economic_costs, lt_economic_costs,d_costs,h_costs,mh_costs)
     return pandemic_cost
+
+
