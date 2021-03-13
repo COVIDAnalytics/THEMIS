@@ -1,4 +1,6 @@
 
+from datetime import datetime
+
 DELPHI_PATH = "../DELPHI/"
 PATH_TO_FOLDER_DANGER_MAP = "../covid19orc/danger_map/"
 
@@ -7,6 +9,22 @@ region_symbol_country_dict = {
     "US": "US",
     "FR": "France"
 }
+
+### DELPHI parameters for poilicy scenarios
+
+PATH_TO_FOLDER_DANGER_MAP = "/Users/saksham/Research/COVIDAnalytics/covid19orc/danger_map/"
+default_maxT_policies = datetime(2020,12,31)
+
+validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
+
+p_d=0.2 # Probability of detection
+p_h=0.03 # Probability of hospitalization
+p_v = 0.25  # Percentage of ventilated
+IncubeD = 5
+RecoverID = 10
+RecoverHD = 15
+DetectD = 2
+VentilatedD = 10  # Recovery Time when Ventilated
 
 # Policies and future times for counterfactual predictions
 future_policies = [
