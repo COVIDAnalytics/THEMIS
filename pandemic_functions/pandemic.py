@@ -8,7 +8,8 @@ from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import ru
 from pandemic_functions.pandemic_params import (
     DELPHI_PATH, 
     PATH_TO_FOLDER_DANGER_MAP,
-    region_symbol_country_dict
+    region_symbol_country_dict,
+    p_v
 )
 
 class Pandemic:
@@ -70,8 +71,9 @@ class Pandemic:
         else:
             # TODO: implement hypothetical policy case
             num_cases, num_deaths, hospitalization_days = run_delphi_policy_scenario(self.policy, self.region)
-
-            return 60000, 1000000, 200000, 100000
+            ventilated_days = hospitalization_days*p_v
+            icu_days = ventilated_days*(0.15/0.85)
+            hospitalization_days = hospitalization_days - icu_days
         
         return num_deaths, hospitalization_days, icu_days, ventilated_days
         
