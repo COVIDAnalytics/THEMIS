@@ -563,7 +563,11 @@ def run_delphi_policy_scenario(policy, country):
                 x_sol_final[4, :] + x_sol_final[7, :]
         )  # DHR + DHD
         active_hospitalized = [int(round(x, 0)) for x in active_hospitalized]
+        active_ventilated = (
+                x_sol_final[12, :] + x_sol_final[13, :]
+        )  # DVR + DVD
+        active_ventilated = [int(round(x, 0)) for x in active_ventilated]
         hospitalization_days = sum(active_hospitalized)
+        ventilated_days = sum(active_ventilated)
 
-
-    return num_cases, num_deaths, hospitalization_days
+    return num_cases, num_deaths, hospitalization_days, ventilated_days
