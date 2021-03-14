@@ -13,6 +13,7 @@ region_symbol_country_dict = {
 ### DELPHI parameters for poilicy scenarios
 
 PATH_TO_FOLDER_DANGER_MAP = "/Users/saksham/Research/COVIDAnalytics/covid19orc/danger_map/"
+GLOBAL_HOSPITALIZATION_DATA_PATH = "/Users/saksham/Research/TTC/"
 default_maxT_policies = datetime(2020,12,31)
 
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions

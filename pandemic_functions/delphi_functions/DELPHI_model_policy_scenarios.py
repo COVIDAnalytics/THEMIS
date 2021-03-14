@@ -346,7 +346,7 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     :return: a list of initial conditions for all 16 states of the DELPHI model
     """
     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal  = params_fitted 
-    N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v = global_params_fixed
+    N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v, p_d, p_h = global_params_fixed
 
     PopulationR = min(R_upperbound - 1, min(int(R_0*p_d), R_heuristic))
     PopulationCI = (PopulationI - PopulationD - PopulationR)
@@ -378,12 +378,7 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     ]
     return x_0_cases
 
-# %% 
-
-policy_data = read_oxford_country_policy_data("2020-03-01", "2020-06-01", "Germany")
-
-
-# %%
+# policy_data = read_oxford_country_policy_data("2020-03-01", "2020-06-01", "Germany")
 
 def run_delphi_policy_scenario(policy, country):
     # TODO implement us policies
@@ -447,7 +442,7 @@ def run_delphi_policy_scenario(policy, country):
         p_v: Percentage of Hospitalized Patients Ventilated,
         balance: Regularization coefficient between cases and deaths
         """
-        policy_scenario_end_date = pd.to_datetime(policy.start_date)
+        policy_scenario_end_date = pd.to_datetime(policy.end_date)
         maxT = (policy_scenario_end_date - date_day_since100).days + 1
         policy_scenario_start_date = pd.to_datetime(policy.start_date)
         policy_startT = max((policy_scenario_start_date - date_day_since100).days + 1, 0)
@@ -455,7 +450,7 @@ def run_delphi_policy_scenario(policy, country):
         # balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
         GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v, p_d, p_h)
         best_params = parameter_list
-        t_predictions = [i for i in range(maxT)]
+        t_predictions = list(range(maxT))
 
         
         policy_scenario_gamma_shifts = {}
@@ -469,7 +464,7 @@ def run_delphi_policy_scenario(policy, country):
                 policy_scenario_gamma_shifts[(t1, t2)] = default_dict_normalized_policy_gamma[month_policy]
             
         def model_covid_predictions(
-                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h
+                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
         ):
             """
             SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized
