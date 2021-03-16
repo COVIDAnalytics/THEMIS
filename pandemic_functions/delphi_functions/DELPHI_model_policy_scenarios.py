@@ -11,17 +11,7 @@ from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from dateparser import parse
 from dateutil.relativedelta import relativedelta
-# from DELPHI_utils_V4_static import compute_mape, create_fitting_data_from_validcases, get_mape_data_fitting, DELPHIAggregations
-# from DELPHI_utils_V4_dynamic import (
-#     read_oxford_international_policy_data, get_normalized_policy_shifts_and_current_policy_all_countries,
-#     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
-# )
-# from DELPHI_params_V4 import (
-#     fitting_start_date,
-#     date_MATHEMATICA, validcases_threshold_policy, default_dict_normalized_policy_gamma,
-#     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
-#     default_maxT_policies, p_v, future_policies, future_times
-# )
+
 from pandemic_functions.pandemic_params import (
     default_dict_normalized_policy_gamma, future_policies,
     p_d, p_h, p_v,
@@ -40,41 +30,8 @@ import os
 import argparse
 
 
-#%%
+popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
 
-# USER_RUNNING = RUN_CONFIG["arguments"]["user"]
-# OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
-# GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
-# SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
-# SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
-# PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-# PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-# PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-# policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
-# # policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
-popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-# df_initial_states = pd.read_csv(
-#     PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv"
-# )
-# subname_parameters_file = None
-# if OPTIMIZER == "tnc":
-#     subname_parameters_file = "Global_V4"
-# elif OPTIMIZER == "annealing":
-#     subname_parameters_file = "Global_V4_annealing"
-# elif OPTIMIZER == "trust-constr":
-#     subname_parameters_file = "Global_V4_trust"
-# else:
-#     raise ValueError("Optimizer not supported in this implementation")
-# yesterday = "20210305"
-# past_parameters = pd.read_csv(
-#     PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{yesterday}.csv"
-# )
-# if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
-#     param_MATHEMATICA = True
-# else:
-#     param_MATHEMATICA = False
-# # True if we use the Mathematica run parameters, False if we use those from Python runs
-# # This is because the past_parameters dataframe's columns are not in the same order in both cases
 
 def gamma_t(day: datetime, state: str, params_dict: dict) -> float:
     """

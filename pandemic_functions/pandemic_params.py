@@ -12,14 +12,12 @@ region_symbol_country_dict = {
 
 ### DELPHI parameters for poilicy scenarios
 
-PATH_TO_FOLDER_DANGER_MAP = "/Users/saksham/Research/COVIDAnalytics/covid19orc/danger_map/"
-GLOBAL_HOSPITALIZATION_DATA_PATH = "/Users/saksham/Research/TTC/"
 default_maxT_policies = datetime(2020,12,31)
 
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 
 p_d=0.2 # Probability of detection
-p_h=0.03 # Probability of hospitalization
+p_h=0.15 # Probability of hospitalization
 p_v = 0.25  # Percentage of ventilated
 IncubeD = 5
 RecoverID = 10

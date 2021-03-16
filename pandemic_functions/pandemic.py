@@ -8,7 +8,6 @@ from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import ru
 from pandemic_functions.pandemic_params import (
     DELPHI_PATH, 
     PATH_TO_FOLDER_DANGER_MAP,
-    GLOBAL_HOSPITALIZATION_DATA_PATH,
     region_symbol_country_dict,
     p_v
 )
@@ -30,12 +29,10 @@ class Pandemic:
         country = region_symbol_country_dict[self.region]
         country_sub = country.replace(' ', '_')
         if self.policy.policy_type == "actual":
-            if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_None.csv"):
-                totalcases = pd.read_csv(
-                    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_None.csv"
-                )
+            if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv"):
+                totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv")
             else:
-                raise FileNotFoundError(f"Can not find file - processed/Global/Cases_{country_sub}_None.csv for actual polcy outcome")
+                raise FileNotFoundError(f"Can not find file - pandemic_data/Cases_{country_sub}_None.csv for actual polcy outcome")
 
             # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
             if os.path.exists("pandemic_functions/pandemic_data/Global_DELPHI_predictions_combined.csv"):
@@ -56,15 +53,16 @@ class Pandemic:
             ventilated_days = preds_in_interval["Active Ventilated"].sum()
 
             if self.region == "GM":
-                hosp_global = pd.read_csv(GLOBAL_HOSPITALIZATION_DATA_PATH+"global_hospitalizations.csv")
+                hosp_global = pd.read_csv("pandemic_functions/pandemic_data/global_hospitalizations.csv")
                 hosp_global.date = pd.to_datetime(hosp_global.date)
                 hosp_germany = hosp_global[hosp_global.country_id == "DE"]
                 hosp_germany.date = pd.to_datetime(hosp_germany.date)
                 hosp_germany = hosp_germany.query("date >= @start_date and date <= @end_date")
                 icu_days = np.nansum(hosp_germany.icu_beds_used)
+                icu_days = icu_days - ventilated_days
                 hospitalization_days = hospitalization_days - icu_days
             else:
-                icu_days = ventilated_days*(0.15/0.85) # 
+                icu_days = ventilated_days*(0.15/0.85) # (1/0.85 - 1)*ventilated_days
                 hospitalization_days = hospitalization_days - icu_days
         else:
             # TODO: implement hypothetical policy case
