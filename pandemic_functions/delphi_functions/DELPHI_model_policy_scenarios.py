@@ -1,8 +1,6 @@
 #%%
 
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu), Saksham Soni (sakshams@mit.edu)
-import sys
-sys.path.append("/Users/saksham/Research/COVIDAnalytics/DELPHI/")
 import pandas as pd
 import numpy as np
 from copy import deepcopy
@@ -15,8 +13,6 @@ from dateutil.relativedelta import relativedelta
 from pandemic_functions.pandemic_params import (
     default_dict_normalized_policy_gamma, future_policies,
     p_d, p_h, p_v,
-    PATH_TO_FOLDER_DANGER_MAP,
-    default_maxT_policies,
     validcases_threshold_policy,
     IncubeD,
     RecoverID,
@@ -341,25 +337,18 @@ def run_delphi_policy_scenario(policy, country):
     # TODO implement us policies
     country_sub = country.replace(' ', '_')
     province=province_sub="None"
-    past_parameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_20201108.csv"
-    )
+    past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20201108.csv")
     policy_data = read_oxford_country_policy_data(start_date=policy.start_date,
                                                 end_date=policy.end_date,
                                                 country=country)
     latest_policy = get_latest_policy(policy_data)
 
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_None.csv"):
-        totalcases = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_None.csv"
-        )
+    if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv"):
+        totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv")
     else:
-        raise FileNotFoundError(f"Can not find file - processed/Global/Cases_{country_sub}_None.csv for actual polcy outcome")
+        raise FileNotFoundError(f"Can not find file - pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv for actual polcy outcome")
 
     parameter_list_total = past_parameters[past_parameters.Country == country]
-    totalcases = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-    )
 
     if len(parameter_list_total) > 0:
         parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()

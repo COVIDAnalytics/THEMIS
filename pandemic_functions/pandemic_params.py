@@ -1,9 +1,6 @@
 
 from datetime import datetime
 
-DELPHI_PATH = "../DELPHI/"
-PATH_TO_FOLDER_DANGER_MAP = "../covid19orc/danger_map/"
-
 region_symbol_country_dict = {
     "GM": "Germany",
     "US": "US",
@@ -13,8 +10,6 @@ region_symbol_country_dict = {
 ### DELPHI parameters for poilicy scenarios
 
 default_maxT_policies = datetime(2020,12,31)
-
-validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 
 p_d=0.2 # Probability of detection
 p_h=0.15 # Probability of hospitalization

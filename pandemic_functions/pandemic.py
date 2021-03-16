@@ -5,12 +5,7 @@ from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from policy_functions.policy import Policy
 from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario
-from pandemic_functions.pandemic_params import (
-    DELPHI_PATH, 
-    PATH_TO_FOLDER_DANGER_MAP,
-    region_symbol_country_dict,
-    p_v
-)
+from pandemic_functions.pandemic_params import region_symbol_country_dict, p_v
 
 class Pandemic:
     
