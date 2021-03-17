@@ -15,7 +15,7 @@ class Pandemic:
     # We call it here so that we dont have to repeatedly call DELPHI over and over again. 
         self.policy = policy
         self.region = region
-        self.num_cases, self.num_deaths, self.hospitalization_days, self.icu_days, self.ventilated_days = self._get_deaths_and_hospitalizations()        
+        self.num_cases, self.num_deaths, self.hospitalization_days, self.icu_days, self.ventilated_days = self._get_deaths_and_hospitalizations()   
         
         
     def _get_deaths_and_hospitalizations(self):

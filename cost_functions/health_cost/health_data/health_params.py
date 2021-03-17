@@ -138,3 +138,18 @@ DEATHS_ACTUARIAL_TABLE = {"GM": [
 DAILY_HOSPITALIZATION_COST = {
        "GM": {"Inpatient": None, "ICU bed": 795, "Ventilated ICU bed": 1539, "Currency": "euro"}
 }
+
+# Mental Health Parameters per Country
+MENTAL_HEATH_COST = {
+       "GM": {"exposed_health_workers": 300000,
+              "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
+              "depression_rate_sick": 30./100.0,
+              "depression_rate_hworkers_normal": 12./100.,
+              "depression_gen_pop": 12./100.,
+              "ptsd_rate_hworkers": 7./100.,
+              "ptsd_rate_sick": 7./100.,
+              "depression_cost":4000.,
+              "ptsd_cost": 40000.,
+              "Currency": "euro"
+              }
+}
