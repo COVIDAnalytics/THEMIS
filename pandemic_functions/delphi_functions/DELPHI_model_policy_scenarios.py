@@ -47,10 +47,10 @@ def gamma_t(day: datetime, state: str, params_dict: dict) -> float:
 
 def read_oxford_country_policy_data(start_date: str, end_date: str, country: str) -> pd.DataFrame:
     """
-    Reads the policy data from the Oxford dataset online and processes it to obtain the MECE policies for all other
-    countries than the US
-    :param yesterday: string date used in the main script as the day for which we read past parameters used as warm 
-    starts for the optimization
+    Reads the policy data from the Oxford dataset online and processes it to obtain the MECE policies for a particular
+    country (other than the US) within a date range
+    :param start_date: string date from which the policy data is collected
+    :param end_date: string date till which the policy data is collected
     :return: processed dataframe with MECE policies in each country of the world, used for policy predictions
     """
     measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")

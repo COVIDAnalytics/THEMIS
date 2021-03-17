@@ -50,7 +50,7 @@ class Pandemic:
             if self.region == "GM":
                 hosp_global = pd.read_csv("pandemic_functions/pandemic_data/global_hospitalizations.csv")
                 hosp_global.date = pd.to_datetime(hosp_global.date)
-                hosp_germany = hosp_global[hosp_global.country_id == "DE"]
+                hosp_germany = hosp_global[hosp_global.country_id == "DE"].copy()
                 hosp_germany.date = pd.to_datetime(hosp_germany.date)
                 hosp_germany = hosp_germany.query("date >= @start_date and date <= @end_date")
                 icu_days = np.nansum(hosp_germany.icu_beds_used)
