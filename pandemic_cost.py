@@ -15,5 +15,5 @@ class PandemicCost:
         self.d_costs = death_costs(pandemic)
         self.h_costs = hospitalization_costs(pandemic)
         self.mh_costs = mental_health_costs(pandemic)
-
-        self.num_cases = pandemic.num_cases
+        for a in pandemic.__dict__:
+            setattr(self,a, pandemic.__dict__[a])
