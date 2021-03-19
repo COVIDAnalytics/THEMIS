@@ -27,6 +27,7 @@ import argparse
 
 
 popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
+raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
 
 
 def gamma_t(day: datetime, state: str, params_dict: dict) -> float:
@@ -53,7 +54,7 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
     :param end_date: string date till which the policy data is collected
     :return: processed dataframe with MECE policies in each country of the world, used for policy predictions
     """
-    measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
+    measures = raw_measures.copy()
     filtr = ["CountryName", "CountryCode", "Date"]
     target = ["ConfirmedCases", "ConfirmedDeaths"]
     msr = [
