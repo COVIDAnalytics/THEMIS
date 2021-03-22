@@ -1,0 +1,13 @@
+,actual,No_Measure-No_Measure-No_Measure,Lockdown-Lockdown-Lockdown
+st_economic_costs,67335166230.0,637097707.5121448,113667788891.93811
+lt_economic_costs,0,0,0
+d_costs,9699569194.35872,14002300356.555256,7696163143.343892
+h_costs,177584358.0,229042283.29411766,125671654.58823529
+mh_costs,1717856000.0000002,2050984000.0,10256104000.000002
+policy,<policy_functions.policy.Policy object at 0x7fd9b9569490>,<policy_functions.policy.Policy object at 0x7fd9bda83df0>,<policy_functions.policy.Policy object at 0x7fd9bf004d00>
+region,GM,GM,GM
+num_cases,183464,266746.0,142426.0
+num_deaths,8555,12350.0,6788.0
+hospitalization_days,534372.0,729046.8235294118,406576.64705882355
+icu_days,25858.0,24069.176470588238,13206.352941176472
+ventilated_days,102032,136392,74836
