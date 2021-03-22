@@ -338,7 +338,7 @@ def run_delphi_policy_scenario(policy, country):
     # TODO implement us policies
     country_sub = country.replace(' ', '_')
     province=province_sub="None"
-    past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20201108.csv")
+    past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200702.csv")
     policy_data = read_oxford_country_policy_data(start_date=policy.start_date,
                                                 end_date=policy.end_date,
                                                 country=country)
