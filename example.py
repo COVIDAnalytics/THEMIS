@@ -45,6 +45,6 @@ for policies in future_policies:
         print("Unexpected error:", sys.exc_info())
         print("NOK")
 
-pd.DataFrame.from_dict(d_scenarii_simulations).to_csv('test_result.csv')
+pd.DataFrame.from_dict(d_scenarii_simulations).to_csv('simulation_results/test_result.csv')
 #   for k in cost_of_pandemic.__dict__:
 #       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
