@@ -1,15 +1,20 @@
-
+from collections import defaultdict
 
 UNEMPLOYMENT_COST = {"GM": 77510,"US": 100000}
+def not_implemented():
+    raise NotImplementedError
 
 # employment_impact in percentages
-EMPLOYMENT_IMPACT = {"GM": { "Lockdown": 2,
+EMPLOYMENT_IMPACT = {}
+EMPLOYMENT_IMPACT["GM"] = defaultdict(not_implemented, { "Lockdown": 2,
         "Social Distancing": 1,
-        "No_Measure": 0}}
+        "No_Measure": 0})
 
-GDP_IMPACT = {"GM": { "Lockdown": -10,
-        "Social Distancing": -5,
-        "No_Measure": 0}}
+GDP_IMPACT = {}
+
+GDP_IMPACT["GM"] = defaultdict(not_implemented, { "Lockdown": -10,
+                                           "Social Distancing": -5,
+                                           "No_Measure": 0})
 
 
 TOTAL_LABOR_FORCE = {"GM": 43356000}
