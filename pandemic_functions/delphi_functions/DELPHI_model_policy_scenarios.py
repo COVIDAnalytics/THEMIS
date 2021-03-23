@@ -275,13 +275,13 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
     output = output[(output.date >= start_date) & (output.date <= end_date)].reset_index(drop=True)
     return output
 
-def get_latest_policy(policy_data: pd.DataFrame) -> list:
+def get_latest_policy(policy_data: pd.DataFrame, start_date: datetime) -> list:
     latest_policy = list(
         compress(
             future_policies, 
             (
                 policy_data[
-                    policy_data.date == policy_data.date.max()
+                    policy_data.date == start_date
                 ][future_policies] == 1
             ).values
             .flatten()
@@ -342,7 +342,6 @@ def run_delphi_policy_scenario(policy, country):
     policy_data = read_oxford_country_policy_data(start_date=policy.start_date,
                                                 end_date=policy.end_date,
                                                 country=country)
-    latest_policy = get_latest_policy(policy_data)
 
     if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv"):
         totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv")
@@ -401,14 +400,18 @@ def run_delphi_policy_scenario(policy, country):
 
         
         policy_scenario_gamma_shifts = {}
-        for i, month_policy in enumerate(policy.policy_vector):
+        for i, alt_policy in enumerate(policy.policy_vector):
             start = policy_scenario_start_date + relativedelta(months=i)
             end = policy_scenario_start_date + relativedelta(months=i+1)
 
             if start >= date_day_since100:
                 t1 = (start - date_day_since100).days + 1
                 t2 = (end - date_day_since100).days + 1
-                policy_scenario_gamma_shifts[(t1, t2)] = default_dict_normalized_policy_gamma[month_policy]
+                latest_policy = get_latest_policy(policy_data, end)
+                policy_scenario_gamma_shifts[(t1, t2)] = [
+                    default_dict_normalized_policy_gamma[alt_policy],
+                    default_dict_normalized_policy_gamma[latest_policy]
+                ]
             
         def model_covid_predictions(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
@@ -443,22 +446,22 @@ def run_delphi_policy_scenario(policy, country):
                     (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +
                     jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
             )
-            gamma_t_future = (
-                    (2 / np.pi) * np.arctan(-(t_cases[-1] - days) / 20 * r_s) + 1 +
-                    jump * np.exp(-(t_cases[-1] - t_jump)**2 / (2 * std_normal ** 2))
-            )
             p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
             if t > policy_startT:
-                for window, gamma_shift in policy_scenario_gamma_shifts.items():
+                for window, gamma_shifts in policy_scenario_gamma_shifts.items():
                     if t >= window[0] and t<window[1]:
-                        normalized_gamma_future_policy = gamma_shift
+                        normalized_gamma_alt_policy = gamma_shifts[0]
+                        normalized_gamma_actual_policy = gamma_shifts[1]
+                        gamma_t_month = (
+                                (2 / np.pi) * np.arctan(-(window[1] - days) / 20 * r_s) + 1 +
+                                jump * np.exp(-(window[1] - t_jump)**2 / (2 * std_normal ** 2))
+                        )
                         break
-                normalized_gamma_current_policy = default_dict_normalized_policy_gamma[latest_policy]
                 epsilon = 1e-4
                 gamma_t = gamma_t + min(
-                    (2 - gamma_t_future) / (1 - normalized_gamma_future_policy + epsilon),
-                    (gamma_t_future / normalized_gamma_current_policy) *
-                    (normalized_gamma_future_policy - normalized_gamma_current_policy)
+                    (2 - gamma_t_month) / (1 - normalized_gamma_alt_policy + epsilon),
+                    (gamma_t_month / normalized_gamma_actual_policy) *
+                    (normalized_gamma_alt_policy - normalized_gamma_actual_policy)
                 )
 
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
