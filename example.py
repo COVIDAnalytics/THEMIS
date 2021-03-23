@@ -8,11 +8,15 @@ import sys
 pandemic_simulator = Pandemic_Factory()
 import pandas as pd
 
+country = "GM"
+start_date = "2020-03-01"
+policy_length = 3
+
 def simulate_actual():
     # create a policy that uses the current policy for Germany, length 3 months starting in 2020-03-01, 
-    policy = Policy(policy_type = "actual", start_date = "2020-03-01", policy_length = 3)
+    policy = Policy(policy_type = "actual", start_date = start_date, policy_length = policy_length)
     # simulate the pandemic using such policy
-    pandemic = pandemic_simulator.compute_delphi(policy,region="GM")
+    pandemic = pandemic_simulator.compute_delphi(policy,region=country)
     cost_of_pandemic = PandemicCost(pandemic)
     return cost_of_pandemic
 
@@ -20,9 +24,9 @@ def simulate_actual():
 
 def simulate_policy(policy_vect):
     # create a policy that a hypothetical policy for Germany, length 3 months starting in 2020-03-01, 
-    policy2 = Policy(policy_type = "hypothetical", start_date = "2020-03-01", policy_vector = policy_vect)
+    policy2 = Policy(policy_type = "hypothetical", start_date = start_date, policy_vector = policy_vect)
     # simulate the pandemic using such policy
-    pandemic2 = pandemic_simulator.compute_delphi(policy2,region="GM")
+    pandemic2 = pandemic_simulator.compute_delphi(policy2,region=country)
     cost_of_pandemic2 = PandemicCost(pandemic2)
     return cost_of_pandemic2
 
@@ -36,7 +40,7 @@ future_policies = [
 ]
 
 for policies in future_policies:
-    scenario = [policies,policies,policies]
+    scenario = [policies] * policy_length
     print("testing - " + policies + " ", end='')
     try:
         d_scenarii_simulations['-'.join(scenario)] = simulate_policy(scenario).__dict__
@@ -45,6 +49,17 @@ for policies in future_policies:
         print("Unexpected error:", sys.exc_info())
         print("NOK")
 
-pd.DataFrame.from_dict(d_scenarii_simulations, orient="index").to_csv('simulation_results/test_result.csv')
+output_df = pd.DataFrame.from_dict(d_scenarii_simulations, orient="index")
+del output_df["policy"]
+output_df.reset_index(inplace=True)
+output_df = output_df.rename(columns = {'index':'policy'})
+output_df["country"] = country
+output_df["start_date"] = start_date
+output_df["policy_length"] = policy_length
+
+output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
+                       "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
+
+output_df.to_csv('simulation_results/test_result.csv')
 #   for k in cost_of_pandemic.__dict__:
 #       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))

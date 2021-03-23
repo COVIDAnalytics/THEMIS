@@ -7,13 +7,13 @@ def not_implemented():
 # employment_impact in percentages
 EMPLOYMENT_IMPACT = {}
 EMPLOYMENT_IMPACT["GM"] = defaultdict(not_implemented, { "Lockdown": 2,
-        "Social Distancing": 1,
+        "Restrict_Mass_Gatherings": 1,
         "No_Measure": 0})
 
 GDP_IMPACT = {}
 
 GDP_IMPACT["GM"] = defaultdict(not_implemented, { "Lockdown": -10,
-                                           "Social Distancing": -5,
+                                           "Restrict_Mass_Gatherings": -3,
                                            "No_Measure": 0})
 
 
