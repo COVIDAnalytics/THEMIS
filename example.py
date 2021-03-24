@@ -45,7 +45,7 @@ future_policies = [
     'Lockdown'
 ]
 
-scenarios = [list(t) for t in itertools.combinations_with_replacement(future_policies, policy_length)]
+scenarios = [list(t) for t in itertools.product(future_policies, repeat=policy_length)]
 
 
 for scenario in scenarios:
