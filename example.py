@@ -4,9 +4,11 @@ from pandemic_functions.pandemic import Pandemic_Factory
 import locale
 locale.setlocale(locale.LC_ALL, 'en_US')
 import sys
+import itertools
+import pandas as pd
+
 
 pandemic_simulator = Pandemic_Factory()
-import pandas as pd
 
 country = "GM"
 start_date = "2020-03-01"
@@ -34,14 +36,20 @@ d_scenarii_simulations = {}
 d_scenarii_simulations['actual'] = simulate_actual().__dict__
 
 future_policies = [
-    'No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-    'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-    'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
+    'No_Measure', 
+    'Restrict_Mass_Gatherings', 
+#    'Mass_Gatherings_Authorized_But_Others_Restricted',
+#    'Restrict_Mass_Gatherings_and_Schools', 
+#    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+#    'Restrict_Mass_Gatherings_and_Schools_and_Others', 
+    'Lockdown'
 ]
 
-for policies in future_policies:
-    scenario = [policies] * policy_length
-    print("testing - " + policies + " ", end='')
+scenarios = [list(t) for t in itertools.combinations_with_replacement(future_policies, policy_length)]
+
+
+for scenario in scenarios:
+    print("testing - " + str(scenario) + " ", end='')
     try:
         d_scenarii_simulations['-'.join(scenario)] = simulate_policy(scenario).__dict__
         print("OK")
