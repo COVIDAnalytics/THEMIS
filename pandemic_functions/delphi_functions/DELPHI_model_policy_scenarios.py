@@ -300,9 +300,8 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     :return: a list of initial conditions for all 16 states of the DELPHI model
     """
     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal  = params_fitted 
-    N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v, p_d, p_h = global_params_fixed
+    N, PopulationR, PopulationD, PopulationI, p_v, p_d, p_h = global_params_fixed
 
-    PopulationR = min(R_upperbound - 1, min(int(R_0*p_d), R_heuristic))
     PopulationCI = (PopulationI - PopulationD - PopulationR)
 
     S_0 = (
@@ -357,8 +356,8 @@ def run_delphi_policy_scenario(policy, country):
         # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
         start_date = date_day_since100
         validcases = totalcases[
-            (totalcases.date >= str(policy.start_date))
-            & (totalcases.date <= str(policy.end_date))
+            (totalcases.date >= str(date_day_since100.date()))
+            & (totalcases.date <= str(policy.end_date.date()))
         ][["day_since100", "case_cnt", "death_cnt", "total_hospitalization", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
     else:
         print(f"Couldn't find past parameters for {country} and {province}")
@@ -372,11 +371,7 @@ def run_delphi_policy_scenario(policy, country):
         N = PopulationT
         PopulationI = validcases.loc[0, "case_cnt"]
         PopulationD = validcases.loc[0, "death_cnt"]
-        R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-        cases_t_14days = totalcases[totalcases.date >= str(start_date- pd.Timedelta(14, 'D'))]['case_cnt'].values[0]
-        deaths_t_9days = totalcases[totalcases.date >= str(start_date - pd.Timedelta(9, 'D'))]['death_cnt'].values[0]
-        R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
-        R_heuristic = cases_t_14days - deaths_t_9days
+        PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
 
         """
         Fixed Parameters based on meta-analysis:
@@ -391,14 +386,15 @@ def run_delphi_policy_scenario(policy, country):
         policy_scenario_end_date = pd.to_datetime(policy.end_date)
         maxT = (policy_scenario_end_date - date_day_since100).days + 1
         policy_scenario_start_date = pd.to_datetime(policy.start_date)
-        policy_startT = max((policy_scenario_start_date - date_day_since100).days + 1, 0)
+        if policy_scenario_start_date < date_day_since100:
+            raise ValueError("Policy start date too early for DELPHI to model the epidemic")
+        policy_startT = (policy_scenario_start_date - date_day_since100).days + 1
         t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
         # balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
-        GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v, p_d, p_h)
+        GLOBAL_PARAMS_FIXED = (N, PopulationR, PopulationD, PopulationI, p_v, p_d, p_h)
         best_params = parameter_list
         t_predictions = list(range(maxT))
 
-        
         policy_scenario_gamma_shifts = {}
         for i, alt_policy in enumerate(policy.policy_vector):
             start = policy_scenario_start_date + relativedelta(months=i)
@@ -447,7 +443,7 @@ def run_delphi_policy_scenario(policy, country):
                     jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
             )
             p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
-            if t > policy_startT:
+            if t >= policy_startT:
                 for window, gamma_shifts in policy_scenario_gamma_shifts.items():
                     if t >= window[0] and t<window[1]:
                         normalized_gamma_alt_policy = gamma_shifts[0]
@@ -507,8 +503,8 @@ def run_delphi_policy_scenario(policy, country):
 
         x_sol_final = solve_best_params_and_predict(best_params)
 
-        num_cases = round(x_sol_final[15,-1], 0)
-        num_deaths = round(x_sol_final[14, -1], 0)
+        num_cases = round(x_sol_final[15,-1] - x_sol_final[15, policy_startT-1], 0)
+        num_deaths = round(x_sol_final[14, -1] - x_sol_final[14, policy_startT-1], 0)
         active_hospitalized = (
                 x_sol_final[4, :] + x_sol_final[7, :]
         )  # DHR + DHD
@@ -517,7 +513,7 @@ def run_delphi_policy_scenario(policy, country):
                 x_sol_final[12, :] + x_sol_final[13, :]
         )  # DVR + DVD
         active_ventilated = [int(round(x, 0)) for x in active_ventilated]
-        hospitalization_days = sum(active_hospitalized)
-        ventilated_days = sum(active_ventilated)
+        hospitalization_days = sum(active_hospitalized[(policy_startT-1):])
+        ventilated_days = sum(active_ventilated[(policy_startT-1):])
 
     return num_cases, num_deaths, hospitalization_days, ventilated_days

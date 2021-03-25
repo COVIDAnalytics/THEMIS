@@ -45,6 +45,23 @@ for policies in future_policies:
         print("Unexpected error:", sys.exc_info())
         print("NOK")
 
-pd.DataFrame.from_dict(d_scenarii_simulations).to_csv('simulation_results/test_result.csv')
+output_df = pd.DataFrame.from_dict(d_scenarii_simulations, orient="index")
+del output_df["policy"]
+output_df.reset_index(inplace=True)
+output_df = output_df.rename(columns = {'index':'policy'})
+output_df["country"] = country
+output_df["start_date"] = start_date
+output_df["policy_length"] = policy_length
+
+output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
+                       "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
+
+output_df.to_csv('simulation_results/simulations_result.csv')
 #   for k in cost_of_pandemic.__dict__:
 #       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
+
+### Testing all steps
+
+policy2 = Policy(policy_type = "hypothetical", start_date = "2020-03-15", policy_vector = ["Lockdown", "Lockdown", "Lockdown"])
+pandemic2 = pandemic_simulator.compute_delphi(policy2,region="GM")
+print(pandemic2.__dict__)
