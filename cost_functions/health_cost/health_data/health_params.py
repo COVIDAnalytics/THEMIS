@@ -140,7 +140,7 @@ DAILY_HOSPITALIZATION_COST = {
 }
 
 # Mental Health Parameters per Country
-MENTAL_HEATH_COST = {
+MENTAL_HEALTH_COST = {
        "GM": {"exposed_health_workers": 300000,
               "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
               "depression_rate_sick": 30./100.0,
@@ -150,6 +150,8 @@ MENTAL_HEATH_COST = {
               "ptsd_rate_sick": 7./100.,
               "depression_cost":4000.,
               "ptsd_cost": 40000.,
+              "lockdown_months": 1,
               "Currency": "euro"
               }
 }
+      

@@ -1,16 +1,15 @@
 ## Authors: Baptiste
-from cost_functions.health_cost.health_data.health_params import MENTAL_HEATH_COST 
+from cost_functions.health_cost.health_data.health_params import MENTAL_HEALTH_COST
 
 def mental_health_costs(pandemic):
     region = pandemic.region
-    lockdown_months = 0
+    MH_DATA = MENTAL_HEALTH_COST[region]
     if pandemic.policy.policy_type == "hypothetical":
         lockdown_months  = sum(map(lambda a: a == 'Lockdown', pandemic.policy.policy_vector))
+    else:
+        lockdown_months = MH_DATA["lockdown_months"]
 
     cumulated_sick = pandemic.num_cases
-    
-    MH_DATA = MENTAL_HEATH_COST[region]
-
     depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"]
     depressed_patients +=  cumulated_sick * MH_DATA["depression_rate_sick"]
     gen_pop_depression = MH_DATA["gen_population_over14"] * MH_DATA["depression_gen_pop"] * lockdown_months/12.
