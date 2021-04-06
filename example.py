@@ -6,12 +6,12 @@ locale.setlocale(locale.LC_ALL, 'en_US')
 import sys
 import itertools
 import pandas as pd
-
+from datetime import datetime
 
 pandemic_simulator = Pandemic_Factory()
 
-country = "GM"
-start_date = "2020-03-01"
+country = "DE"
+start_date = "2020-03-15"
 policy_length = 3
 
 def simulate_actual():
@@ -68,4 +68,11 @@ output_df["policy_length"] = policy_length
 output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
                        "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
 
+<<<<<<< HEAD
 output_df.to_csv('simulation_results/test_result_dominant_gamma_20210404.csv')
+=======
+time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_df.to_csv('simulation_results/test_result_' + time_stamp + '.csv')
+#   for k in cost_of_pandemic.__dict__:
+#       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
+>>>>>>> 75d8af44937f197021ad5ea0ab4418f85a73a0f8

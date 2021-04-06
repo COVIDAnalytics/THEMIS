@@ -34,22 +34,6 @@ raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/m
 past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
 df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
 
-# def gamma_t(day: datetime, state: str, params_dict: dict) -> float:
-#     """
-#     Computes values of our gamma(t) function that was used before the second wave modeling with the extra normal
-#     distribution, but is still being used for policy predictions
-#     :param day: day on which we want to compute the value of gamma(t)
-#     :param state: string, state name
-#     :param params_dict: dictionary with format {state: (dsd, median_day_of_action, rate_of_action)}
-#     :return: value of gamma(t) for that particular state on that day and with the input parameters
-#     """
-#     dsd, median_day_of_action, rate_of_action = params_dict[state]
-#     t = (day - pd.to_datetime(dsd)).days
-#     gamma = (2 / np.pi) * np.arctan(
-#         -(t - median_day_of_action) / 20 * rate_of_action
-#     ) + 1
-#     return gamma
-
 def gamma_t(day: datetime, params_list: list):
     """
     Computes values of our gamma(t) function with the exponential jump

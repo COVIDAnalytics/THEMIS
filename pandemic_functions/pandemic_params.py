@@ -2,7 +2,7 @@
 from datetime import datetime
 
 region_symbol_country_dict = {
-    "GM": ("Germany", "None"),
+    "DE": ("Germany", "None"),
     "US": ("US", "None"),
     "FR": ("France", "None"),
     "US-NY": ("US","New York")

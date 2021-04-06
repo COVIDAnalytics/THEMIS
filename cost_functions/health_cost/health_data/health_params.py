@@ -1,8 +1,8 @@
 
 
 # Default parameters - TNC & Trust Region
-VSLY = {"GM": 158448,"US": 325000, "US-NY": 325000}
-DEATHS_DIST = {"GM": {"0-10": 9/61951,
+VSLY = {"DE": 158448,"US": 325000, "US-NY": 325000}
+DEATHS_DIST = {"DE": {"0-10": 9/61951,
                       "10-20": 4/61951,
                       "20-29": 46/61951,
                       "30-39": 92/61951,
@@ -35,7 +35,7 @@ DEATHS_DIST = {"GM": {"0-10": 9/61951,
                        
                        }
 
-DEATHS_ACTUARIAL_TABLE = {"GM": [
+DEATHS_ACTUARIAL_TABLE = {"DE": [
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5785, 1.5951, 1.6006, 1.595, 1.5785, 1.5503, 1.5094, 1.4643, 1.4238,
 1.388, 1.3574, 1.3325, 1.3137, 1.3018, 1.2968, 1.2995, 1.3104, 1.3299, 1.3586, 1.397, 1.4454, 1.5045, 1.5754, 1.6591,
 1.7566, 1.8694, 1.9983, 2.1445, 2.3096, 2.497, 2.7107, 2.9545, 3.2325, 3.5482, 3.9057, 4.3087, 4.7606, 5.2655, 5.8269,
@@ -253,7 +253,7 @@ DEATHS_ACTUARIAL_TABLE = {"GM": [
 
 # Hospitalization Costs Per Country
 DAILY_HOSPITALIZATION_COST = {
-       "GM": {"Inpatient": None, "ICU bed": 795, "Ventilated ICU bed": 1539, "Currency": "euro"},
+       "DE": {"Inpatient": None, "ICU bed": 795, "Ventilated ICU bed": 1539, "Currency": "euro"},
        # https://www.bcbs.com/coronavirus-updates/stories/infographic-covid-19-patients-high-risk-conditions-3x-more-likely-need-the-icu
        # corrected ventilated using  https://pubmed.ncbi.nlm.nih.gov/15942342/ with 3968/3184
        "US-NY": {"Inpatient": 33750/15, "ICU bed": 84375/15, "Ventilated ICU bed": 84375/15*3968/3184, "Currency": "USD"}
@@ -261,7 +261,7 @@ DAILY_HOSPITALIZATION_COST = {
 
 # Mental Health Parameters per Country
 MENTAL_HEALTH_COST = {
-       "GM": {"exposed_health_workers": 300000,
+       "DE": {"exposed_health_workers": 300000,
               "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
               "depression_rate_sick": 30./100.0,
               "depression_rate_hworkers_normal": 12./100.,

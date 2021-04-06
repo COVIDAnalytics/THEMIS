@@ -31,7 +31,7 @@ class Pandemic_Factory:
                 totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv")
                 dict_region_policy_gamma = get_region_gammas(region)
                 self.d_read_data_total_cases[region] = totalcases
-                self.d_region_policy_gammas[region] = region_policy_gamma
+                self.d_region_policy_gammas[region] = dict_region_policy_gamma
             else:
                 raise FileNotFoundError(f"Can not find file - pandemic_data/Cases_{country_sub}_{province_sub}.csv for actual polcy outcome")
         return Pandemic(policy, region, self.delphi_prediction, totalcases, dict_region_policy_gamma)
@@ -65,7 +65,7 @@ class Pandemic:
             hospitalization_days = preds_in_interval["Active Hospitalized"].sum()
             ventilated_days = preds_in_interval["Active Ventilated"].sum()
 
-            if self.region == "GM":
+            if self.region == "DE":
                 hosp_global = pd.read_csv("pandemic_functions/pandemic_data/global_hospitalizations.csv")
                 hosp_global.date = pd.to_datetime(hosp_global.date)
                 hosp_germany = hosp_global[hosp_global.country_id == "DE"].copy()
