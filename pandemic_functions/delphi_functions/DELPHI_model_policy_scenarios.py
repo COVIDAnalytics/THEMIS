@@ -5,13 +5,16 @@ import pandas as pd
 import numpy as np
 from copy import deepcopy
 from itertools import compress
+from typing import Union
 from scipy.integrate import solve_ivp
+from scipy import stats
 from datetime import datetime, timedelta
 from dateparser import parse
 from dateutil.relativedelta import relativedelta
 
 from pandemic_functions.pandemic_params import (
     default_dict_normalized_policy_gamma, future_policies,
+    region_symbol_country_dict,
     p_d, p_h, p_v,
     validcases_threshold_policy,
     IncubeD,
@@ -28,23 +31,23 @@ import argparse
 
 popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
 raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
+past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
+df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
 
-
-def gamma_t(day: datetime, state: str, params_dict: dict) -> float:
+def gamma_t(day: datetime, params_list: list):
     """
-    Computes values of our gamma(t) function that was used before the second wave modeling with the extra normal
-    distribution, but is still being used for policy predictions
+    Computes values of our gamma(t) function with the exponential jump
     :param day: day on which we want to compute the value of gamma(t)
-    :param state: string, state name
-    :param params_dict: dictionary with format {state: (dsd, median_day_of_action, rate_of_action)}
-    :return: value of gamma(t) for that particular state on that day and with the input parameters
+    :param params_list: list with format [dsd, median_day_of_action, rate_of_action, jump, t_jump, std_normal]
+    :return: value of gamma(t) on that day and with the input parameters
     """
-    dsd, median_day_of_action, rate_of_action = params_dict[state]
+    dsd, median_day_of_action, rate_of_action, jump, t_jump, std_normal = params_list
     t = (day - pd.to_datetime(dsd)).days
-    gamma = (2 / np.pi) * np.arctan(
-        -(t - median_day_of_action) / 20 * rate_of_action
-    ) + 1
-    return gamma
+    gamma_t = (
+        (2 / np.pi) * np.arctan(-(t - median_day_of_action) / 20 * rate_of_action) + 1 +
+        jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
+    )
+    return gamma_t
 
 def read_oxford_country_policy_data(start_date: str, end_date: str, country: str) -> pd.DataFrame:
     """
@@ -275,6 +278,202 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
     output = output[(output.date >= start_date) & (output.date <= end_date)].reset_index(drop=True)
     return output
 
+def convert_dates_us_policies(raw_date: str) -> Union[float, datetime]:
+    """
+    Converts dates from the dataframe with raw policies implemented in the US
+    :param raw_date: a certain date string in a raw format
+    :return: a datetime in the right format for the final policy dataframe
+    """
+    if raw_date == "Not implemented":
+        return np.nan
+    else:
+        x_long = raw_date + "20"
+        return pd.to_datetime(x_long, format="%d-%b-%Y")
+
+def check_us_policy_data_consistency(policies: list, df_policy_raw_us: pd.DataFrame):
+    """
+    Checks consistency of the policy data in the US retrieved e.g. from IHME by verifying that if there is an end date
+    there must also be a start date for the policy implemented
+    :param policies: list of policies under consideration
+    :param df_policy_raw_us: slightly processed dataframe with policies implemented in the US
+    :return:
+    """
+    for policy in policies:
+        assert (
+            len(
+                df_policy_raw_us.loc[
+                    (df_policy_raw_us[f"{policy}_start_date"].isnull())
+                    & (~df_policy_raw_us[f"{policy}_end_date"].isnull()),
+                    :,
+                ]
+            )
+            == 0
+        ), f"Problem in data, policy {policy} has no start date but has an end date"
+
+def create_intermediary_policy_features_us(
+    df_policy_raw_us: pd.DataFrame, dict_state_to_policy_dates: dict, policies: list
+) -> pd.DataFrame:
+    """
+    Processes the IHME policy data in the US to create the right intermediary features with the right names
+    :param df_policy_raw_us: raw dataframe with policies implemented in the US
+    :param dict_state_to_policy_dates: dictionary of the format {state: {policy: [start_date, end_date]}}
+    :param policies: list of policies under consideration
+    :return: an intermediary dataframe with processed columns containing binary variables as to whether or not a
+    policy is implemented in a given state at a given date
+    """
+    list_df_concat = []
+    n_dates = (datetime.now() - datetime(2020, 3, 1)).days + 1
+    date_range = [datetime(2020, 3, 1) + timedelta(days=i) for i in range(n_dates)]
+    for location in df_policy_raw_us.location_name.unique():
+        df_temp = pd.DataFrame(
+            {
+                "continent": ["North America" for _ in range(len(date_range))],
+                "country": ["US" for _ in range(len(date_range))],
+                "province": [location for _ in range(len(date_range))],
+                "date": date_range,
+            }
+        )
+        for policy in policies:
+            start_date_policy_location = dict_state_to_policy_dates[location][policy][0]
+            start_date_policy_location = (
+                start_date_policy_location
+                if start_date_policy_location is not np.nan
+                else "2030-01-02"
+            )
+            end_date_policy_location = dict_state_to_policy_dates[location][policy][1]
+            end_date_policy_location = (
+                end_date_policy_location
+                if end_date_policy_location is not np.nan
+                else "2030-01-01"
+            )
+            df_temp[policy] = 0
+            df_temp.loc[
+                (
+                    (df_temp.date >= start_date_policy_location)
+                    & (df_temp.date <= end_date_policy_location)
+                ),
+                policy,
+            ] = 1
+
+        list_df_concat.append(df_temp)
+
+    df_policies_US = pd.concat(list_df_concat).reset_index(drop=True)
+    df_policies_US.rename(
+        columns={
+            "travel_limit": "Travel_severely_limited",
+            "stay_home": "Stay_at_home_order",
+            "educational_fac": "Educational_Facilities_Closed",
+            "any_gathering_restrict": "Mass_Gathering_Restrictions",
+            "any_business": "Initial_Business_Closure",
+            "all_non-ess_business": "Non_Essential_Services_Closed",
+        },
+        inplace=True,
+    )
+    return df_policies_US
+
+def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFrame:
+    """
+    Creates the final MECE policies in the US from the intermediary policies dataframe
+    :param df_policies_US: intermediary dataframe with processed columns containing binary variables as to whether or 
+    not a policy is implemented in a given state at a given date
+    :return: dataframe with the final MECE policies in the US used for DELPHI policy predictions
+    """
+    df_policies_US_final = deepcopy(df_policies_US)
+    msr = future_policies
+    df_policies_US_final[msr[0]] = (df_policies_US.sum(axis=1) == 0).apply(
+        lambda x: int(x)
+    )
+    df_policies_US_final[msr[1]] = [
+        int(a and b)
+        for a, b in zip(
+            df_policies_US.sum(axis=1) == 1,
+            df_policies_US["Mass_Gathering_Restrictions"] == 1,
+        )
+    ]
+    df_policies_US_final[msr[2]] = [
+        int(a and b and c)
+        for a, b, c in zip(
+            df_policies_US.sum(axis=1) > 0,
+            df_policies_US["Mass_Gathering_Restrictions"] == 0,
+            df_policies_US["Stay_at_home_order"] == 0,
+        )
+    ]
+    df_policies_US_final[msr[3]] = [
+        int(a and b and c)
+        for a, b, c in zip(
+            df_policies_US.sum(axis=1) == 2,
+            df_policies_US["Educational_Facilities_Closed"] == 1,
+            df_policies_US["Mass_Gathering_Restrictions"] == 1,
+        )
+    ]
+    df_policies_US_final[msr[4]] = [
+        int(a and b and c and d)
+        for a, b, c, d in zip(
+            df_policies_US.sum(axis=1) > 1,
+            df_policies_US["Educational_Facilities_Closed"] == 0,
+            df_policies_US["Mass_Gathering_Restrictions"] == 1,
+            df_policies_US["Stay_at_home_order"] == 0,
+        )
+    ]
+    df_policies_US_final[msr[5]] = [
+        int(a and b and c and d)
+        for a, b, c, d in zip(
+            df_policies_US.sum(axis=1) > 2,
+            df_policies_US["Educational_Facilities_Closed"] == 1,
+            df_policies_US["Mass_Gathering_Restrictions"] == 1,
+            df_policies_US["Stay_at_home_order"] == 0,
+        )
+    ]
+    df_policies_US_final[msr[6]] = (df_policies_US["Stay_at_home_order"] == 1).apply(
+        lambda x: int(x)
+    )
+    df_policies_US_final["country"] = "US"
+    df_policies_US_final = df_policies_US_final.loc[
+        :, ["country", "province", "date"] + msr
+    ]
+    return df_policies_US_final
+
+def read_policy_data_us_only(state: str) -> pd.DataFrame:
+    """
+    Reads and processes the policy data from IHME to obtain the MECE policies defined for DELPHI Policy Predictions
+    :param filepath_pandemic_data: string, path to the pandemic data folder
+    :param state: string, state for which policy scenarios are being run
+    :return: fully processed dataframe containing the MECE policies implemented in each state of the US for the full 
+    time period necessary until the day when this function is called
+    """
+    policies = [
+        "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
+        "any_business", "all_non-ess_business",
+    ]
+    df = df_raw_us_policies[df_raw_us_policies.location_name == state][
+        [
+            "location_name", "travel_limit_start_date", "travel_limit_end_date", "stay_home_start_date",
+            "stay_home_end_date", "educational_fac_start_date", "educational_fac_end_date",
+            "any_gathering_restrict_start_date", "any_gathering_restrict_end_date", "any_business_start_date",
+            "any_business_end_date", "all_non-ess_business_start_date", "all_non-ess_business_end_date",
+        ]
+    ]
+    dict_state_to_policy_dates = {}
+    for location in df.location_name.unique():
+        df_temp = df[df.location_name == location].reset_index(drop=True)
+        dict_state_to_policy_dates[location] = {
+            policy: [
+                df_temp.loc[0, f"{policy}_start_date"],
+                df_temp.loc[0, f"{policy}_end_date"],
+            ]
+            for policy in policies
+        }
+    check_us_policy_data_consistency(policies=policies, df_policy_raw_us=df)
+    df_policies_US = create_intermediary_policy_features_us(
+        df_policy_raw_us=df,
+        dict_state_to_policy_dates=dict_state_to_policy_dates,
+        policies=policies,
+    )
+    df_policies_US_final = create_final_policy_features_us(
+        df_policies_US=df_policies_US
+    )
+    return df_policies_US_final
+
 def get_latest_policy(policy_data: pd.DataFrame, start_date: datetime) -> list:
     latest_policy = list(
         compress(
@@ -290,6 +489,57 @@ def get_latest_policy(policy_data: pd.DataFrame, start_date: datetime) -> list:
     )[0]
 
     return latest_policy
+
+def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_date: datetime):
+    policy_data_range = policy_data[(policy_data.date >= start_date) & (policy_data.date <= start_date)]
+    policies = []
+    for i, policy in enumerate(future_policies):
+        count = policy_data_range[policy].sum()
+        policies.extend( [i]*count )
+    
+    return future_policies[ int(np.median(policies)) ]
+
+def get_region_gammas(region: str) -> dict:
+    country, province = region_symbol_country_dict[region]
+
+    if country == 'US':
+        policy_data = read_policy_data_us_only(province)
+    else:
+        policy_data = read_oxford_country_policy_data(country=country, start_date="2020-03-01", end_date="2020-12-31")
+
+    params_list = past_parameters.query("Country == @country and Province == @province")[
+        ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]
+    ].iloc[0]
+
+    policy_data.loc[:, "Gamma"] = [
+        gamma_t(day, params_list)
+        for day in policy_data["date"]
+    ]
+    n_measures = policy_data.iloc[:, 3:-1].shape[1]
+    dict_region_policy_gamma = {
+        policy_data.columns[3 + i]: policy_data[
+            policy_data.iloc[:, 3 + i] == 1
+        ]
+        .iloc[:, -1]
+        .mean()
+        for i in range(n_measures)
+    }
+
+    from scipy.stats import linregress
+
+    x = np.array(list(default_dict_normalized_policy_gamma.values()))
+    y = np.array(list(dict_region_policy_gamma.values()))
+
+    x_train = x[~np.isnan(y)]
+    y_train = y[~np.isnan(y)]
+
+    m, C, _, _, _ = linregress(x_train, y_train)
+
+    for key, val in dict_region_policy_gamma.items():
+        if np.isnan(val):
+            dict_region_policy_gamma[key] = m*default_dict_normalized_policy_gamma[key] + C
+
+    return dict_region_policy_gamma
 
 def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> list:
     """
@@ -331,23 +581,9 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     ]
     return x_0_cases
 
-# policy_data = read_oxford_country_policy_data("2020-03-01", "2020-06-01", "Germany")
-
-def run_delphi_policy_scenario(policy, country):
-    # TODO implement us policies
-    country_sub = country.replace(' ', '_')
-    province=province_sub="None"
-    past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
-    policy_data = read_oxford_country_policy_data(start_date=policy.start_date,
-                                                end_date=policy.end_date,
-                                                country=country)
-
-    if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv"):
-        totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv")
-    else:
-        raise FileNotFoundError(f"Can not find file - pandemic_functions/pandemic_data/Cases_{country_sub}_None.csv for actual polcy outcome")
-
-    parameter_list_total = past_parameters[past_parameters.Country == country]
+def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
+    country, province = region_symbol_country_dict[region]
+    parameter_list_total = past_parameters[(past_parameters.Country == country) & (past_parameters.Province == province)]
 
     if len(parameter_list_total) > 0:
         parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
@@ -389,26 +625,22 @@ def run_delphi_policy_scenario(policy, country):
         if policy_scenario_start_date < date_day_since100:
             raise ValueError("Policy start date too early for DELPHI to model the epidemic")
         policy_startT = (policy_scenario_start_date - date_day_since100).days + 1
+        # policy_startT = max((policy_scenario_start_date - date_day_since100).days + 1, 1)
         t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
         # balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
         GLOBAL_PARAMS_FIXED = (N, PopulationR, PopulationD, PopulationI, p_v, p_d, p_h)
         best_params = parameter_list
         t_predictions = list(range(maxT))
 
-        policy_scenario_gamma_shifts = {}
+        policy_scenario_gammas = {}
         for i, alt_policy in enumerate(policy.policy_vector):
             start = policy_scenario_start_date + relativedelta(months=i)
             end = policy_scenario_start_date + relativedelta(months=i+1)
-
             if start >= date_day_since100:
                 t1 = (start - date_day_since100).days + 1
                 t2 = (end - date_day_since100).days + 1
-                latest_policy = get_latest_policy(policy_data, end)
-                policy_scenario_gamma_shifts[(t1, t2)] = [
-                    default_dict_normalized_policy_gamma[alt_policy],
-                    default_dict_normalized_policy_gamma[latest_policy]
-                ]
-            
+                policy_scenario_gammas[(t1, t2)] = dict_region_policy_gamma[alt_policy]
+
         def model_covid_predictions(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
         ):
@@ -443,22 +675,11 @@ def run_delphi_policy_scenario(policy, country):
                     jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
             )
             p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
-            if t >= policy_startT:
-                for window, gamma_shifts in policy_scenario_gamma_shifts.items():
+            if t >= policy_startT and t<maxT:
+                for window, gamma in policy_scenario_gammas.items():
                     if t >= window[0] and t<window[1]:
-                        normalized_gamma_alt_policy = gamma_shifts[0]
-                        normalized_gamma_actual_policy = gamma_shifts[1]
-                        gamma_t_month = (
-                                (2 / np.pi) * np.arctan(-(window[1] - days) / 20 * r_s) + 1 +
-                                jump * np.exp(-(window[1] - t_jump)**2 / (2 * std_normal ** 2))
-                        )
+                        gamma_t = gamma
                         break
-                epsilon = 1e-4
-                gamma_t = gamma_t + min(
-                    (2 - gamma_t_month) / (1 - normalized_gamma_alt_policy + epsilon),
-                    (gamma_t_month / normalized_gamma_actual_policy) *
-                    (normalized_gamma_alt_policy - normalized_gamma_actual_policy)
-                )
 
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x

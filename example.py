@@ -6,12 +6,12 @@ locale.setlocale(locale.LC_ALL, 'en_US')
 import sys
 import itertools
 import pandas as pd
-
+from datetime import datetime
 
 pandemic_simulator = Pandemic_Factory()
 
-country = "GM"
-start_date = "2020-03-01"
+country = "DE"
+start_date = "2020-03-15"
 policy_length = 3
 
 def simulate_actual():
@@ -39,9 +39,9 @@ future_policies = [
     'No_Measure', 
     'Restrict_Mass_Gatherings', 
 #    'Mass_Gatherings_Authorized_But_Others_Restricted',
-#    'Restrict_Mass_Gatherings_and_Schools', 
-#    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-#    'Restrict_Mass_Gatherings_and_Schools_and_Others', 
+   'Restrict_Mass_Gatherings_and_Schools', 
+   'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+   'Restrict_Mass_Gatherings_and_Schools_and_Others', 
     'Lockdown'
 ]
 
@@ -68,13 +68,7 @@ output_df["policy_length"] = policy_length
 output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
                        "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
 
-output_df.to_csv('simulation_results/test_result.csv')
-
-### Testing all steps ###
-
-policy2 = Policy(policy_type = "hypothetical", start_date = "2020-03-15", policy_vector = ["Restrict_Mass_Gatherings", "Restrict_Mass_Gatherings", "Restrict_Mass_Gatherings"])
-pandemic2 = pandemic_simulator.compute_delphi(policy2,region="GM")
-print(pandemic2.__dict__)
-
-cost_of_pandemic2 = PandemicCost(pandemic2)
-print(cost_of_pandemic2.__dict__)
+time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_df.to_csv('simulation_results/test_result_' + time_stamp + '.csv')
+#   for k in cost_of_pandemic.__dict__:
+#       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
