@@ -39,9 +39,9 @@ future_policies = [
     'No_Measure', 
     'Restrict_Mass_Gatherings', 
 #    'Mass_Gatherings_Authorized_But_Others_Restricted',
-#    'Restrict_Mass_Gatherings_and_Schools', 
-#    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-#    'Restrict_Mass_Gatherings_and_Schools_and_Others', 
+   'Restrict_Mass_Gatherings_and_Schools', 
+   'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+   'Restrict_Mass_Gatherings_and_Schools_and_Others', 
     'Lockdown'
 ]
 
@@ -68,6 +68,4 @@ output_df["policy_length"] = policy_length
 output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
                        "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
 
-output_df.to_csv('simulation_results/test_result.csv')
-#   for k in cost_of_pandemic.__dict__:
-#       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
+output_df.to_csv('simulation_results/test_result_dominant_gamma_20210404.csv')
