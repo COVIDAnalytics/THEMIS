@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-UNEMPLOYMENT_COST = {"DE": 77510,"US": 100000}
+UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 100000}
 def not_implemented():
     raise NotImplementedError
 

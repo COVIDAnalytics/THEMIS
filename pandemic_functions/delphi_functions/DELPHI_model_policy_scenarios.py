@@ -21,7 +21,9 @@ from pandemic_functions.pandemic_params import (
     RecoverID,
     RecoverHD,
     DetectD,
-    VentilatedD
+    VentilatedD,
+    policy_data_start_date,
+    policy_data_end_date
 )
 
 import yaml
@@ -33,6 +35,17 @@ popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.c
 raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
 past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
 df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
+
+def sigmoid(x):
+    return 1/(1+np.exp(-x))
+
+def sigmoid_inv(x):
+    if x==1 or x==0:
+        raise ZeroDivisionError
+    # EPS = 1e-6
+    return np.log(x/(1-x))
+
+sigmoid_inv_np = np.vectorize(sigmoid_inv)
 
 def gamma_t(day: datetime, params_list: list):
     """
@@ -433,7 +446,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
     ]
     return df_policies_US_final
 
-def read_policy_data_us_only(state: str) -> pd.DataFrame:
+def read_policy_data_us_only(state: str, start_date: str, end_date: str) -> pd.DataFrame:
     """
     Reads and processes the policy data from IHME to obtain the MECE policies defined for DELPHI Policy Predictions
     :param filepath_pandemic_data: string, path to the pandemic data folder
@@ -472,6 +485,8 @@ def read_policy_data_us_only(state: str) -> pd.DataFrame:
     df_policies_US_final = create_final_policy_features_us(
         df_policies_US=df_policies_US
     )
+    df_policies_US_final = df_policies_US_final[(df_policies_US_final.date >= start_date) & (df_policies_US_final.date <= end_date)]
+
     return df_policies_US_final
 
 def get_latest_policy(policy_data: pd.DataFrame, start_date: datetime) -> list:
@@ -499,13 +514,13 @@ def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_dat
     
     return future_policies[ int(np.median(policies)) ]
 
-def get_region_gammas(region: str) -> dict:
+def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
     country, province = region_symbol_country_dict[region]
 
     if country == 'US':
-        policy_data = read_policy_data_us_only(province)
+        policy_data = read_policy_data_us_only(state=province, start_date=policy_data_start_date, end_date=policy_data_end_date)
     else:
-        policy_data = read_oxford_country_policy_data(country=country, start_date="2020-03-01", end_date="2020-12-31")
+        policy_data = read_oxford_country_policy_data(country=country, start_date=policy_data_start_date, end_date=policy_data_end_date)
 
     params_list = past_parameters.query("Country == @country and Province == @province")[
         ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]
@@ -524,20 +539,39 @@ def get_region_gammas(region: str) -> dict:
         .mean()
         for i in range(n_measures)
     }
+    dict_region_policy_counts = {
+        policy_data.columns[3 + i]: policy_data[
+            policy_data.iloc[:, 3 + i] == 1
+        ]
+        .iloc[:, 3 + i]
+        .sum()
+        for i in range(n_measures)
+    }
+    dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
+    dict_region_policy_counts = dict(sorted(dict_region_policy_counts.items(), key=lambda x: x[0]))
+    default_policy_gammas = deepcopy(default_dict_normalized_policy_gamma)
+    default_policy_gammas = dict(sorted(default_policy_gammas.items(), key=lambda x: x[0]))
 
     from scipy.stats import linregress
 
-    x = np.array(list(default_dict_normalized_policy_gamma.values()))
+    x = np.array(list(default_policy_gammas.values()))
     y = np.array(list(dict_region_policy_gamma.values()))
+    ind = np.array(list(dict_region_policy_counts.values()))
 
-    x_train = x[~np.isnan(y)]
-    y_train = y[~np.isnan(y)]
+    train_keys = np.array(list(default_policy_gammas.keys()))
+    train_keys = train_keys[(~np.isnan(y)) & (ind > policy_days_thresh)]
+
+    assert len(train_keys) >= 2, "Not enough data about policies to run simulation"
+
+    x_train = x[(~np.isnan(y)) & (ind > policy_days_thresh)]
+    y_train = y[(~np.isnan(y)) & (ind > policy_days_thresh)]
+    y_train = sigmoid_inv_np(y_train/2)
 
     m, C, _, _, _ = linregress(x_train, y_train)
 
-    for key, val in dict_region_policy_gamma.items():
-        if np.isnan(val):
-            dict_region_policy_gamma[key] = m*default_dict_normalized_policy_gamma[key] + C
+    for key in dict_region_policy_gamma.keys():
+        if key not in train_keys:
+            dict_region_policy_gamma[key] = 2*sigmoid(m*default_policy_gammas[key] + C)
 
     return dict_region_policy_gamma
 
