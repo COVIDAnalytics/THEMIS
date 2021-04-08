@@ -21,6 +21,9 @@ RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
 
+policy_data_start_date = "2020-03-01"
+policy_data_end_date = "2020-05-01"
+
 future_policies = [
     'No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
