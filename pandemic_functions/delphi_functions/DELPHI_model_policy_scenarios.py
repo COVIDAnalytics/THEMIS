@@ -34,6 +34,7 @@ import argparse
 popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
 raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
 past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
+# past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_annealing_20210409.csv")
 df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
 
 def sigmoid(x):
@@ -506,7 +507,8 @@ def get_latest_policy(policy_data: pd.DataFrame, start_date: datetime) -> list:
     return latest_policy
 
 def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_date: datetime):
-    policy_data_range = policy_data[(policy_data.date >= start_date) & (policy_data.date <= start_date)]
+    """Provides a Dominant Policy between start_date and end_date, both inclusive"""
+    policy_data_range = policy_data[(policy_data.date >= start_date) & (policy_data.date <= end_date)]
     policies = []
     for i, policy in enumerate(future_policies):
         count = policy_data_range[policy].sum()
