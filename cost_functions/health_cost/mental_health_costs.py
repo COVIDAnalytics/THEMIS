@@ -6,7 +6,9 @@ def mental_health_costs(pandemic):
     region = pandemic.region
     MH_DATA = MENTAL_HEALTH_COST[region]
     if pandemic.policy.policy_type == "hypothetical":
-        lockdown_months  = sum(map(lambda a: a == 'Lockdown', pandemic.policy.policy_vector))
+        lockdown_months = 0
+        for lockdown_policy in MH_DATA["lockdown_equivalent_policies"]:
+            lockdown_months +=  sum(map(lambda a: a == lockdown_policy, pandemic.policy.policy_vector))
     else:
         country, province = region_symbol_country_dict[region]
         if country == 'US':
