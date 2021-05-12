@@ -111,6 +111,7 @@ DAILY_HOSPITALIZATION_COST = {
 }
 
 # Mental Health Parameters per Country
+
 MENTAL_HEALTH_COST = {
        "DE": {"exposed_health_workers": 300000,
               "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
@@ -121,7 +122,7 @@ MENTAL_HEALTH_COST = {
               "ptsd_rate_sick": 7./100.,
               "depression_cost":4000.,
               "ptsd_cost": 40000.,
-              "lockdown_months": 1,
+              "lockdown_equivalent_policies": ['Restrict_Mass_Gatherings_and_Schools_and_Others','Lockdown'],
               "Currency": "euro"
               },
        # https://www.chwsny.org/wp-content/uploads/2018/04/Full_CHWS_NY_Tracking_Report-2018b-1.pdf
@@ -141,7 +142,7 @@ MENTAL_HEALTH_COST = {
               # 2010 dollars, adjusting for inflation
               "depression_cost": 27688*1.37,
               "ptsd_cost": 14857.,
-              "lockdown_months": 1,
+              "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "USD"
               },
        "US-FL": {
@@ -161,7 +162,7 @@ MENTAL_HEALTH_COST = {
               # 2010 dollars, adjusting for inflation
               "depression_cost": 27688*1.37,
               "ptsd_cost": 14857.,
-              "lockdown_months": 2,
+              "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "USD"},
       "SG": {"exposed_health_workers": 58000,
           # counting all nurses + doctors https://www.healthhub.sg/a-z/health-statistics/12/health-manpower
@@ -178,7 +179,7 @@ MENTAL_HEALTH_COST = {
               "depression_cost": 23971,
               # Assuming same cost as depression now
               "ptsd_cost": 23971.,
-              "lockdown_months": 2,
+              "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "SGD"
               }
 }

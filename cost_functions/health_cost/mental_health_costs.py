@@ -1,14 +1,22 @@
 ## Authors: Baptiste
 from cost_functions.health_cost.health_data.health_params import MENTAL_HEALTH_COST
-
+from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_policy_data_us_only, read_oxford_country_policy_data
+from pandemic_functions.pandemic_params import region_symbol_country_dict
 def mental_health_costs(pandemic):
     region = pandemic.region
     MH_DATA = MENTAL_HEALTH_COST[region]
     if pandemic.policy.policy_type == "hypothetical":
         lockdown_months  = sum(map(lambda a: a == 'Lockdown', pandemic.policy.policy_vector))
     else:
-        # TODO: use simulation duration
-        lockdown_months = MH_DATA["lockdown_months"]
+        country, province = region_symbol_country_dict[region]
+        if country == 'US':
+            policy_data = read_policy_data_us_only(state=province, start_date=pandemic.policy.start_date, end_date=pandemic.policy.end_date)
+        else:
+            policy_data = read_oxford_country_policy_data(country=country, start_date=pandemic.policy.start_date, end_date=pandemic.policy.end_date)
+        total_lockdown_days = 0
+        for lockdown_policy in MH_DATA["lockdown_equivalent_policies"]:
+            total_lockdown_days += sum(policy_data[lockdown_policy])
+        lockdown_months = total_lockdown_days / 30
 
     cumulated_sick = pandemic.num_cases
     depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"]
