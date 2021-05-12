@@ -2,9 +2,10 @@
 from datetime import datetime
 
 region_symbol_country_dict = {
-    "DE": "Germany",
-    "US": "US",
-    "FR": "France"
+    "DE": ("Germany", "None"),
+    "US": ("US", "None"),
+    "FR": ("France", "None"),
+    "US-NY": ("US","New York")
 }
 
 ### DELPHI parameters for poilicy scenarios
@@ -19,6 +20,9 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
+
+policy_data_start_date = "2020-03-01"
+policy_data_end_date = "2020-06-30"
 
 future_policies = [
     'No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',

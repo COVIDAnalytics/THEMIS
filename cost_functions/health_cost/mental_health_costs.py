@@ -7,6 +7,7 @@ def mental_health_costs(pandemic):
     if pandemic.policy.policy_type == "hypothetical":
         lockdown_months  = sum(map(lambda a: a == 'Lockdown', pandemic.policy.policy_vector))
     else:
+        # TODO: use simulation duration
         lockdown_months = MH_DATA["lockdown_months"]
 
     cumulated_sick = pandemic.num_cases

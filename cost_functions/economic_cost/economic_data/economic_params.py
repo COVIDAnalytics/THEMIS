@@ -2,6 +2,7 @@ from collections import defaultdict
 
 # For countries with missing data (including Singapore), assuming roughly 1.5 year of GDP per capita
 UNEMPLOYMENT_COST = {"DE": 77510,"US": 100000, "SG": 120000}
+
 def not_implemented():
     raise NotImplementedError
 

@@ -39,9 +39,9 @@ future_policies = [
     'No_Measure', 
     'Restrict_Mass_Gatherings', 
 #    'Mass_Gatherings_Authorized_But_Others_Restricted',
-#    'Restrict_Mass_Gatherings_and_Schools', 
-#    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-#    'Restrict_Mass_Gatherings_and_Schools_and_Others', 
+   'Restrict_Mass_Gatherings_and_Schools', 
+   'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+   'Restrict_Mass_Gatherings_and_Schools_and_Others', 
     'Lockdown'
 ]
 
