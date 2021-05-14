@@ -20,6 +20,13 @@ EMPLOYMENT_IMPACT["US-NY"] = defaultdict(not_implemented, { "Lockdown": 12.3,
     "Restrict_Mass_Gatherings": 4.8,
     "No_Measure": 0}) 
 
+EMPLOYMENT_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": 10.9,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 9.3,
+      'Restrict_Mass_Gatherings_and_Schools': 8.4,
+      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 3.3,
+    "Restrict_Mass_Gatherings": 2,
+    "No_Measure": 0}) 
+
 
 GDP_IMPACT = {}
 
@@ -39,11 +46,18 @@ GDP_IMPACT["US-NY"] = defaultdict(not_implemented, { "Lockdown": -12,
            "Restrict_Mass_Gatherings": -4,
            "No_Measure": 0})
 
+GDP_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": -4.5,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": -4.1,
+          'Restrict_Mass_Gatherings_and_Schools': -3.7,
+          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -1.5,
+           "Restrict_Mass_Gatherings": 0.9,
+           "No_Measure": 0})
+
 
 TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000}
 
 
-TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12}
+TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12}
 
 COVID_SICK_DAYS = {"DE": 7,"US-NY": 7}
 
