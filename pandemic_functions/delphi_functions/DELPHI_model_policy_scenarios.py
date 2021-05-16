@@ -34,7 +34,7 @@ import argparse
 popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
 raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
 past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
-# past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_annealing_20210409.csv")
+# past_parameters = pd.read_csv("pandemic_functions/pandemic_data/NY_Correction_Parameters_Global_V2_annealing_20210409.csv")
 df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
 
 def sigmoid(x):

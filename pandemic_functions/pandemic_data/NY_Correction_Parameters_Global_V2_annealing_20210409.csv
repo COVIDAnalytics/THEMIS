@@ -1,0 +1,2 @@
+Continent,Country,Province,Data Start Date,MAPE,Infection Rate,Median Day of Action,Rate of Action,Rate of Death,Mortality Rate,Rate of Mortality Rate Decay,Internal Parameter 1,Internal Parameter 2,Jump Magnitude,Jump Time,Jump Decay
+North America,US,New York,2020-03-08,1.1383753510664079,1.5357232321583598,-0.8426011526420499,1.720507577314573,0.12089711977551089,0.1975980301153811,0.8780871725423878,9.78408230777407,2.15120884465858,1.719821751745856,4.682341186576837,2.2088651941510062

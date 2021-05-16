@@ -1,11 +1,11 @@
-
 from datetime import datetime
 
 region_symbol_country_dict = {
     "DE": ("Germany", "None"),
     "US": ("US", "None"),
     "FR": ("France", "None"),
-    "US-NY": ("US","New York")
+    "US-NY": ("US","New York"),
+    "US-FL": ("US", "Florida")
 }
 
 ### DELPHI parameters for poilicy scenarios

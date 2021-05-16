@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 # For countries with missing data (including Singapore), assuming roughly 1.5 year of GDP per capita
-UNEMPLOYMENT_COST = {"DE": 77510,"US": 100000, "SG": 120000}
+UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 100000, "US-FL": 80000, "SG": 120000}
 
 def not_implemented():
     raise NotImplementedError
@@ -27,6 +27,7 @@ EMPLOYMENT_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": 10.9,
       'Restrict_Mass_Gatherings_and_Schools': 8.4,
       'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 3.3,
     "Restrict_Mass_Gatherings": 2,
+    "No_Measure": 0
 })
 
 EMPLOYMENT_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": 1.3,
@@ -61,6 +62,7 @@ GDP_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": -4.5,
           'Restrict_Mass_Gatherings_and_Schools': -3.7,
           'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -1.5,
            "Restrict_Mass_Gatherings": 0.9,
+           "No_Measure": 0
 })
 GDP_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": -16,
           "Restrict_Mass_Gatherings_and_Schools_and_Others": -13,
@@ -69,13 +71,11 @@ GDP_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": -16,
            "Restrict_Mass_Gatherings": -4,
            "No_Measure": 0})
 
+# For US https://data.bls.gov/pdq/SurveyOutputServlet
+TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000, "US-FL":10451550, "SG": 3750000}
 
-TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000, "SG": 3750000}
+TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12, "SG": 4.6909e11}
 
+COVID_SICK_DAYS = {"DE": 7,"US-NY": 7,"US-FL": 7,"SG": 7}
 
-TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12}
-TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "SG": 4.6909e11}
-
-COVID_SICK_DAYS = {"DE": 7,"US-NY": 7,"SG": 7}
-
-TOTAL_WORKING_DAYS = {"DE": 254, "US-NY": 261, "SG": 261}
+TOTAL_WORKING_DAYS = {"DE": 254, "US-NY": 261, "US-FL": 261, "SG": 261}
