@@ -1,4 +1,4 @@
-For germany, took data from https://data.imf.org/regular.aspx?key=61545852
+For Germany and Spain, took data from https://data.imf.org/regular.aspx?key=61545852
 
 For US states, there are no C/I/G breakdown available on a quarterly level, so we used the whole US C/I/G breakdown from the IMF data source (https://data.imf.org/regular.aspx?key=61545852)
  and https://apps.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=2&isuri=1&1921=survey, and applied scaling to accommodate for states using https://www.bea.gov/data/gdp/gdp-state. (E.g. If US GDP dropped 20% in Q2, and NY GDP dropped 30%, then we assume every change in NY is 1.5x the US level change. 

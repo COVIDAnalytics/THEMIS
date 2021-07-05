@@ -1,7 +1,7 @@
 
 
 # Default parameters - TNC & Trust Region
-VSLY = {"DE": 158448,"US": 325000, "US-NY": 325000, "US-FL": 325000}
+VSLY = {"DE": 158448,"US": 325000, "US-NY": 325000, "US-FL": 325000, "ES":158448}
 DEATHS_DIST = {"DE": {"0-10": 9/61951,
                       "10-20": 4/61951,
                       "20-29": 46/61951,
@@ -56,7 +56,16 @@ DEATHS_DIST = {"DE": {"0-10": 9/61951,
                        "60-69": 3/31,
                        "70-100": 24/31,
                               },    
-                       
+               "ES": {"0-9":0.0,
+                      "10-19": 0.0,
+                      "20-29": 0.1,
+                      "30-39": 0.3,
+                      "40-49": 1.0,
+                      "50-59": 3.7,
+                      "60-69": 9.7,
+                      "70-79": 22.0,
+                      "80-100": 63.1,
+                              },        
                        }
 
 DEATHS_ACTUARIAL_TABLE = {"DE": [
@@ -97,8 +106,14 @@ DEATHS_ACTUARIAL_TABLE = {"DE": [
   "SG": [0, 2.380, 0.12,0.12,0.11,0.10,0.09,0.07,0.07,0.07,0.08,0.09,0.10,0.12,0.14,0.16,0.18,0.19,0.21,0.22,0.23,0.23,0.24,0.25,0.25,0.25,0.25,0.26,0.28,0.29,0.31,
          0.33,0.35,0.37,0.39,0.42,0.44,0.48,0.53,0.60,0.66,0.73,0.82,0.92,1.04,1.15,1.28,1.42,1.60,1.80,2.01,2.22,2.45,2.73,3.03,3.33,3.65,4.00,4.41,4.86,5.31,5.78,
          6.32,6.95,7.63,8.32,9.06,9.97,11.13,12.43,13.78,15.20,16.88,18.93,21.19,23.47,25.93,29.01,33.05,37.67,42.41,47.20,52.35,58.24,64.85,72.01,79.85,88.44,97.83,108.06,
-         119.21,131.32,144.44,158.65,173.98,190.49,208.43,227.24,247.55,269.21,1000]         
-       
+         119.21,131.32,144.44,158.65,173.98,190.49,208.43,227.24,247.55,269.21,1000],
+  "ES": [0, 2.593024,  0.205948,  0.135425,  0.099742,  0.099849,  0.058782,  0.055271,  0.06131,  0.049577,  0.06303,  0.076434,  0.077715,  0.045578,  0.10625,  0.105689,  0.102791,  
+              0.143248,  0.154397,  0.187431,  0.204627,  0.212298,  0.219429,  0.220012,  0.245406,  0.255186,  0.297293,  0.26258,  0.303547,  0.28201,  0.301968,  0.337795,  0.376289,  
+              0.368766,  0.349087,  0.412317,  0.428481,  0.445038,  0.520144,  0.580685,  0.650231,  0.636204,  0.691003,  0.799377,  0.887735,  0.922658,  1.108386,  1.25929,  1.496959,  
+              1.664625,  1.907271,  2.058129,  2.411505,  2.658061,  2.926607,  3.330422,  3.570359,  4.06749,  4.312569,  4.513993,  5.144025,  5.625559,  6.21041,  6.630208,  7.132897,  
+              7.85391,  8.372769,  9.138525,  9.889097,  10.282475,  11.244173,  12.12326,  13.949964,  14.714084,  16.696368,  18.193695,  20.244111,  22.346994,  23.664038,  27.290029,  
+              31.257353,  36.112527,  41.159935,  46.795242,  53.103816,  60.819787,  70.222704,  80.183774,  91.483165,  105.109125,  117.800803,  137.716885,  153.33197,  174.645413,  
+              191.999363,  209.158792,  232.176845,  254.090063,  282.003067,  292.16614,  304.572014,  1000]
        }
 
 # Hospitalization Costs Per Country
@@ -107,7 +122,10 @@ DAILY_HOSPITALIZATION_COST = {
        # https://www.bcbs.com/coronavirus-updates/stories/infographic-covid-19-patients-high-risk-conditions-3x-more-likely-need-the-icu
        # corrected ventilated using  https://pubmed.ncbi.nlm.nih.gov/15942342/ with 3968/3184
        "US-NY": {"Inpatient": 33750/15, "ICU bed": 84375/15, "Ventilated ICU bed": 84375/15*3968/3184, "Currency": "USD"},
-       "US-FL": {"Inpatient": 33750/15, "ICU bed": 84375/15, "Ventilated ICU bed": 84375/15*3968/3184, "Currency": "USD"}
+       "US-FL": {"Inpatient": 33750/15, "ICU bed": 84375/15, "Ventilated ICU bed": 84375/15*3968/3184, "Currency": "USD"},
+       # IFHP - 2015 Comparitive Price Report, accessed through https://www.statista.com/statistics/312022/cost-of-hospital-stay-per-day-by-country/
+       # scaled cost of ICU with ventilator using the German costs for ICU v/s ICU with ventilator
+       "ES": {"Inpatient": 424/1.2, "ICU bed": 1700, "Ventilated ICU bed": 1700*1.59, "Currency": "euro"},
 }
 
 # Mental Health Parameters per Country
@@ -181,6 +199,22 @@ MENTAL_HEALTH_COST = {
               "ptsd_cost": 23971.,
               "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "SGD"
-              }
+              },
+       "ES": {"exposed_health_workers": 542140,
+              # https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=ES
+              "gen_population_over14": 39756493,
+                "depression_rate_sick": 0.46,
+              "depression_rate_hworkers_normal": 0.46,
+              "depression_gen_pop": 0.187,
+              "ptsd_rate_hworkers": 0.566,
+              # assume same as healthcare workers
+              "ptsd_rate_sick": 0.566,
+              # https://www.sciencedirect.com/science/article/pii/S0924977X21002182 adjusted for inflation 
+              "depression_cost": 3412,
+              # Assuming same cost as depression now
+              "ptsd_cost": 1661*1.13,
+              "lockdown_equivalent_policies": ['Lockdown'],
+              "Currency": "euro"
+       }
 }
       

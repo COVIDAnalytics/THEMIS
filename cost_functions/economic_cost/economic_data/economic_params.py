@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 # For countries with missing data (including Singapore), assuming roughly 1.5 year of GDP per capita
-UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 100000, "US-FL": 80000, "SG": 120000}
+UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 100000, "US-FL": 80000, "SG": 120000, "ES": 66312}
 
 def not_implemented():
     raise NotImplementedError
@@ -34,6 +34,14 @@ EMPLOYMENT_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": 1.3,
       "Restrict_Mass_Gatherings_and_Schools_and_Others": 1.0,
       'Restrict_Mass_Gatherings_and_Schools': 0.8,
       'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.5,
+    "Restrict_Mass_Gatherings": 0.3,
+    "No_Measure": 0
+    })
+
+EMPLOYMENT_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": 2,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 1.6,
+      'Restrict_Mass_Gatherings_and_Schools': 1.4,
+      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.6,
     "Restrict_Mass_Gatherings": 0.3,
     "No_Measure": 0
     })
@@ -71,11 +79,19 @@ GDP_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": -16,
            "Restrict_Mass_Gatherings": -4,
            "No_Measure": 0})
 
+GDP_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": -13.4,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": -10.1,
+          'Restrict_Mass_Gatherings_and_Schools': -9.2,
+          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -3.6,
+           "Restrict_Mass_Gatherings": -2.2,
+           "No_Measure": 0})
+
 # For US https://data.bls.gov/pdq/SurveyOutputServlet
-TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000, "US-FL":10451550, "SG": 3750000}
+# For ES: World Bank data https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=ES
+TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000, "US-FL":10451550, "SG": 3750000, "ES": 22694625}
 
-TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12, "SG": 4.6909e11}
+TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12, "SG": 4.6909e11, "ES":1.245e12}
 
-COVID_SICK_DAYS = {"DE": 7,"US-NY": 7,"US-FL": 7,"SG": 7}
+COVID_SICK_DAYS = {"DE": 7,"US-NY": 7,"US-FL": 7,"SG": 7, "ES": 7}
 
-TOTAL_WORKING_DAYS = {"DE": 254, "US-NY": 261, "US-FL": 261, "SG": 261}
+TOTAL_WORKING_DAYS = {"DE": 254, "US-NY": 261, "US-FL": 261, "SG": 261, "ES": 252}

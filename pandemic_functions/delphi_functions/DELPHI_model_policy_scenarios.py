@@ -33,8 +33,8 @@ import argparse
 
 popcountries = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
 raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
-past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
-# past_parameters = pd.read_csv("pandemic_functions/pandemic_data/NY_Correction_Parameters_Global_V2_annealing_20210409.csv")
+# past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703.csv")
+past_parameters = pd.read_csv("pandemic_functions/pandemic_data/NY_Correction_Parameters_Global_V2_annealing_20210409.csv")
 df_raw_us_policies = pd.read_csv("pandemic_functions/pandemic_data/12062020_raw_policy_data_us_only.csv")
 
 def sigmoid(x):
@@ -518,15 +518,16 @@ def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_dat
 
 def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
     country, province = region_symbol_country_dict[region]
-
-    if country == 'US':
-        policy_data = read_policy_data_us_only(state=province, start_date=policy_data_start_date, end_date=policy_data_end_date)
-    else:
-        policy_data = read_oxford_country_policy_data(country=country, start_date=policy_data_start_date, end_date=policy_data_end_date)
-
     params_list = past_parameters.query("Country == @country and Province == @province")[
         ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]
     ].iloc[0]
+    final_start_date = max(parse(params_list['Data Start Date']), parse(policy_data_start_date))
+    final_start_date = str(final_start_date.date())
+
+    if country == 'US':
+        policy_data = read_policy_data_us_only(state=province, start_date=final_start_date, end_date=policy_data_end_date)
+    else:
+        policy_data = read_oxford_country_policy_data(country=country, start_date=final_start_date, end_date=policy_data_end_date)
 
     policy_data.loc[:, "Gamma"] = [
         gamma_t(day, params_list)
