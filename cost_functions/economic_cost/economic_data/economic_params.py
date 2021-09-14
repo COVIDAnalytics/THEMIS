@@ -79,11 +79,11 @@ GDP_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": -16,
            "Restrict_Mass_Gatherings": -4,
            "No_Measure": 0})
 
-GDP_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": -13.4,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -10.1,
-          'Restrict_Mass_Gatherings_and_Schools': -9.2,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -3.6,
-           "Restrict_Mass_Gatherings": -2.2,
+GDP_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": -19.9,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": -15.1,
+          'Restrict_Mass_Gatherings_and_Schools': -13.6,
+          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -5.4,
+           "Restrict_Mass_Gatherings": -3.3,
            "No_Measure": 0})
 
 # For US https://data.bls.gov/pdq/SurveyOutputServlet
