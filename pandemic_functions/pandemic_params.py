@@ -6,7 +6,8 @@ region_symbol_country_dict = {
     "FR": ("France", "None"),
     "US-NY": ("US","New York"),
     "US-FL": ("US", "Florida"),
-    "ES": ("Spain", "None")
+    "ES": ("Spain", "None"),
+    "BR": ("Brazil", "None")
 }
 
 ### DELPHI parameters for poilicy scenarios

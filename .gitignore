@@ -17,3 +17,6 @@ __pycache__/
 # Logging files
 logs/
 *.png
+
+# VS Code
+.vscode/*

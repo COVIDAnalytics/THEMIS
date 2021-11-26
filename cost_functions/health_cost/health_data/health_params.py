@@ -141,7 +141,7 @@ DEATHS_ACTUARIAL_TABLE = {"DE": [
  "BR": [0, 11.9376, 0.796, 0.518, 0.397, 0.328, 0.283, 0.252, 0.231, 0.219, 0.215, 0.219, 0.235, 0.267, 0.321, 0.408, 0.683, 0.850, 0.998, 1.114, 1.203, 1.292, 1.380, 1.440, 1.466, 1.466, 1.455,
            1.448, 1.452, 1.475, 1.514, 1.559, 1.604, 1.654, 1.708, 1.768, 1.838, 1.920, 2.015, 2.122, 2.244, 2.380, 2.533, 2.710, 2.914, 3.143, 3.394, 3.664, 3.953, 4.261, 4.588, 4.942, 5.323, 5.728, 
            6.158, 6.616, 7.114, 7.652, 8.222, 8.825, 9.470, 10.171, 10.943, 11.797, 12.747, 13.799, 14.936, 16.178, 17.578, 19.168, 20.941, 22.855, 24.914, 27.178, 29.675, 32.409, 35.345, 38.500, 
-           41.953, 45.753, 49.912, 54.590, 59.879, 64.867, 69.954, 76.859, 1000],
+           41.953, 45.753, 49.912, 54.590, 59.879, 64.867, 69.954, 76.859, 83.125, 93.025, 104.95,116.80, 131.21,142.95, 155.91, 165.70, 183.28, 198.21, 217.17, 236.95, 256.71, 277.59, 300.15, 324.55, 1000],
 }
 
 # Hospitalization Costs Per Country
@@ -223,7 +223,7 @@ MENTAL_HEALTH_COST = {
                   # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
                 "depression_rate_sick": 0.058,
               "depression_rate_hworkers_normal": 0.058,
-              "depression_gen_pop": 0.08,
+              "depression_gen_pop": 0.063,
               "ptsd_rate_hworkers": 5.7/100.,
     # assume same as healthcare workers
               "ptsd_rate_sick": 5.7/100.,
@@ -237,12 +237,12 @@ MENTAL_HEALTH_COST = {
        "ES": {"exposed_health_workers": 542140,
               # https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=ES
               "gen_population_over14": 39756493,
-                "depression_rate_sick": 0.187, # 0.076
-              "depression_rate_hworkers_normal": 0.187, # +0.076
-              "depression_gen_pop": 0.187,
-              "ptsd_rate_hworkers": 0.158, # +0.099
+              "depression_rate_sick": 0.14,
+              "depression_rate_hworkers_normal": 0.14,
+              "depression_gen_pop": 0.0473,
+              "ptsd_rate_hworkers": 0.152, # +0.099
               # assume same as healthcare workers
-              "ptsd_rate_sick": 0.158, # +0.099
+              "ptsd_rate_sick": 0.152,
               # https://www.sciencedirect.com/science/article/pii/S0924977X21002182 adjusted for inflation 
               "depression_cost": 3412,
               # Assuming same cost as depression now
