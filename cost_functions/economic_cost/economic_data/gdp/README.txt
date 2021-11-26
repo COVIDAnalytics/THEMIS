@@ -5,3 +5,5 @@ For US states, there are no C/I/G breakdown available on a quarterly level, so w
 We then proportion out the appropriate GDP percentage of US. State data comes from https://apps.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1&acrdn=1#reqid=70&step=1&isuri=1&acrdn=1.
 
 For Singapore, I am using the C/I/G breakdown from Moody's analytics (e.g. https://www.economy.com/singapore/private-consumption) which somehow can access the data that I can't access through the official SG website....
+
+For Brazil, took data from https://data.imf.org/regular.aspx?key=61545852

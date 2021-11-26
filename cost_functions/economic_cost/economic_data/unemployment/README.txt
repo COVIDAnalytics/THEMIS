@@ -10,3 +10,6 @@ Extracted from Stargate
 ## Spain Unemployment Rate Monthly
 
 https://fred.stlouisfed.org/series/LRHUTTTTESM156S
+## Brazil Unemployment Rate Monthly
+
+https://agenciadenoticias.ibge.gov.br/en/agencia-press-room/2185-news-agency/releases-en/31497-continuous-pnad-monthly-edition-unemployment-rate-is-14-1-underutilization-rate-is-28-6-in-quarter-ending-in-june
