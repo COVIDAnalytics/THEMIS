@@ -5,8 +5,8 @@
 # Brazil 2013 VSL: https://larrlasa.org/articles/10.25222/larr.61/
 # Brazil Life expectancy: https://data.worldbank.org/indicator/SP.DYN.LE00.IN?locations=BR
 
-VSLY = {"DE": 158448, "US": 325000, "US-NY": 325000,
-        "US-FL": 325000,
+VSLY = {"DE": 158448, "US": 455484, "US-NY": 455484,
+        "US-FL": 455484,
         "SG": 46987 * 114.87/90.,
         # US dollar conversion, first convert US inflation, then convert exchange rate
         "BR": 39939 * 260 / 220 * 5.25
