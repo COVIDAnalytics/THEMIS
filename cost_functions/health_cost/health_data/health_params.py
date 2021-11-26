@@ -203,12 +203,12 @@ MENTAL_HEALTH_COST = {
        "ES": {"exposed_health_workers": 542140,
               # https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=ES
               "gen_population_over14": 39756493,
-                "depression_rate_sick": 0.46,
-              "depression_rate_hworkers_normal": 0.46,
+                "depression_rate_sick": 0.187, # 0.076
+              "depression_rate_hworkers_normal": 0.187, # +0.076
               "depression_gen_pop": 0.187,
-              "ptsd_rate_hworkers": 0.566,
+              "ptsd_rate_hworkers": 0.158, # +0.099
               # assume same as healthcare workers
-              "ptsd_rate_sick": 0.566,
+              "ptsd_rate_sick": 0.158, # +0.099
               # https://www.sciencedirect.com/science/article/pii/S0924977X21002182 adjusted for inflation 
               "depression_cost": 3412,
               # Assuming same cost as depression now
