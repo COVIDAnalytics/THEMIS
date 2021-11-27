@@ -20,3 +20,6 @@ logs/
 
 # VS Code
 .vscode/*
+
+# HTML
+*.html
