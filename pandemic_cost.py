@@ -10,7 +10,8 @@ class PandemicCost:
 
     def __init__(self, pandemic):
 
-        self.st_economic_costs = short_term_economic_costs(pandemic)
+        self.st_term_unemployment_costs, self.st_term_gdp_impact, self.st_term_sick_worker_cost = short_term_economic_costs(pandemic)
+        self.st_economic_costs = self.st_term_unemployment_costs + self.st_term_gdp_impact + self.st_term_sick_worker_cost
         self.lt_economic_costs = long_term_economic_costs(pandemic)
         self.d_costs = death_costs(pandemic)
         self.h_costs = hospitalization_costs(pandemic)

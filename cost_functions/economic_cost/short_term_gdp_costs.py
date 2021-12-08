@@ -12,9 +12,9 @@ def short_term_gdp_costs(pandemic):
     region = pandemic.region
     gdp_data_path = Path(__file__).parent / f"economic_data/gdp/{pandemic.region}.csv"
     if region in TOTAL_GDP and region in GDP_IMPACT and isfile(gdp_data_path):
-        gdp_cost = get_gdp_cost(pandemic)
-        return gdp_cost
-        # return get_gdp_cost(pandemic)
+        # gdp_cost = get_gdp_cost(pandemic)
+        # return gdp_cost
+        return get_gdp_cost(pandemic)
     else:
         raise ValueError("Country Not Implemented")
     
@@ -36,8 +36,8 @@ def get_gdp_cost(pandemic):
             gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].g.values[0]) * 1e9
             gdp_loss.append(monthly_gdp_loss)
         gdp_cost = -sum(gdp_loss)
-        return gdp_cost
-        # return (gdp_cost, 0)
+        # return gdp_cost
+        return (gdp_cost, 0)
     else:
         # we are in hypothetical regime
         gdp_loss = []
@@ -48,5 +48,5 @@ def get_gdp_cost(pandemic):
             gdp_loss.append(monthly_gdp_loss)
         gdp_cost = -sum(gdp_loss)
         sick_worker_cost = pandemic.num_cases / TOTAL_LABOR_FORCE[pandemic.region] * COVID_SICK_DAYS[pandemic.region] / TOTAL_WORKING_DAYS[pandemic.region] * TOTAL_GDP[pandemic.region]
-        return gdp_cost + sick_worker_cost
-        # return (gdp_cost, sick_worker_cost)
+        # return gdp_cost + sick_worker_cost
+        return (gdp_cost, sick_worker_cost)

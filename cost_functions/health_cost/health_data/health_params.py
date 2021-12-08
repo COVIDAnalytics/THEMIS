@@ -217,15 +217,15 @@ MENTAL_HEALTH_COST = {
               "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "USD"},
       "SG": {"exposed_health_workers": 58000,
-          # counting all nurses + doctors https://www.healthhub.sg/a-z/health-statistics/12/health-manpower
+              # counting all nurses + doctors https://www.healthhub.sg/a-z/health-statistics/12/health-manpower
               "gen_population_over14": 3456030,
-                  # Using mental disorder base line as https://pubmed.ncbi.nlm.nih.gov/30947763/, with pandemic rates as https://www.acpjournals.org/doi/full/10.7326/M20-1083
-                  # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
-                "depression_rate_sick": 0.058,
-              "depression_rate_hworkers_normal": 0.058,
-              "depression_gen_pop": 0.063,
+              # Using mental disorder base line as https://pubmed.ncbi.nlm.nih.gov/30947763/, with pandemic rates as https://www.acpjournals.org/doi/full/10.7326/M20-1083
+              # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
+              "depression_rate_sick": 0.081,
+              "depression_rate_hworkers_normal": 0.103,
+              "depression_gen_pop": 0.081,
               "ptsd_rate_hworkers": 5.7/100.,
-    # assume same as healthcare workers
+              # assume same as healthcare workers
               "ptsd_rate_sick": 5.7/100.,
               # https://pubmed.ncbi.nlm.nih.gov/23977979/ 2008 data, adjusted for medical inflation at 10%[a]
               "depression_cost": 23971,
