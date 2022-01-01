@@ -1,4 +1,4 @@
-## Authors: Baptiste
+## Authors: Baptiste, Michael L. Li, Saksham Soni
 from cost_functions.health_cost.health_data.health_params import MENTAL_HEALTH_COST
 from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_policy_data_us_only, read_oxford_country_policy_data
 from pandemic_functions.pandemic_params import region_symbol_country_dict
@@ -21,12 +21,12 @@ def mental_health_costs(pandemic):
         lockdown_months = total_lockdown_days / 30
 
     cumulated_sick = pandemic.num_cases
-    depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"]
-    depressed_patients +=  cumulated_sick * MH_DATA["depression_rate_sick"]
-    gen_pop_depression = MH_DATA["gen_population_over14"] * MH_DATA["depression_gen_pop"] * lockdown_months/12.
+    # depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"] * lockdown_months/12.
+    depressed_patients =  cumulated_sick * max(MH_DATA["depression_rate_inc_sick"] * 14/365, MH_DATA["depression_rate_inc_gen_population"]* lockdown_months/12.)
+    gen_pop_depression = (MH_DATA["gen_population_over14"] - cumulated_sick )* MH_DATA["depression_rate_inc_gen_population"] * lockdown_months/12.
     depressed_patients += gen_pop_depression
 
-    ptsd_patients = MH_DATA["exposed_health_workers"] * MH_DATA["ptsd_rate_hworkers"]
-    ptsd_patients += cumulated_sick * MH_DATA["ptsd_rate_sick"]
+    ptsd_patients = MH_DATA["exposed_health_workers"] * MH_DATA["ptsd_rate_inc_hworkers"]
+    ptsd_patients += cumulated_sick * MH_DATA["ptsd_rate_inc_sick"]
 
     return depressed_patients * MH_DATA["depression_cost"] + ptsd_patients * MH_DATA["ptsd_cost"]

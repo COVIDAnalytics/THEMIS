@@ -167,11 +167,11 @@ DAILY_HOSPITALIZATION_COST = {
 MENTAL_HEALTH_COST = {
     "DE": {"exposed_health_workers": 300000,
            "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
-           "depression_rate_sick": 30./100.0,
-           "depression_rate_hworkers_normal": 12./100.,
-           "depression_gen_pop": 12./100.,
-           "ptsd_rate_hworkers": 7./100.,
-           "ptsd_rate_sick": 7./100.,
+           "depression_rate_inc_sick": 30./100.0,
+           "depression_rate_inc_hworkers": 12./100.,
+           "depression_rate_inc_gen_population": 12./100.,
+           "ptsd_rate_inc_hworkers": 7./100.,
+           "ptsd_rate_inc_sick": 7./100.,
            "depression_cost": 4000.,
            "ptsd_cost": 40000.,
            "lockdown_equivalent_policies": ['Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'],
@@ -182,15 +182,19 @@ MENTAL_HEALTH_COST = {
     "US-NY": {"exposed_health_workers": 600000,
               # https://www.health.ny.gov/statistics/vital_statistics/2018/table01.htm
               "gen_population_over14": 16164571,
+              # https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2770146
+              "depression_rate_baseline": 8.5/100.,
+              # https://www.nimh.nih.gov/health/statistics/post-traumatic-stress-disorder-ptsd
+              "ptsd_rate_baseline": 3.6/100.,
               # Assume same as healthcare workers for now
-              "depression_rate_sick": 17/100.0,
+              "depression_rate_inc_sick": 20.2/100.0,
+              "depression_rate_inc_hworkers": 20.2/100.,
+              "depression_rate_inc_gen_population": 20.2/100.,
               # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
-              "depression_rate_hworkers_normal": 17./100.,
-              "depression_gen_pop": 10.2/100.,
-              # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
-              "ptsd_rate_hworkers": 14./100.,
-              # assume same as healthcare workers
-              "ptsd_rate_sick": 14./100.,
+              # https://www.cdc.gov/mmwr/volumes/70/wr/mm7048a6.htm?s_cid=mm7048a6_w#T1_down
+              "ptsd_rate_inc_hworkers": 33.2/100.,
+              # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7263263/
+              "ptsd_rate_inc_sick": 28.2/100.,
               # 2010 dollars, adjusting for inflation
               "depression_cost": 27688*1.37,
               "ptsd_cost": 14857.,
@@ -198,35 +202,42 @@ MENTAL_HEALTH_COST = {
               "Currency": "USD"
               },
        "US-FL": {
-          # https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/data-research/state-profiles/florida-2018.pdf
+              # https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/data-research/state-profiles/florida-2018.pdf
               "exposed_health_workers": 624451,
-          # projected 2020 population http://edr.state.fl.us/content/population-demographics/data/pop_census_day.pdf
+              # projected 2020 population http://edr.state.fl.us/content/population-demographics/data/pop_census_day.pdf
               "gen_population_over14": 17696804,
-                  # Assume same as healthcare workers for now
-              "depression_rate_sick": 17/100.0,
-         # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
-              "depression_rate_hworkers_normal": 17./100.,
-              "depression_gen_pop": 10.2/100.,
-    # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
-              "ptsd_rate_hworkers": 14./100.,
-    # assume same as healthcare workers
-              "ptsd_rate_sick": 14./100.,
+              # https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2770146
+              "depression_rate_baseline": 8.5/100.,
+              # https://www.nimh.nih.gov/health/statistics/post-traumatic-stress-disorder-ptsd
+              "ptsd_rate_baseline": 3.6/100.,
+              # Assume same as healthcare workers for now
+              "depression_rate_inc_sick": 20.2/100.0,
+              "depression_rate_inc_hworkers": 20.2/100.,
+              "depression_rate_inc_gen_population": 20.2/100.,
+              # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
+              # https://www.cdc.gov/mmwr/volumes/70/wr/mm7048a6.htm?s_cid=mm7048a6_w#T1_down
+              "ptsd_rate_inc_hworkers": 33.2/100.,
+              # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7263263/
+              "ptsd_rate_inc_sick": 28.2/100.,
               # 2010 dollars, adjusting for inflation
               "depression_cost": 27688*1.37,
               "ptsd_cost": 14857.,
               "lockdown_equivalent_policies": ['Lockdown'],
-              "Currency": "USD"},
+              "Currency": "USD"
+              },
       "SG": {"exposed_health_workers": 58000,
               # counting all nurses + doctors https://www.healthhub.sg/a-z/health-statistics/12/health-manpower
               "gen_population_over14": 3456030,
               # Using mental disorder base line as https://pubmed.ncbi.nlm.nih.gov/30947763/, with pandemic rates as https://www.acpjournals.org/doi/full/10.7326/M20-1083
               # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
-              "depression_rate_sick": 0.081,
-              "depression_rate_hworkers_normal": 0.103,
-              "depression_gen_pop": 0.081,
-              "ptsd_rate_hworkers": 5.7/100.,
+              "depression_rate_baseline": 0.0,
+              "ptsd_rate_baseline": 0.0,
+              "depression_rate_inc_sick": 0.081,
+              "depression_rate_inc_hworkers": 0.103,
+              "depression_rate_inc_gen_population": 0.081,
+              "ptsd_rate_inc_hworkers": 5.7/100.,
               # assume same as healthcare workers
-              "ptsd_rate_sick": 5.7/100.,
+              "ptsd_rate_inc_sick": 5.7/100.,
               # https://pubmed.ncbi.nlm.nih.gov/23977979/ 2008 data, adjusted for medical inflation at 10%[a]
               "depression_cost": 23971,
               # Assuming same cost as depression now
@@ -237,12 +248,14 @@ MENTAL_HEALTH_COST = {
        "ES": {"exposed_health_workers": 542140,
               # https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=ES
               "gen_population_over14": 39756493,
-              "depression_rate_sick": 0.14,
-              "depression_rate_hworkers_normal": 0.14,
-              "depression_gen_pop": 0.0473,
-              "ptsd_rate_hworkers": 0.152, # +0.099
+              "depression_rate_baseline": 4.73/100.,
+              "ptsd_rate_baseline": 0.56/100.,
+              "depression_rate_inc_sick": 0.14,
+              "depression_rate_inc_hworkers": 0.14,
+              "depression_rate_inc_gen_population": 0.0473,
+              "ptsd_rate_inc_hworkers": 0.152, # +0.099
               # assume same as healthcare workers
-              "ptsd_rate_sick": 0.152,
+              "ptsd_rate_inc_sick": 0.152,
               # https://www.sciencedirect.com/science/article/pii/S0924977X21002182 adjusted for inflation 
               "depression_cost": 3412,
               # Assuming same cost as depression now
@@ -260,14 +273,16 @@ MENTAL_HEALTH_COST = {
            # https://www.sciencedirect.com/science/article/pii/S0033350620305011?casa_token=d-izEpPH_vgAAAAA:91Tivv-Ibhhgzwv0wLcXE3YIr5zsIrbI3DFI8zDnEcHcioZosXYm6LHJdKroU873SL46_jT0Ig
            # https://www.jmir.org/2020/10/e22835
            # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
-           "depression_rate_sick": 0.404,
-           "depression_rate_hworkers_normal": 0.404,
-           "depression_gen_pop": 0.25,
+           "depression_rate_baseline": 0.0,
+           "ptsd_rate_baseline": 0.0,
+           "depression_rate_inc_sick": 25.2/100,
+           "depression_rate_inc_hworkers": 25.2/100,
+           "depression_rate_inc_gen_population": 3.9/100,
            # https://www.sciencedirect.com/science/article/pii/S0022395620309870?casa_token=wcHIxnwxO9MAAAAA:ohWeXXqRjeLSfEdGp4ef2axF1E7AJnEld5RfA5nF2XOMjH6FTrasb9jsgn-5Xdj9PzMy8N4HAQ
            # https://www.scielo.br/j/rbp/a/qR3X56ZbwDHPFTpRk5jqs3M/?lang=en#:~:text=Not%20surprisingly%2C%20PTSD%20is%20highly,largest%20metropolitan%20areas%2C%20respectively).
-           "ptsd_rate_hworkers": 29.1/100.,
+           "ptsd_rate_inc_hworkers": 29.1/100.,
            # assume same as healthcare workers
-           "ptsd_rate_sick": 29.1/100.,
+           "ptsd_rate_inc_sick": 29.1/100.,
            # https://www.scielo.br/j/rbp/a/JQSTrFvqYwH7kZJyhFnrySD/?lang=en 2012 data, adjusted for  inflation at 7%[a]
            "depression_cost": 4100 * (1.07 ** 9),
            # Assuming same cost as depression now

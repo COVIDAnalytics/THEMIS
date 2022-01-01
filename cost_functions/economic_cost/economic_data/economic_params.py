@@ -46,11 +46,11 @@ EMPLOYMENT_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": 2,
     "No_Measure": 0
     })
 
-EMPLOYMENT_IMPACT["BR"] =defaultdict(not_implemented, { "Lockdown": -1.2,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -0.9,
-          'Restrict_Mass_Gatherings_and_Schools': -0.8,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -0.3,
-           "Restrict_Mass_Gatherings": -0.2,
+EMPLOYMENT_IMPACT["BR"] =defaultdict(not_implemented, { "Lockdown": 1.2,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.9,
+          'Restrict_Mass_Gatherings_and_Schools': 0.8,
+          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.3,
+           "Restrict_Mass_Gatherings": 0.2,
            "No_Measure": 0})
 
 
