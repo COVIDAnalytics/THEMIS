@@ -230,14 +230,14 @@ MENTAL_HEALTH_COST = {
               "gen_population_over14": 3456030,
               # Using mental disorder base line as https://pubmed.ncbi.nlm.nih.gov/30947763/, with pandemic rates as https://www.acpjournals.org/doi/full/10.7326/M20-1083
               # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
-              "depression_rate_baseline": 0.0,
+              "depression_rate_baseline": 2.3/100.,
               "ptsd_rate_baseline": 0.0,
-              "depression_rate_inc_sick": 0.081,
-              "depression_rate_inc_hworkers": 0.103,
-              "depression_rate_inc_gen_population": 0.081,
-              "ptsd_rate_inc_hworkers": 5.7/100.,
+              "depression_rate_inc_sick": 8./100.,
+              "depression_rate_inc_hworkers": 5.8/100.,
+              "depression_rate_inc_gen_population": 8./100.,
+              "ptsd_rate_inc_hworkers": 10.9/100.,
               # assume same as healthcare workers
-              "ptsd_rate_inc_sick": 5.7/100.,
+              "ptsd_rate_inc_sick": 10.9/100.,
               # https://pubmed.ncbi.nlm.nih.gov/23977979/ 2008 data, adjusted for medical inflation at 10%[a]
               "depression_cost": 23971,
               # Assuming same cost as depression now
@@ -273,16 +273,16 @@ MENTAL_HEALTH_COST = {
            # https://www.sciencedirect.com/science/article/pii/S0033350620305011?casa_token=d-izEpPH_vgAAAAA:91Tivv-Ibhhgzwv0wLcXE3YIr5zsIrbI3DFI8zDnEcHcioZosXYm6LHJdKroU873SL46_jT0Ig
            # https://www.jmir.org/2020/10/e22835
            # assume general population same as nonmedical workers, sick same as medical workers, 12 month prevalence set as baseline
-           "depression_rate_baseline": 0.0,
-           "ptsd_rate_baseline": 0.0,
+           "depression_rate_baseline": 3.9/100.,
+           "ptsd_rate_baseline": 5./100.,
            "depression_rate_inc_sick": 25.2/100,
            "depression_rate_inc_hworkers": 25.2/100,
-           "depression_rate_inc_gen_population": 3.9/100,
+           "depression_rate_inc_gen_population": 25.2/100,
            # https://www.sciencedirect.com/science/article/pii/S0022395620309870?casa_token=wcHIxnwxO9MAAAAA:ohWeXXqRjeLSfEdGp4ef2axF1E7AJnEld5RfA5nF2XOMjH6FTrasb9jsgn-5Xdj9PzMy8N4HAQ
            # https://www.scielo.br/j/rbp/a/qR3X56ZbwDHPFTpRk5jqs3M/?lang=en#:~:text=Not%20surprisingly%2C%20PTSD%20is%20highly,largest%20metropolitan%20areas%2C%20respectively).
-           "ptsd_rate_inc_hworkers": 29.1/100.,
+           "ptsd_rate_inc_hworkers": 29.2/100.,
            # assume same as healthcare workers
-           "ptsd_rate_inc_sick": 29.1/100.,
+           "ptsd_rate_inc_sick": 29.2/100.,
            # https://www.scielo.br/j/rbp/a/JQSTrFvqYwH7kZJyhFnrySD/?lang=en 2012 data, adjusted for  inflation at 7%[a]
            "depression_cost": 4100 * (1.07 ** 9),
            # Assuming same cost as depression now
