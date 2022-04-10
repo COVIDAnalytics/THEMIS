@@ -7,9 +7,9 @@ from cost_functions.economic_cost.short_term_economic_costs import short_term_ec
 from cost_functions.economic_cost.long_term_economic_costs import long_term_economic_costs
 
 class PandemicCost:
-
+    """Wrapper class to calculate and store all cost components for a pandemic scenario in a given region"""
     def __init__(self, pandemic):
-
+        """Function that initializes the object by calculating all cost components"""
         self.st_term_unemployment_costs, self.st_term_gdp_impact, self.st_term_sick_worker_cost = short_term_economic_costs(pandemic)
         self.st_economic_costs = self.st_term_unemployment_costs + self.st_term_gdp_impact + self.st_term_sick_worker_cost
         self.lt_economic_costs = long_term_economic_costs(pandemic)

@@ -3,6 +3,13 @@ import numpy as np
 from cost_functions.health_cost.health_data.health_params import DAILY_HOSPITALIZATION_COST 
 
 def hospitalization_costs(pandemic):
+    """
+    Function that returns the cost of hospitalizations due to pandemic in a region
+    Parameters:
+        - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+    Returns:
+        - Total hospitalization costs
+    """
     region = pandemic.region
     total_hospitalized_days = pandemic.hospitalization_days
     total_icu_days = pandemic.icu_days

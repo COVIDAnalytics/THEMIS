@@ -9,6 +9,7 @@ from pandemic_functions.pandemic_params import region_symbol_country_dict, p_v
 
 
 class Pandemic_Factory:
+    """A wrapper class to help with the loading of different parameters and computing the Pandemic object"""
     def __init__(self):
         self.d_read_data_total_cases = {}
         self.d_region_policy_gammas = {}
@@ -38,7 +39,7 @@ class Pandemic_Factory:
 
 
 class Pandemic:
-    
+    """Class to encapsulate the pandemic scenario"""
     def __init__(self, policy, region, delphi_prediction, totalcases, dict_region_policy_gamma):
     # This is the simulation of the pandemic under a certain policy
     # Given a fixed policy, we can calculate the number of deaths and hospitalizations incurred in such period using DELPHI. 

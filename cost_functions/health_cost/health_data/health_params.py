@@ -165,18 +165,20 @@ DAILY_HOSPITALIZATION_COST = {
 # Mental Health Parameters per Country
 
 MENTAL_HEALTH_COST = {
-    "DE": {"exposed_health_workers": 300000,
-           "gen_population_over14": (83.17-0.77-3.96-5.92) * 1e6,
-           "depression_rate_inc_sick": 30./100.0,
-           "depression_rate_inc_hworkers": 12./100.,
-           "depression_rate_inc_gen_population": 12./100.,
-           "ptsd_rate_inc_hworkers": 7./100.,
-           "ptsd_rate_inc_sick": 7./100.,
+    "DE": {"exposed_health_workers": 892000,
+           "gen_population_over14": 72520000,
+           "depression_rate_baseline": 7.6/100.,
+           "ptsd_rate_baseline": 2.31/100.,
+           "depression_rate_inc_sick": 6.7/100.0,
+           "depression_rate_inc_hworkers": 6.7/100.,
+           "depression_rate_inc_gen_population": 6.7/100.,
+           "ptsd_rate_inc_hworkers": 6.7/100.,
+           "ptsd_rate_inc_sick": 6.7/100.,
            "depression_cost": 4000.,
            "ptsd_cost": 40000.,
-           "lockdown_equivalent_policies": ['Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'],
+           "lockdown_equivalent_policies": ['Lockdown'],
            "Currency": "euro"
-           },
+    },
     # https://www.chwsny.org/wp-content/uploads/2018/04/Full_CHWS_NY_Tracking_Report-2018b-1.pdf
     # only count hospitals and nursing home professionals
     "US-NY": {"exposed_health_workers": 600000,
@@ -252,7 +254,7 @@ MENTAL_HEALTH_COST = {
               "ptsd_rate_baseline": 0.56/100.,
               "depression_rate_inc_sick": 0.14,
               "depression_rate_inc_hworkers": 0.14,
-              "depression_rate_inc_gen_population": 0.0473,
+              "depression_rate_inc_gen_population": 0.14,
               "ptsd_rate_inc_hworkers": 0.152, # +0.099
               # assume same as healthcare workers
               "ptsd_rate_inc_sick": 0.152,

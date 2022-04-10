@@ -2,7 +2,15 @@
 from cost_functions.health_cost.health_data.health_params import MENTAL_HEALTH_COST
 from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_policy_data_us_only, read_oxford_country_policy_data
 from pandemic_functions.pandemic_params import region_symbol_country_dict
+
 def mental_health_costs(pandemic):
+    """
+    Function that returns the cost of impact on mental health of the population
+    Parameters:
+        - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+    Returns:
+        - cost of impact on mental health in local currency
+    """
     region = pandemic.region
     MH_DATA = MENTAL_HEALTH_COST[region]
     if pandemic.policy.policy_type == "hypothetical":

@@ -517,6 +517,13 @@ def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_dat
     return future_policies[ int(np.median(policies)) ]
 
 def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
+    """
+    Function to calculate the gamma values for the region by interpolating the values for the observed policies using the default gamma values
+    Parameters:
+        - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+    Returns:
+        - Dict of policy -> gamma avalue
+    """
     country, province = region_symbol_country_dict[region]
     params_list = past_parameters.query("Country == @country and Province == @province")[
         ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]

@@ -7,6 +7,13 @@ from cost_functions.health_cost.health_data.health_params import VSLY, DEATHS_DI
 
 ### should potentially consider comorbidity adjustments
 def death_costs(pandemic):
+    """
+    Function that returns the cost loss of life in a pandemic
+    Parameters:
+        - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+    Returns:
+        - cost of deaths in local currency based on loss of life years
+    """
     region = pandemic.region
     if region in DEATHS_DIST and region in VSLY and region in DEATHS_ACTUARIAL_TABLE:
         deaths_dist = DEATHS_DIST[region]
