@@ -7,18 +7,34 @@ import sys
 import itertools
 import pandas as pd
 from datetime import datetime
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--region', '-r', type=str, required=True,
+    help="region code for the region the simulation will be run"
+)
+parser.add_argument(
+    '--startdate', '-sd', type=str, required=False, default="2020-03-01",
+    help="start date for the simulation"
+)
+parser.add_argument(
+    '--length', '-l', type=int, required=False, default =3,
+    help="number of months the simulation will be run for starting from the start date"
+)
+arguments = parser.parse_args()
+region = arguments.region
+start_date = arguments.startdate
+policy_length = arguments.length
 
 pandemic_simulator = Pandemic_Factory()
 
-country = "DE"
-start_date = "2020-03-15"
-policy_length = 3
 
 def simulate_actual():
     # create a policy that uses the current policy for Germany, length 3 months starting in 2020-03-01, 
     policy = Policy(policy_type = "actual", start_date = start_date, policy_length = policy_length)
     # simulate the pandemic using such policy
-    pandemic = pandemic_simulator.compute_delphi(policy,region=country)
+    pandemic = pandemic_simulator.compute_delphi(policy,region=region)
     cost_of_pandemic = PandemicCost(pandemic)
     return cost_of_pandemic
 
@@ -28,7 +44,7 @@ def simulate_policy(policy_vect):
     # create a policy that a hypothetical policy for Germany, length 3 months starting in 2020-03-01, 
     policy2 = Policy(policy_type = "hypothetical", start_date = start_date, policy_vector = policy_vect)
     # simulate the pandemic using such policy
-    pandemic2 = pandemic_simulator.compute_delphi(policy2,region=country)
+    pandemic2 = pandemic_simulator.compute_delphi(policy2,region=region)
     cost_of_pandemic2 = PandemicCost(pandemic2)
     return cost_of_pandemic2
 
@@ -47,7 +63,6 @@ future_policies = [
 
 scenarios = [list(t) for t in itertools.product(future_policies, repeat=policy_length)]
 
-
 for scenario in scenarios:
     print("testing - " + str(scenario) + " ", end='')
     try:
@@ -61,14 +76,12 @@ output_df = pd.DataFrame.from_dict(d_scenarii_simulations, orient="index")
 del output_df["policy"]
 output_df.reset_index(inplace=True)
 output_df = output_df.rename(columns = {'index':'policy'})
-output_df["country"] = country
+output_df["country"] = region
 output_df["start_date"] = start_date
 output_df["policy_length"] = policy_length
 
-output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs",
+output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs", # "st_term_unemployment_costs", "st_term_gdp_impact", "st_term_sick_worker_cost",
                        "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
 
 time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-output_df.to_csv('simulation_results/test_result_' + time_stamp + '.csv')
-#   for k in cost_of_pandemic.__dict__:
-#       print(k, " ", locale.format_string("%d", cost_of_pandemic.__dict__[k], grouping=True))
+output_df.to_csv('simulation_results/test_result_' + region + '_' + time_stamp + '.csv')
