@@ -4,9 +4,9 @@ The repository contains code for a framework that attempts to analyze the differ
 
 ## 1. Repository Structure
 
-Here we briefly describe how the repository is structured for better navigation of the reader. \\
-\\
-`THEMIS/` \\
+Here we briefly describe how the repository is structured for better navigation of the reader. \
+\
+`THEMIS/`
 1. `cost_functions/` - contains functions and data defining different cost components
     * `economic_cost/` - contains functions and data for different components of economic cost
         - `economic_data/` - contains the data for economic costs
@@ -48,9 +48,9 @@ Here we briefly describe how the repository is structured for better navigation 
 
 The code was written with **Python 3.8.3**. The model is executed through the main file which takes three arguments
 1. `--region` or `-r` : Region code for the region the simulation will be run. Should be one of "DE", "US-NY", "US-FL", "ES", "BR", "SG"
-2. `--startdate` or `-sd` : (optional, default = `2020-03-01`) start date for the simulation as a string in YYYY-MM-DD format
+2. `--startdate` or `-sd` : (optional, default = "2020-03-01") start date for the simulation as a string in YYYY-MM-DD format
 3. `--length` or `-l` : (optional, default = 3) number of months the simulation will be run for starting from the start date
-\\
+\
 Example:
 ```
 > python main.py -r "DE" -sd "2020-03-15" -l 3
