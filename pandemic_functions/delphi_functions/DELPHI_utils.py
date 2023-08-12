@@ -162,7 +162,6 @@ def create_parameters_dataframe(continent:str, country:str, province:str,
             "Jump Magnitude": [best_params[8]],
             "Jump Time": [best_params[9]],
             "Jump Decay": [best_params[10]],
-            "Internal Parameter 3": [best_params[11]],
         }
     )
     return df_parameters
@@ -197,17 +196,19 @@ def get_predictions_from_solution(x_sol_final: np.array):
     return (total_detected, active_cases, active_hospitalized, cumulative_hospitalized, 
             total_detected_deaths, active_ventilated)
 
-def create_datasets_predictions(continent:str, country:str, province:str, 
-        date_day_since100: datetime, x_sol_final: np.array) -> (pd.DataFrame, pd.DataFrame):
+def create_datasets_predictions(continent:str, country:str, province:str,
+        date_day_since100: datetime, yesterday: str,
+        x_sol_final: np.array) -> (pd.DataFrame, pd.DataFrame):
     """
     Creates two dataframes with the predictions of the DELPHI model, the first one since the 
     day of the prediction, the second since the day the area had 100 cases
     :return: tuple of dataframes with predictions from DELPHI model
     """
-    n_days_btw_today_since_100 = (datetime.now() - date_day_since100).days
+    yesterday_date = pd.to_datetime(yesterday)
+    n_days_btw_today_since_100 = (yesterday_date - date_day_since100).days
     n_days_since_today = x_sol_final.shape[1] - n_days_btw_today_since_100
     all_dates_since_today = [
-        str((datetime.now() + timedelta(days=i)).date())
+        str((yesterday_date + timedelta(days=i)).date())
         for i in range(n_days_since_today)
     ]
     total_detected, active_cases, active_hospitalized, cumulative_hospitalized, \
@@ -270,7 +271,7 @@ def make_increasing(sequence: list) -> list:
 ## TODO
 def create_datasets_with_confidence_intervals(
         continent:str, country:str, province:str,
-        date_day_since100: datetime,
+        date_day_since100: datetime, yesterday: str,
         x_sol_final: np.array,
         cases_data_fit: list,
         deaths_data_fit: list,
@@ -294,10 +295,11 @@ def create_datasets_with_confidence_intervals(
     :return: tuple of dataframes (since day of optimization & since 100 cases in the area) with predictions and
     confidence intervals
     """
-    n_days_btw_today_since_100 = (datetime.now() - date_day_since100).days
+    yesterday_date = pd.to_datetime(yesterday)
+    n_days_btw_today_since_100 = (yesterday_date - date_day_since100).days
     n_days_since_today = x_sol_final.shape[1] - n_days_btw_today_since_100
     all_dates_since_today = [
-        str((datetime.now() + timedelta(days=i)).date())
+        str((yesterday_date + timedelta(days=i)).date())
         for i in range(n_days_since_today)
     ]
     total_detected, active_cases, active_hospitalized, cumulative_hospitalized, \

@@ -282,7 +282,8 @@ def check_us_policy_data_consistency(policies: list, df_policy_raw_us: pd.DataFr
         ), f"Problem in data, policy {policy} has no start date but has an end date"
 
 def create_intermediary_policy_features_us(
-    df_policy_raw_us: pd.DataFrame, dict_state_to_policy_dates: dict, policies: list
+    df_policy_raw_us: pd.DataFrame, dict_state_to_policy_dates: dict, policies: list,
+    policies_end_date: str = '20220101'
 ) -> pd.DataFrame:
     """
     Processes the IHME policy data in the US to create the right intermediary features with the right names
@@ -293,7 +294,8 @@ def create_intermediary_policy_features_us(
     policy is implemented in a given state at a given date
     """
     list_df_concat = []
-    n_dates = (datetime.now() - datetime(2020, 3, 1)).days + 1
+    max_date = pd.to_datetime(policies_end_date)
+    n_dates = (max_date - datetime(2020, 3, 1)).days + 1
     date_range = [datetime(2020, 3, 1) + timedelta(days=i) for i in range(n_dates)]
     for location in df_policy_raw_us.location_name.unique():
         df_temp = pd.DataFrame(
