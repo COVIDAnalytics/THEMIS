@@ -48,7 +48,7 @@ default_upper_bound_jump = 5
 default_lower_bound_std_normal = 1
 default_upper_bound_std_normal = 100
 
-default_maxT = datetime(2020, 9, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2020, 12, 31)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 
 region_symbol_country_dict = {

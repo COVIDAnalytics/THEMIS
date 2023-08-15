@@ -16,9 +16,7 @@ from pandemic_functions.pandemic_params import *
 from pandemic_functions.delphi_functions.DELPHI_utils import *
 from pandemic_functions.delphi_functions.DELPHI_model import model_covid
 
-# import yaml
 import os
-import argparse
 
 past_parameters_default = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_annealing_20200420.csv")
 
@@ -183,6 +181,7 @@ def solve_and_predict_area(
         region: str,
         yesterday: str,
         past_parameters,
+        totalcases: Union[pd.DataFrame, Type[None]]=None,
         T_start: Union[str, Type[None]]=None,
         optimization_method: str='annealing'
     ):
@@ -205,11 +204,12 @@ def solve_and_predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
 
-    assert os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"), \
-        f"Cases data not found for region {region}"
-    totalcases = pd.read_csv(
-            f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"
-        )
+    if totalcases is None:
+        assert os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"), \
+            f"Cases data not found for region {region}"
+        totalcases = pd.read_csv(
+                f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"
+            )
     
     # set the initial parameters
     if past_parameters is not None and len(past_parameters[(past_parameters.Country == country) & (past_parameters.Province == province)]) > 0:

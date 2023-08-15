@@ -73,9 +73,6 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     return x_0_cases
 
 
-## TODO
-## - utils to save metrics in CSVs
-
 def compute_mape(y_true: list, y_pred: list) -> float:
     """
     Compute the Mean Absolute Percentage Error (MAPE) between two lists of values
@@ -137,6 +134,19 @@ def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_fin
         ) / 2
 
     return mape_data
+
+def get_mape_test_data(cases_data_test: list, deaths_data_test: list, cases_prediction: list, deaths_prediction: list):
+    """
+    Calculate mape over test data
+    :param cases_data_test: list, contains data of true number of cases
+    :param deaths_data_test: list, contains data of true number of deaths
+    :param cases_prediction: list, contains prediction for cases
+    :param deaths_prediction: list, contains prediction for deaths
+    :return: a tuple, (mape_cases: float, mape_deaths: float)
+    """
+    mape_cases = compute_mape(cases_data_test, cases_prediction) 
+    mape_deaths = compute_mape(deaths_data_test, deaths_prediction)
+    return mape_cases, mape_deaths
 
 def create_parameters_dataframe(continent:str, country:str, province:str,
         date_day_since100: datetime, mape: float, best_params: np.array) -> pd.DataFrame:
@@ -204,11 +214,11 @@ def create_datasets_predictions(continent:str, country:str, province:str,
     day of the prediction, the second since the day the area had 100 cases
     :return: tuple of dataframes with predictions from DELPHI model
     """
-    yesterday_date = pd.to_datetime(yesterday)
-    n_days_btw_today_since_100 = (yesterday_date - date_day_since100).days
+    today_date = pd.to_datetime(yesterday) + timedelta(days=1)
+    n_days_btw_today_since_100 = (today_date - date_day_since100).days
     n_days_since_today = x_sol_final.shape[1] - n_days_btw_today_since_100
     all_dates_since_today = [
-        str((yesterday_date + timedelta(days=i)).date())
+        str((today_date + timedelta(days=i)).date())
         for i in range(n_days_since_today)
     ]
     total_detected, active_cases, active_hospitalized, cumulative_hospitalized, \
@@ -269,6 +279,7 @@ def make_increasing(sequence: list) -> list:
     return sequence
 
 ## TODO
+## - test this function
 def create_datasets_with_confidence_intervals(
         continent:str, country:str, province:str,
         date_day_since100: datetime, yesterday: str,
@@ -295,11 +306,11 @@ def create_datasets_with_confidence_intervals(
     :return: tuple of dataframes (since day of optimization & since 100 cases in the area) with predictions and
     confidence intervals
     """
-    yesterday_date = pd.to_datetime(yesterday)
-    n_days_btw_today_since_100 = (yesterday_date - date_day_since100).days
+    today_date = pd.to_datetime(yesterday) + timedelta(days=1)
+    n_days_btw_today_since_100 = (today_date - date_day_since100).days
     n_days_since_today = x_sol_final.shape[1] - n_days_btw_today_since_100
     all_dates_since_today = [
-        str((yesterday_date + timedelta(days=i)).date())
+        str((today_date + timedelta(days=i)).date())
         for i in range(n_days_since_today)
     ]
     total_detected, active_cases, active_hospitalized, cumulative_hospitalized, \
@@ -560,3 +571,7 @@ def create_datasets_with_confidence_intervals(
         df_predictions_since_today_cont_country_prov,
         df_predictions_since_100_cont_country_prov,
     )
+
+
+## TODO
+## - utils to save metrics in CSVs
