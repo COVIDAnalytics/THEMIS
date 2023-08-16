@@ -45,13 +45,13 @@ def get_policy_gdp_impact(region:str, dominant_policy_df:pd.DataFrame):
     gdp_impact["date"]=[datetime(int(r.year), int(r.month), 1).date() for _, r in gdp_impact.iterrows()]
     # Merge with the dominant policy DF
     df = pd.merge(gdp_impact, deepcopy(dominant_policy_df), how="left", left_on="date", right_on="month_of")
-    df["GDP"] = df.c + df.i - df.g
+    df["GDP"] = df.c + df.i - df.g + df.x
     df.dropna(subset=['dominant_policy'], inplace=True)
     # Load the default policy gamma values to a DF
     policy_gamma_df = pd.DataFrame.from_dict(default_dict_normalized_policy_gamma, orient='index')
     policy_gamma_df.columns = ['gamma']
     # Calculate GDP impact for observed policies
-    mean_GDP_impact = df.groupby("dominant_policy").agg({'c':'mean', 'i':'mean', 'g':'mean', 'GDP': 'mean'})/( TOTAL_GDP[region] / (12*1e9) )
+    mean_GDP_impact = df.groupby("dominant_policy").agg({'c':'mean', 'i':'mean', 'g':'mean', 'x':'mean', 'GDP': 'mean'})/( TOTAL_GDP[region] / (12*1e9) )
     mean_GDP_impact = mean_GDP_impact.join(policy_gamma_df, how='left')
 
     # Linear regression to extrapolate for unobserved policies

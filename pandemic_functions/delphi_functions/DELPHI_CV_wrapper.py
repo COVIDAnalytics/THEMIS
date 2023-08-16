@@ -14,12 +14,12 @@ from pandemic_functions.pandemic_params import *
 from pandemic_functions.delphi_functions.DELPHI_utils import *
 from pandemic_functions.delphi_functions.DELPHI_model_fitting import solve_and_predict_area
 
-def evaluate_delphi_region(region: str, folds: list = ['20200515', '20200715', '20200915']):
+def evaluate_delphi_region(region: str, splits: list = ['20200515', '20200715', '20200915']):
     """
     Evaluate DELPHI for a particular region by performing 3 fold timeseries cross validation using MAPE score
     :param region: str, code for the region we are evaluating
-    :param folds: list, the dates to use for train-test split at different folds. Number of folds is equal to the length of the list
-    :returns: list of tuples of (MAPE on cases, MAPE on deaths) for each CV split
+    :param splits: list, the dates to use for train-test splits. Number of folds is equal to the length of the list
+    :returns: tuple of (average MAPE on cases, average MAPE on deaths)
     """ 
     country, province = region_symbol_country_dict[region]
     country_sub = country.replace(" ", "_")
@@ -34,27 +34,31 @@ def evaluate_delphi_region(region: str, folds: list = ['20200515', '20200715', '
             (totalcases.date <= str(default_maxT))
             ].reset_index(drop=True)
     
-    cv_results = []
+    list_mape_cases = []
+    list_mape_deaths = []
     
-    for yesterday in folds:
+    for yesterday in splits:
         _, df_predictions_since_today, _, _ = \
             solve_and_predict_area(region, yesterday, None, totalcases=totalcases)
         testcases = totalcases[totalcases.date > str(pd.to_datetime(yesterday))]
         mape_cases, mape_deaths = get_mape_test_data(testcases.case_cnt, testcases.death_cnt,
                 df_predictions_since_today['Total Detected'], df_predictions_since_today['Total Detected Deaths'])
-        cv_results.append((mape_cases, mape_deaths))
+        list_mape_cases.append(mape_cases)
+        list_mape_deaths.append(mape_deaths)
 
-    return cv_results
+    return np.mean(list_mape_cases), np.mean(list_mape_deaths)
 
-def evaluate_delphi(folds: list = ['20200515', '20200715', '20200915']):
+def evaluate_delphi(regions: list, splits: list = ['20200515', '20200715', '20200915']):
     """
-    Wrapper function to perform N fold cross validation using the delphi model with dual annealing optimizer
-    :param folds: list, the dates to use for train-test split at different folds. Number of folds is equal to the length of the list
-    :returns: list of results for every region, where every element is another list of tuples of (MAPE on cases, MAPE on deaths) for each CV split
+    Wrapper function to perform N fold time-series cross validation using the delphi model with dual annealing optimizer
+    :param regions: list, codes for all the regions we will run the evaluation for
+    :param splits: list, the dates to use for train-test splits. Number of folds is equal to the length of the list
+    :returns: data frame with 3 columns -> region, mape_cases, mape_deaths
     """
-    cv_results = []
-    for region in region_symbol_country_dict.keys():
-        cv_results_region = evaluate_delphi_region(region, folds=folds)
-        cv_results.append(cv_results_region)
+    cv_results = pd.DataFrame(columns=['region', 'mape_cases', 'mape_deaths'])
+    for region in regions:
+        mape_cases, mape_deaths = evaluate_delphi_region(region, splits=splits)
+        cv_results = cv_results.append({'region': region, 'mape_cases': mape_cases, 'mape_deaths': mape_deaths}, 
+                        ignore_index=True)
 
     return cv_results
