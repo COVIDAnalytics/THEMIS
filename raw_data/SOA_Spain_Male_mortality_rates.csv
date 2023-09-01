@@ -1,0 +1,132 @@
+Table Name:,1981-82 Spain - Male
+Table Identity:,653
+Provider Domain:,soa.org
+Provider Name:,Roger Scott Lumsden
+Table Reference:,"E. Navarro, “Tables de Mortalidad de la Población Española 1982.  Metodologia y Fuentes” (Madrid, 1991) Reprinted by A.S. MacDonald, ""The Second Actuarial Study of Mortality in Europe"", Groupe Consultatif des Associations d’Actuaries des Pays Des Communautés Européennes (United Kingdom, 1997) Appendix. Accessed: February, 2013 from http://www.gcactuaries.org/documents/mortalitystudy1997.zip"
+Content Type:,Population Mortality
+Table Description:,1981-82 Spain – Male. Minimum Age: 0 Maximum Age: 107
+EffDate:,
+Comments:,"Study Data: Based on census estimates of the Spanish population on July 1, 1981 and July 1, 1982 and on deaths during 1981 and 1982. Methodology: Deaths at each age assumed to follow a binomial distribution. Data divided into three age ranges: adolescent through 28, middle ages up to age 81 and then those older than 81. There were irregularities at the older ages that could have led to distortions at the middle ages if the three groups had been graduated together. Similarly, at younger ages, the well-known pattern of infant mortality warranted separate graduation. An LGM(3,3) formula was used for fitting the middle age range.  Juvenile ages were fitted with a pair of cubic polynomials around a break point at age 10.68. Ages 80-95 were smoothed by moving averages and then fitted to a pair of cubic polynomials around age 85. Ages above 95 were extrapolated by a cubic to reach 0.75 at age 105. Data Transcription Errors: None. Data Certified: 10/2013."
+Keywords:,"Aggregate,Population mortality,Spain"
+
+Table # ,1
+Table Description:,1981-82 Spain – Male. Minimum Age: 0 Maximum Age: 107
+Nation:,Spain
+Scaling Factor:,0
+Data Type:,Floating Point
+"Row, Column (if applicable)->id:",Age
+"Row, Column (if applicable)->ScaleType:",Age
+"Row, Column (if applicable)->AxisName:",Age
+"Row, Column (if applicable)->MinScaleValue:",0
+"Row, Column (if applicable)->MaxScaleValue:",107
+"Row, Column (if applicable)->Increment:",1
+
+Row\Column,1
+0,0.012964
+1,0.001011
+2,0.000704
+3,0.000550
+4,0.000444
+5,0.000377
+6,0.000340
+7,0.000324
+8,0.000320
+9,0.000319
+10,0.000311
+11,0.000292
+12,0.000300
+13,0.000344
+14,0.000417
+15,0.000510
+16,0.000617
+17,0.000731
+18,0.000843
+19,0.000947
+20,0.001034
+21,0.001098
+22,0.001131
+23,0.001126
+24,0.001090
+25,0.001062
+26,0.001045
+27,0.001039
+28,0.001045
+29,0.001063
+30,0.001093
+31,0.001137
+32,0.001194
+33,0.001265
+34,0.001351
+35,0.001452
+36,0.001570
+37,0.001705
+38,0.001859
+39,0.002031
+40,0.002224
+41,0.002439
+42,0.002677
+43,0.002940
+44,0.003229
+45,0.003547
+46,0.003896
+47,0.004277
+48,0.004695
+49,0.005151
+50,0.005650
+51,0.006194
+52,0.006788
+53,0.007437
+54,0.008145
+55,0.008919
+56,0.009763
+57,0.010687
+58,0.011697
+59,0.012802
+60,0.014012
+61,0.015339
+62,0.016794
+63,0.018392
+64,0.021047
+65,0.022078
+66,0.024203
+67,0.026545
+68,0.029127
+69,0.031977
+70,0.035124
+71,0.038604
+72,0.042452
+73,0.046712
+74,0.051429
+75,0.056654
+76,0.062444
+77,0.068861
+78,0.075972
+79,0.083850
+80,0.092575
+81,0.101416
+82,0.110072
+83,0.119275
+84,0.129756
+85,0.142246
+86,0.155128
+87,0.166489
+88,0.176622
+89,0.185818
+90,0.194370
+91,0.202569
+92,0.210708
+93,0.219077
+94,0.227971
+95,0.237679
+96,0.251994
+97,0.274513
+98,0.305236
+99,0.344162
+100,0.391292
+101,0.446626
+102,0.510164
+103,0.581906
+104,0.661851
+105,0.750000
+106,0.846353
+107,0.950909

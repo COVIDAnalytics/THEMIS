@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 from dateparser import parse
 from copy import deepcopy
 
-from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_oxford_country_policy_data, read_policy_data_us_only, get_dominant_policy
+from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_oxford_country_policy_data, read_policy_data_us_only, get_dominant_policy, get_region_gammas
 from pandemic_functions.pandemic_params import future_policies, region_symbol_country_dict, default_dict_normalized_policy_gamma
 from cost_functions.economic_cost.economic_data.economic_params import TOTAL_GDP
 
@@ -57,11 +57,20 @@ def get_policy_gdp_impact(region:str, dominant_policy_df:pd.DataFrame):
     # Linear regression to extrapolate for unobserved policies
     x = np.array(mean_GDP_impact.gamma.to_list())
     x = 1-x # reversing gamma to make the line pass through 0 for No Measure
+    x = x.reshape(-1,1)
     y = np.array(mean_GDP_impact.GDP.to_list())
-    model = LinearRegression(fit_intercept=False).fit(x.reshape(-1,1), y)
-    m = model.coef_[0]
     policy_gdp_impact_df = deepcopy(policy_gamma_df)
-    policy_gdp_impact_df["pred_gdp_impact"] = [m*(1-g) for g in policy_gdp_impact_df["gamma"]]
+    if len(y) >= 2:
+        model = LinearRegression(fit_intercept=False).fit(x, y)
+        r2 = model.score(x,y) # in-sample R^2
+        m = model.coef_[0]
+        policy_gdp_impact_df["pred_gdp_impact"] = [m*(1-g) for g in policy_gdp_impact_df["gamma"]]
+        policy_gdp_impact_df["gdp_r2"] = r2
+    else:
+        g0 = mean_GDP_impact.iloc[0]['gamma']
+        gdp0 = mean_GDP_impact.iloc[0]['GDP']
+        policy_gdp_impact_df["pred_gdp_impact"] = [gdp0*(g/g0) for g in policy_gdp_impact_df["gamma"]]
+        policy_gdp_impact_df["gdp_r2"] = np.nan
 
     return policy_gdp_impact_df
 
@@ -82,12 +91,28 @@ def get_policy_employment_impact(region:str, dominant_policy_df:pd.DataFrame):
     # Linear regression to extrapolate to unobserved policies
     x = np.array(mean_emp_impact.gamma.to_list())
     x = 1-x # reversing gamma to make the line pass through 0 for No Measure
+    x = x.reshape(-1,1)
     y = np.array(mean_emp_impact.unemployment_gain.to_list())
-    ind = np.array(mean_emp_impact.index.to_list())
-    model_emp = LinearRegression(fit_intercept=False).fit(x.reshape(-1,1), y)
-    m_emp = model_emp.coef_[0]
     policy_employment_impact_df = deepcopy(policy_gamma_df)
-    policy_employment_impact_df["pred_unemployment_gain"] = [m_emp*(1-g) for g in policy_employment_impact_df["gamma"]]
+    if len(y) >= 2:
+        model_emp = LinearRegression(fit_intercept=False).fit(x, y)
+        r2 = model_emp.score(x, y) # in-sample R^2
+        m_emp = model_emp.coef_[0]
+        policy_employment_impact_df["pred_unemployment_gain"] = [m_emp*(1-g) for g in policy_employment_impact_df["gamma"]]
+        policy_employment_impact_df["unemployment_r2"] = r2
+    else:
+        g0 = mean_emp_impact.iloc[0]['gamma']
+        u0 = mean_emp_impact.iloc[0]['unemployment_gain']
+        policy_employment_impact_df["pred_unemployment_gain"] = [u0*(g/g0) for g in policy_employment_impact_df["gamma"]]
+        policy_employment_impact_df["unemployment_r2"] = np.nan
 
     return policy_employment_impact_df
+
+def get_region_gamma_df(region:str, start_date: str, end_date: str):
+    """Returns a DataFrame with the regional gamma values imputed using linear interpolation"""
+    region_gamma_dict, reg_results = get_region_gammas(region, start_date=start_date, end_date=end_date, return_regression_result=True)
+    df = pd.DataFrame.from_dict(region_gamma_dict, orient='index')
+    df.columns = ['region_gamma']
+    df['regression_r2'] = reg_results[2]**2
+    return df
 

@@ -571,7 +571,3 @@ def create_datasets_with_confidence_intervals(
         df_predictions_since_today_cont_country_prov,
         df_predictions_since_100_cont_country_prov,
     )
-
-
-## TODO
-## - utils to save metrics in CSVs

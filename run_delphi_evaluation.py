@@ -12,9 +12,9 @@ split_dates = ['20200515', '20200715', '20200915']
 
 st = time.time()
 print(f"Running DELPHI evaluation for {len(regions)} regions with {len(split_dates)} splits")
-cv_results = evaluate_delphi(regions, splits = split_dates)
+cv_results = evaluate_delphi(regions, splits = split_dates, test_full_range=False)
 print("Process took -- %s seconds" % (time.time()-st))
 # %%
 
 print("Saving Results...")
-cv_results.to_csv('simulation_results/DELPHI_evaluation_metrics.csv')
+cv_results.to_csv('simulation_results/DELPHI_evaluation_metrics_two_month.csv')

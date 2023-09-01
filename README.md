@@ -4,9 +4,9 @@ The repository contains code for a framework that attempts to analyze the differ
 
 ## 1. Repository Structure
 
-Here we briefly describe how the repository is structured for better navigation of the reader. \\
-\\
-`THEMIS/` \\
+Here we briefly describe how the repository is structured for better navigation of the reader.
+
+`THEMIS/`
 1. `cost_functions/` - contains functions and data defining different cost components
     * `economic_cost/` - contains functions and data for different components of economic cost
         - `economic_data/` - contains the data for economic costs
@@ -34,7 +34,7 @@ Here we briefly describe how the repository is structured for better navigation 
 4. `utils/` - miscellaneous tools required in the project
     * `cost_utils.py`
     * `visualization_utils.py`
-5. `notebooks/` - notebooks and excel sheets that demonstrate the calculation of some of the parameters and plots
+5. `notebooks/` - this folder contains all the scripts and excel files that are used to process the raw data
     * `monthly_dominant_policy.ipynb` - gamma values and GDP and Employment impact for different policies in different regions
     * `visualize_results_final.ipynb` - code to produce the plots
     * ...

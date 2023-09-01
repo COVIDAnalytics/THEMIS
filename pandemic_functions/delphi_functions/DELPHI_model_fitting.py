@@ -182,7 +182,8 @@ def solve_and_predict_area(
         yesterday: str,
         past_parameters,
         totalcases: Union[pd.DataFrame, Type[None]]=None,
-        T_start: Union[str, Type[None]]=None,
+        start_date: Union[str, Type[None]]=None,
+        end_date: Union[str, Type[None]]=None,
         optimization_method: str='annealing'
     ):
     """
@@ -192,7 +193,8 @@ def solve_and_predict_area(
     :param yesterday: string corresponding to the date from which the model will read the previous parameters. The
     format has to be 'YYYYMMDD'
     :param past_parameters: Parameters from `yesterday` used as a starting point for the fitting process
-    :T_start: string for the date from when the pandemic will be modelled (format should be 'YYYY-MM-DD')
+    :start_date: string for the date from when the pandemic will be modelled (format should be 'YYYY-MM-DD')
+    :end_date: string for the date till when the predictions will be made (format should be 'YYYY-MM-DD')
     :return: either None if can't optimize (either less than 100 cases or less than 7 days with 100 cases) or a tuple
     with 3 dataframes related to that `tuple_region` (parameters df, predictions since yesterday+1, predictions since
     first day with 100 cases) and a scipy.optimize object (OptimizeResult) that contains the predictions for all
@@ -269,8 +271,8 @@ def solve_and_predict_area(
     
     # Currently fit on alpha, a and b, r_dth,
     # & initial condition of exposed state and infected state
-    # Maximum timespan of prediction, defaulted to go to 15/09/2020
-    maxT = (default_maxT - date_day_since100).days + 1
+    # Maximum timespan of prediction, defaulted to go to 12/31/2020
+    maxT = (default_maxT - date_day_since100).days + 1 if end_date is None else (pd.to_datetime(end_date) - date_day_since100).days + 1
 
     ## Fit on Total Cases
     t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]

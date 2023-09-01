@@ -6,6 +6,7 @@ from itertools import compress
 from typing import Union, Type
 from scipy.integrate import solve_ivp
 from scipy import stats
+from scipy.stats import linregress
 from datetime import datetime, timedelta
 # from dateparser import parse
 from dateutil.relativedelta import relativedelta
@@ -475,11 +476,17 @@ def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_dat
     
     return future_policies[ int(np.median(policies)) ]
 
-def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
+def get_region_gammas(region: str,
+                    start_date: Union[str, Type[None]] = None,
+                    end_date: Union[str, Type[None]] = None, 
+                    policy_days_thresh: int = 10, 
+                    return_regression_result: bool = False) -> dict:
     """
     Function to calculate the gamma values for the region by interpolating the values for the observed policies using the default gamma values
     Parameters:
         - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+        - policy_days_thresh (optional): int, minimum number of days a policy should have been implemented to use that as a datapoint in extrapolating
+        - return_regression_result (optional): bool, if True it returns the regression result
     Returns:
         - Dict of policy -> gamma avalue
     """
@@ -487,14 +494,13 @@ def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
     params_list = past_parameters.query("Country == @country and Province == @province")[
         ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]
     ].iloc[0]
-    # final_start_date = max(parse(params_list['Data Start Date']), parse(policy_data_start_date))
-    # final_start_date = str(final_start_date.date())
-    final_start_date=policy_data_start_date
+    ref_start_date = policy_data_start_date if start_date is None else start_date
+    ref_end_date = policy_data_end_date if end_date is None else end_date
 
     if country == 'US':
-        policy_data = read_policy_data_us_only(state=province, start_date=final_start_date, end_date=policy_data_end_date)
+        policy_data = read_policy_data_us_only(state=province, start_date=ref_start_date, end_date=ref_end_date)
     else:
-        policy_data = read_oxford_country_policy_data(country=country, start_date=final_start_date, end_date=policy_data_end_date)
+        policy_data = read_oxford_country_policy_data(country=country, start_date=ref_start_date, end_date=ref_end_date)
 
     policy_data.loc[:, "Gamma"] = [
         gamma_t(day, params_list)
@@ -522,8 +528,6 @@ def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
     default_policy_gammas = deepcopy(default_dict_normalized_policy_gamma)
     default_policy_gammas = dict(sorted(default_policy_gammas.items(), key=lambda x: x[0]))
 
-    from scipy.stats import linregress
-
     x = np.array(list(default_policy_gammas.values()))
     y = np.array(list(dict_region_policy_gamma.values()))
     ind = np.array(list(dict_region_policy_counts.values()))
@@ -537,11 +541,14 @@ def get_region_gammas(region: str, policy_days_thresh: int = 10) -> dict:
     y_train = y[(~np.isnan(y)) & (ind > policy_days_thresh)]
     y_train = sigmoid_inv_np(y_train/2)
 
-    m, C, _, _, _ = linregress(x_train, y_train)
+    m, C, r, p, stderr = linregress(x_train, y_train)
 
     for key in dict_region_policy_gamma.keys():
         if key not in train_keys:
             dict_region_policy_gamma[key] = 2*sigmoid(m*default_policy_gammas[key] + C)
+
+    if return_regression_result:
+        return dict_region_policy_gamma, (m, C, r, p, stderr)
 
     return dict_region_policy_gamma
 
