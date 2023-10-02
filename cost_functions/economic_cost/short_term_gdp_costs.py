@@ -3,6 +3,7 @@
 
 from cost_functions.economic_cost.economic_data.economic_params import TOTAL_GDP,GDP_IMPACT,COVID_SICK_DAYS,TOTAL_WORKING_DAYS,TOTAL_LABOR_FORCE
 from dateutil.relativedelta import relativedelta
+import numpy as np
 import pandas as pd
 from os.path import isfile
 from pathlib import Path
@@ -32,7 +33,7 @@ def get_gdp_cost(pandemic):
     Parameters:
         - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
     Returns:
-        - Tuple (gdp_cost, sick_worker_cost)
+        - Tuple (gdp_cost, sick_worker_cost) where sick_workers_cost: np.array of size 3 [value, lower bound, upper bound]
     """
     if pandemic.policy.policy_type == "actual":
         gdp_data_path = Path(__file__).parent / f"economic_data/gdp/{pandemic.region}.csv"
@@ -49,7 +50,7 @@ def get_gdp_cost(pandemic):
             gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].g.values[0]) * 1e9
             gdp_loss.append(monthly_gdp_loss)
         gdp_cost = -sum(gdp_loss)
-        return (gdp_cost, 0)
+        return (gdp_cost, np.array([0.,0.,0.]))
     else:
         # we are in hypothetical regime
         gdp_loss = []
@@ -59,5 +60,6 @@ def get_gdp_cost(pandemic):
             monthly_gdp_loss = impact_of_policy / 100 * TOTAL_GDP[pandemic.region] / 12
             gdp_loss.append(monthly_gdp_loss)
         gdp_cost = -sum(gdp_loss)
-        sick_worker_cost = pandemic.num_cases / TOTAL_LABOR_FORCE[pandemic.region] * COVID_SICK_DAYS[pandemic.region] / TOTAL_WORKING_DAYS[pandemic.region] * TOTAL_GDP[pandemic.region]
+        num_cases = np.array([pandemic.num_cases, pandemic.num_cases_lb, pandemic.num_cases_ub])
+        sick_worker_cost = num_cases / TOTAL_LABOR_FORCE[pandemic.region] * COVID_SICK_DAYS[pandemic.region] / TOTAL_WORKING_DAYS[pandemic.region] * TOTAL_GDP[pandemic.region]
         return (gdp_cost, sick_worker_cost)

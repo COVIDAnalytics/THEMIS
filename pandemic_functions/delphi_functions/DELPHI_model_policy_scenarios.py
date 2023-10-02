@@ -554,6 +554,7 @@ def get_region_gammas(region: str,
 
 def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
     country, province = region_symbol_country_dict[region]
+    continent = region_symbol_continent_dict[region]
     parameter_list_total = past_parameters[(past_parameters.Country == country) & (past_parameters.Province == province)]
 
     if len(parameter_list_total) > 0:
@@ -561,7 +562,6 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
         parameter_list = parameter_list_line[5:]
         date_day_since100 = pd.to_datetime(parameter_list_line[3])
         # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-        start_date = date_day_since100
         validcases = totalcases[
             (totalcases.date >= str(date_day_since100.date()))
             & (totalcases.date <= str(policy.end_date.date()))
@@ -587,7 +587,7 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
             raise ValueError("Policy start date too early for DELPHI to model the epidemic")
         policy_startT = (policy_scenario_start_date - date_day_since100).days + 1
         # policy_startT = max((policy_scenario_start_date - date_day_since100).days + 1, 1)
-        t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
+        # t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
         GLOBAL_PARAMS_FIXED = (N, PopulationR, PopulationD, PopulationI, p_v, p_d, p_h)
         best_params = parameter_list
         t_predictions = list(range(maxT))
@@ -620,19 +620,31 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
             args=tuple(best_params),
         ).y
 
-        num_cases = round(x_sol_final[15,-1] - x_sol_final[15, policy_startT-1], 0)
-        num_deaths = round(x_sol_final[14, -1] - x_sol_final[14, policy_startT-1], 0)
-        active_hospitalized = (
-                x_sol_final[4, :] + x_sol_final[7, :]
-        )  # DHR + DHD
-        active_hospitalized = [int(round(x, 0)) for x in active_hospitalized]
-        active_ventilated = (
-                x_sol_final[12, :] + x_sol_final[13, :]
-        )  # DVR + DVD
-        active_ventilated = [int(round(x, 0)) for x in active_ventilated]
+        cases_data_fit = validcases['case_cnt'].tolist()
+        deaths_data_fit = validcases['death_cnt'].tolist()
+        yesterday = str((policy_scenario_start_date - timedelta(days=1)).date())
+        df_pred_with_ci, _ = create_datasets_with_confidence_intervals(continent, country, province,
+            date_day_since100, yesterday, x_sol_final,
+            cases_data_fit, deaths_data_fit)
+        
+        detected = df_pred_with_ci['Total Detected'].tolist()
+        detected_lb = df_pred_with_ci['Total Detected LB'].tolist()
+        detected_ub = df_pred_with_ci['Total Detected UB'].tolist()
+        num_cases = detected[-1] - detected[0]
+        num_cases_lb = detected_lb[-1] - detected_lb[0]
+        num_cases_ub = detected_ub[-1] - detected_ub[0]
+        deaths = df_pred_with_ci['Total Detected Deaths'].tolist()
+        deaths_lb = df_pred_with_ci['Total Detected Deaths LB'].tolist()
+        deaths_ub = df_pred_with_ci['Total Detected Deaths UB'].tolist()
+        num_deaths = deaths[-1] - deaths[0]
+        num_deaths_lb = deaths_lb[-1] - deaths_lb[0]
+        num_deaths_ub = deaths_ub[-1] - deaths_ub[0]
+        active_hospitalized = df_pred_with_ci['Active Hospitalized'].tolist()
         hospitalization_days = sum(active_hospitalized[(policy_startT-1):])
+        active_ventilated = df_pred_with_ci['Active Ventilated'].tolist()
         ventilated_days = sum(active_ventilated[(policy_startT-1):])
 
-    ## TODO:
-    ## - return LB UB in results
-    return num_cases, num_deaths, hospitalization_days, ventilated_days
+        return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
+            hospitalization_days, ventilated_days
+    else:
+        raise 'Length of Valid Cases less than the threshold'

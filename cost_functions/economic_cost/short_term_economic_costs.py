@@ -12,7 +12,7 @@ def short_term_economic_costs(pandemic):
     Parameters:
         - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
     Returns:
-        - Tuple (employment cost, GDP impact, sick worker costs)
+        - Tuple (employment cost, GDP impact, sick worker costs) where sick_workers_cost: np.array of size 3 (value, lower bound, upper bound)
     """
     st_term_unemployment_costs = short_term_unemployment_costs(pandemic)
     st_term_gdp_impact, st_term_sick_worker_cost = short_term_gdp_costs(pandemic)

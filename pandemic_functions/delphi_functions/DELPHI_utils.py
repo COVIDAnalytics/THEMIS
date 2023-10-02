@@ -278,16 +278,14 @@ def make_increasing(sequence: list) -> list:
         sequence[i] = max(sequence[i], sequence[max(i-1, 0)])
     return sequence
 
-## TODO
-## - test this function
 def create_datasets_with_confidence_intervals(
         continent:str, country:str, province:str,
         date_day_since100: datetime, yesterday: str,
         x_sol_final: np.array,
         cases_data_fit: list,
         deaths_data_fit: list,
-        past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
-        past_prediction_date: str = "2020-07-04",
+        past_prediction_file: str = "pandemic_functions/pandemic_data/DELPHI_predictions_forCI_2020-06-03.csv",
+        past_prediction_date: str = "2020-06-03",
         q: float = 0.5,
     ) -> (pd.DataFrame, pd.DataFrame):
     """

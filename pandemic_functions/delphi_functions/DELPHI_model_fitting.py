@@ -176,7 +176,7 @@ def get_bounds_params_from_pastparams(
 
 
 ## TODO
-## - ability to fit on data from T_start instead of date_day_since100
+## - ability to fit on data from start_date instead of date_day_since100
 def solve_and_predict_area(
         region: str,
         yesterday: str,

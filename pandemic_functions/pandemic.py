@@ -46,7 +46,9 @@ class Pandemic:
     # We call it here so that we dont have to repeatedly call DELPHI over and over again. 
         self.policy = policy
         self.region = region
-        self.num_cases, self.num_deaths, self.hospitalization_days, self.icu_days, self.ventilated_days = self._get_deaths_and_hospitalizations(delphi_prediction, totalcases, dict_region_policy_gamma)   
+        self.num_cases, self.num_cases_lb, self.num_cases_ub, self.num_deaths, self.num_deaths_lb, \
+            self.num_deaths_ub, self.hospitalization_days, self.icu_days, self.ventilated_days \
+                = self._get_deaths_and_hospitalizations(delphi_prediction, totalcases, dict_region_policy_gamma)   
         
         
     def _get_deaths_and_hospitalizations(self, delphi_prediction, totalcases, dict_region_policy_gamma):
@@ -79,12 +81,14 @@ class Pandemic:
                 icu_days = ventilated_days*(0.15/0.85) # (1/0.85 - 1)*ventilated_days
                 hospitalization_days = hospitalization_days - icu_days
         else:
-            num_cases, num_deaths, hospitalization_days, ventilated_days = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
+            num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
+                hospitalization_days, ventilated_days = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
             # ventilated_days = hospitalization_days*p_v 
             icu_days = ventilated_days*(0.15/0.85)
             hospitalization_days = hospitalization_days - icu_days
         
-        return num_cases, num_deaths, hospitalization_days, icu_days, ventilated_days
+        return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
+            hospitalization_days, icu_days, ventilated_days
         
         
 
