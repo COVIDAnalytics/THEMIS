@@ -1,4 +1,4 @@
-from pandemic_cost import PandemicCost
+from pandemic_functions.pandemic_cost import PandemicCost
 from policy_functions.policy import Policy
 from pandemic_functions.pandemic import Pandemic_Factory
 import locale
@@ -80,8 +80,12 @@ output_df["country"] = region
 output_df["start_date"] = start_date
 output_df["policy_length"] = policy_length
 
-output_df = output_df[["country","start_date","policy_length","policy","st_economic_costs","lt_economic_costs", # "st_term_unemployment_costs", "st_term_gdp_impact", "st_term_sick_worker_cost",
-                       "d_costs","h_costs","mh_costs","num_cases","num_deaths","hospitalization_days","icu_days","ventilated_days"]]
+output_df = output_df[["country","start_date","policy_length","policy",
+        "st_economic_costs", "st_economic_costs_lb", "st_economic_costs_ub", "lt_economic_costs", 
+        # "st_term_unemployment_costs", "st_term_gdp_impact", "st_term_sick_worker_cost", "st_term_sick_worker_cost_lb", "st_term_sick_worker_cost_ub",
+        "d_costs", "d_costs_lb", "d_costs_ub", "h_costs", "mh_costs", "mh_costs_lb", "mh_costs_ub", 
+        "num_cases", "num_cases_lb", "num_cases_ub", "num_deaths", "num_deaths_lb", "num_deaths_ub", 
+        "hospitalization_days","icu_days","ventilated_days"]]
 
 time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 output_df.to_csv('simulation_results/test_result_' + region + '_' + time_stamp + '.csv')

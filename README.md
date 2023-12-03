@@ -28,6 +28,7 @@ Here we briefly describe how the repository is structured for better navigation 
         - `DELPHI_model_policy_scenarios.py` - the DELPHI model
     * `pandemic_data/` - contains historical data for the cases and deaths as well as DELPHI parameters
     * `pandemic.py` - encapsulates the pandemic scenario for a region
+    * `pandemic_cost.py` - encapsulates all costs associated with the pandemic
     * `pandemic_params.py`
 3. `policy_functions/` - functions to define different policies
     * `policy.py`
@@ -39,10 +40,9 @@ Here we briefly describe how the repository is structured for better navigation 
     * `visualize_results_final.ipynb` - code to produce the plots
     * ...
 6. `simulation_results/` - contains the results of the simulations based on which the plots are created
-7. `pandemic_cost.py` - encapsulates all costs associated with the pandemic
-8. `main.py` - the main script that can be run to compute the results
-9. `LICENSE` - license for this project
-10. `README.md` - brief documentation
+7. `main.py` - the main script that can be run to compute the results
+8. `LICENSE` - license for this project
+9. `README.md` - brief documentation
 
 ## 2. Running the Model
 

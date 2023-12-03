@@ -67,6 +67,7 @@ class Pandemic:
             num_cases = cases_in_interval.iloc[-1]["case_cnt"] - cases_in_interval.iloc[0]["case_cnt"]
             hospitalization_days = preds_in_interval["Active Hospitalized"].sum()
             ventilated_days = preds_in_interval["Active Ventilated"].sum()
+            num_cases_lb = num_cases_ub = num_deaths_lb = num_deaths_ub = np.nan
 
             if self.region == "DE":
                 hosp_global = pd.read_csv("pandemic_functions/pandemic_data/global_hospitalizations.csv")
