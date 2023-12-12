@@ -480,7 +480,9 @@ def get_region_gammas(region: str,
                     start_date: Union[str, Type[None]] = None,
                     end_date: Union[str, Type[None]] = None, 
                     policy_days_thresh: int = 10, 
-                    return_regression_result: bool = False) -> dict:
+                    return_regression_result: bool = False,
+                    sample_gammas: bool = False,
+                    n_sample: int = 20) -> dict:
     """
     Function to calculate the gamma values for the region by interpolating the values for the observed policies using the default gamma values
     Parameters:
@@ -542,15 +544,28 @@ def get_region_gammas(region: str,
     y_train = sigmoid_inv_np(y_train/2)
 
     m, C, r, p, stderr = linregress(x_train, y_train)
+    resid = y_train - (m*x_train + C)
+    rstd = stats.sem(resid)
 
-    for key in dict_region_policy_gamma.keys():
-        if key not in train_keys:
-            dict_region_policy_gamma[key] = 2*sigmoid(m*default_policy_gammas[key] + C)
+    results = None
+    if sample_gammas:
+        results = []
+        for _ in range(n_sample):
+            dict_gamma_sample = deepcopy(dict_region_policy_gamma)
+            for key in dict_gamma_sample.keys():
+                if key not in train_keys:
+                    dict_gamma_sample[key] = 2*sigmoid(np.random.normal(loc=m*default_policy_gammas[key] + C, scale=rstd))
+            results.append(dict_gamma_sample)
+    else:
+        for key in dict_region_policy_gamma.keys():
+            if key not in train_keys:
+                dict_region_policy_gamma[key] = 2*sigmoid(m*default_policy_gammas[key] + C)
+        results = dict_region_policy_gamma
 
     if return_regression_result:
-        return dict_region_policy_gamma, (m, C, r, p, stderr)
+        return results, (m, C, r, p, stderr)
 
-    return dict_region_policy_gamma
+    return results
 
 def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
     country, province = region_symbol_country_dict[region]
@@ -624,8 +639,7 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
         deaths_data_fit = validcases['death_cnt'].tolist()
         yesterday = str((policy_scenario_start_date - timedelta(days=1)).date())
         df_pred_with_ci, _ = create_datasets_with_confidence_intervals(continent, country, province,
-            date_day_since100, yesterday, x_sol_final,
-            cases_data_fit, deaths_data_fit)
+            date_day_since100, yesterday, x_sol_final, cases_data_fit, deaths_data_fit, q=bounds_q)
         
         detected = df_pred_with_ci['Total Detected'].tolist()
         detected_lb = df_pred_with_ci['Total Detected LB'].tolist()

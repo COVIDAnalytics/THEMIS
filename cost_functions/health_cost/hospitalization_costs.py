@@ -11,9 +11,9 @@ def hospitalization_costs(pandemic):
         - Total hospitalization costs
     """
     region = pandemic.region
-    total_hospitalized_days = pandemic.hospitalization_days
-    total_icu_days = pandemic.icu_days
-    total_ventilated_days = pandemic.ventilated_days
+    total_hospitalized_days =np.array([pandemic.hospitalization_days, pandemic.hospitalization_days_lb, pandemic.hospitalization_days_ub])
+    total_icu_days = np.array([pandemic.icu_days, pandemic.icu_days_lb, pandemic.icu_days_ub])
+    total_ventilated_days = np.array([pandemic.ventilated_days, pandemic.ventilated_days_lb, pandemic.ventilated_days_ub])
     
     inpatient_daily_cost = DAILY_HOSPITALIZATION_COST[region]["Inpatient"]
     inpatient_daily_cost = inpatient_daily_cost if inpatient_daily_cost is not None else 0

@@ -20,7 +20,11 @@ class Pandemic_Factory:
             raise FileNotFoundError(f"Can not find file - "+ path_to_predictions_combined + " for actual polcy outcome")
         
 
-    def compute_delphi(self, policy, region):
+    def compute_delphi(self, policy, region, **kwargs):
+        """
+        Loads the required data and simulates the pandemic using DELHPI for the given policy.
+        Returns an object of type `Pandemic`.
+        """
         country, province = region_symbol_country_dict[region]
         country_sub = country.replace(' ', '_')
         province_sub = province.replace(' ', '_')
@@ -35,23 +39,30 @@ class Pandemic_Factory:
                 self.d_region_policy_gammas[region] = dict_region_policy_gamma
             else:
                 raise FileNotFoundError(f"Can not find file - pandemic_data/Cases_{country_sub}_{province_sub}.csv for actual polcy outcome")
-        return Pandemic(policy, region, self.delphi_prediction, totalcases, dict_region_policy_gamma)
+        return Pandemic(policy, region, self.delphi_prediction, totalcases, dict_region_policy_gamma, **kwargs)
 
 
 class Pandemic:
-    """Class to encapsulate the pandemic scenario"""
-    def __init__(self, policy, region, delphi_prediction, totalcases, dict_region_policy_gamma):
+    """
+    Class to encapsulate the pandemic scenario. When initialized with the optional parameter `sample_gammas=True` 
+    and if the policy is not actual, it will sample gammas from a distribution to compute lower and upper bounds on predictions.
+    The optional parameter `n_sample:int` is used to specify the number of times gamma is sampled (default = 20).
+    """
+    def __init__(self, policy, region, delphi_prediction, totalcases, dict_region_policy_gamma, **kwargs):
     # This is the simulation of the pandemic under a certain policy
     # Given a fixed policy, we can calculate the number of deaths and hospitalizations incurred in such period using DELPHI. 
     # We call it here so that we dont have to repeatedly call DELPHI over and over again. 
         self.policy = policy
         self.region = region
+        output = self._get_deaths_and_hospitalizations(delphi_prediction, totalcases, dict_region_policy_gamma, **kwargs)
         self.num_cases, self.num_cases_lb, self.num_cases_ub, self.num_deaths, self.num_deaths_lb, \
-            self.num_deaths_ub, self.hospitalization_days, self.icu_days, self.ventilated_days \
-                = self._get_deaths_and_hospitalizations(delphi_prediction, totalcases, dict_region_policy_gamma)   
+            self.num_deaths_ub, self.hospitalization_days, self.hospitalization_days_lb, self.hospitalization_days_ub, \
+            self.icu_days, self.icu_days_lb, self.icu_days_ub, self.ventilated_days, self.ventilated_days_lb, \
+            self.ventilated_days_ub = output   
         
         
-    def _get_deaths_and_hospitalizations(self, delphi_prediction, totalcases, dict_region_policy_gamma):
+    def _get_deaths_and_hospitalizations(self, delphi_prediction, totalcases, dict_region_policy_gamma, 
+                                        sample_gammas:bool=False, n_sample:int=20):
         # this function gets the number of deaths and hospitalizations that would occur under such policy, using DELPHI
         # the return value is a tuple of numbers
         country, province = region_symbol_country_dict[self.region]
@@ -68,6 +79,7 @@ class Pandemic:
             hospitalization_days = preds_in_interval["Active Hospitalized"].sum()
             ventilated_days = preds_in_interval["Active Ventilated"].sum()
             num_cases_lb = num_cases_ub = num_deaths_lb = num_deaths_ub = np.nan
+            hospitalization_days_lb = hospitalization_days_ub = icu_days_lb = icu_days_ub = ventilated_days_lb = ventilated_days_ub = np.nan
 
             if self.region == "DE":
                 hosp_global = pd.read_csv("pandemic_functions/pandemic_data/global_hospitalizations.csv")
@@ -83,13 +95,30 @@ class Pandemic:
                 hospitalization_days = hospitalization_days - icu_days
         else:
             num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
-                hospitalization_days, ventilated_days = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
+                    hospitalization_days, ventilated_days = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
+            hospitalization_days_lb, ventilated_days_lb = hospitalization_days, ventilated_days
+            hospitalization_days_ub, ventilated_days_ub = hospitalization_days, ventilated_days
+            if sample_gammas:
+                gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
+                for dict_gammas in gamma_samples:
+                    _, nclb, ncub, _, ndlb, ndub, nhd, nvd = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
+                    num_cases_lb = min(num_cases_lb, nclb)
+                    num_cases_ub = max(num_cases_ub, ncub)
+                    num_deaths_lb = min(num_deaths_lb, ndlb)
+                    num_deaths_ub = max(num_deaths_ub, ndub)
+                    hospitalization_days_lb = min(hospitalization_days_lb, nhd)
+                    hospitalization_days_ub = max(hospitalization_days_ub, nhd)
+                    ventilated_days_lb = min(ventilated_days_lb, nvd)
+                    ventilated_days_ub = max(ventilated_days_ub, nvd)
             # ventilated_days = hospitalization_days*p_v 
-            icu_days = ventilated_days*(0.15/0.85)
-            hospitalization_days = hospitalization_days - icu_days
+            icu_vec = np.array([ventilated_days, ventilated_days_lb, ventilated_days_ub])*(0.15/0.85)
+            icu_days, icu_days_lb, icu_days_ub = tuple(icu_vec)
+            hospitalization_days, hospitalization_days_lb, hospitalization_days_ub = \
+                tuple(np.array([hospitalization_days, hospitalization_days_lb, hospitalization_days_ub]) - icu_vec)
         
         return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
-            hospitalization_days, icu_days, ventilated_days
+            hospitalization_days, hospitalization_days_lb, hospitalization_days_ub, \
+            icu_days, icu_days_lb, icu_days_ub, ventilated_days, ventilated_days_lb, ventilated_days_ub
         
         
 

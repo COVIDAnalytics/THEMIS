@@ -16,7 +16,7 @@ class PandemicCost:
         self.st_economic_costs, self.st_economic_costs_lb, self.st_economic_costs_ub = tuple(st_economic_costs_ci)
         self.lt_economic_costs = long_term_economic_costs(pandemic)
         self.d_costs, self.d_costs_lb, self.d_costs_ub  = death_costs(pandemic)
-        self.h_costs = hospitalization_costs(pandemic)
+        self.h_costs, self.h_costs_lb, self.h_costs_ub = hospitalization_costs(pandemic)
         self.mh_costs, self.mh_costs_lb, self.mh_costs_ub = mental_health_costs(pandemic)
         for a in pandemic.__dict__:
             setattr(self,a, pandemic.__dict__[a])

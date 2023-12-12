@@ -37,6 +37,7 @@ default_bounds_params = (
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
+bounds_q = 0.5 # quantile used for error bounds of DELPHI model
 
 # Default parameters - Annealing
 percentage_drift_upper_bound_annealing = 1
