@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 from dateparser import parse
 from copy import deepcopy
 
-from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_oxford_country_policy_data, read_policy_data_us_only, get_dominant_policy, get_region_gammas
+from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import read_oxford_country_policy_data, read_policy_data_us_only, get_dominant_policy, get_region_gammas, get_region_gammas_v2
 from pandemic_functions.pandemic_params import future_policies, region_symbol_country_dict, default_dict_normalized_policy_gamma
 from cost_functions.economic_cost.economic_data.economic_params import TOTAL_GDP
 
@@ -114,5 +114,12 @@ def get_region_gamma_df(region:str, start_date: str, end_date: str):
     df = pd.DataFrame.from_dict(region_gamma_dict, orient='index')
     df.columns = ['region_gamma']
     df['regression_r2'] = reg_results[2]**2
+    return df
+
+def get_region_gamma_df_v2(region:str, start_date: str, end_date: str):
+    """Returns a DataFrame with the regional gamma values imputed using linear interpolation"""
+    region_gamma_dict = get_region_gammas_v2(region, start_date=start_date, end_date=end_date)
+    df = pd.DataFrame.from_dict(region_gamma_dict, orient='index')
+    df.columns = ['region_gamma']
     return df
 

@@ -4,7 +4,7 @@ import pandas as pd
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from policy_functions.policy import Policy
-from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario, get_region_gammas
+from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario, get_region_gammas, get_region_gammas_v2
 from pandemic_functions.pandemic_params import region_symbol_country_dict, p_v
 
 
@@ -34,7 +34,8 @@ class Pandemic_Factory:
         else:
             if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"):
                 totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv")
-                dict_region_policy_gamma = get_region_gammas(region)
+                # dict_region_policy_gamma = get_region_gammas(region)
+                dict_region_policy_gamma = get_region_gammas_v2(region)
                 self.d_read_data_total_cases[region] = totalcases
                 self.d_region_policy_gammas[region] = dict_region_policy_gamma
             else:
@@ -99,7 +100,8 @@ class Pandemic:
             hospitalization_days_lb, ventilated_days_lb = hospitalization_days, ventilated_days
             hospitalization_days_ub, ventilated_days_ub = hospitalization_days, ventilated_days
             if sample_gammas:
-                gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
+                # gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
+                gamma_samples = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
                 for dict_gammas in gamma_samples:
                     _, nclb, ncub, _, ndlb, ndub, nhd, nvd = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
                     num_cases_lb = min(num_cases_lb, nclb)

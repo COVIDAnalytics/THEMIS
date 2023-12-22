@@ -567,6 +567,96 @@ def get_region_gammas(region: str,
 
     return results
 
+def get_region_gammas_v2(region: str,
+                    start_date: Union[str, Type[None]] = None,
+                    end_date: Union[str, Type[None]] = None, 
+                    policy_days_thresh: int = 10,
+                    sample_gammas: bool = False,
+                    n_sample: int = 20) -> dict:
+    """
+    Function to calculate the gamma values for the region by interpolating the values for the observed policies using the default gamma values
+    Parameters:
+        - pandemic: Pandemic object containing the information of the region and duration that is being analyzed
+        - policy_days_thresh (optional): int, minimum number of days a policy should have been implemented to use that as a datapoint in extrapolating
+    Returns:
+        - Dict of policy -> gamma avalue
+    """
+    country, province = region_symbol_country_dict[region]
+    params_list = past_parameters.query("Country == @country and Province == @province")[
+        ["Data Start Date", "Median Day of Action", "Rate of Action", "Jump Magnitude", "Jump Time", "Jump Decay"]
+    ].iloc[0]
+    ref_start_date = policy_data_start_date if start_date is None else start_date
+    ref_end_date = policy_data_end_date if end_date is None else end_date
+
+    if country == 'US':
+        policy_data = read_policy_data_us_only(state=province, start_date=ref_start_date, end_date=ref_end_date)
+    else:
+        policy_data = read_oxford_country_policy_data(country=country, start_date=ref_start_date, end_date=ref_end_date)
+
+    policy_data.loc[:, "Gamma"] = [
+        gamma_t(day, params_list)
+        for day in policy_data["date"]
+    ]
+    n_measures = policy_data.iloc[:, 3:-1].shape[1]
+    dict_region_policy_gamma = {
+        policy_data.columns[3 + i]: policy_data[
+            policy_data.iloc[:, 3 + i] == 1
+        ]
+        .iloc[:, -1]
+        .mean()
+        for i in range(n_measures)
+    }
+    dict_region_policy_counts = {
+        policy_data.columns[3 + i]: policy_data[
+            policy_data.iloc[:, 3 + i] == 1
+        ]
+        .iloc[:, 3 + i]
+        .sum()
+        for i in range(n_measures)
+    }
+    dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
+    dict_region_policy_counts = dict(sorted(dict_region_policy_counts.items(), key=lambda x: x[0]))
+    default_policy_gammas = deepcopy(default_dict_normalized_policy_gamma)
+    default_policy_gammas = dict(sorted(default_policy_gammas.items(), key=lambda x: x[0]))
+
+    for p, ndays in dict_region_policy_counts.items():
+        if ndays <= policy_days_thresh:
+            dict_region_policy_gamma.pop(p)
+
+    if len(dict_region_policy_gamma) == 0:
+        if sample_gammas:
+            return [default_policy_gammas]
+        return default_policy_gammas
+    
+    default_gamma = [
+        default_policy_gammas[next(x[0] for x in row.items() if x[1] ==1)]
+        for _, row in policy_data.iloc[:, 3:(3+n_measures)].iterrows()
+    ]
+    z = policy_data.Gamma.to_numpy() / default_gamma
+    zmean = np.mean(z)
+    zstd = np.std(z)
+
+    for p in default_policy_gammas.keys():
+        if p not in dict_region_policy_gamma:
+            dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
+
+    results = None
+    if sample_gammas:
+        results = []
+        for _ in range(n_sample):
+            dict_gamma_sample = deepcopy(dict_region_policy_gamma)
+            for p in default_policy_gammas.keys():
+                if p not in dict_gamma_sample:
+                    dict_region_policy_gamma[p] = np.random.normal(loc=default_policy_gammas[p] * zmean, scale=zstd)
+            results.append(dict_gamma_sample)
+    else:
+        for p in default_policy_gammas.keys():
+            if p not in dict_region_policy_gamma:
+                dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
+        results = dict_region_policy_gamma
+
+    return results
+
 def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
     country, province = region_symbol_country_dict[region]
     continent = region_symbol_continent_dict[region]
