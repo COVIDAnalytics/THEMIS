@@ -4,8 +4,9 @@ The repository contains code for a framework that attempts to analyze the differ
 
 ## 1. Repository Structure
 
-Here we briefly describe how the repository is structured for better navigation of the reader. \
-\
+
+Here we briefly describe how the repository is structured for better navigation of the reader.
+
 `THEMIS/`
 1. `cost_functions/` - contains functions and data defining different cost components
     * `economic_cost/` - contains functions and data for different components of economic cost
@@ -28,21 +29,21 @@ Here we briefly describe how the repository is structured for better navigation 
         - `DELPHI_model_policy_scenarios.py` - the DELPHI model
     * `pandemic_data/` - contains historical data for the cases and deaths as well as DELPHI parameters
     * `pandemic.py` - encapsulates the pandemic scenario for a region
+    * `pandemic_cost.py` - encapsulates all costs associated with the pandemic
     * `pandemic_params.py`
 3. `policy_functions/` - functions to define different policies
     * `policy.py`
 4. `utils/` - miscellaneous tools required in the project
     * `cost_utils.py`
     * `visualization_utils.py`
-5. `notebooks/` - notebooks and excel sheets that demonstrate the calculation of some of the parameters and plots
+5. `notebooks/` - this folder contains all the scripts and excel files that are used to process the raw data
     * `monthly_dominant_policy.ipynb` - gamma values and GDP and Employment impact for different policies in different regions
     * `visualize_results_final.ipynb` - code to produce the plots
     * ...
 6. `simulation_results/` - contains the results of the simulations based on which the plots are created
-7. `pandemic_cost.py` - encapsulates all costs associated with the pandemic
-8. `main.py` - the main script that can be run to compute the results
-9. `LICENSE` - license for this project
-10. `README.md` - brief documentation
+7. `main.py` - the main script that can be run to compute the results
+8. `LICENSE` - license for this project
+9. `README.md` - brief documentation
 
 ## 2. Running the Model
 

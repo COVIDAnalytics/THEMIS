@@ -7,98 +7,97 @@ def not_implemented():
     raise NotImplementedError
 
 # employment_impact in percentages
-EMPLOYMENT_IMPACT = {}
-EMPLOYMENT_IMPACT["DE"] = defaultdict(not_implemented, { "Lockdown": 2,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": 1.8,
-          'Restrict_Mass_Gatherings_and_Schools': 1.5,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 1.2,
-        "Restrict_Mass_Gatherings": 1,
-        "No_Measure": 0})
-    
-EMPLOYMENT_IMPACT["US-NY"] = defaultdict(not_implemented, { "Lockdown": 12.3,
-      "Restrict_Mass_Gatherings_and_Schools_and_Others": 10.8,
-      'Restrict_Mass_Gatherings_and_Schools': 9.3,
-      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 6.1,
-    "Restrict_Mass_Gatherings": 4.8,
-    "No_Measure": 0}) 
+EMPLOYMENT_IMPACT = {
+  'BR': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 0.4,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.7,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 1.1,
+    'Restrict_Mass_Gatherings_and_Schools': 1.8,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 2.0,
+    'Lockdown': 2.6}),
+  'DE': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 0.2,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.3,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.5,
+    'Restrict_Mass_Gatherings_and_Schools': 0.8,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.9,
+    'Lockdown': 1.2}),
+  'ES': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 0.5,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.8,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 1.2,
+    'Restrict_Mass_Gatherings_and_Schools': 1.9,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 2.1,
+    'Lockdown': 2.8}),
+  'SG': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 0.2,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.3,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.4,
+    'Restrict_Mass_Gatherings_and_Schools': 0.7,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.7,
+    'Lockdown': 1.0}),
+  'US-FL': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 1.8,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 2.9,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 4.7,
+    'Restrict_Mass_Gatherings_and_Schools': 7.4,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 8.2,
+    'Lockdown': 10.8}),
+  'US-NY': defaultdict(not_implemented, {'No_Measure': 0.0,
+    'Restrict_Mass_Gatherings': 1.8,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 2.9,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 4.6,
+    'Restrict_Mass_Gatherings_and_Schools': 7.3,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 8.0,
+    'Lockdown': 10.6})
+}
 
-EMPLOYMENT_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": 10.9,
-      "Restrict_Mass_Gatherings_and_Schools_and_Others": 9.3,
-      'Restrict_Mass_Gatherings_and_Schools': 8.4,
-      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 3.3,
-    "Restrict_Mass_Gatherings": 2,
-    "No_Measure": 0
-})
-
-EMPLOYMENT_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": 1.3,
-      "Restrict_Mass_Gatherings_and_Schools_and_Others": 1.0,
-      'Restrict_Mass_Gatherings_and_Schools': 0.8,
-      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.5,
-    "Restrict_Mass_Gatherings": 0.3,
-    "No_Measure": 0
-    })
-
-EMPLOYMENT_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": 2,
-      "Restrict_Mass_Gatherings_and_Schools_and_Others": 1.6,
-      'Restrict_Mass_Gatherings_and_Schools': 1.4,
-      'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.6,
-    "Restrict_Mass_Gatherings": 0.3,
-    "No_Measure": 0
-    })
-
-EMPLOYMENT_IMPACT["BR"] =defaultdict(not_implemented, { "Lockdown": 1.2,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.9,
-          'Restrict_Mass_Gatherings_and_Schools': 0.8,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.3,
-           "Restrict_Mass_Gatherings": 0.2,
-           "No_Measure": 0})
-
-
-GDP_IMPACT = {}
-
-GDP_IMPACT["DE"] = defaultdict(not_implemented, { "Lockdown": -10,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -8,
-          'Restrict_Mass_Gatherings_and_Schools': -6,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -4,
-           "Restrict_Mass_Gatherings": -3,
-           "No_Measure": 0})
-    
-# https://www.bea.gov/taxonomy/term/461
-
-GDP_IMPACT["US-NY"] = defaultdict(not_implemented, { "Lockdown": -12,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -10,
-          'Restrict_Mass_Gatherings_and_Schools': -7,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -5,
-           "Restrict_Mass_Gatherings": -4,
-           "No_Measure": 0})
-
-GDP_IMPACT["US-FL"] = defaultdict(not_implemented, { "Lockdown": -4.5,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -4.1,
-          'Restrict_Mass_Gatherings_and_Schools': -3.7,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -1.5,
-           "Restrict_Mass_Gatherings": 0.9,
-           "No_Measure": 0
-})
-GDP_IMPACT["SG"] = defaultdict(not_implemented, { "Lockdown": -16,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -13,
-          'Restrict_Mass_Gatherings_and_Schools': -10,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -6,
-           "Restrict_Mass_Gatherings": -4,
-           "No_Measure": 0})
-
-GDP_IMPACT["ES"] = defaultdict(not_implemented, { "Lockdown": -19.9,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -15.1,
-          'Restrict_Mass_Gatherings_and_Schools': -13.6,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -5.4,
-           "Restrict_Mass_Gatherings": -3.3,
-           "No_Measure": 0})
-
-GDP_IMPACT["BR"] = defaultdict(not_implemented, { "Lockdown": -15.9,
-          "Restrict_Mass_Gatherings_and_Schools_and_Others": -12.1,
-          'Restrict_Mass_Gatherings_and_Schools': -10.9,
-          'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -4.3,
-           "Restrict_Mass_Gatherings": -2.7,
-           "No_Measure": 0})
+# GDP impact in percentage of monthly GDP
+GDP_IMPACT = {
+  'BR': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -0.5,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -0.8,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -1.2,
+    'Restrict_Mass_Gatherings_and_Schools': -1.9,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -2.1,
+    'Lockdown': -2.8}),
+  'DE': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -1.4,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -2.2,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -3.5,
+    'Restrict_Mass_Gatherings_and_Schools': -5.6,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -6.2,
+    'Lockdown': -8.1}),
+  'ES': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -3.5,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -5.7,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -9.2,
+    'Restrict_Mass_Gatherings_and_Schools': -14.4,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -16.0,
+    'Lockdown': -21.1}),
+  'SG': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -4.0,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -6.5,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -10.5,
+    'Restrict_Mass_Gatherings_and_Schools': -16.5,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -18.2,
+    'Lockdown': -24.0}),
+  # https://www.bea.gov/taxonomy/term/461
+  'US-FL': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -1.3,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -2.1,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -3.5,
+    'Restrict_Mass_Gatherings_and_Schools': -5.4,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -6.0,
+    'Lockdown': -7.9}),
+  'US-NY': defaultdict(not_implemented, {'No_Measure': -0.0,
+    'Restrict_Mass_Gatherings': -1.4,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': -2.3,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': -3.7,
+    'Restrict_Mass_Gatherings_and_Schools': -5.7,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': -6.3,
+    'Lockdown': -8.4})
+  }
 
 # For US https://data.bls.gov/pdq/SurveyOutputServlet
 # For ES: World Bank data https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=ES

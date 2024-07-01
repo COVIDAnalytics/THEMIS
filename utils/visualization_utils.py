@@ -16,14 +16,27 @@ def shorten_policy_string(pname):
     short_name = '-'.join([DICT_POLICY_CODE[pol] for pol in policies])
     return short_name
 
-def region_policy_scatter_plot(results:pd.DataFrame, region_name:str, start_date:str = "3/15/2020", currency_symbol:str = "\N{EURO SIGN}", y_val:str = 'num_deaths'):
-    y_val_name = {'num_deaths': 'Number of Deaths', 'life_costs': 'Humanitarian Costs'}
-    fig = px.scatter(results.query("start_date == @start_date"), 
-                    x='st_economic_costs', y=y_val, color='is_actual', 
-                    log_x=False, log_y=True, hover_name="short_policy_name", hover_data=["num_deaths", "num_cases", "mh_costs"],
+def region_policy_scatter_plot(results:pd.DataFrame, region_name:str, start_date:str = "3/15/2020", 
+                               currency_symbol:str = "\N{EURO SIGN}", y_val:str = 'num_deaths'):
+    df = results.query("start_date == @start_date")
+    if y_val == 'life_costs':
+        df['life_costs'] = df.d_costs + df.h_costs + df.mh_costs
+        df['life_costs_lb'] = df.d_costs_lb + df.h_costs + df.mh_costs_lb
+        df['life_costs_ub'] = df.d_costs_ub + df.h_costs + df.mh_costs_ub
+    df['st_economic_costs_lerr'] = df['st_economic_costs'] - df['st_economic_costs_lb']
+    df['st_economic_costs_uerr'] = df['st_economic_costs_ub'] - df['st_economic_costs']
+    df[f'{y_val}_lerr'] = df[y_val] - df[f'{y_val}_lb']
+    df[f'{y_val}_uerr'] = df[f'{y_val}_ub'] - df[y_val]
+
+    y_val_name = 'Number of Deaths' if y_val == 'num_deaths' else \
+        'Humanitarian Costs' if y_val == 'life_costs' else y_val
+    fig = px.scatter(df, x='st_economic_costs', y=y_val, color='is_actual',
+                    error_x='st_economic_costs_uerr', error_x_minus='st_economic_costs_lerr',
+                    error_y=f'{y_val}_uerr', error_y_minus=f'{y_val}_lerr', log_x=False, log_y=True, 
+                    hover_name="short_policy_name", hover_data=["num_deaths", "num_cases", "mh_costs", "h_costs"],
                     title=f"Policy Simulations for {region_name} starting {start_date}",
                     labels={
-                        'st_economic_costs': 'Economic Costs', y_val: y_val_name[y_val], "is_actual": "Scenario Type",
+                        'st_economic_costs': 'Economic Costs', y_val: y_val_name, "is_actual": "Scenario Type",
                     },
                     template="simple_white")
     fig.update_yaxes(
