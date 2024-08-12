@@ -102,6 +102,5 @@ if __name__ == "__main__":
             "num_cases", "num_cases_lb", "num_cases_ub", "num_deaths", "num_deaths_lb", "num_deaths_ub", 
             "hospitalization_days", "hospitalization_days_lb", "hospitalization_days_ub", 
             "icu_days", "icu_days_lb", "icu_days_ub", "ventilated_days", "ventilated_days_lb", "ventilated_days_ub"]]
-
     time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_df.to_csv('simulation_results/test_result_' + region + '_' + time_stamp + '.csv')

@@ -2,7 +2,7 @@ from datetime import datetime
 import pandas as pd
 
 # 2016 global population data
-global_populations = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv")
+global_populations = pd.read_csv("pandemic_functions/pandemic_data/Population_Global.csv",keep_default_na=False)
 # oxford policy data
 # raw_measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_nat_latest.csv")
 raw_measures = pd.read_csv("raw_data/OxCGRT_nat_latest.csv")
@@ -34,7 +34,7 @@ default_bounds_params = (
     (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, 7), (0.1, 5)
 )  # Bounds for the solver
 
-validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
+validcases_threshold = 6  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
 bounds_q = 0.5 # quantile used for error bounds of DELPHI model

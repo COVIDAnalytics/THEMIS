@@ -315,7 +315,7 @@ def create_datasets_with_confidence_intervals(
         total_detected_deaths, active_ventilated = get_predictions_from_solution(x_sol_final)
 
     # using past predictions
-    past_predictions = pd.read_csv(past_prediction_file)
+    past_predictions = pd.read_csv(past_prediction_file, keep_default_na=False)
     past_predictions = (
         past_predictions[
             (past_predictions["Day"] > past_prediction_date)
@@ -344,33 +344,32 @@ def create_datasets_with_confidence_intervals(
         total_detected_deaths_past = past_predictions[
                                             "Total Detected Deaths"
                                         ].values[: len(deaths_data_fit_past)]
-        residual_cases_lb = np.sqrt(
+        residual_cases_lb_pct = np.sqrt(
             np.mean(
-                [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
+                [(1 - y/max(x,1)) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
             )
         ) * stats.norm.ppf(0.5 - q / 2)
-        residual_cases_ub = np.sqrt(
+        residual_cases_ub_pct = np.sqrt(
             np.mean(
-                [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
+                [(1 - y/max(x,1)) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
             )
         ) * stats.norm.ppf(0.5 + q / 2)
-        residual_deaths_lb = np.sqrt(
+        residual_deaths_lb_pct = np.sqrt(
             np.mean(
                 [
-                    (x - y) ** 2
+                    (1 - y/max(x,1)) ** 2
                     for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
                 ]
             )
         ) * stats.norm.ppf(0.5 - q / 2)
-        residual_deaths_ub = np.sqrt(
+        residual_deaths_ub_pct = np.sqrt(
             np.mean(
                 [
-                    (x - y) ** 2
+                    (1 - y/max(x,1)) ** 2
                     for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
                 ]
             )
         ) * stats.norm.ppf(0.5 + q / 2)
-
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame(
             {
@@ -395,25 +394,25 @@ def create_datasets_with_confidence_intervals(
                     np.nan for _ in range(n_days_since_today)
                 ],
                 "Total Detected LB": make_increasing([
-                    max(int(round(v + residual_cases_lb * np.sqrt(c), 0)), 0)
+                    max(int(round(v * (1 + residual_cases_lb_pct) , 0)), 0)
                     for c, v in enumerate(
                         total_detected[n_days_btw_today_since_100:]
                     )
                 ]),
                 "Total Detected Deaths LB": make_increasing([
-                    max(int(round(v + residual_deaths_lb * np.sqrt(c), 0)), 0)
+                    max(int(round(v  * (1 + residual_deaths_lb_pct) , 0)), 0)
                     for c, v in enumerate(
                         total_detected_deaths[n_days_btw_today_since_100:]
                     )
                 ]),
                 "Total Detected UB": [
-                    max(int(round(v + residual_cases_ub * np.sqrt(c), 0)), 0)
+                    max(int(round(v * (1 + residual_cases_ub_pct) , 0)), 0)
                     for c, v in enumerate(
                         total_detected[n_days_btw_today_since_100:]
                     )
                 ],
                 "Total Detected Deaths UB": [
-                    max(int(round(v + residual_deaths_ub * np.sqrt(c), 0)), 0)
+                    max(int(round(v * (1 + residual_deaths_ub_pct), 0)), 0)
                     for c, v in enumerate(
                         total_detected_deaths[n_days_btw_today_since_100:]
                     )
@@ -453,7 +452,7 @@ def create_datasets_with_confidence_intervals(
                 "Total Detected LB": make_increasing([
                     max(
                         int(round(
-                            v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),
+                            v * (1 + residual_cases_lb_pct),
                             0)
                         ), 0
                     )
@@ -462,7 +461,7 @@ def create_datasets_with_confidence_intervals(
                 "Total Detected Deaths LB": make_increasing([
                     max(
                         int(round(
-                            v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),
+                            v * (1 + residual_deaths_lb_pct),
                                 0)
                         ), 0
                     )
@@ -471,7 +470,7 @@ def create_datasets_with_confidence_intervals(
                 "Total Detected UB": [
                     max(
                         int(round(
-                            v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),
+                            v * (1 + residual_cases_ub_pct),
                                 0)
                         ), 0
                     )
@@ -480,7 +479,7 @@ def create_datasets_with_confidence_intervals(
                 "Total Detected Deaths UB": [
                     max(
                         int(round(
-                            v + residual_deaths_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),
+                            v * (1 + residual_deaths_lb_pct),
                                 0)
                         ), 0
                     )

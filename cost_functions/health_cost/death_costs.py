@@ -3,7 +3,7 @@
 import numpy as np
 from pyliferisk import Actuarial, annuity
 from pyliferisk.mortalitytables import *
-from cost_functions.health_cost.health_data.health_params import VSLY, DEATHS_DIST, DEATHS_ACTUARIAL_TABLE
+from cost_functions.health_cost.health_data.health_params import VSLY, DEATHS_DIST, DEATHS_ACTUARIAL_TABLE, PCT_LC, UTILITY_LOSS, LC_YEARS
 
 ### should potentially consider comorbidity adjustments
 def death_costs(pandemic):
@@ -28,7 +28,9 @@ def death_costs(pandemic):
             upper_bound = int(age_range[1])
             for i in range(lower_bound,upper_bound):
                 cost_pp += annuity(mt, i, "w",1) * percentage * 1/ (upper_bound - lower_bound) * vsly
-        total_cost = np.array([pandemic.num_deaths, pandemic.num_deaths_lb, pandemic.num_deaths_ub])  * cost_pp
+        total_death_cost = np.array([pandemic.num_deaths, pandemic.num_deaths_lb, pandemic.num_deaths_ub])  * cost_pp
+        long_covid_cost = np.array([pandemic.num_cases, pandemic.num_cases_lb, pandemic.num_cases_ub]) * vsly * PCT_LC * UTILITY_LOSS * LC_YEARS
+        total_cost = total_death_cost + long_covid_cost
         return tuple(total_cost)
         
     else:

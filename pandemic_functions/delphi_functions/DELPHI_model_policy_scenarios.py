@@ -19,7 +19,7 @@ import yaml
 import os
 import argparse
 
-past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703_with_NY_correction.csv")
+past_parameters = pd.read_csv("pandemic_functions/pandemic_data/Parameters_Global_V2_20200703_with_NY_correction.csv", keep_default_na=False)
 
 def read_oxford_country_policy_data(start_date: str, end_date: str, country: str) -> pd.DataFrame:
     """
@@ -354,20 +354,20 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
     """
     df_policies_US_final = deepcopy(df_policies_US)
     msr = future_policies
-    df_policies_US_final[msr[0]] = (df_policies_US.sum(axis=1) == 0).apply(
+    df_policies_US_final[msr[0]] = (df_policies_US.select_dtypes(include='number').sum(axis=1) == 0).apply(
         lambda x: int(x)
     )
     df_policies_US_final[msr[1]] = [
         int(a and b)
         for a, b in zip(
-            df_policies_US.sum(axis=1) == 1,
+            df_policies_US.select_dtypes(include='number').sum(axis=1) == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
         )
     ]
     df_policies_US_final[msr[2]] = [
         int(a and b and c)
         for a, b, c in zip(
-            df_policies_US.sum(axis=1) > 0,
+            df_policies_US.select_dtypes(include='number').sum(axis=1) > 0,
             df_policies_US["Mass_Gathering_Restrictions"] == 0,
             df_policies_US["Stay_at_home_order"] == 0,
         )
@@ -375,7 +375,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
     df_policies_US_final[msr[3]] = [
         int(a and b and c)
         for a, b, c in zip(
-            df_policies_US.sum(axis=1) == 2,
+            df_policies_US.select_dtypes(include='number').sum(axis=1) == 2,
             df_policies_US["Educational_Facilities_Closed"] == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
         )
@@ -383,7 +383,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
     df_policies_US_final[msr[4]] = [
         int(a and b and c and d)
         for a, b, c, d in zip(
-            df_policies_US.sum(axis=1) > 1,
+            df_policies_US.select_dtypes(include='number').sum(axis=1) > 1,
             df_policies_US["Educational_Facilities_Closed"] == 0,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
             df_policies_US["Stay_at_home_order"] == 0,
@@ -392,7 +392,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
     df_policies_US_final[msr[5]] = [
         int(a and b and c and d)
         for a, b, c, d in zip(
-            df_policies_US.sum(axis=1) > 2,
+            df_policies_US.select_dtypes(include='number').sum(axis=1) > 2,
             df_policies_US["Educational_Facilities_Closed"] == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
             df_policies_US["Stay_at_home_order"] == 0,
@@ -627,7 +627,6 @@ def get_region_gammas_v2(region: str,
         if sample_gammas:
             return [default_policy_gammas]
         return default_policy_gammas
-    
     default_gamma = [
         default_policy_gammas[next(x[0] for x in row.items() if x[1] ==1)]
         for _, row in policy_data.iloc[:, 3:(3+n_measures)].iterrows()
@@ -635,7 +634,6 @@ def get_region_gammas_v2(region: str,
     z = policy_data.Gamma.to_numpy() / default_gamma
     zmean = np.mean(z)
     zstd = np.std(z)
-
     for p in default_policy_gammas.keys():
         if p not in dict_region_policy_gamma:
             dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
@@ -646,15 +644,13 @@ def get_region_gammas_v2(region: str,
         for _ in range(n_sample):
             dict_gamma_sample = deepcopy(dict_region_policy_gamma)
             for p in default_policy_gammas.keys():
-                if p not in dict_gamma_sample:
-                    dict_region_policy_gamma[p] = np.random.normal(loc=default_policy_gammas[p] * zmean, scale=zstd)
+                dict_gamma_sample[p] = max(np.random.normal(loc=default_policy_gammas[p] * zmean, scale=zstd),0)
             results.append(dict_gamma_sample)
     else:
         for p in default_policy_gammas.keys():
             if p not in dict_region_policy_gamma:
                 dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
         results = dict_region_policy_gamma
-
     return results
 
 def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
@@ -730,7 +726,6 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
         yesterday = str((policy_scenario_start_date - timedelta(days=1)).date())
         df_pred_with_ci, _ = create_datasets_with_confidence_intervals(continent, country, province,
             date_day_since100, yesterday, x_sol_final, cases_data_fit, deaths_data_fit, q=bounds_q)
-        
         detected = df_pred_with_ci['Total Detected'].tolist()
         detected_lb = df_pred_with_ci['Total Detected LB'].tolist()
         detected_ub = df_pred_with_ci['Total Detected UB'].tolist()

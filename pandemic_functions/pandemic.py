@@ -15,7 +15,7 @@ class Pandemic_Factory:
         self.d_region_policy_gammas = {}
         path_to_predictions_combined = "pandemic_functions/pandemic_data/Global_DELPHI_predictions_combined.csv"
         if os.path.exists(path_to_predictions_combined):
-            self.delphi_prediction = pd.read_csv(path_to_predictions_combined)
+            self.delphi_prediction = pd.read_csv(path_to_predictions_combined, keep_default_na=False)
         else:
             raise FileNotFoundError(f"Can not find file - "+ path_to_predictions_combined + " for actual polcy outcome")
         
@@ -67,6 +67,7 @@ class Pandemic:
         # this function gets the number of deaths and hospitalizations that would occur under such policy, using DELPHI
         # the return value is a tuple of numbers
         country, province = region_symbol_country_dict[self.region]
+        print(sample_gammas)
         if self.policy.policy_type == "actual":
             totalcases.date = pd.to_datetime(totalcases.date)
             start_date = pd.to_datetime(self.policy.start_date)
@@ -100,6 +101,7 @@ class Pandemic:
             hospitalization_days_lb, ventilated_days_lb = hospitalization_days, ventilated_days
             hospitalization_days_ub, ventilated_days_ub = hospitalization_days, ventilated_days
             if sample_gammas:
+                print(self.policy.policy_vector)
                 # gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
                 gamma_samples = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
                 for dict_gammas in gamma_samples:
