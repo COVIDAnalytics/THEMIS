@@ -121,10 +121,10 @@ def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_fin
         mape_data = (
                 compute_mape(
                     cases_data_fit[-15:],
-                    x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
+                    x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)]
                 ) + compute_mape(
                     deaths_data_fit[-15:],
-                    x_sol_final[14, len(deaths_data_fit) - 15: len(deaths_data_fit)],
+                    x_sol_final[14, len(deaths_data_fit) - 15: len(deaths_data_fit)]
                 )
         ) / 2
     else:  # We take MAPE on all available previous days (less than 15)

@@ -212,6 +212,8 @@ def solve_and_predict_area(
         totalcases = pd.read_csv(
                 f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"
             )
+    # standardize date format
+    totalcases.date = pd.to_datetime(totalcases.date).dt.strftime('%Y-%m-%d')
     
     # set the initial parameters
     if past_parameters is not None and len(past_parameters[(past_parameters.Country == country) & (past_parameters.Province == province)]) > 0:
