@@ -35,7 +35,7 @@ class Pandemic_Factory:
             if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"):
                 totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv")
                 # dict_region_policy_gamma = get_region_gammas(region)
-                dict_region_policy_gamma = get_region_gammas_v2(region)
+                dict_region_policy_gamma, _, _ = get_region_gammas_v2(region)
                 self.d_read_data_total_cases[region] = totalcases
                 self.d_region_policy_gammas[region] = dict_region_policy_gamma
             else:
@@ -103,7 +103,7 @@ class Pandemic:
             if sample_gammas:
                 print(self.policy.policy_vector)
                 # gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
-                gamma_samples = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
+                gamma_samples, _, _ = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
                 for dict_gammas in gamma_samples:
                     _, nclb, ncub, _, ndlb, ndub, nhd, nvd = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
                     num_cases_lb = min(num_cases_lb, nclb)

@@ -199,14 +199,14 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
     del measures["C8EV_International travel controls"]
 
     output = deepcopy(measures)
-    output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
+    output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x)) # No Measure
     output[msr[1]] = [
         int(a and b)
         for a, b in zip(
             measures.iloc[:, 2:].sum(axis=1) == 1,
             measures["Restrict_Mass_Gatherings"] == 1,
         )
-    ]
+    ] # Restrict Mass Gathering
     output[msr[2]] = [
         int(a and b and c)
         for a, b, c in zip(
@@ -214,7 +214,7 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
             measures["Restrict_Mass_Gatherings"] == 0,
             measures["C6M_Stay at home requirements"] == 0,
         )
-    ]
+    ] # Mass_Gatherings_Authorized_But_Others_Restricted
     output[msr[3]] = [
         int(a and b and c)
         for a, b, c in zip(
@@ -222,7 +222,7 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
             measures["C1M_School closing"] == 1,
             measures["Restrict_Mass_Gatherings"] == 1,
         )
-    ]
+    ] # Restrict_Mass_Gatherings_and_Schools
     output[msr[4]] = [
         int(a and b and c and d)
         for a, b, c, d in zip(
@@ -231,7 +231,7 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
             measures["Restrict_Mass_Gatherings"] == 1,
             measures["C6M_Stay at home requirements"] == 0,
         )
-    ]
+    ] # Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
     output[msr[5]] = [
         int(a and b and c and d)
         for a, b, c, d in zip(
@@ -240,10 +240,10 @@ def read_oxford_country_policy_data(start_date: str, end_date: str, country: str
             measures["Restrict_Mass_Gatherings"] == 1,
             measures["C6M_Stay at home requirements"] == 0,
         )
-    ]
+    ] # Restrict_Mass_Gatherings_and_Schools_and_Others
     output[msr[6]] = (measures["C6M_Stay at home requirements"] == 1).apply(
         lambda x: int(x)
-    )
+    ) # Lockdown
     output.rename(columns={"CountryName": "country", "Date": "date"}, inplace=True)
     output["province"] = "None"
     output = output.loc[:, ["country", "province", "date"] + msr]
@@ -570,7 +570,7 @@ def get_region_gammas(region: str,
 def get_region_gammas_v2(region: str,
                     start_date: Union[str, Type[None]] = None,
                     end_date: Union[str, Type[None]] = None, 
-                    policy_days_thresh: int = 10,
+                    policy_days_thresh: int = 20,
                     sample_gammas: bool = False,
                     n_sample: int = 20) -> dict:
     """
@@ -593,6 +593,7 @@ def get_region_gammas_v2(region: str,
     else:
         policy_data = read_oxford_country_policy_data(country=country, start_date=ref_start_date, end_date=ref_end_date)
 
+    # Gamma_t calculated from the fitted DELPHI parameters
     policy_data.loc[:, "Gamma"] = [
         gamma_t(day, params_list)
         for day in policy_data["date"]
@@ -618,6 +619,14 @@ def get_region_gammas_v2(region: str,
     dict_region_policy_counts = dict(sorted(dict_region_policy_counts.items(), key=lambda x: x[0]))
     default_policy_gammas = deepcopy(default_dict_normalized_policy_gamma)
     default_policy_gammas = dict(sorted(default_policy_gammas.items(), key=lambda x: x[0]))
+    policy_t = [
+        next((x[0] for x in row.items() if x[1] ==1), 'Undef')
+        for _, row in policy_data.iloc[:, 3:(3+n_measures)].iterrows()
+    ]
+    ind = np.array([
+        dict_region_policy_counts[pt] > policy_days_thresh if pt != 'Undef' else False
+        for pt in policy_t
+    ])
 
     for p, ndays in dict_region_policy_counts.items():
         if ndays <= policy_days_thresh:
@@ -625,20 +634,28 @@ def get_region_gammas_v2(region: str,
 
     if len(dict_region_policy_gamma) == 0:
         if sample_gammas:
-            return [default_policy_gammas]
-        return default_policy_gammas
+            return [default_policy_gammas], None, None
+        return default_policy_gammas, None, None
+    
+    # # Old logic - include all days
+    # default_gamma = [
+    #     default_policy_gammas[next(x[0] for x in row.items() if x[1] ==1)]
+    #     for _, row in policy_data.iloc[:, 3:(3+n_measures)].iterrows()
+    # ]
+    # z = policy_data.Gamma.to_numpy() / default_gamma
+
+    # Filter for days with policies that have been implmented more than threshold no. of days
     default_gamma = [
-        default_policy_gammas[next(x[0] for x in row.items() if x[1] ==1)]
-        for _, row in policy_data.iloc[:, 3:(3+n_measures)].iterrows()
+        default_policy_gammas[pt]
+        for pt, i in zip(policy_t, ind) if i
     ]
-    z = policy_data.Gamma.to_numpy() / default_gamma
+    z = policy_data.iloc[ind].Gamma.to_numpy() / default_gamma
     zmean = np.mean(z)
     zstd = np.std(z)
-    for p in default_policy_gammas.keys():
-        if p not in dict_region_policy_gamma:
-            dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
 
     results = None
+    err = None
+    obs_region_policies = None
     if sample_gammas:
         results = []
         for _ in range(n_sample):
@@ -647,11 +664,15 @@ def get_region_gammas_v2(region: str,
                 dict_gamma_sample[p] = max(np.random.normal(loc=default_policy_gammas[p] * zmean, scale=zstd),0)
             results.append(dict_gamma_sample)
     else:
+        obs_region_policies = list(dict_region_policy_gamma.keys())
         for p in default_policy_gammas.keys():
             if p not in dict_region_policy_gamma:
                 dict_region_policy_gamma[p] = default_policy_gammas[p] * zmean
         results = dict_region_policy_gamma
-    return results
+        err = np.sqrt(np.sum(
+            [(Gpr - (default_policy_gammas[p] * zmean))**2 for p, Gpr in dict_region_policy_gamma.items()]
+            ))
+    return results, err, obs_region_policies
 
 def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_gamma):
     country, province = region_symbol_country_dict[region]
