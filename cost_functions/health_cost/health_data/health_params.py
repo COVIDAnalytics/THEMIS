@@ -3,15 +3,15 @@
 # Brazil 2013 VSL: https://larrlasa.org/articles/10.25222/larr.61/
 # Brazil Life expectancy: https://data.worldbank.org/indicator/SP.DYN.LE00.IN?locations=BR
 
-VSLY = {"DE": 158448, "US": 325000, "US-NY": 325000,
-        "US-FL": 325000,
+VSLY = {"DE": 158448, "US": 455484, "US-NY": 455484,
+        "US-FL": 455484,
         "SG": 46987 * 114.87/90.,
         # US dollar conversion, first convert US inflation, then convert exchange rate
         "BR": 39939 * 260 / 220 * 5.25,
         "ES": 158448
         }
 
-PCT_LC = 0.15
+PCT_LC = 0.066
 UTILITY_LOSS = 0.10
 LC_YEARS = 5
 
@@ -176,10 +176,10 @@ MENTAL_HEALTH_COST = {
            "depression_rate_inc_sick": 6.7/100.0,
            "depression_rate_inc_hworkers": 6.7/100.,
            "depression_rate_inc_gen_population": 6.7/100.,
-           "ptsd_rate_inc_hworkers": 6.7/100.,
-           "ptsd_rate_inc_sick": 6.7/100.,
-           "depression_cost": 4000.,
-           "ptsd_cost": 40000.,
+           "ptsd_rate_inc_hworkers": 27.7/100.,
+           "ptsd_rate_inc_sick": 27.7/100.,
+           "depression_cost": 3813.,
+           "ptsd_cost": 8600.,
            "lockdown_equivalent_policies": ['Lockdown'],
            "Currency": "euro"
     },
@@ -193,14 +193,14 @@ MENTAL_HEALTH_COST = {
               # https://www.nimh.nih.gov/health/statistics/post-traumatic-stress-disorder-ptsd
               "ptsd_rate_baseline": 3.6/100.,
               # Assume same as healthcare workers for now
-              "depression_rate_inc_sick": 20.2/100.0,
-              "depression_rate_inc_hworkers": 20.2/100.,
-              "depression_rate_inc_gen_population": 20.2/100.,
+              "depression_rate_inc_sick": 19.3/100.0,
+              "depression_rate_inc_hworkers": 19.3/100.,
+              "depression_rate_inc_gen_population": 19.3/100.,
               # https://www.psychiatryadvisor.com/home/topics/general-psychiatry/quantifying-the-rates-of-distress-among-health-care-workers-during-the-covid-19-pandemic/
               # https://www.cdc.gov/mmwr/volumes/70/wr/mm7048a6.htm?s_cid=mm7048a6_w#T1_down
-              "ptsd_rate_inc_hworkers": 33.2/100.,
+              "ptsd_rate_inc_hworkers": 30.7/100.,
               # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7263263/
-              "ptsd_rate_inc_sick": 28.2/100.,
+              "ptsd_rate_inc_sick": 30.7/100.,
               # 2010 dollars, adjusting for inflation
               "depression_cost": 27688*1.37,
               "ptsd_cost": 14857.,
@@ -265,7 +265,7 @@ MENTAL_HEALTH_COST = {
               # https://www.sciencedirect.com/science/article/pii/S0924977X21002182 adjusted for inflation 
               "depression_cost": 3412,
               # Assuming same cost as depression now
-              "ptsd_cost": 1661*1.13,
+              "ptsd_cost": 8600,
               "lockdown_equivalent_policies": ['Lockdown'],
               "Currency": "euro"
        },
@@ -286,9 +286,9 @@ MENTAL_HEALTH_COST = {
            "depression_rate_inc_gen_population": 25.2/100,
            # https://www.sciencedirect.com/science/article/pii/S0022395620309870?casa_token=wcHIxnwxO9MAAAAA:ohWeXXqRjeLSfEdGp4ef2axF1E7AJnEld5RfA5nF2XOMjH6FTrasb9jsgn-5Xdj9PzMy8N4HAQ
            # https://www.scielo.br/j/rbp/a/qR3X56ZbwDHPFTpRk5jqs3M/?lang=en#:~:text=Not%20surprisingly%2C%20PTSD%20is%20highly,largest%20metropolitan%20areas%2C%20respectively).
-           "ptsd_rate_inc_hworkers": 29.2/100.,
+           "ptsd_rate_inc_hworkers": 30.0/100.,
            # assume same as healthcare workers
-           "ptsd_rate_inc_sick": 29.2/100.,
+           "ptsd_rate_inc_sick": 30.0/100.,
            # https://www.scielo.br/j/rbp/a/JQSTrFvqYwH7kZJyhFnrySD/?lang=en 2012 data, adjusted for  inflation at 7%[a]
            "depression_cost": 4100 * (1.07 ** 9),
            # Assuming same cost as depression now

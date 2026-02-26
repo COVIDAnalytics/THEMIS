@@ -31,9 +31,14 @@ def mental_health_costs(pandemic):
 
     cumulated_sick = np.array([pandemic.num_cases, pandemic.num_cases_lb, pandemic.num_cases_ub])
     # depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"] * lockdown_months/12.
-    depressed_patients =  cumulated_sick * max(MH_DATA["depression_rate_inc_sick"] * 14/365, MH_DATA["depression_rate_inc_gen_population"]* lockdown_months/12.)
-    gen_pop_depression = (MH_DATA["gen_population_over14"] - cumulated_sick )* MH_DATA["depression_rate_inc_gen_population"] * lockdown_months/12.
-    depressed_patients += gen_pop_depression
+    # depressed_patients =  cumulated_sick * max(MH_DATA["depression_rate_inc_sick"] * 14/365, MH_DATA["depression_rate_inc_gen_population"]* lockdown_months/12.)
+    # gen_pop_depression = (MH_DATA["gen_population_over14"] - cumulated_sick )* MH_DATA["depression_rate_inc_gen_population"] * lockdown_months/12.
+    # depressed_patients += gen_pop_depression
+
+
+    adjust_factor = sum([pandemic.dict_region_policy_counts[x] * (1-pandemic.dict_region_policy_gamma[x]) for x in pandemic.dict_region_policy_counts]) / \
+    (sum(pandemic.dict_region_policy_counts.values()) * (1-min(pandemic.dict_region_policy_gamma.values())))
+    depressed_patients = MH_DATA["gen_population_over14"] * MH_DATA["depression_rate_inc_gen_population"] * adjust_factor
 
     ptsd_patients = MH_DATA["exposed_health_workers"] * MH_DATA["ptsd_rate_inc_hworkers"]
     ptsd_patients += cumulated_sick * MH_DATA["ptsd_rate_inc_sick"]

@@ -46,7 +46,6 @@ def get_gdp_cost(pandemic):
             # c + i - g + x
             monthly_gdp_loss = (gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].c.values[0] + 
             gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].i.values[0] +
-            gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].x.values[0] -
             gdp_data[(gdp_data.year == year) & (gdp_data.month == month)].g.values[0]) * 1e9
             gdp_loss.append(monthly_gdp_loss)
         gdp_cost = -sum(gdp_loss)

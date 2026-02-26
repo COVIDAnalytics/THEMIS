@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 # For countries with missing data (including Singapore), assuming roughly 1.5 year of GDP per capita
-UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 100000, "US-FL": 80000, "SG": 120000, "ES": 66312, "BR": 35038 * 1.5}
+UNEMPLOYMENT_COST = {"DE": 77510,"US-NY": 60000, "US-FL": 60000, "SG": 120000, "ES": 66312, "BR": 35038 * 1.5}
 
 def not_implemented():
     raise NotImplementedError
@@ -106,6 +106,6 @@ TOTAL_LABOR_FORCE = {"DE": 43356000, "US-NY": 9500000, "US-FL":10451550, "SG": 3
 
 TOTAL_GDP = {"DE": 3.861e12, "US-NY": 1.77e12, "US-FL": 1.107e12, "SG": 4.6909e11, "ES":1.245e12, "BR": 7.448e12}
 
-COVID_SICK_DAYS = {"DE": 7,"US-NY": 7,"US-FL": 7,"SG": 7, "ES": 7, "BR": 7}
+COVID_SICK_DAYS = {"DE": 10,"US-NY": 10,"US-FL": 10,"SG": 10, "ES": 10, "BR": 10}
 
 TOTAL_WORKING_DAYS = {"DE": 254, "US-NY": 261, "US-FL": 261, "SG": 261, "ES": 252, "BR": 254}

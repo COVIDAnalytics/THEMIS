@@ -1,6 +1,7 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu), Saksham Soni (sakshams@mit.edu)
 import pandas as pd
 import numpy as np
+from math import sqrt
 from copy import deepcopy
 from itertools import compress
 from typing import Union, Type
@@ -479,7 +480,7 @@ def get_dominant_policy(policy_data: pd.DataFrame, start_date: datetime, end_dat
 def get_region_gammas(region: str,
                     start_date: Union[str, Type[None]] = None,
                     end_date: Union[str, Type[None]] = None, 
-                    policy_days_thresh: int = 10, 
+                    policy_days_thresh: int = 5, 
                     return_regression_result: bool = False,
                     sample_gammas: bool = False,
                     n_sample: int = 20) -> dict:
@@ -509,14 +510,6 @@ def get_region_gammas(region: str,
         for day in policy_data["date"]
     ]
     n_measures = policy_data.iloc[:, 3:-1].shape[1]
-    dict_region_policy_gamma = {
-        policy_data.columns[3 + i]: policy_data[
-            policy_data.iloc[:, 3 + i] == 1
-        ]
-        .iloc[:, -1]
-        .mean()
-        for i in range(n_measures)
-    }
     dict_region_policy_counts = {
         policy_data.columns[3 + i]: policy_data[
             policy_data.iloc[:, 3 + i] == 1
@@ -525,45 +518,66 @@ def get_region_gammas(region: str,
         .sum()
         for i in range(n_measures)
     }
-    dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
     dict_region_policy_counts = dict(sorted(dict_region_policy_counts.items(), key=lambda x: x[0]))
     default_policy_gammas = deepcopy(default_dict_normalized_policy_gamma)
     default_policy_gammas = dict(sorted(default_policy_gammas.items(), key=lambda x: x[0]))
-
-    x = np.array(list(default_policy_gammas.values()))
-    y = np.array(list(dict_region_policy_gamma.values()))
-    ind = np.array(list(dict_region_policy_counts.values()))
-
-    train_keys = np.array(list(default_policy_gammas.keys()))
-    train_keys = train_keys[(~np.isnan(y)) & (ind > policy_days_thresh)]
-
-    assert len(train_keys) >= 2, "Not enough data about policies to run simulation"
-
-    x_train = x[(~np.isnan(y)) & (ind > policy_days_thresh)]
-    y_train = y[(~np.isnan(y)) & (ind > policy_days_thresh)]
-    y_train = sigmoid_inv_np(y_train/2)
-
-    m, C, r, p, stderr = linregress(x_train, y_train)
-    resid = y_train - (m*x_train + C)
-    rstd = stats.sem(resid)
-
-    results = None
     if sample_gammas:
         results = []
         for _ in range(n_sample):
+            dict_region_policy_gamma = {}
+            for i in range(n_measures):
+                policy_values = policy_data[policy_data.iloc[:, 3 + i] == 1].iloc[:, -1]
+                sampled_policy_values = np.random.choice(policy_values, size=len(policy_values), replace=True)
+                dict_region_policy_gamma[policy_data.columns[3 + i]] = sampled_policy_values.mean()
+            dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
+
+            x = np.array(list(default_policy_gammas.values()))
+            y = np.array(list(dict_region_policy_gamma.values()))
+            ind = np.array(list(dict_region_policy_counts.values()))
+
+            train_keys = np.array(list(default_policy_gammas.keys()))
+            train_keys = train_keys[(~np.isnan(y)) & (ind > policy_days_thresh)]
+
+            assert len(train_keys) >= 1, "Not enough data about policies to run simulation"
+
+            x_train = x[(~np.isnan(y)) & (ind > policy_days_thresh)]
+            y_train = y[(~np.isnan(y)) & (ind > policy_days_thresh)]
+            ind_train = ind[(~np.isnan(y)) & (ind > policy_days_thresh)]
+            adjust_factor = sum(yi/ xi *indi / sum(ind_train)for xi, yi, indi in zip(x_train, y_train, ind_train))
             dict_gamma_sample = deepcopy(dict_region_policy_gamma)
             for key in dict_gamma_sample.keys():
                 if key not in train_keys:
-                    dict_gamma_sample[key] = 2*sigmoid(np.random.normal(loc=m*default_policy_gammas[key] + C, scale=rstd))
+                    dict_gamma_sample[key] = adjust_factor*default_policy_gammas[key]
             results.append(dict_gamma_sample)
     else:
+        dict_region_policy_gamma = {}
+        for i in range(n_measures):
+            policy_values = policy_data[policy_data.iloc[:, 3 + i] == 1].iloc[:, -1]
+            dict_region_policy_gamma[policy_data.columns[3 + i]] = policy_values.mean()
+        dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
+
+        x = np.array(list(default_policy_gammas.values()))
+        y = np.array(list(dict_region_policy_gamma.values()))
+        ind = np.array(list(dict_region_policy_counts.values()))
+
+        train_keys = np.array(list(default_policy_gammas.keys()))
+        train_keys = train_keys[(~np.isnan(y)) & (ind > policy_days_thresh)]
+
+        assert len(train_keys) >= 1, "Not enough data about policies to run simulation"
+
+        x_train = x[(~np.isnan(y)) & (ind > policy_days_thresh)]
+        y_train = y[(~np.isnan(y)) & (ind > policy_days_thresh)]
+        ind_train = ind[(~np.isnan(y)) & (ind > policy_days_thresh)]
+        adjust_factor = sum(yi/ xi *indi / sum(ind_train)for xi, yi, indi in zip(x_train, y_train, ind_train))
+        std_factor = sqrt(sum((yi/ xi - adjust_factor) ** 2  * indi/ sum(ind_train) for xi, yi, indi in zip(x_train, y_train, ind_train)))
+        print(f"the region is {region}. The adjust factor is {adjust_factor}. The standard deviation is {std_factor}")
         for key in dict_region_policy_gamma.keys():
             if key not in train_keys:
-                dict_region_policy_gamma[key] = 2*sigmoid(m*default_policy_gammas[key] + C)
+                dict_region_policy_gamma[key] = adjust_factor*default_policy_gammas[key]
         results = dict_region_policy_gamma
 
     if return_regression_result:
-        return results, (m, C, r, p, stderr)
+        return results
 
     return results
 

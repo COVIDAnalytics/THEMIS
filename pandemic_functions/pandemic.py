@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from policy_functions.policy import Policy
 from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario, get_region_gammas, get_region_gammas_v2
 from pandemic_functions.pandemic_params import region_symbol_country_dict, p_v
+from pandemic_functions.delphi_functions.DELPHI_utils import read_policy_data_us_only, read_oxford_country_policy_data
 
 
 class Pandemic_Factory:
@@ -34,8 +35,8 @@ class Pandemic_Factory:
         else:
             if os.path.exists(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv"):
                 totalcases = pd.read_csv(f"pandemic_functions/pandemic_data/Cases_{country_sub}_{province_sub}.csv")
-                # dict_region_policy_gamma = get_region_gammas(region)
-                dict_region_policy_gamma = get_region_gammas_v2(region)
+                dict_region_policy_gamma = get_region_gammas(region)
+                # dict_region_policy_gamma = get_region_gammas_v2(region)
                 self.d_read_data_total_cases[region] = totalcases
                 self.d_region_policy_gammas[region] = dict_region_policy_gamma
             else:
@@ -55,6 +56,23 @@ class Pandemic:
     # We call it here so that we dont have to repeatedly call DELPHI over and over again. 
         self.policy = policy
         self.region = region
+        self.dict_region_policy_gamma = dict(sorted(dict_region_policy_gamma.items(), key=lambda x: x[0]))
+        country, province = region_symbol_country_dict[region]
+
+        if country == 'US':
+            policy_data = read_policy_data_us_only(state=province, start_date=self.policy.start_date, end_date=self.policy.end_date)
+        else:
+            policy_data = read_oxford_country_policy_data(country=country, start_date=self.policy.start_date, end_date=self.policy.end_date)
+        n_measures = policy_data.iloc[:, 3:-1].shape[1]
+        dict_region_policy_counts = {
+            policy_data.columns[3 + i]: policy_data[
+                policy_data.iloc[:, 3 + i] == 1
+            ]
+            .iloc[:, 3 + i]
+            .sum()
+            for i in range(n_measures)
+        }
+        self.dict_region_policy_counts = dict(sorted(dict_region_policy_counts.items(), key=lambda x: x[0]))
         output = self._get_deaths_and_hospitalizations(delphi_prediction, totalcases, dict_region_policy_gamma, **kwargs)
         self.num_cases, self.num_cases_lb, self.num_cases_ub, self.num_deaths, self.num_deaths_lb, \
             self.num_deaths_ub, self.hospitalization_days, self.hospitalization_days_lb, self.hospitalization_days_ub, \
@@ -67,7 +85,6 @@ class Pandemic:
         # this function gets the number of deaths and hospitalizations that would occur under such policy, using DELPHI
         # the return value is a tuple of numbers
         country, province = region_symbol_country_dict[self.region]
-        print(sample_gammas)
         if self.policy.policy_type == "actual":
             totalcases.date = pd.to_datetime(totalcases.date)
             start_date = pd.to_datetime(self.policy.start_date)
@@ -102,8 +119,8 @@ class Pandemic:
             hospitalization_days_ub, ventilated_days_ub = hospitalization_days, ventilated_days
             if sample_gammas:
                 print(self.policy.policy_vector)
-                # gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
-                gamma_samples = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
+                gamma_samples = get_region_gammas(self.region, sample_gammas=True, n_sample=n_sample)
+                # gamma_samples = get_region_gammas_v2(self.region, sample_gammas=True, n_sample=n_sample)
                 for dict_gammas in gamma_samples:
                     _, nclb, ncub, _, ndlb, ndub, nhd, nvd = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
                     num_cases_lb = min(num_cases_lb, nclb)
