@@ -72,7 +72,7 @@ def get_policy_gdp_impact(region:str, dominant_policy_df:pd.DataFrame):
         policy_gdp_impact_df["pred_gdp_impact"] = [gdp0*(g/g0) for g in policy_gdp_impact_df["gamma"]]
         policy_gdp_impact_df["gdp_r2"] = np.nan
 
-    return policy_gdp_impact_df
+    return policy_gdp_impact_df, mean_GDP_impact
 
 def get_policy_employment_impact(region:str, dominant_policy_df:pd.DataFrame):
     """Returns dataframe for the percentage employment impact for every policy in the region"""
@@ -116,10 +116,13 @@ def get_region_gamma_df(region:str, start_date: str, end_date: str):
     df['regression_r2'] = reg_results[2]**2
     return df
 
-def get_region_gamma_df_v2(region:str, start_date: str, end_date: str):
+def get_region_gamma_df_v2(region:str, start_date: str, end_date: str, **kwargs):
     """Returns a DataFrame with the regional gamma values imputed using linear interpolation"""
-    region_gamma_dict = get_region_gammas_v2(region, start_date=start_date, end_date=end_date)
+    output = get_region_gammas_v2(region, start_date=start_date, 
+                                end_date=end_date, **kwargs)
+    region_gamma_dict, err, obs_region_policies = output
     df = pd.DataFrame.from_dict(region_gamma_dict, orient='index')
     df.columns = ['region_gamma']
-    return df
+    df['Observed'] = [p in obs_region_policies for p in df.index]
+    return df, err
 
