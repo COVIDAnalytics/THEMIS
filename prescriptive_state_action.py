@@ -21,7 +21,7 @@ the cost-optimal next-month NPI under a weighted total cost
     C(w) = w * humanitarian + (1 - w) * economic.
 We do this for several w in [0, 1].  This yields one (state, action)
 training row per (region, prefix, w) tuple - 4 regions x 57 prefixes
-x 5 weights = 1140 rows when pooled.
+x 20 weights = 4560 rows when pooled.
 
 Gammas come from the rank-1 ALS estimator built into the core
 Pandemic_Factory (see pandemic_functions/pandemic.py).  The tree is
@@ -82,7 +82,22 @@ REGION_POPULATION = {
     "US-NY": 19_540_000,
 }
 
-WEIGHTS = [0.0, 0.25, 0.5, 0.75, 1.0]
+WEIGHTS = [round(i / 19, 4) for i in range(20)]
+DISPLAY_WEIGHTS = {0.0, 0.25, 0.5, 0.75, 1.0}
+
+REGION_LONG = {"DE": "Germany", "BR": "Brazil", "ES": "Spain", "US-NY": "New York"}
+
+FEATURE_LABEL = {
+    "w_humanitarian": "w",
+    "cum_econ_cost_pct_gdp": "Econ. cost (% GDP)",
+    "cum_human_cost_pct_gdp": "Hum. cost (% GDP)",
+    "pop_pct_cum_cases": "Cum. cases (% pop.)",
+    "pop_pct_cum_deaths": "Cum. deaths (% pop.)",
+    "pop_pct_active_cases": "Active cases (% pop.)",
+    "pop_pct_active_hosp": "Active hosp. (% pop.)",
+    "mean_prefix_severity": "Mean severity",
+    "last_severity": "Last severity",
+}
 
 
 def _simulate_sequence(factory, region, policy_vector):
@@ -110,6 +125,8 @@ def _simulate_sequence(factory, region, policy_vector):
         "hospitalization_days": float(cost.hospitalization_days),
         "icu_days": float(cost.icu_days),
         "ventilated_days": float(cost.ventilated_days),
+        "active_cases_end": float(getattr(cost, "active_cases_end", 0.0)),
+        "active_hosp_end": float(getattr(cost, "active_hosp_end", 0.0)),
     }
 
 
@@ -140,6 +157,7 @@ def _state_at_decision(region, prefix, by_len):
         return {
             "pop_pct_cum_cases": 0.0,
             "pop_pct_cum_deaths": 0.0,
+            "pop_pct_active_cases": 0.0,
             "pop_pct_active_hosp": 0.0,
             "month_t": 1,
             "last_severity": 0,
@@ -153,7 +171,6 @@ def _state_at_decision(region, prefix, by_len):
     if tuple(prefix) not in by_len[L]:
         return None
     pref = by_len[L][tuple(prefix)]
-    days_in_prefix = 30.0 * L
 
     def _safe(v):
         return 0.0 if (v is None or not np.isfinite(v)) else float(v)
@@ -163,8 +180,8 @@ def _state_at_decision(region, prefix, by_len):
     return {
         "pop_pct_cum_cases": 100.0 * _safe(pref["num_cases"]) / pop,
         "pop_pct_cum_deaths": 100.0 * _safe(pref["num_deaths"]) / pop,
-        "pop_pct_active_hosp": 100.0 * (_safe(pref["hospitalization_days"])
-                                        / days_in_prefix) / pop,
+        "pop_pct_active_cases": 100.0 * _safe(pref["active_cases_end"]) / pop,
+        "pop_pct_active_hosp": 100.0 * _safe(pref["active_hosp_end"]) / pop,
         "month_t": L + 1,
         "last_severity": POLICY_SEVERITY[prefix[-1]],
         "mean_prefix_severity": float(np.mean(
@@ -241,6 +258,7 @@ STATE_FEATURES_BASE = [
     "mean_prefix_severity",
     "pop_pct_cum_cases",
     "pop_pct_cum_deaths",
+    "pop_pct_active_cases",
     "pop_pct_active_hosp",
     "cum_econ_cost_pct_gdp",
     "cum_human_cost_pct_gdp",
@@ -266,31 +284,25 @@ def _train_tree(X, y, max_depth=4, min_leaf=4):
     }
 
 
-def _plot_tree(tree_info, title, out_path):
-    """Render a CART using a clean, non-overlapping layout.
-
-    sklearn's default tree renderer often produces overlapping nodes for
-    deep, wide trees because matplotlib's text bounding-box estimation
-    is conservative. We fix this by sizing the canvas as a function of
-    leaf count and tree depth, using a tighter font, and disabling the
-    extra impurity / proportion lines that pad each node vertically.
-    """
+def _plot_tree(tree_info, out_path):
+    """Render a CART with readable feature labels and NPI 1-7 classes."""
     n_leaves = tree_info["tree"].get_n_leaves()
     depth = tree_info["tree"].get_depth()
-    width = max(20.0, 2.4 * n_leaves)
-    height = max(8.0, 2.6 * (depth + 1))
+    width = max(28.0, 3.2 * n_leaves)
+    height = max(10.0, 3.0 * (depth + 1))
     fig, ax = plt.subplots(figsize=(width, height))
+    readable_features = [FEATURE_LABEL.get(f, f)
+                         for f in tree_info["feature_names"]]
     plot_tree(
         tree_info["tree"],
-        feature_names=tree_info["feature_names"],
-        class_names=[POLICY_SHORT.get(c, str(c))
+        feature_names=readable_features,
+        class_names=[str(POLICY_NUMBER.get(c, c))
                      for c in tree_info["classes"]],
-        filled=True, rounded=True, fontsize=11, ax=ax,
+        filled=True, rounded=True, fontsize=10, ax=ax,
         impurity=False, proportion=False,
-        precision=2,
+        precision=3,
     )
-    ax.set_title(title, fontsize=15, fontweight="bold", pad=18)
-    ax.margins(x=0.02, y=0.02)
+    ax.margins(x=0.02, y=0.04)
     fig.savefig(out_path, bbox_inches="tight", dpi=180)
     fig.savefig(str(out_path).replace(".png", ".pdf"),
                 bbox_inches="tight")
@@ -310,19 +322,22 @@ def _extract_rules(tree_info):
             n = int(tree.tree_.n_node_samples[node])
             total = float(np.sum(value)) or 1.0
             purity = float(np.max(value) / total)
+            npi_num = POLICY_NUMBER.get(pred, pred)
             rules.append({
                 "conditions": list(conditions),
                 "recommendation": POLICY_SHORT.get(pred, str(pred)),
+                "npi_number": npi_num,
                 "purity": round(purity, 3),
                 "n_samples": n,
             })
             return
         fname = feature_names[tree.tree_.feature[node]]
+        readable = FEATURE_LABEL.get(fname, fname)
         thr = round(float(tree.tree_.threshold[node]), 3)
         recurse(tree.tree_.children_left[node],
-                conditions + [f"{fname} <= {thr}"])
+                conditions + [f"{readable} <= {thr}"])
         recurse(tree.tree_.children_right[node],
-                conditions + [f"{fname} > {thr}"])
+                conditions + [f"{readable} > {thr}"])
     recurse(0, [])
     return rules
 
@@ -356,12 +371,15 @@ def run_state_action_extraction(output_dir, from_cache=False):
           f"(regions={df['region'].nunique()}, "
           f"weights={sorted(df['w_humanitarian'].unique())})")
 
-    print("\n  Action distribution (next-month NPI) by weight w:")
-    for w in WEIGHTS:
-        sub = df[df["w_humanitarian"] == w]
+    print("\n  Action distribution (next-month NPI) by weight w "
+          "(5 representative weights shown):")
+    for w in sorted(DISPLAY_WEIGHTS):
+        closest = min(df["w_humanitarian"].unique(),
+                      key=lambda v: abs(v - w))
+        sub = df[df["w_humanitarian"] == closest]
         counts = sub["next_npi"].value_counts().to_dict()
         labelled = {POLICY_SHORT[k]: v for k, v in counts.items()}
-        print(f"    w={w}: {labelled}")
+        print(f"    w={closest:.2f}: {labelled}")
 
     rules_records = []
     trees = {}
@@ -376,12 +394,7 @@ def run_state_action_extraction(output_dir, from_cache=False):
         raise RuntimeError("Pooled tree could not be trained.")
     trees["pooled"] = pooled
     out_path = output_dir / "tree_pooled_with_w.png"
-    title = (f"Pooled state-action tree (next-month NPI), w as feature\n"
-             f"max_depth = 4, min_leaf = 20, "
-             f"5-fold CV acc = {pooled['cv_accuracy']:.3f}, "
-             f"n = {pooled['n_train']}, "
-             f"depth = {pooled['tree'].get_depth()}")
-    _plot_tree(pooled, title, out_path)
+    _plot_tree(pooled, out_path)
     print(f"    pooled: trained, depth={pooled['tree'].get_depth()}, "
           f"CV acc={pooled['cv_accuracy']:.3f}")
     for r in _extract_rules(pooled):
@@ -405,9 +418,9 @@ def run_state_action_extraction(output_dir, from_cache=False):
     def _w_floor(conditions):
         floor, ceil = 0.0, 1.0
         for c in conditions:
-            if "w_humanitarian" in c and "<=" in c:
+            if c.startswith("w <="):
                 ceil = min(ceil, float(c.split("<=")[-1].strip()))
-            elif "w_humanitarian" in c and ">" in c:
+            elif c.startswith("w >"):
                 floor = max(floor, float(c.split(">")[-1].strip()))
         return floor, ceil
 
@@ -463,9 +476,19 @@ def run_state_action_extraction(output_dir, from_cache=False):
     return df, trees, rules_df
 
 
+def _prefix_to_numbers(prefix_str):
+    """Convert a prefix_str like 'MG+Sch|Lock' to '4, 7'."""
+    if prefix_str == "(start)":
+        return "--"
+    short_to_num = {v: str(POLICY_NUMBER[k])
+                    for k, v in POLICY_SHORT.items()}
+    parts = prefix_str.split("|")
+    return ", ".join(short_to_num.get(p, p) for p in parts)
+
+
 def _plot_action_grid(df, output_dir):
     """Heatmap-style summary: optimal action per (region, prefix, w)."""
-    fig, axes = plt.subplots(1, len(REGIONS), figsize=(20, 8),
+    fig, axes = plt.subplots(1, len(REGIONS), figsize=(28, 12),
                              sharey=False)
     for ax, region in zip(axes, REGIONS):
         sub = df[df["region"] == region]
@@ -485,18 +508,21 @@ def _plot_action_grid(df, output_dir):
         im = ax.imshow(mat, aspect="auto", cmap="RdYlGn_r",
                        vmin=0, vmax=len(FUTURE_POLICIES) - 1)
         ax.set_xticks(range(len(weights)))
-        ax.set_xticklabels([f"{w:.2f}" for w in weights], fontsize=9)
+        xlabels = [f"{w:.2f}" if (i % 4 == 0 or i == len(weights) - 1)
+                   else "" for i, w in enumerate(weights)]
+        ax.set_xticklabels(xlabels, fontsize=10, rotation=45, ha="right")
         ax.set_yticks(range(len(prefixes)))
-        ax.set_yticklabels(prefixes, fontsize=5)
-        ax.set_xlabel("Humanitarian weight $w$", fontsize=10)
-        ax.set_title(region, fontsize=12, fontweight="bold")
+        ax.set_yticklabels([_prefix_to_numbers(p) for p in prefixes],
+                           fontsize=7)
+        ax.set_xlabel("Humanitarian weight $w$", fontsize=13)
+        ax.set_title(REGION_LONG.get(region, region),
+                     fontsize=15, fontweight="bold")
     n_policies = len(FUTURE_POLICIES)
     cbar = fig.colorbar(im, ax=axes, shrink=0.7,
                         ticks=range(n_policies), pad=0.02)
-    cbar.ax.set_yticklabels([POLICY_SHORT[FUTURE_POLICIES[i]]
-                             for i in range(n_policies)])
-    fig.suptitle("Optimal next-month NPI by prefix and weight",
-                 fontsize=13, fontweight="bold")
+    cbar.ax.set_yticklabels([str(i + 1) for i in range(n_policies)],
+                            fontsize=11)
+    cbar.set_label("NPI category", fontsize=13)
     out = output_dir / "action_grid_by_region.png"
     fig.savefig(out, bbox_inches="tight", dpi=180)
     fig.savefig(str(out).replace(".png", ".pdf"),

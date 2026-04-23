@@ -328,6 +328,7 @@ def _state_at_prefix(factory, region, prefix, start_date):
             "mean_prefix_severity": 0,
             "pop_pct_cum_cases": 0.0,
             "pop_pct_cum_deaths": 0.0,
+            "pop_pct_active_cases": 0.0,
             "pop_pct_active_hosp": 0.0,
             "cum_econ_cost_pct_gdp": 0.0,
             "cum_human_cost_pct_gdp": 0.0,
@@ -343,7 +344,6 @@ def _state_at_prefix(factory, region, prefix, start_date):
             return 0.0
         return 0.0 if not np.isfinite(v) else v
 
-    days_in_prefix = 30.0 * len(prefix)
     econ = _safe(cost.st_economic_costs)
     human = _safe(cost.d_costs) + _safe(cost.h_costs) + _safe(cost.mh_costs)
 
@@ -353,8 +353,8 @@ def _state_at_prefix(factory, region, prefix, start_date):
             [POLICY_SEVERITY[p] for p in prefix])),
         "pop_pct_cum_cases": 100.0 * _safe(cost.num_cases) / pop,
         "pop_pct_cum_deaths": 100.0 * _safe(cost.num_deaths) / pop,
-        "pop_pct_active_hosp": 100.0 * (
-            _safe(cost.hospitalization_days) / days_in_prefix) / pop,
+        "pop_pct_active_cases": 100.0 * _safe(getattr(cost, "active_cases_end", 0.0)) / pop,
+        "pop_pct_active_hosp": 100.0 * _safe(getattr(cost, "active_hosp_end", 0.0)) / pop,
         "cum_econ_cost_pct_gdp": 100.0 * econ / monthly_gdp,
         "cum_human_cost_pct_gdp": 100.0 * human / monthly_gdp,
     }
@@ -389,6 +389,9 @@ def run_online_rolling_v2(regions, start_date, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     factory = Pandemic_Factory()
+    factory._initialize_rank1()
+    print(f"  Rank-1 ALS gammas loaded for "
+          f"{len(factory.d_region_policy_gammas)} regions")
     all_results = {}
 
     snapshots = {d: _load_snapshot_as_v2(p)
@@ -481,7 +484,7 @@ def run_online_rolling_v2(regions, start_date, output_dir):
                                         n_months=3)
 
         n_seqs = len(FUTURE_POLICIES) ** 3
-        print(f"    Computing hindsight optimum over {n_seqs} sequences ...")
+        print(f"    Computing hindsight costs for all {n_seqs} sequences ...")
         hindsight_results = []
         for pv in itertools.product(FUTURE_POLICIES, repeat=3):
             r = _evaluate_sequence(factory, region, list(pv), start_date)
@@ -542,6 +545,7 @@ def run_online_rolling_v2(regions, start_date, output_dir):
             "real_actual_cost": real_actual,
             "tree_policy_cost": tree_policy_cost,
             "hindsight_optimal": hindsight_optimal,
+            "hindsight_all": hindsight_results,
         }
         pd.DataFrame(monthly).to_csv(
             output_dir / f"online_advice_v2_{region}.csv", index=False)
@@ -556,69 +560,64 @@ def run_online_rolling_v2(regions, start_date, output_dir):
     return all_results
 
 
+REGION_LONG = {"DE": "Germany", "BR": "Brazil", "ES": "Spain", "US-NY": "New York"}
+
+
 def _plot_online_results_v2(all_results, output_dir):
-    """2x2 grouped-bar comparison: online advisor, tree policy, real actual,
-    hindsight optimal."""
+    """2x2 grouped-bar comparison: online advisor, real actual,
+    hindsight optimal (costs as % of quarterly GDP)."""
     regions = list(all_results.keys())[:4]
-    fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
     for idx, region in enumerate(regions):
         ax = axes.flat[idx]
         data = all_results[region]
         online = data.get("online_3mo_cost") or {}
-        tree_pol = data.get("tree_policy_cost") or {}
         real_actual = data.get("real_actual_cost") or {}
         hindsight = data.get("hindsight_optimal") or {}
+        qgdp = TOTAL_GDP[region] / 4.0
 
         econ = [online.get("economic_costs", 0),
-                tree_pol.get("economic_costs", 0),
                 real_actual.get("economic_costs", 0),
                 hindsight.get("economic_costs", 0)]
         human = [online.get("humanitarian_costs", 0),
-                 tree_pol.get("humanitarian_costs", 0),
                  real_actual.get("humanitarian_costs", 0),
                  hindsight.get("humanitarian_costs", 0)]
         total = [e + h for e, h in zip(econ, human)]
 
         seqs = [data.get("online_sequence", []),
-                data.get("tree_policy_sequence", []) or [],
                 data.get("actual_sequence", []),
                 hindsight.get("policy_vector", []) if hindsight else []]
-        seq_labels = [" -> ".join(POLICY_SHORT.get(p, p[:6]) for p in s)
-                      if s else "?" for s in seqs]
+        seq_labels = [" - ".join(str(POLICY_NUMBER.get(p, p))
+                      for p in s) if s else "?" for s in seqs]
 
-        scale = max(total) if max(total) > 0 else 1
-        if scale >= 1e12:
-            div, unit = 1e12, "T"
-        elif scale >= 1e9:
-            div, unit = 1e9, "B"
-        else:
-            div, unit = 1e6, "M"
+        e_pct = [100 * v / qgdp for v in econ]
+        h_pct = [100 * v / qgdp for v in human]
+        t_pct = [100 * v / qgdp for v in total]
 
-        e_s = [v / div for v in econ]
-        h_s = [v / div for v in human]
-        x = np.arange(4)
-        ax.bar(x, e_s, 0.55, label="Economic", color="#4e79a7",
+        x = np.arange(3)
+        ax.bar(x, e_pct, 0.55, label="Economic", color="#4e79a7",
                alpha=0.85, edgecolor="white")
-        ax.bar(x, h_s, 0.55, bottom=e_s, label="Humanitarian",
+        ax.bar(x, h_pct, 0.55, bottom=e_pct, label="Humanitarian",
                color="#e15759", alpha=0.85, edgecolor="white")
 
-        for i in range(4):
-            t = total[i] / div
-            ax.text(x[i], t + scale/div * 0.02, f"${t:.1f}{unit}",
+        for i in range(3):
+            ax.text(x[i], t_pct[i] + max(t_pct) * 0.02,
+                    f"{t_pct[i]:.1f}%",
                     ha="center", va="bottom", fontsize=9, fontweight="bold")
-            ax.text(x[i], -scale/div * 0.06, seq_labels[i],
+            ax.text(x[i], -max(t_pct) * 0.06, seq_labels[i],
                     ha="center", va="top", fontsize=7, color="gray",
                     style="italic")
 
-        ax.set_ylabel(f"3-Month Total Cost (${unit})", fontsize=10)
+        ax.set_ylabel("3-Month Total Cost (% quarterly GDP)", fontsize=9)
         ax.set_xticks(x)
-        ax.set_xticklabels(["Online\nAdvisor", "Tree\nPolicy",
-                            "Real\nActual", "Hindsight\nOptimal"], fontsize=9)
-        ax.set_title(region, fontsize=12, fontweight="bold")
+        ax.set_xticklabels(["Online\nAdvisor", "Real\nActual",
+                            "Hindsight\nOptimal"], fontsize=9)
+        ax.set_title(REGION_LONG.get(region, region),
+                     fontsize=12, fontweight="bold")
         ax.legend(fontsize=8, loc="upper right")
         ax.grid(axis="y", alpha=0.3)
-        ax.set_ylim(-max(total)/div * 0.12, max(total)/div * 1.30)
+        ax.set_ylim(-max(t_pct) * 0.12, max(t_pct) * 1.30)
 
     plt.tight_layout(pad=2.0)
     fig.savefig(output_dir / "online_advisor_v2_comparison.pdf",
@@ -632,6 +631,7 @@ def _print_online_summary_v2(all_results):
     print("\n" + "=" * 90)
     print("  TRUE ONLINE ROLLING-HORIZON ADVISOR (v2 - rank-1 ALS gammas)")
     print("  Actual cost = REAL OBSERVED cost (policy_type='actual')")
+    print("  Costs shown as % of quarterly GDP")
     print("=" * 90)
     rows = []
     for region, data in all_results.items():
@@ -639,19 +639,23 @@ def _print_online_summary_v2(all_results):
         tp = data.get("tree_policy_cost")
         ac = data.get("real_actual_cost")
         ho = data.get("hindsight_optimal")
-        on_seq = " -> ".join(POLICY_SHORT.get(p, p)
-                             for p in data["online_sequence"])
-        tp_seq = " -> ".join(POLICY_SHORT.get(p, p)
-                             for p in (data.get("tree_policy_sequence")
-                                       or []))
-        ac_seq = " -> ".join(POLICY_SHORT.get(p, p)
-                             for p in data["actual_sequence"])
-        ho_seq = " -> ".join(POLICY_SHORT.get(p, p)
-                             for p in (ho["policy_vector"] if ho else []))
+        qgdp = TOTAL_GDP[region] / 4.0
+
+        def _seq_nums(seq):
+            return "-".join(str(POLICY_NUMBER.get(p, p)) for p in seq)
+
+        on_seq = _seq_nums(data["online_sequence"])
+        tp_seq = _seq_nums(data.get("tree_policy_sequence") or [])
+        ac_seq = _seq_nums(data["actual_sequence"])
+        ho_seq = _seq_nums(ho["policy_vector"] if ho else [])
+
         on_total = on["total_costs"] if on else None
         tp_total = tp["total_costs"] if tp else None
         ac_total = ac["total_costs"] if ac else None
         ho_total = ho["total_costs"] if ho else None
+
+        def _pct(x):
+            return 100 * x / qgdp if x is not None else None
 
         def _gap(x):
             if x is None or ho_total is None:
@@ -660,23 +664,145 @@ def _print_online_summary_v2(all_results):
 
         rows.append({
             "Region": region,
-            "Online Advisor": on_seq,
-            "Tree Policy": tp_seq if tp_seq else "N/A",
-            "Actual Policy": ac_seq,
-            "Hindsight Optimal": ho_seq,
-            "Online Cost": f"{on_total:.3e}" if on_total else "N/A",
-            "Tree Cost": f"{tp_total:.3e}" if tp_total else "N/A",
-            "Actual Cost": f"{ac_total:.3e}" if ac_total else "N/A",
-            "Hindsight Cost": f"{ho_total:.3e}" if ho_total else "N/A",
-            "Online Gap (%)": (f"{_gap(on_total):+.1f}"
-                               if _gap(on_total) is not None else "N/A"),
-            "Tree Gap (%)": (f"{_gap(tp_total):+.1f}"
-                             if _gap(tp_total) is not None else "N/A"),
-            "Actual Gap (%)": (f"{_gap(ac_total):+.1f}"
-                               if _gap(ac_total) is not None else "N/A"),
+            "Online Seq": on_seq,
+            "Actual Seq": ac_seq,
+            "HS Seq": ho_seq,
+            "Online %GDP": f"{_pct(on_total):.1f}%" if on_total else "N/A",
+            "Actual %GDP": f"{_pct(ac_total):.1f}%" if ac_total else "N/A",
+            "HS %GDP": f"{_pct(ho_total):.1f}%" if ho_total else "N/A",
+            "Online Gap": (f"{_gap(on_total):+.1f}%"
+                           if _gap(on_total) is not None else "N/A"),
+            "Actual Gap": (f"{_gap(ac_total):+.1f}%"
+                           if _gap(ac_total) is not None else "N/A"),
         })
     df = pd.DataFrame(rows)
     print(df.to_string(index=False))
+
+
+def _revealed_preference_analysis(all_results, factory, output_dir):
+    """Reverse-engineer the w* each region's actual policy was targeting,
+    then compare hindsight, online, and actual under that revealed w*."""
+    output_dir = Path(output_dir)
+    w_grid = np.linspace(0, 1, 101)
+    results = {}
+
+    print("\n" + "=" * 70)
+    print("  REVEALED-PREFERENCE w* ANALYSIS")
+    print("=" * 70)
+
+    for region in all_results:
+        data = all_results[region]
+        hs_all = data.get("hindsight_all", [])
+        actual = data.get("real_actual_cost")
+        if not hs_all or not actual:
+            print(f"  [{region}] skipping: missing data")
+            continue
+
+        qgdp = TOTAL_GDP[region] / 4.0
+        econ_actual = actual["economic_costs"]
+        hum_actual = actual["humanitarian_costs"]
+
+        best_regret_ratio = float("inf")
+        revealed_w = 0.5
+
+        for w in w_grid:
+            c_actual_w = w * hum_actual + (1 - w) * econ_actual
+            c_star_w = min(
+                w * r["humanitarian_costs"] + (1 - w) * r["economic_costs"]
+                for r in hs_all
+            )
+            if c_star_w > 0:
+                ratio = c_actual_w / c_star_w
+            else:
+                ratio = float("inf")
+            if ratio < best_regret_ratio:
+                best_regret_ratio = ratio
+                revealed_w = float(w)
+
+        hs_at_w_seq = min(
+            hs_all,
+            key=lambda r: revealed_w * r["humanitarian_costs"]
+                          + (1 - revealed_w) * r["economic_costs"]
+        )
+        hs_at_w_cost = (revealed_w * hs_at_w_seq["humanitarian_costs"]
+                        + (1 - revealed_w) * hs_at_w_seq["economic_costs"])
+
+        on_cost = data.get("online_3mo_cost")
+        on_weighted = (revealed_w * on_cost["humanitarian_costs"]
+                       + (1 - revealed_w) * on_cost["economic_costs"]
+                       ) if on_cost else 0
+        actual_weighted = revealed_w * hum_actual + (1 - revealed_w) * econ_actual
+
+        results[region] = {
+            "revealed_w": round(revealed_w, 3),
+            "regret_ratio": round(best_regret_ratio, 4),
+            "hindsight_weighted": hs_at_w_cost,
+            "hindsight_seq": hs_at_w_seq.get("policy_vector", []),
+            "online_weighted": on_weighted,
+            "online_seq": data.get("online_sequence", []),
+            "actual_weighted": actual_weighted,
+            "actual_seq": data.get("actual_sequence", []),
+            "qgdp": qgdp,
+        }
+
+        print(f"\n  [{REGION_LONG.get(region, region)}] revealed w* = "
+              f"{revealed_w:.3f} (regret ratio = "
+              f"{best_regret_ratio:.4f})")
+        print(f"    Hindsight  : {hs_at_w_cost/qgdp*100:.1f}% of Q-GDP  "
+              f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in hs_at_w_seq.get('policy_vector',[]))})")
+        print(f"    Online     : {on_weighted/qgdp*100:.1f}% of Q-GDP  "
+              f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in data.get('online_sequence',[]))})")
+        print(f"    Actual     : {actual_weighted/qgdp*100:.1f}% of Q-GDP  "
+              f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in data.get('actual_sequence',[]))})")
+
+    _plot_revealed_preference(results, output_dir)
+
+    with open(output_dir / "revealed_preference_w.json", "w") as f:
+        json.dump(results, f, indent=2, default=str)
+
+    return results
+
+
+def _plot_revealed_preference(results, output_dir):
+    """Grouped-bar chart: per-region weighted cost under revealed w*."""
+    regions = list(results.keys())
+    n = len(regions)
+    fig, axes = plt.subplots(1, n, figsize=(4.5 * n, 5), sharey=False)
+    if n == 1:
+        axes = [axes]
+
+    for ax, region in zip(axes, regions):
+        r = results[region]
+        qgdp = r["qgdp"]
+        labels = ["Hindsight", "Online", "Actual"]
+        vals = [
+            100 * r["hindsight_weighted"] / qgdp,
+            100 * r["online_weighted"] / qgdp,
+            100 * r["actual_weighted"] / qgdp,
+        ]
+        colors = ["#59a14f", "#4e79a7", "#e15759"]
+        bars = ax.bar(labels, vals, color=colors, edgecolor="white",
+                      width=0.55)
+        for bar, val in zip(bars, vals):
+            ax.text(bar.get_x() + bar.get_width() / 2, val + max(vals) * 0.02,
+                    f"{val:.1f}%", ha="center", va="bottom",
+                    fontsize=10, fontweight="bold")
+        ax.set_ylabel("Weighted cost (% quarterly GDP)", fontsize=10)
+        ax.set_title(f"{REGION_LONG.get(region, region)}\n"
+                     f"$w^* = {r['revealed_w']:.2f}$",
+                     fontsize=12, fontweight="bold")
+        ax.tick_params(axis="x", labelsize=9)
+        ax.grid(axis="y", alpha=0.3)
+        ax.set_ylim(0, max(vals) * 1.25)
+
+    plt.tight_layout(pad=2.0)
+    fig.savefig(output_dir / "revealed_preference_w.png",
+                bbox_inches="tight", dpi=200)
+    fig.savefig(output_dir / "revealed_preference_w.pdf",
+                bbox_inches="tight", dpi=200)
+    plt.close(fig)
+    print(f"\n  Revealed-preference figure saved to "
+          f"{output_dir / 'revealed_preference_w.png'}")
 
 
 def main():
@@ -686,11 +812,14 @@ def main():
     parser.add_argument("--output-dir",
                         default="simulation_results/online_advisor_v2")
     args = parser.parse_args()
-    run_online_rolling_v2(
+    all_results = run_online_rolling_v2(
         regions=args.regions,
         start_date=args.startdate,
         output_dir=args.output_dir,
     )
+    factory = Pandemic_Factory()
+    factory._initialize_rank1()
+    _revealed_preference_analysis(all_results, factory, args.output_dir)
 
 
 if __name__ == "__main__":

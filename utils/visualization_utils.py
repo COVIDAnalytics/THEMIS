@@ -87,8 +87,8 @@ def region_policy_scatter_plot_panel(results: pd.DataFrame, start_date: str = "3
                              template="plotly_white", color_continuous_scale='Reds')
 
         for trace in scatter.data:
-            trace.error_x.update(color='rgba(150,150,150,0.3)', thickness=1)
-            trace.error_y.update(color='rgba(150,150,150,0.3)', thickness=1)
+            trace.error_x.update(color='rgba(200,200,200,0.15)', thickness=0.5)
+            trace.error_y.update(color='rgba(200,200,200,0.15)', thickness=0.5)
             fig.add_trace(trace, row=(i//2) + 1, col=(i % 2) + 1)
         
         highlight_policy = df[df['short_policy_name'] == most_severe]

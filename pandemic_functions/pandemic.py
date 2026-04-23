@@ -23,7 +23,7 @@ class Pandemic_Factory:
             raise FileNotFoundError(f"Can not find file - "+ path_to_predictions_combined + " for actual polcy outcome")
 
     def _initialize_rank1(self, start_date="2020-03-15", end_date="2020-06-15",
-                          n_bootstrap=20, seed=42):
+                          n_bootstrap=20, noise_scale=0.1, seed=42):
         """
         Build the global gamma matrix, run rank-1 ALS for point estimates,
         and run bootstrap ALS for confidence interval samples.
@@ -43,7 +43,7 @@ class Pandemic_Factory:
             g[j] = completed[r, j] / k_R[r] if k_R[r] > 0 else 0.0
         fitted = np.outer(k_R, g)
         residuals = gamma_matrix[obs_mask] - fitted[obs_mask]
-        sigma = np.std(residuals) if len(residuals) > 1 else 0.0
+        sigma = np.std(residuals) * noise_scale if len(residuals) > 1 else 0.0
 
         rng = np.random.default_rng(seed)
         bootstrap_completed = []
@@ -138,7 +138,7 @@ class Pandemic:
         self.num_cases, self.num_cases_lb, self.num_cases_ub, self.num_deaths, self.num_deaths_lb, \
             self.num_deaths_ub, self.hospitalization_days, self.hospitalization_days_lb, self.hospitalization_days_ub, \
             self.icu_days, self.icu_days_lb, self.icu_days_ub, self.ventilated_days, self.ventilated_days_lb, \
-            self.ventilated_days_ub = output   
+            self.ventilated_days_ub, self.active_cases_end, self.active_hosp_end = output   
         
         
     def _get_deaths_and_hospitalizations(self, delphi_prediction, totalcases, dict_region_policy_gamma, 
@@ -158,6 +158,8 @@ class Pandemic:
             num_cases = cases_in_interval.iloc[-1]["case_cnt"] - cases_in_interval.iloc[0]["case_cnt"]
             hospitalization_days = preds_in_interval["Active Hospitalized"].sum()
             ventilated_days = preds_in_interval["Active Ventilated"].sum()
+            active_cases_end = float(preds_in_interval["Active"].iloc[-1]) if len(preds_in_interval) > 0 else 0.0
+            active_hosp_end = float(preds_in_interval["Active Hospitalized"].iloc[-1]) if len(preds_in_interval) > 0 else 0.0
             num_cases_lb = num_cases_ub = num_deaths_lb = num_deaths_ub = np.nan
             hospitalization_days_lb = hospitalization_days_ub = icu_days_lb = icu_days_ub = ventilated_days_lb = ventilated_days_ub = np.nan
 
@@ -175,12 +177,13 @@ class Pandemic:
                 hospitalization_days = hospitalization_days - icu_days
         else:
             num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
-                    hospitalization_days, ventilated_days = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
+                    hospitalization_days, ventilated_days, \
+                    active_cases_end, active_hosp_end = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_region_policy_gamma)
             hospitalization_days_lb, ventilated_days_lb = hospitalization_days, ventilated_days
             hospitalization_days_ub, ventilated_days_ub = hospitalization_days, ventilated_days
             if sample_gammas and self._gamma_samples:
                 for dict_gammas in self._gamma_samples:
-                    _, nclb, ncub, _, ndlb, ndub, nhd, nvd = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
+                    _, nclb, ncub, _, ndlb, ndub, nhd, nvd, *_ = run_delphi_policy_scenario(self.policy, self.region, totalcases, dict_gammas)
                     num_cases_lb = min(num_cases_lb, nclb)
                     num_cases_ub = max(num_cases_ub, ncub)
                     num_deaths_lb = min(num_deaths_lb, ndlb)
@@ -197,7 +200,8 @@ class Pandemic:
         
         return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
             hospitalization_days, hospitalization_days_lb, hospitalization_days_ub, \
-            icu_days, icu_days_lb, icu_days_ub, ventilated_days, ventilated_days_lb, ventilated_days_ub
+            icu_days, icu_days_lb, icu_days_ub, ventilated_days, ventilated_days_lb, ventilated_days_ub, \
+            active_cases_end, active_hosp_end
         
         
 

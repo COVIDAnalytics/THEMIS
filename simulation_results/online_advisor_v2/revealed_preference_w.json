@@ -1,0 +1,94 @@
+{
+  "DE": {
+    "revealed_w": 0.72,
+    "regret_ratio": 1.2505,
+    "hindsight_weighted": 23562212756.697456,
+    "hindsight_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "No_Measure"
+    ],
+    "online_weighted": 48331732889.85349,
+    "online_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "actual_weighted": 29463792137.17119,
+    "actual_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "qgdp": 965250000000.0
+  },
+  "BR": {
+    "revealed_w": 0.01,
+    "regret_ratio": 1.0856,
+    "hindsight_weighted": 26679682120.10088,
+    "hindsight_seq": [
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "online_weighted": 72276016472.41138,
+    "online_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools",
+      "Lockdown"
+    ],
+    "actual_weighted": 28963394272.26877,
+    "actual_seq": [
+      "Mass_Gatherings_Authorized_But_Others_Restricted",
+      "Mass_Gatherings_Authorized_But_Others_Restricted",
+      "Mass_Gatherings_Authorized_But_Others_Restricted"
+    ],
+    "qgdp": 1862000000000.0
+  },
+  "ES": {
+    "revealed_w": 0.45,
+    "regret_ratio": 2.6904,
+    "hindsight_weighted": 18068231004.478954,
+    "hindsight_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "No_Measure",
+      "No_Measure"
+    ],
+    "online_weighted": 27439712574.527283,
+    "online_seq": [
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "actual_weighted": 48610068405.1117,
+    "actual_seq": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "qgdp": 311250000000.0
+  },
+  "US-NY": {
+    "revealed_w": 0.1,
+    "regret_ratio": 2.0363,
+    "hindsight_weighted": 27847829482.83647,
+    "hindsight_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "No_Measure"
+    ],
+    "online_weighted": 34201177116.110893,
+    "online_seq": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools",
+      "No_Measure"
+    ],
+    "actual_weighted": 56707625780.98926,
+    "actual_seq": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "qgdp": 442500000000.0
+  }
+}

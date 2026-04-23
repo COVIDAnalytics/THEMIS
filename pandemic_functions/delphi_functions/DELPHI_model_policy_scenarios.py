@@ -778,7 +778,11 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
         active_ventilated = df_pred_with_ci['Active Ventilated'].tolist()
         ventilated_days = sum(active_ventilated[(policy_startT-1):])
 
+        active_cases_list = df_pred_with_ci['Active'].tolist()
+        active_cases_end = active_cases_list[-1] if active_cases_list else 0.0
+        active_hosp_end = active_hospitalized[-1] if active_hospitalized else 0.0
+
         return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
-            hospitalization_days, ventilated_days
+            hospitalization_days, ventilated_days, active_cases_end, active_hosp_end
     else:
         raise ValueError('Length of Valid Cases less than the threshold')
