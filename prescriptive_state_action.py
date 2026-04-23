@@ -13,28 +13,19 @@ At each decision point t in {1, 2, 3} a policymaker observes:
         severity of the most recent NPI;
     (c) cost incurred so far - the cumulative economic and humanitarian
         cost as % of monthly GDP that has been spent on the prefix
-        policies;
-    (d) region characteristics that are also observable ex-ante: GDP
-        per capita and population.
+        policies.
 
 For each (region, prefix) combination we enumerate all completions of
 the 3-month sequence using the THEMIS forward simulator and identify
 the cost-optimal next-month NPI under a weighted total cost
     C(w) = w * humanitarian + (1 - w) * economic.
 We do this for several w in [0, 1].  This yields one (state, action)
-training row per (region, prefix, w) tuple - 4 regions x 43 prefixes
-x 5 weights = 860 rows when pooled.
+training row per (region, prefix, w) tuple - 4 regions x 57 prefixes
+x 5 weights = 1140 rows when pooled.
 
-Design choices
---------------
-- Gammas come from the new rank-1 ALS estimator (run_scatter_rank1.py),
-  with the calibrated zmean-based fallback for Germany - identical to
-  the gamma pipeline now used for the scatter-plot panel.
-- The tree is region-blind: it never sees a region indicator, only the
-  observable region characteristics above; this keeps the rules
-  country-portable.
-- We build one tree per w (giving a family of weight-conditional rules)
-  and one pooled tree with w as an additional feature.
+Gammas come from the rank-1 ALS estimator built into the core
+Pandemic_Factory (see pandemic_functions/pandemic.py).  The tree is
+region-blind and we train a single pooled tree with w as a feature.
 """
 import argparse
 import itertools
@@ -50,17 +41,12 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import cross_val_score
 
-from pandemic_functions.pandemic import Pandemic_Factory, Pandemic
+from pandemic_functions.pandemic import Pandemic_Factory
 from pandemic_functions.pandemic_cost import PandemicCost
-from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import (
-    get_region_gammas_v2,
-)
 from policy_functions.policy import Policy
 from cost_functions.economic_cost.economic_data.economic_params import (
-    TOTAL_GDP, TOTAL_LABOR_FORCE,
+    TOTAL_GDP,
 )
-from analyze_gamma_rank import build_gamma_matrix, rank1_imputation
-from run_scatter_rank1 import _region_to_matrix_key
 
 FUTURE_POLICIES = [
     "No_Measure",
@@ -88,7 +74,6 @@ POLICY_NUMBER = {p: i + 1 for i, p in enumerate(FUTURE_POLICIES)}
 
 REGIONS = ["DE", "BR", "ES", "US-NY"]
 START_DATE = "2020-03-15"
-GAMMA_WINDOW_END = "2020-06-15"
 
 REGION_POPULATION = {
     "DE": 83_240_000,
@@ -100,42 +85,15 @@ REGION_POPULATION = {
 WEIGHTS = [0.0, 0.25, 0.5, 0.75, 1.0]
 
 
-def compute_rank1_gammas():
-    """Rank-1 ALS gammas (no per-region override)."""
-    print(f"  Building observed gamma matrix [{START_DATE} -> "
-          f"{GAMMA_WINDOW_END}] ...")
-    gamma_matrix, obs_mask, region_ids, policy_names = build_gamma_matrix(
-        start_date=START_DATE, end_date=GAMMA_WINDOW_END,
-    )
-    print(f"  Matrix: {gamma_matrix.shape[0]} regions x "
-          f"{gamma_matrix.shape[1]} policies, "
-          f"{obs_mask.sum()}/{gamma_matrix.size} observed")
-    print("  Running rank-1 ALS ...")
-    completed, _ = rank1_imputation(gamma_matrix, obs_mask)
+def _simulate_sequence(factory, region, policy_vector):
+    """Run THEMIS for one hypothetical sequence and return cost summary.
 
-    out = {}
-    for region in REGIONS:
-        key = _region_to_matrix_key(region)
-        if key not in region_ids:
-            raise KeyError(f"Region '{key}' not in matrix")
-        idx = region_ids.index(key)
-        out[region] = {p: float(completed[idx, j])
-                       for j, p in enumerate(policy_names)}
-    return out
-
-
-def _simulate_sequence(factory, region, policy_vector, gammas):
-    """Run THEMIS for one hypothetical sequence and return cost summary."""
-    from pandemic_functions.pandemic_params import region_symbol_country_dict
-    country, province = region_symbol_country_dict[region]
-    csv = (f"pandemic_functions/pandemic_data/"
-           f"Cases_{country.replace(' ', '_')}_"
-           f"{province.replace(' ', '_')}.csv")
-    totalcases = pd.read_csv(csv)
+    Uses the factory's stored rank-1 ALS gammas (auto-initialized on
+    first call to compute_delphi).
+    """
     policy = Policy(policy_type="hypothetical", start_date=START_DATE,
                     policy_vector=policy_vector)
-    pandemic = Pandemic(policy, region, factory.delphi_prediction,
-                        totalcases, gammas)
+    pandemic = factory.compute_delphi(policy, region=region)
     cost = PandemicCost(pandemic)
     econ = float(cost.st_economic_costs)
     human = float(cost.d_costs + cost.h_costs + cost.mh_costs)
@@ -155,14 +113,14 @@ def _simulate_sequence(factory, region, policy_vector, gammas):
     }
 
 
-def _enumerate_simulations(factory, region, gammas):
+def _enumerate_simulations(factory, region):
     """Run all length-1, length-2 and length-3 hypothetical sequences."""
     print(f"  [{region}] simulating length-1, length-2 and length-3 grids ...")
     by_len = {1: {}, 2: {}, 3: {}}
     for L in (1, 2, 3):
         for pv in itertools.product(FUTURE_POLICIES, repeat=L):
             try:
-                r = _simulate_sequence(factory, region, list(pv), gammas)
+                r = _simulate_sequence(factory, region, list(pv))
             except Exception as e:
                 print(f"    SKIP len={L} {pv}: {type(e).__name__}: {e}")
                 continue
@@ -384,12 +342,13 @@ def run_state_action_extraction(output_dir, from_cache=False):
         df["next_severity"] = df["next_npi"].map(POLICY_SEVERITY)
         df["prefix_str"] = df["prefix_str"].fillna("(start)")
     else:
-        rank1_gammas = compute_rank1_gammas()
         factory = Pandemic_Factory()
+        factory._initialize_rank1()
+        print(f"  Rank-1 ALS gammas loaded for "
+              f"{len(factory.d_region_policy_gammas)} regions")
         all_sims = {}
         for region in REGIONS:
-            all_sims[region] = _enumerate_simulations(factory, region,
-                                                       rank1_gammas[region])
+            all_sims[region] = _enumerate_simulations(factory, region)
         print("\n  Building (state, action) dataset ...")
         df = _build_state_action_dataset(all_sims)
         df.to_csv(output_dir / "state_action_dataset.csv", index=False)

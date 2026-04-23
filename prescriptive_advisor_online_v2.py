@@ -1,27 +1,22 @@
 """
 True Online Rolling-Horizon NPI Advisor (v2 with rank-1 ALS gammas).
 
-Same online testing protocol as `prescriptive_advisor_online.py` but the
-gamma estimation pipeline is the new one used everywhere else in the
-revised manuscript:
+Hindsight gammas and all non-online simulations use the rank-1 ALS
+pipeline built into Pandemic_Factory (see pandemic_functions/pandemic.py).
 
-  - Online gammas at decision date t are obtained by (a) loading the
-    DELPHI parameter snapshot fitted only on data up to t, (b) building
-    the partially-observed cross-region gamma matrix on the window
-    [start_date, t] using that snapshot, (c) running rank-1 ALS to
-    impute missing entries, and (d) reading off the focal region's row.
-    No per-region overrides are applied.
+Online gammas at decision date t are obtained by (a) loading the
+DELPHI parameter snapshot fitted only on data up to t, (b) building
+the partially-observed cross-region gamma matrix on the window
+[start_date, t] using that snapshot, (c) running rank-1 ALS to
+impute missing entries, and (d) reading off the focal region's row.
 
 The actual cost is taken from the OBSERVED data via Pandemic with
-policy_type="actual" - this is the same number that appears as the
-"actual" point in scatter_plot.pdf and bypasses any counterfactual
-simulation.
+policy_type="actual".
 """
 import argparse
 import itertools
 import json
 import pickle
-from copy import deepcopy
 from pathlib import Path
 
 import matplotlib
@@ -35,7 +30,6 @@ from pandemic_functions.pandemic_cost import PandemicCost
 from pandemic_functions.pandemic_params import region_symbol_country_dict
 from pandemic_functions.delphi_functions import DELPHI_model_policy_scenarios as dmps
 from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import (
-    get_region_gammas_v2,
     read_policy_data_us_only,
     read_oxford_country_policy_data,
 )
@@ -45,7 +39,6 @@ from cost_functions.economic_cost.economic_data.economic_params import (
 )
 import analyze_gamma_rank as agr
 from analyze_gamma_rank import build_gamma_matrix, rank1_imputation
-from run_scatter_rank1 import _region_to_matrix_key
 
 REGION_POPULATION = {
     "DE": 83_240_000,
@@ -82,7 +75,6 @@ POLICY_NUMBER = {p: i + 1 for i, p in enumerate(FUTURE_POLICIES)}
 
 REGIONS = ["DE", "BR", "ES", "US-NY"]
 START_DATE = "2020-03-15"
-HINDSIGHT_END = "2020-06-15"
 
 ROLLING_MONTHS = [
     ("2020-03-15", "2020-04-15"),
@@ -95,12 +87,6 @@ SNAPSHOT_BY_DECISION = {
     "2020-04-15": "pandemic_functions/pandemic_data/Parameters_Global_20200515.csv",
     "2020-05-15": "pandemic_functions/pandemic_data/Parameters_Global_20200615.csv",
 }
-
-HINDSIGHT_PARAMS_DEFAULT = (
-    "pandemic_functions/pandemic_data/"
-    "Parameters_Global_V2_20200703_with_NY_correction.csv"
-)
-
 
 # ---------------------------------------------------------------------------
 # Snapshot loading / V2 schema padding
@@ -129,12 +115,23 @@ def _load_snapshot_as_v2(snapshot_path):
 # ---------------------------------------------------------------------------
 # Online gamma estimation: rank-1 ALS on the window data observable so far
 # ---------------------------------------------------------------------------
+def _region_matrix_key(region):
+    """Map a region code to the key used in the gamma matrix (same logic
+    as Pandemic_Factory._initialize_rank1)."""
+    country, province = region_symbol_country_dict[region]
+    return f"{country}__{province}".replace(" ", "_")
+
+
 def _online_rank1_gammas(region, start_date, decision_date, snapshot_df):
     """Rank-1 ALS gammas using only data in [start_date, decision_date].
 
     Monkey-patch dmps.past_parameters AND analyze_gamma_rank.past_parameters
     with the dated snapshot, build the cross-region matrix, run ALS, and
-    return the focal region's row.  No per-region overrides.
+    return the focal region's row.
+
+    This date-windowed estimation cannot use the factory (whose init
+    covers the full hindsight window), so we call build_gamma_matrix /
+    rank1_imputation directly.
     """
     orig_dmps = dmps.past_parameters
     orig_agr = agr.past_parameters
@@ -156,7 +153,7 @@ def _online_rank1_gammas(region, start_date, decision_date, snapshot_df):
         except Exception:
             ok = False
 
-        key = _region_to_matrix_key(region)
+        key = _region_matrix_key(region)
         if ok and key in region_ids:
             completed, _ = rank1_imputation(gamma_matrix, obs_mask)
             idx = region_ids.index(key)
@@ -166,36 +163,55 @@ def _online_rank1_gammas(region, start_date, decision_date, snapshot_df):
                   f"{obs_mask.sum()} observed entries")
         else:
             print(f"      [fallback] not enough policy data for ALS; "
-                  f"using snapshot zmean estimator")
-            try:
-                gammas, _, _ = get_region_gammas_v2(
-                    region, start_date=start_date,
-                    end_date=decision_date, policy_days_thresh=2)
-            except Exception:
-                pass
+                  f"using factory default gammas for initial month")
+            gammas = None
     finally:
         dmps.past_parameters = orig_dmps
         agr.past_parameters = orig_agr
     return gammas
 
 
-def _hindsight_rank1_gammas(region, start_date, end_date):
-    """Hindsight rank-1 ALS gammas using the full window. No region overrides."""
-    gamma_matrix, obs_mask, region_ids, policy_names = build_gamma_matrix(
-        start_date=start_date, end_date=end_date,
-    )
-    completed, _ = rank1_imputation(gamma_matrix, obs_mask)
-    key = _region_to_matrix_key(region)
-    idx = region_ids.index(key)
-    gammas = {p: float(completed[idx, j]) for j, p in enumerate(policy_names)}
-    return gammas
-
-
 # ---------------------------------------------------------------------------
 # Simulation helpers
 # ---------------------------------------------------------------------------
+def _cost_dict(cost, policy_vector=None):
+    """Extract a standard cost summary dict from a PandemicCost object."""
+    econ = float(cost.st_economic_costs)
+    humanitarian = float(cost.d_costs + cost.h_costs + cost.mh_costs)
+    out = {
+        "economic_costs": econ,
+        "humanitarian_costs": humanitarian,
+        "total_costs": econ + humanitarian,
+        "num_cases": float(cost.num_cases),
+        "num_deaths": float(cost.num_deaths),
+        "d_costs": float(cost.d_costs),
+        "h_costs": float(cost.h_costs),
+        "mh_costs": float(cost.mh_costs),
+    }
+    if policy_vector is not None:
+        out["policy_vector"] = policy_vector
+    return out
+
+
+def _evaluate_sequence(factory, region, policy_vector, start_date):
+    """Evaluate a hypothetical sequence using the factory's stored rank-1
+    ALS gammas (the standard hindsight evaluation path)."""
+    try:
+        policy = Policy(policy_type="hypothetical", start_date=start_date,
+                        policy_vector=policy_vector)
+        pandemic = factory.compute_delphi(policy, region=region)
+        return _cost_dict(PandemicCost(pandemic), policy_vector)
+    except Exception as e:
+        print(f"    SKIP {policy_vector}: {type(e).__name__}: {e}")
+        return None
+
+
 def _evaluate_with_gammas(factory, region, policy_vector, start_date, gammas):
-    """Run THEMIS hypothetical simulation with the supplied gamma dict."""
+    """Evaluate a hypothetical sequence with an explicit gamma dict.
+
+    Used for the online advisor where the gamma estimates are
+    date-restricted and differ from the factory's stored values.
+    """
     try:
         policy = Policy(policy_type="hypothetical", start_date=start_date,
                         policy_vector=policy_vector)
@@ -208,46 +224,18 @@ def _evaluate_with_gammas(factory, region, policy_vector, start_date, gammas):
         )
         pandemic = Pandemic(policy, region, factory.delphi_prediction,
                             totalcases, gammas)
-        cost = PandemicCost(pandemic)
-        econ = float(cost.st_economic_costs)
-        humanitarian = float(cost.d_costs + cost.h_costs + cost.mh_costs)
-        return {
-            "policy_vector": policy_vector,
-            "economic_costs": econ,
-            "humanitarian_costs": humanitarian,
-            "total_costs": econ + humanitarian,
-            "num_cases": float(cost.num_cases),
-            "num_deaths": float(cost.num_deaths),
-            "d_costs": float(cost.d_costs),
-            "h_costs": float(cost.h_costs),
-            "mh_costs": float(cost.mh_costs),
-        }
+        return _cost_dict(PandemicCost(pandemic), policy_vector)
     except Exception as e:
         print(f"    SKIP {policy_vector}: {type(e).__name__}: {e}")
         return None
 
 
 def _real_actual_cost(factory, region, start_date, n_months):
-    """Real actual cost obtained via policy_type='actual'.
-
-    Mirrors run_scatter_rank1.simulate_actual / scatter_plot.pdf.
-    """
+    """Real actual cost obtained via policy_type='actual'."""
     policy = Policy(policy_type="actual", start_date=start_date,
                     policy_length=n_months)
     pandemic = factory.compute_delphi(policy, region=region)
-    cost = PandemicCost(pandemic)
-    econ = float(cost.st_economic_costs)
-    humanitarian = float(cost.d_costs + cost.h_costs + cost.mh_costs)
-    return {
-        "economic_costs": econ,
-        "humanitarian_costs": humanitarian,
-        "total_costs": econ + humanitarian,
-        "num_cases": float(cost.num_cases),
-        "num_deaths": float(cost.num_deaths),
-        "d_costs": float(cost.d_costs),
-        "h_costs": float(cost.h_costs),
-        "mh_costs": float(cost.mh_costs),
-    }
+    return _cost_dict(PandemicCost(pandemic))
 
 
 def _get_actual_policy_for_month(region, month_start, month_end):
@@ -327,11 +315,11 @@ def _load_tree_bundle(path=TREE_BUNDLE_PATH):
         return pickle.load(f)
 
 
-def _state_at_prefix(factory, region, prefix, hindsight_gammas, start_date):
+def _state_at_prefix(factory, region, prefix, start_date):
     """State features at the start of the next month after `prefix` has
-    been executed. Mirrors `_state_at_decision` in
-    `prescriptive_state_action.py` so the resulting state vector is a
-    valid input to the trained tree."""
+    been executed.  Uses the factory's stored rank-1 gammas.  Mirrors
+    `_state_at_decision` in `prescriptive_state_action.py` so the
+    resulting state vector is a valid input to the trained tree."""
     pop = REGION_POPULATION[region]
     monthly_gdp = TOTAL_GDP[region] / 12.0
     if len(prefix) == 0:
@@ -346,14 +334,7 @@ def _state_at_prefix(factory, region, prefix, hindsight_gammas, start_date):
         }
     policy = Policy(policy_type="hypothetical", start_date=start_date,
                     policy_vector=prefix)
-    country, province = region_symbol_country_dict[region]
-    totalcases = pd.read_csv(
-        f"pandemic_functions/pandemic_data/"
-        f"Cases_{country.replace(' ', '_')}_"
-        f"{province.replace(' ', '_')}.csv"
-    )
-    pandemic = Pandemic(policy, region, factory.delphi_prediction,
-                        totalcases, hindsight_gammas)
+    pandemic = factory.compute_delphi(policy, region=region)
     cost = PandemicCost(pandemic)
     def _safe(v):
         try:
@@ -379,11 +360,11 @@ def _state_at_prefix(factory, region, prefix, hindsight_gammas, start_date):
     }
 
 
-def _build_tree_policy_sequence(region, w, factory, hindsight_gammas,
-                                tree_bundle, start_date):
+def _build_tree_policy_sequence(region, w, factory, tree_bundle, start_date):
     """Construct the 3-month NPI sequence prescribed by the pooled tree
     when queried month-by-month with the state induced by the tree's own
-    earlier choices. The tree itself is offline (one-off training), so
+    earlier choices.  Uses the factory's stored rank-1 gammas for state
+    computation.  The tree itself is offline (one-off training), so
     the resulting sequence is a feasible online policy."""
     pooled = tree_bundle["trees"]["pooled"]
     feature_names = pooled["feature_names"]
@@ -392,8 +373,7 @@ def _build_tree_policy_sequence(region, w, factory, hindsight_gammas,
 
     prefix = []
     for _ in range(3):
-        state = _state_at_prefix(factory, region, prefix, hindsight_gammas,
-                                 start_date)
+        state = _state_at_prefix(factory, region, prefix, start_date)
         state["w_humanitarian"] = w
         x = pd.DataFrame([[state[c] for c in feature_names]],
                          columns=feature_names)
@@ -439,9 +419,8 @@ def run_online_rolling_v2(regions, start_date, output_dir):
                 snapshots[decision_date])
             if online_gammas is None:
                 print(f"    Online ALS failed; falling back to "
-                      f"hindsight rank-1 estimate")
-                online_gammas = _hindsight_rank1_gammas(
-                    region, start_date, decision_date)
+                      f"factory rank-1 gammas")
+                online_gammas = factory.d_region_policy_gammas[region]
             print("    Online gammas: " + ", ".join(
                 f"{POLICY_SHORT.get(p,p)}={g:.3f}"
                 for p, g in online_gammas.items()))
@@ -495,18 +474,9 @@ def run_online_rolling_v2(regions, start_date, output_dir):
         print(f"    Actual policy:  "
               f"{' -> '.join(POLICY_SHORT.get(p,p) for p in actual_seq)}")
 
-        # Hindsight gammas (rank-1 ALS over the full 3-month window) for
-        # both the hindsight-optimal search and re-scoring the online
-        # sequence on a single ground-truth simulator.
-        print("    Computing hindsight rank-1 gammas (full 3-month window) ...")
-        hindsight_gammas = _hindsight_rank1_gammas(
-            region, start_date, HINDSIGHT_END)
+        online_3mo = _evaluate_sequence(
+            factory, region, online_seq, start_date)
 
-        online_3mo = _evaluate_with_gammas(
-            factory, region, online_seq, start_date, hindsight_gammas)
-
-        # REAL actual cost: from policy_type="actual" (observed data),
-        # not a counterfactual simulation.
         real_actual = _real_actual_cost(factory, region, start_date,
                                         n_months=3)
 
@@ -514,8 +484,7 @@ def run_online_rolling_v2(regions, start_date, output_dir):
         print(f"    Computing hindsight optimum over {n_seqs} sequences ...")
         hindsight_results = []
         for pv in itertools.product(FUTURE_POLICIES, repeat=3):
-            r = _evaluate_with_gammas(factory, region, list(pv),
-                                      start_date, hindsight_gammas)
+            r = _evaluate_sequence(factory, region, list(pv), start_date)
             if r is not None:
                 hindsight_results.append(r)
         hindsight_optimal = None
@@ -533,11 +502,9 @@ def run_online_rolling_v2(regions, start_date, output_dir):
             for w in TREE_POLICY_WEIGHTS:
                 try:
                     seq_w = _build_tree_policy_sequence(
-                        region, w, factory, hindsight_gammas,
-                        tree_bundle, start_date)
-                    cost_w = _evaluate_with_gammas(
-                        factory, region, seq_w, start_date,
-                        hindsight_gammas)
+                        region, w, factory, tree_bundle, start_date)
+                    cost_w = _evaluate_sequence(
+                        factory, region, seq_w, start_date)
                     tree_policy_sweep.append({
                         "tree_w": w,
                         "sequence": seq_w,

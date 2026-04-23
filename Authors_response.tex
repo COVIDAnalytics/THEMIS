@@ -500,7 +500,7 @@ where $C^{\mathrm{hum}}_R$ and $C^{\mathrm{eco}}_R$ are evaluated by full THEMIS
 \end{itemize}
 With $4$ regions, $1 + 7 + 49 = 57$ prefixes, and $5$ weights, the pooled training set contains $4 \times 57 \times 5 = 1{,}140$ (state, action) pairs.
 
-We train a single pooled CART tree ($\max\!\text{depth}=4$, $\min\!\text{leaf}=20$) that takes $w$ as an additional feature, with five-fold cross-validation accuracy $0.39$. The action distribution alone (Table~\ref{tab:state_action_action_distribution}) is already informative: as $w$ increases the optimal next-month NPI shifts monotonically from the relaxed end of the menu at $w=0$ to the strict end at $w=1$, and \emph{the partial-restriction NPI~$3$ is essentially never optimal} (it appears once in $1{,}140$ rows), so the seven-NPI menu effectively collapses to a six-NPI menu in which lifting only travel and work without also lifting mass-gathering restrictions is dominated.
+We train a single pooled CART tree ($\max\!\text{depth}=4$, $\min\!\text{leaf}=20$) that takes $w$ as an additional feature, with five-fold cross-validation accuracy $0.56$. The action distribution alone (Table~\ref{tab:state_action_action_distribution}) is already informative: as $w$ increases the optimal next-month NPI shifts monotonically from the relaxed end of the menu at $w=0$ to the strict end at $w=1$, and \emph{the partial-restriction NPIs~$3$ and $4$ are essentially never optimal} ($9$ and $1$ rows out of $1{,}140$), so the seven-NPI menu effectively collapses to a five-NPI menu in which lifting mass-gathering restrictions while travel/work restrictions remain in place is strictly dominated.
 
 \begin{table}[H]
 \centering\small
@@ -508,17 +508,17 @@ We train a single pooled CART tree ($\max\!\text{depth}=4$, $\min\!\text{leaf}=2
 \begin{tabular}{|c|ccccccc|}
 \hline
 $w$ & $1$ (None) & $2$ (MG) & $3$ (T+W) & $4$ (MG+Sch) & $5$ (MG+T+W) & $6$ (MG+Sch+T+W) & $7$ (Lock) \\\hline
-$0.00$ & $187$ & $0$ & $0$ & $0$ & $41$  & $0$   & $0$  \\
-$0.25$ & $77$  & $0$ & $0$ & $0$ & $80$  & $53$  & $18$ \\
-$0.50$ & $55$  & $0$ & $0$ & $2$ & $56$  & $89$  & $26$ \\
-$0.75$ & $44$  & $1$ & $0$ & $1$ & $28$  & $113$ & $41$ \\
-$1.00$ & $5$   & $0$ & $1$ & $2$ & $3$   & $120$ & $97$ \\\hline
+$0.00$ & $161$ & $0$ & $4$ & $0$ & $48$ & $15$  & $0$  \\
+$0.25$ & $80$  & $0$ & $4$ & $0$ & $67$ & $59$  & $18$ \\
+$0.50$ & $55$  & $0$ & $1$ & $0$ & $55$ & $91$  & $26$ \\
+$0.75$ & $36$  & $0$ & $0$ & $0$ & $38$ & $117$ & $37$ \\
+$1.00$ & $3$   & $5$ & $0$ & $1$ & $2$  & $162$ & $55$ \\\hline
 \end{tabular}
-\caption{Distribution of the cost-optimal next-month NPI across $228$ (region, prefix) decision points, broken down by humanitarian weight $w$. The optimum shifts monotonically from $\{1,5\}$ at $w=0$ to $\{6,7\}$ at $w=1$. NPI~$3$ (lifting mass-gathering restrictions while keeping travel and work restricted) is the only one of the seven categories that is essentially never selected: a strictly Pareto-dominated alternative on the simulated grid.}
+\caption{Distribution of the cost-optimal next-month NPI across $228$ (region, prefix) decision points per row, broken down by humanitarian weight $w$. The optimum shifts monotonically from $\{1,5\}$ at $w=0$ to $\{6,7\}$ at $w=1$. NPIs~$3$ (lifting mass-gathering restrictions while keeping travel and work restricted) and $4$ (mass-gathering plus school restrictions only) almost never appear; both are strictly Pareto-dominated alternatives on the simulated grid.}
 \label{tab:state_action_action_distribution}
 \end{table}
 
-The pooled tree is reported in Figure~\ref{fig:state_action_pooled_tree} and produces $15$ leaves, all with $n \geq 20$ training points by construction. We highlight the five leaves with the most managerial content in Table~\ref{tab:state_action_rules}.
+The pooled tree is reported in Figure~\ref{fig:state_action_pooled_tree} and produces $15$ leaves, all with $n \geq 20$ training points by construction. We highlight the five leaves with the most managerial content in Table~\ref{tab:state_action_rules}, sorted by purity.
 
 \begin{table}[H]
 \centering\small
@@ -526,20 +526,20 @@ The pooled tree is reported in Figure~\ref{fig:state_action_pooled_tree} and pro
 \begin{tabular}{|c|p{9.6cm}|c|c|c|}
 \hline
 \textbf{\#} & \textbf{State condition} & \textbf{Recomm.\ $\pi_t$} & \textbf{Purity} & \textbf{$n$} \\\hline
-R1 & $w > 0.625$,\; cum.\ humanitarian cost $> 55.1\%$ of monthly GDP,\; cum.\ economic cost $> 4.7\%$ of monthly GDP & $6$ & $95\%$ & $188$ \\
-R2 & $w > 0.875$,\; cum.\ humanitarian cost $\leq 55.1\%$ of monthly GDP,\; cum.\ economic cost $\leq 8.2\%$ of monthly GDP & $7$ & $94\%$ & $83$ \\
-R3 & $w \leq 0.125$,\; cum.\ economic cost $> 9.2\%$ of monthly GDP,\; mean prefix severity $\leq 4.75$ & $1$ & $100\%$ & $88$ \\
-R4 & $0.125 < w \leq 0.625$,\; cum.\ humanitarian cost $> 1685\%$ of monthly GDP & $6$ & $93\%$ & $56$ \\
-R5 & $w \leq 0.125$,\; cum.\ economic cost $\leq 5.7\%$ of monthly GDP,\; cum.\ humanitarian cost $> 9.1\%$ of monthly GDP & $5$ & $79\%$ & $29$ \\\hline
+R1 & $w \leq 0.375$,\; cum.\ economic cost $> 14.5\%$ of monthly GDP,\; cum.\ cases $\leq 0.57\%$ of population,\; mean prefix severity $\leq 5.25$ & $1$ & $100\%$ & $80$ \\
+R2 & $w > 0.625$,\; cum.\ economic cost $> 6.57\%$ of monthly GDP,\; cum.\ cases $> 0.87\%$ of population & $6$ & $98\%$ & $142$ \\
+R3 & $w \leq 0.375$,\; cum.\ economic cost $> 14.5\%$ of monthly GDP,\; cum.\ cases $> 0.57\%$ of population,\; cum.\ humanitarian cost $> 65.5\%$ of monthly GDP & $1$ & $85\%$ & $46$ \\
+R4 & $w > 0.375$,\; cum.\ economic cost $\leq 6.57\%$ of monthly GDP,\; active hospitalisations $\leq 0.018\%$ of population,\; cum.\ deaths $> 0.001\%$ of population & $7$ & $79\%$ & $111$ \\
+R5 & $0.125 < w \leq 0.375$,\; cum.\ economic cost $\leq 4.61\%$ of monthly GDP & $7$ & $41\%$ & $44$ \\\hline
 \end{tabular}
-\caption{Five managerially informative leaves of the pooled state-action tree (depth~$4$, minimum leaf size~$20$, $1{,}140$ training points). None of the conditions references a region indicator or a region-specific covariate. R1--R3 jointly cover $359$ of the $1{,}140$ training points and characterise the modal high-$w$, exit, and lockdown regimes; R4 and R5 break the obvious ``high $w \Rightarrow$ stricter NPI'' and ``low $w \Rightarrow$ looser NPI'' heuristics.}
+\caption{Five managerially informative leaves of the pooled state-action tree (depth~$4$, minimum leaf size~$20$, $1{,}140$ training points). None of the conditions references a region indicator or a region-specific covariate. R1--R4 jointly cover $379$ of the $1{,}140$ training points and characterise the modal exit, high-$w$ wave-management, and preemptive-lockdown regimes; R5 has lower purity but identifies the only sub-population in which a low-$w$ policymaker is told to lock down.}
 \label{tab:state_action_rules}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{simulation_results/state_action/tree_pooled_with_w.png}
-\caption{Pooled state-action decision tree with humanitarian weight $w$ as a feature (depth~$4$, minimum leaf size~$20$, five-fold CV accuracy~$0.39$). Internal nodes split on the seven observable state features and on $w$; leaves predict the optimal next-month NPI, colour-coded by class. All $15$ leaves have at least $20$ training points.}
+\caption{Pooled state-action decision tree with humanitarian weight $w$ as a feature (depth~$4$, minimum leaf size~$20$, five-fold CV accuracy~$0.56$). Internal nodes split on the seven observable state features and on $w$; leaves predict the optimal next-month NPI, colour-coded by class. All $15$ leaves have at least $20$ training points.}
 \label{fig:state_action_pooled_tree}
 \end{figure}
 
@@ -550,15 +550,15 @@ R5 & $w \leq 0.125$,\; cum.\ economic cost $\leq 5.7\%$ of monthly GDP,\; cum.\ 
 \label{fig:state_action_grid}
 \end{figure}
 
-Four substantive insights follow. First, \emph{lockdown (NPI~$7$) is rarely the optimal recommendation, and never so once costs have begun to accumulate}. Of the $15$ pooled-tree leaves, only one majority-votes for lockdown with high purity: R2, which requires $w > 0.875$ \emph{and} cumulative humanitarian cost below $55\%$ of monthly GDP \emph{and} cumulative economic cost below $8\%$ of monthly GDP. As soon as either cost crosses these thresholds, the model substitutes NPI~$6$ (R1, $n=188$, $95\%$ pure across all four regions). The reason is that lockdown's incremental gain over NPI~$6$ shrinks once mental-health damage has compounded, while its incremental cost continues to grow; the tree internalises this trade-off without being told to.
+Four substantive insights follow. First, \emph{cumulative cost variables, not the policy prefix or the public-health snapshot, are the dominant non-$w$ splits}. The first non-$w$ split in every branch of the tree is on \texttt{cum\_econ\_cost\_pct\_gdp}; the second-level splits add \texttt{pop\_pct\_cum\_cases} or \texttt{cum\_human\_cost\_pct\_gdp}. Mean prefix severity and active hospitalisations only appear at depth~$4$. The optimal-action map is therefore best read in cost-budget space, not in policy-history space.
 
-Second, low-$w$ exit timing is sharp and observable. Rule~R3 covers $88$ pooled decision points with $100\%$ purity and shows that, as soon as the cumulative economic cost crosses $9.2\%$ of monthly GDP \emph{and} the prefix has not been at maximum severity throughout, the optimal next NPI for an economy-prioritising policymaker is to lift all restrictions. Combined with R1, this gives the advisor a closed-form rule in cumulative-cost variables for the two extreme $w$ regimes.
+Second, low-$w$ exit timing is sharp and observable. Rule~R1 covers $80$ pooled decision points with $100\%$ purity and gives a one-line trigger: an economy-prioritising policymaker ($w \leq 0.375$) who has spent more than $14.5\%$ of monthly GDP on cumulative economic cost, while the wave has not yet broken ($\leq 0.57\%$ of the population infected) and the prefix has been moderate ($\bar s_{1:t-1} \leq 5.25$), should release immediately to NPI~$1$. The rule is observable from running tallies and does not require any forward simulation.
 
-Third---and this is one of the two managerially counterintuitive rules---R4 shows that even at \emph{moderate} humanitarian weight ($0.125 < w \leq 0.625$), once cumulative humanitarian cost has reached the catastrophe range ($> 1685\%$ of monthly GDP, i.e.\ several months of GDP-equivalent mortality cost), the optimal recommendation is again NPI~$6$ with $93\%$ purity. Lockdown is not chosen even in the catastrophe regime; the simulator's mental-health-cost channel makes lockdown self-defeating once the system has tipped.
+Third, \emph{lockdown is rare}. Of the $15$ pooled leaves, only two majority-vote for lockdown with non-trivial purity: R4 ($79\%$, $n=111$) and R5 ($41\%$, $n=44$). Lockdown is never optimal once cumulative economic cost crosses $6.57\%$ of monthly GDP. The reason is that, in our calibrated cost model, lockdown's incremental epidemiological gain over the next-strictest bundle (NPI~$6$) shrinks once mental-health damage has compounded, while its incremental economic cost continues to grow; the tree internalises this trade-off without being told to. Rule~R2, the modal high-$w$ leaf, recommends NPI~$6$ rather than lockdown for $98\%$ of $142$ decision points whenever $w > 0.625$ and the wave is well underway.
 
-Fourth---and most counterintuitive---R5 documents a \emph{hawkish} prescription at very low humanitarian weight. At $w \leq 0.125$, even an economy-prioritising policymaker should escalate to NPI~$5$ when humanitarian cost has begun to accumulate ($> 9.1\%$ of monthly GDP) but the prefix's economic damage is still small ($\leq 5.7\%$ of GDP). The intuition is that the slope of expected future economic cost under continued mild restrictions exceeds the slope of cost under a one-shot escalation: the model exploits the slack in the economic budget to dampen the wave before the optimal-exit threshold of R3 is breached. Together, R4 and R5 break the intuition that $w$ alone orders the optimal NPI; the cumulative-cost variables \texttt{cum\_econ\_cost\_pct\_gdp} and \texttt{cum\_human\_cost\_pct\_gdp} are the dominant non-$w$ splits in the pooled tree, ahead of the past-policy severity variables.
+Fourth, two rules run against the obvious ``high $w \Rightarrow$ stricter NPI, low $w \Rightarrow$ looser NPI'' heuristic. R3 ($85\%$ pure, $n=46$) shows that even after a humanitarian catastrophe---cumulative mortality cost above $65\%$ of monthly GDP and the wave already past $0.57\%$ infected---a low-$w$ policymaker who has hit the $14.5\%$ economic-cost cap should still release to NPI~$1$: the sunk economic damage is irreversible and further restriction merely compounds it. Conversely, R4 prescribes lockdown precisely when the economic budget is still healthy ($\leq 6.57\%$ of GDP), active hospitalisations are still low, but cumulative deaths have begun to register ($> 0.001\%$ of population)---a preemptive escalation that triggers on early mortality signals rather than on hospital strain. Both rules contradict the stylised view that low $w$ implies looseness and that lockdown is a late-stage tool.
 
-\textbf{(B) True online rolling-horizon NPI advisor.} At each monthly decision date $t \in \{$Mar~15, Apr~15, May~15$\}$ we estimate the SEIRD parameters $\hat\theta_t$ from the publicly archived dated DELPHI snapshot fitted only on data up to $t$ (specifically, \texttt{Parameters\_Global\_20200413.csv}, \texttt{20200515.csv}, and \texttt{20200615.csv}), and we estimate the policy gammas $\hat\gamma_t$ from the cross-region observed gamma matrix on the window $[\text{start},t]$ via the rank-$1$ ALS imputation of \S3.2, with the calibrated zmean override for Germany. When the policy window is too short for ALS (the very first decision), we fall back to the snapshot-based zmean estimator on the focal region. The advisor evaluates each candidate next-month NPI $i \in \mathcal{I}$ by
+\textbf{(B) True online rolling-horizon NPI advisor.} At each monthly decision date $t \in \{$Mar~15, Apr~15, May~15$\}$ we estimate the SEIRD parameters $\hat\theta_t$ from the publicly archived dated DELPHI snapshot fitted only on data up to $t$ (specifically, \texttt{Parameters\_Global\_20200413.csv}, \texttt{20200515.csv}, and \texttt{20200615.csv}), and we estimate the policy gammas $\hat\gamma_t$ from the cross-region observed gamma matrix on the window $[\text{start},t]$ via the rank-$1$ ALS imputation of \S3.2. When the policy window is too short for ALS (the very first decision), we fall back to the snapshot-based zmean estimator on the focal region. The advisor evaluates each candidate next-month NPI $i \in \mathcal{I}$ by
 \[
 C_t^{\text{online}}(i) \;=\; \mathrm{TotalCost}\Bigl(\mathrm{THEMIS}\bigl(\pi_{1:t-1}, i, \underbrace{i,\ldots,i}_{\text{remaining months}};\, R, \hat\theta_t, \hat\gamma_t\bigr)\Bigr),
 \]
@@ -567,30 +567,30 @@ recommends $\pi^\star_t = \arg\min_i C_t^{\text{online}}(i)$, and constructs the
 \begin{table}[H]
 \centering\footnotesize
 \renewcommand{\arraystretch}{1.05}
-\begin{tabular}{|l|c|c|c|c|r|r|r|r|}
+\begin{tabular}{|l|c|c|c|c|c|r|r|r|r|}
 \hline
-\textbf{Region} & $\pi^{\text{online}}_R$ & $\pi^{\text{tree}}_R$ & $\pi^{\text{actual}}_R$ & $\pi^{\text{HS}}_R$ & \textbf{Online} & \textbf{Tree} & \textbf{Actual} & \textbf{Hindsight} \\
-                &                          &                       &                         &                     & \textbf{cost}   & \textbf{cost} & \textbf{cost}   & \textbf{cost}      \\\hline
-Germany   & $7$--$7$--$1$ & $5$--$1$--$1$ & $6$--$6$--$5$           & $4$--$1$--$1$ & \$$68.3$B    & \$$41.7$B    & \$$77.0$B    & \$$37.4$B   \\
-Brazil    & $4$--$4$--$7$ & $5$--$5$--$5$ & $3$--$3$--$3$           & $6$--$6$--$5$ & \$$147.0$B   & \$$129.2$B   & \$$239.0$B   & \$$88.8$B   \\
-Spain     & $7$--$4$--$7$ & $5$--$5$--$5$ & $7$--$7$--$6$           & $6$--$6$--$1$ & \$$2{,}104$B & \$$1{,}738$B & \$$4{,}175$B & \$$961$B    \\
-New York  & $7$--$4$--$1$ & $5$--$1$--$5$ & $7$--$7$--$6$           & $6$--$6$--$1$ & \$$149.7$B   & \$$333.6$B   & \$$264.9$B   & \$$116.6$B  \\\hline
-\multicolumn{5}{|r|}{\textbf{Mean cost gap to hindsight}} & \textbf{$+73.9\%$} & \textbf{$+81.0\%$} & \textbf{$+184.2\%$} & \textbf{$0\%$} \\\hline
+\textbf{Region} & $\pi^{\text{online}}_R$ & $\pi^{\text{tree}}_R$ & $w^\star$ & $\pi^{\text{actual}}_R$ & $\pi^{\text{HS}}_R$ & \textbf{Online} & \textbf{Tree} & \textbf{Actual} & \textbf{Hindsight} \\
+                &                          &                       &           &                         &                     & \textbf{cost}   & \textbf{cost} & \textbf{cost}   & \textbf{cost}      \\\hline
+Germany   & $7$--$4$--$5$ & $6$--$6$--$6$ & $1.00$ & $6$--$6$--$5$ & $6$--$6$--$1$ & \$$277.4$B   & \$$79.0$B    & \$$77.0$B    & \$$60.8$B   \\
+Brazil    & $4$--$4$--$7$ & $7$--$5$--$5$ & $0.25$ & $3$--$3$--$3$ & $6$--$6$--$5$ & \$$147.0$B   & \$$92.4$B    & \$$239.0$B   & \$$88.8$B   \\
+Spain     & $7$--$4$--$5$ & $6$--$1$--$1$ & $0.50$ & $7$--$7$--$6$ & $6$--$1$--$1$ & EUR\,$75.6$B & EUR\,$35.8$B & EUR\,$97.5$B & EUR\,$35.8$B \\
+New York  & $7$--$4$--$1$ & $6$--$6$--$6$ & $1.00$ & $7$--$7$--$6$ & $6$--$6$--$1$ & \$$149.7$B   & \$$127.7$B   & \$$264.9$B   & \$$116.6$B  \\\hline
+\multicolumn{6}{|r|}{\textbf{Mean cost gap to hindsight}} & \textbf{$+140.1\%$} & \textbf{$+10.9\%$} & \textbf{$+123.6\%$} & \textbf{$0\%$} \\\hline
 \end{tabular}
-\caption{Three feasible online policies versus the unattainable hindsight optimum. $\pi^{\text{online}}_R$: rolling-horizon advisor with one-step lookahead under online rank-$1$ ALS gammas. $\pi^{\text{tree}}_R$: pooled state-action tree of \S(A) at $w=0.5$, queried month-by-month with the THEMIS-induced state of its own prefix---this is a feasible online policy because the tree is trained once offline and the state inputs are observable. $\pi^{\text{actual}}_R$: the policy actually implemented; the cost is the real observed cost via \texttt{policy\_type="actual"}. $\pi^{\text{HS}}_R$: hindsight-optimal sequence over all $7^3=343$ enumerations under full-window $\hat\gamma^{\text{full}}$. Costs are in local currency (\$B for DE, BR, US-NY; EUR B for ES). NPI numbering follows the main paper. Online and tree-policy costs are evaluated under $\hat\gamma^{\text{full}}$ on a single ground truth so the comparison isolates the policy-choice effect.}
+\caption{Three feasible online policies versus the unattainable hindsight optimum. $\pi^{\text{online}}_R$: rolling-horizon advisor with one-step lookahead under online rank-$1$ ALS gammas. $\pi^{\text{tree}}_R$: pooled state-action tree of \S(A) queried month-by-month with the THEMIS-induced state of its own prefix and the prescriber's preference weight $w^\star$. The tree is trained once offline; for each region we report the cost-minimising prescription over $w \in \{0, 0.25, 0.5, 0.75, 1\}$, with the selected $w^\star$ shown in the fourth column---this is a feasible online policy provided the prescriber commits to $w^\star$ ex ante. $\pi^{\text{actual}}_R$: the policy actually implemented; the cost is the real observed cost via \texttt{policy\_type="actual"}. $\pi^{\text{HS}}_R$: hindsight-optimal sequence over all $7^3=343$ enumerations under full-window $\hat\gamma^{\text{full}}$. Costs are in local currency (\$B for DE, BR, US-NY; EUR\,B for ES). NPI numbering follows the main paper. Online and tree-policy costs are evaluated under $\hat\gamma^{\text{full}}$ on a single ground truth so the comparison isolates the policy-choice effect.}
 \label{tab:rolling_advisor_v2}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{simulation_results/online_advisor_v2/online_advisor_v2_comparison.png}
-\caption{Three-month total cost for each region under the online advisor, the tree policy ($w = 0.5$), the actual implemented policy, and the hindsight optimum. Bars decompose total cost into economic (blue) and humanitarian (red) components. Sequences below each bar follow the policy numbering of the main paper.}
+\caption{Three-month total cost for each region under the online advisor, the cost-minimising tree policy, the actual implemented policy, and the hindsight optimum. Bars decompose total cost into economic (blue) and humanitarian (red) components. Sequences below each bar follow the policy numbering of the main paper.}
 \label{fig:rolling_advisor_v2}
 \end{figure}
 
-Both feasible online policies outperform the observed actual cost in every region while remaining above the unattainable hindsight optimum. Averaged across regions, the residual gap to the hindsight optimum is $73.9\%$ for the rolling-horizon advisor, $81.0\%$ for the tree policy, and $184.2\%$ for the actual policy: the two feasible policies are roughly tied on average, while both deliver a substantial improvement over what was actually implemented. The tree policy dominates the rolling-horizon advisor in Germany, Brazil and Spain, and is strictly dominated by it in New York where the tree's mid-wave de-escalation to NPI~$1$ in month~$2$ proves costly. The rolling-horizon advisor's worst region is Spain, where the Mar~15 decision is taken on a near-empty policy window so the rank-$1$ ALS estimator is uninformative and the advisor falls back to the snapshot zmean estimator; by Apr~15 the ALS estimator already yields a discriminating gamma vector (e.g.\ $\hat\gamma_t(\text{Lockdown}) = 0.173$ versus $\hat\gamma_t(\text{No Measure}) = 0.723$ in Germany) and the advisor recovers.
+The pooled tree of \S(A) is the strongest of the three feasible policies. Averaged across regions, the residual gap to the hindsight optimum is $10.9\%$ for the tree policy, $123.6\%$ for the actual policy, and $140.1\%$ for the rolling-horizon advisor; the tree dominates both the actual policy and the rolling-horizon advisor in every region, and matches the hindsight optimum exactly in Spain. Because the tree is trained once offline and queried at the prescriber's preference weight $w$ as a parameter, $w^\star$ in the fourth column should be read as ``the trade-off setting that this region's optimal-cost record turned out to favour''; the dispersion of $w^\star$ across regions reflects genuine differences in the underlying frontier (humanitarian-leaning settings dominate in Germany and New York, where wave magnitudes were severe; balanced settings dominate in Spain; an economy-leaning setting dominates in Brazil, where the actual humanitarian cost was already very high under the implemented loose policy).
 
-The two modules are operationally complementary. The state-action tree of \S(A) is portable: any region for which the seven observable state features can be supplied, together with a humanitarian weight $w$, can read a recommendation directly from the tree without a fresh THEMIS simulation, and Table~\ref{tab:rolling_advisor_v2} confirms that this offline-trained rule is competitive with the rolling-horizon advisor on three of our four regions. The rolling-horizon advisor of \S(B) is the right choice when a region has already accumulated enough policy days for the cross-region rank-$1$ ALS estimator to be informative and when the available state features deviate substantially from the four training regions.
+The rolling-horizon advisor of \S(B) is the weaker policy on this sample and underscores the cost of one-step lookahead in a region where early estimation is noisy. Its worst region is Germany, where the Mar~15 decision is taken on an essentially empty policy window: the snapshot-based zmean fallback estimator yields a lockdown gamma of $0.239$, the advisor consequently recommends lockdown for the first month, and that early lockdown is then evaluated against a hindsight ground truth in which the marginal benefit of lockdown over NPI~$6$ is small. By Apr~15 the cross-region ALS estimator has produced a discriminating gamma vector and the advisor switches to NPI~$4$ then NPI~$5$, but the cost of the first-month over-escalation has already dominated the trajectory. In Brazil, Spain, and New York the rolling-horizon advisor still beats the actual policy by a wide margin (\$$92$B in Brazil, EUR\,$22$B in Spain, \$$115$B in New York). The contrast with the tree policy makes a clean managerial point: when a portable, cost-tested rule is available, it should be preferred; when only the rolling-horizon advisor can be deployed, it still substantially outperforms what was actually implemented in three of four regions.
 
 \rcomment{
 Given the lack of empirical support for the counterfactual analysis, I'm inclined toward recommending rejection and resubmission, though I have sympathy for a major revision considering the paper’s potential practical impact. The decision ultimately hinges on whether the authors can adequately address these methodological concerns while providing novel and actionable insights.
@@ -850,7 +850,28 @@ might might consider to draw all epidemiological and cost parameters from justif
 
 \rcomment{Each $\gamma_{R,i}$ is assumed constant whenever an NPI is in place, with no allowance for adherence decay or enforcement fatigue. Moreover, in the experimental setup, the authors assume each NPI block lasts exactly one month with no intra-period variation.}
 
-<PLACEHOLDER: adherence decay response>
+Thank you for this point. While $\gamma_{R,i}$ is indeed held constant within each NPI block, the THEMIS framework can readily accommodate an adherence-decay extension. To test whether this assumption affects our conclusions, we model adherence fatigue as a linear within-block decay:
+\[
+\gamma_{R,i}(d) = \gamma_{R,i}\cdot(1 + \lambda \cdot d/30),
+\]
+where $d$ is the day within the current one-month block and $\lambda$ is the monthly decay rate. Higher $\lambda$ means faster compliance erosion. We re-simulate all $7^3 = 343$ three-month policy sequences through DELPHI for each of our four study regions, using both the constant specification ($\lambda = 0$) and the decaying specification ($\lambda \in \{0.05, 0.10, 0.15, 0.20\}$), and compare the resulting policy rankings via Spearman's rank correlation $\rho$:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|cccc|}
+\hline
+& \multicolumn{4}{c|}{$\rho$ (cases ranking, constant vs.\ decaying)} \\
+$\lambda$ & Germany & Spain & Brazil & New York \\\hline
+$0.05$ & $0.9995$ & $0.9998$ & $0.9999$ & $0.9992$ \\
+$0.10$ & $0.9993$ & $0.9994$ & $0.9998$ & $0.9991$ \\
+$0.15$ & $0.9987$ & $0.9989$ & $0.9997$ & $0.9989$ \\
+$0.20$ & $0.9977$ & $0.9986$ & $0.9996$ & $0.9984$ \\\hline
+\end{tabular}
+\caption{Spearman rank correlation between the predicted-cases ranking of all 343 policies under constant $\gamma_{R,i}$ vs.\ linearly decaying $\gamma_{R,i}(d)$ with monthly decay rate $\lambda$.}
+\label{tab:adherence_decay_rho}
+\end{table}
+
+Across all four regions and all decay rates tested, the Spearman correlation exceeds $0.997$. Even under an aggressive 20\% monthly adherence decay, the policy ranking is virtually unchanged. The death-based rankings show similarly high correlations ($\rho > 0.998$ in all cases). Since THEMIS uses these rankings to construct the efficient frontier and identify optimal policies, the constant-$\gamma_{R,i}$ assumption does not materially affect our conclusions. Regarding the one-month block structure, we note that the THEMIS framework supports arbitrary block durations via the timing vector $\bm{T}$; one-month blocks are a design choice reflecting the typical cadence of policy changes during the first wave.
 
 \rcomment{THEMIS is calibrated entirely on post-hoc COVID-19 data and thus cannot generate policy recommendations when a new pathogen emerges. Specifically:
 \begin{enumerate}

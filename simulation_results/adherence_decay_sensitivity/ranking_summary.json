@@ -1,0 +1,176 @@
+{
+  "decay_rates_tested": [
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "regions": [
+    "Germany",
+    "Spain",
+    "Brazil",
+    "New York (US)"
+  ],
+  "correlations": [
+    {
+      "region_id": "Brazil__None",
+      "region": "Brazil",
+      "decay_rate": 0.05,
+      "rho_cases": 0.999939,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999947,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Brazil__None",
+      "region": "Brazil",
+      "decay_rate": 0.1,
+      "rho_cases": 0.999829,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999834,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Brazil__None",
+      "region": "Brazil",
+      "decay_rate": 0.15,
+      "rho_cases": 0.999717,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999701,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Brazil__None",
+      "region": "Brazil",
+      "decay_rate": 0.2,
+      "rho_cases": 0.999574,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999576,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Germany__None",
+      "region": "Germany",
+      "decay_rate": 0.05,
+      "rho_cases": 0.999535,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999654,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Germany__None",
+      "region": "Germany",
+      "decay_rate": 0.1,
+      "rho_cases": 0.999329,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999728,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Germany__None",
+      "region": "Germany",
+      "decay_rate": 0.15,
+      "rho_cases": 0.998671,
+      "p_cases": 0.0,
+      "rho_deaths": 0.99912,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Germany__None",
+      "region": "Germany",
+      "decay_rate": 0.2,
+      "rho_cases": 0.99773,
+      "p_cases": 0.0,
+      "rho_deaths": 0.998692,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Spain__None",
+      "region": "Spain",
+      "decay_rate": 0.05,
+      "rho_cases": 0.999788,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999763,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Spain__None",
+      "region": "Spain",
+      "decay_rate": 0.1,
+      "rho_cases": 0.999375,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999495,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Spain__None",
+      "region": "Spain",
+      "decay_rate": 0.15,
+      "rho_cases": 0.998887,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999029,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "Spain__None",
+      "region": "Spain",
+      "decay_rate": 0.2,
+      "rho_cases": 0.998599,
+      "p_cases": 0.0,
+      "rho_deaths": 0.998915,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "US__New_York",
+      "region": "New York (US)",
+      "decay_rate": 0.05,
+      "rho_cases": 0.999165,
+      "p_cases": 0.0,
+      "rho_deaths": 0.999527,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "US__New_York",
+      "region": "New York (US)",
+      "decay_rate": 0.1,
+      "rho_cases": 0.99911,
+      "p_cases": 0.0,
+      "rho_deaths": 0.99924,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "US__New_York",
+      "region": "New York (US)",
+      "decay_rate": 0.15,
+      "rho_cases": 0.998866,
+      "p_cases": 0.0,
+      "rho_deaths": 0.998624,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    },
+    {
+      "region_id": "US__New_York",
+      "region": "New York (US)",
+      "decay_rate": 0.2,
+      "rho_cases": 0.998411,
+      "p_cases": 0.0,
+      "rho_deaths": 0.998864,
+      "p_deaths": 0.0,
+      "n_valid": 343
+    }
+  ]
+}
