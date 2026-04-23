@@ -4,17 +4,18 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import math
+from cost_functions.economic_cost.economic_data.economic_params import TOTAL_GDP
 
 def shorten_policy_string(pname):
     policies = pname.split("-")
     DICT_POLICY_CODE = {
         'No_Measure': "1",
         'Restrict_Mass_Gatherings': "2",
-        'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': "3",
-        # 'Mass_Gatherings_Authorized_But_Others_Restricted': "3",
+        'Mass_Gatherings_Authorized_But_Others_Restricted': "3",
         'Restrict_Mass_Gatherings_and_Schools': "4",
-        'Restrict_Mass_Gatherings_and_Schools_and_Others': "5",
-        'Lockdown': "6"
+        'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': "5",
+        'Restrict_Mass_Gatherings_and_Schools_and_Others': "6",
+        'Lockdown': "7"
     }
     short_name = '-'.join([DICT_POLICY_CODE[pol] for pol in policies])
     return short_name
@@ -48,45 +49,47 @@ def region_policy_scatter_plot_panel(results: pd.DataFrame, start_date: str = "3
     num_regions = len(regions)
     num_rows = math.ceil(num_regions / 2)
 
-    
-    # Create a subplot grid with two columns
+    most_severe = '7-7-7'
+
     fig = make_subplots(rows=num_rows, cols=2, shared_xaxes=False, shared_yaxes=False, 
                         subplot_titles=[name_codes[x] for x in regions], vertical_spacing=0.1, horizontal_spacing=0.1)
     
     for i, region in enumerate(regions):
-        df = results.query("start_date == @start_date and country == @region")
+        df = results.query("start_date == @start_date and country == @region").copy()
+        gdp = TOTAL_GDP[region]
+
         if y_val == 'life_costs':
             df['life_costs'] = df.d_costs + df.h_costs + df.mh_costs
             df['life_costs_lb'] = df.d_costs_lb + df.h_costs + df.mh_costs_lb
             df['life_costs_ub'] = df.d_costs_ub + df.h_costs + df.mh_costs_ub
+
+        cost_cols = ['st_economic_costs', 'st_economic_costs_lb', 'st_economic_costs_ub',
+                     y_val, f'{y_val}_lb', f'{y_val}_ub']
+        for col in cost_cols:
+            if col in df.columns:
+                df[col] = df[col] / gdp * 100
+
         df['st_economic_costs_lerr'] = df['st_economic_costs'] - df['st_economic_costs_lb']
         df['st_economic_costs_uerr'] = df['st_economic_costs_ub'] - df['st_economic_costs']
         df[f'{y_val}_lerr'] = df[y_val] - df[f'{y_val}_lb']
         df[f'{y_val}_uerr'] = df[f'{y_val}_ub'] - df[y_val]
 
-        # Calculate average strength and add it as a column
         df['avg_strength'] = df['short_policy_name'].apply(lambda x: sum(map(int, x.split('-'))) / 3 if x != 'actual' else None)
 
         y_val_name = 'Number of Deaths' if y_val == 'num_deaths' else \
-            'Humanitarian Costs' if y_val == 'life_costs' else y_val
-
-        # Get the currency symbol for the region
-        country_code = df['country'].iloc[0]
-        currency_symbol = get_currency_symbol(country_code)
+            'Humanitarian Costs (% of GDP)' if y_val == 'life_costs' else y_val
         
         scatter = px.scatter(df, x='st_economic_costs', y=y_val, color='avg_strength',
                              error_x='st_economic_costs_uerr', error_x_minus='st_economic_costs_lerr',
                              error_y=f'{y_val}_uerr', error_y_minus=f'{y_val}_lerr', log_x=False, log_y=True, 
-                             hover_name="short_policy_name", hover_data=["num_deaths", "num_cases", "mh_costs", "h_costs", "avg_strength"],
-                             labels={'st_economic_costs': 'Economic Costs', y_val: y_val_name, "avg_strength": "Average Strength"},
+                             hover_name="short_policy_name", hover_data=["avg_strength"],
+                             labels={'st_economic_costs': 'Economic Costs (% of GDP)', y_val: y_val_name, "avg_strength": "Average Strength"},
                              template="plotly_white", color_continuous_scale='Reds')
 
-        # Add traces to the subplot
         for trace in scatter.data:
             fig.add_trace(trace, row=(i//2) + 1, col=(i % 2) + 1)
         
-        # Highlight the policy "6-6-6" without adding it to the legend multiple times
-        highlight_policy = df[df['short_policy_name'] == '6-6-6']
+        highlight_policy = df[df['short_policy_name'] == most_severe]
         if not highlight_policy.empty:
             fig.add_trace(go.Scatter(
                 x=highlight_policy['st_economic_costs'],
@@ -94,12 +97,11 @@ def region_policy_scatter_plot_panel(results: pd.DataFrame, start_date: str = "3
                 mode='markers+text',
                 marker=dict(color='red', size=12, symbol='diamond'),
                 showlegend=False,
-                text=["6-6-6"],
+                text=[most_severe],
                 textposition="top center",
                 hoverinfo='skip'
             ), row=(i//2) + 1, col=(i % 2) + 1)
 
-        # Highlight the "actual" policy without adding it to the legend multiple times
         actual_policy = df[df['short_policy_name'] == 'actual']
         if not actual_policy.empty:
             fig.add_trace(go.Scatter(
@@ -113,29 +115,22 @@ def region_policy_scatter_plot_panel(results: pd.DataFrame, start_date: str = "3
                 hoverinfo='skip'
             ), row=(i//2) + 1, col=(i % 2) + 1)
 
-        # Update axes with the correct currency symbol and log scale for y-axis
-        fig.update_xaxes(title_text='Economic Costs', tickprefix=currency_symbol, row=(i//2) + 1, col=(i % 2) + 1)
+        fig.update_xaxes(title_text='Economic Costs (% of GDP)', ticksuffix='%', row=(i//2) + 1, col=(i % 2) + 1)
         fig.update_yaxes(title_text=y_val_name, type='log', row=(i//2) + 1, col=(i % 2) + 1)
         if y_val == 'life_costs':
-            fig.update_yaxes(tickprefix=currency_symbol, type='log', row=(i//2) + 1, col=(i % 2) + 1)
+            fig.update_yaxes(ticksuffix='%', type='log', row=(i//2) + 1, col=(i % 2) + 1)
 
-    # Add legend items for the special points
     fig.add_trace(go.Scatter(
-        x=[None],
-        y=[None],
-        mode='markers',
+        x=[None], y=[None], mode='markers',
         marker=dict(color='red', size=12, symbol='diamond'),
         name="Most Severe Restrictions"
     ))
     fig.add_trace(go.Scatter(
-        x=[None],
-        y=[None],
-        mode='markers',
+        x=[None], y=[None], mode='markers',
         marker=dict(color='blue', size=12, symbol='star'),
         name="Actual Policy"
     ))
 
-    # Update layout
     fig.update_layout(
         legend=dict(title='Reference Policies', orientation='h', y=1.05, yanchor='bottom', x=0.5, xanchor='center', traceorder='normal'),
         coloraxis_colorbar=dict(title='Average<br>Strength'),
@@ -309,7 +304,6 @@ def best_policy_cost_breakdown_plot_panel(results: pd.DataFrame, n: int = 20, st
     num_regions = len(regions)
     num_rows = math.ceil(num_regions / 2)
     
-    # Create a subplot grid with two columns
     fig = make_subplots(rows=num_rows, cols=2, shared_xaxes=False, shared_yaxes=False, 
                         subplot_titles=[name_codes[x] for x in regions], vertical_spacing=0.1, horizontal_spacing=0.1)
     
@@ -317,15 +311,16 @@ def best_policy_cost_breakdown_plot_panel(results: pd.DataFrame, n: int = 20, st
                 'mh_costs': 'Mental Health Costs'}
     
     for i, region in enumerate(regions):
-        filtered_results = results.query("start_date == @start_date and country == @region").sort_values(by='total_cost', ascending=True).iloc[:n]
+        gdp = TOTAL_GDP[region]
+        filtered_results = results.query("start_date == @start_date and country == @region").copy()
+        for col in ['st_economic_costs', 'd_costs', 'h_costs', 'mh_costs', 'total_cost']:
+            if col in filtered_results.columns:
+                filtered_results[col] = filtered_results[col] / gdp * 100
+        filtered_results = filtered_results.sort_values(by='total_cost', ascending=True).iloc[:n]
+
         melted_results = filtered_results.melt(id_vars=['short_policy_name'], value_vars=['st_economic_costs', 'd_costs', 'h_costs', 'mh_costs'],
                                                var_name='cost_type', value_name='cost')
 
-        # Get the currency symbol for the region
-        country_code = filtered_results['country'].iloc[0]
-        currency_symbol = get_currency_symbol(country_code)
-
-        # Create the bar chart
         for cost_type in ['st_economic_costs', 'd_costs', 'h_costs', 'mh_costs']:
             fig.add_trace(go.Bar(
                 x=melted_results[melted_results['cost_type'] == cost_type]['short_policy_name'],
@@ -333,15 +328,13 @@ def best_policy_cost_breakdown_plot_panel(results: pd.DataFrame, n: int = 20, st
                 name=newnames[cost_type],
                 marker_color=cost_colors[cost_type],
                 legendgroup=newnames[cost_type],
-                showlegend=(i == 0),  # Only show legend for the first subplot
-                hovertemplate=newnames[cost_type] + ': %{y}<extra></extra>'
+                showlegend=(i == 0),
+                hovertemplate=newnames[cost_type] + ': %{y:.1f}%<extra></extra>'
             ), row=(i//2) + 1, col=(i % 2) + 1)
 
-        # Update axes with the correct currency symbol
-        fig.update_yaxes(title_text='Cost', tickprefix=currency_symbol, row=(i//2) + 1, col=(i % 2) + 1)
+        fig.update_yaxes(title_text='Cost (% of GDP)', ticksuffix='%', row=(i//2) + 1, col=(i % 2) + 1)
         fig.update_xaxes(title_text='Policy', row=(i//2) + 1, col=(i % 2) + 1)
 
-    # Update layout
     fig.update_layout(
         barmode='stack',
         title=dict(text='', x=0.5),

@@ -781,4 +781,4 @@ def run_delphi_policy_scenario(policy, region, totalcases, dict_region_policy_ga
         return num_cases, num_cases_lb, num_cases_ub, num_deaths, num_deaths_lb, num_deaths_ub, \
             hospitalization_days, ventilated_days
     else:
-        raise 'Length of Valid Cases less than the threshold'
+        raise ValueError('Length of Valid Cases less than the threshold')

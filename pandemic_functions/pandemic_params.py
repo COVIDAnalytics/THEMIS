@@ -69,7 +69,7 @@ region_symbol_continent_dict = {
     "FR": "Europe",
     "US-NY": "North America",
     "US-FL": "North America",
-    "ES": "North America",
+    "ES": "Europe",
     "BR": "South America",
     "SG": "Asia"
 }

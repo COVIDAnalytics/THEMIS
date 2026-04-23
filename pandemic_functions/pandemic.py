@@ -62,7 +62,7 @@ class Pandemic:
             policy_data = read_policy_data_us_only(state=province, start_date=self.policy.start_date, end_date=self.policy.end_date)
         else:
             policy_data = read_oxford_country_policy_data(country=country, start_date=self.policy.start_date, end_date=self.policy.end_date)
-        n_measures = policy_data.iloc[:, 3:-1].shape[1]
+        n_measures = policy_data.iloc[:, 3:].shape[1]
         dict_region_policy_counts = {
             policy_data.columns[3 + i]: policy_data[
                 policy_data.iloc[:, 3 + i] == 1

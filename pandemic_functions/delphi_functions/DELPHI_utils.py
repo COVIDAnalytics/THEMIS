@@ -344,32 +344,22 @@ def create_datasets_with_confidence_intervals(
         total_detected_deaths_past = past_predictions[
                                             "Total Detected Deaths"
                                         ].values[: len(deaths_data_fit_past)]
-        residual_cases_lb_pct = np.sqrt(
-            np.mean(
-                [(1 - y/max(x,1)) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
-            )
-        ) * stats.norm.ppf(0.5 - q / 2)
-        residual_cases_ub_pct = np.sqrt(
-            np.mean(
-                [(1 - y/max(x,1)) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
-            )
-        ) * stats.norm.ppf(0.5 + q / 2)
-        residual_deaths_lb_pct = np.sqrt(
-            np.mean(
-                [
-                    (1 - y/max(x,1)) ** 2
-                    for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
-                ]
-            )
-        ) * stats.norm.ppf(0.5 - q / 2)
-        residual_deaths_ub_pct = np.sqrt(
-            np.mean(
-                [
-                    (1 - y/max(x,1)) ** 2
-                    for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
-                ]
-            )
-        ) * stats.norm.ppf(0.5 + q / 2)
+        _case_resid_pairs = [(1 - y/max(x,1)) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
+        _death_resid_pairs = [(1 - y/max(x,1)) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)]
+        # When the policy window ends before the past-prediction reference
+        # date, there is no historical data to estimate residual variance
+        # and np.mean returns NaN; fall back to zero-width intervals so
+        # downstream int casts succeed.
+        _case_rmse = np.sqrt(np.mean(_case_resid_pairs)) if len(_case_resid_pairs) > 0 else 0.0
+        _death_rmse = np.sqrt(np.mean(_death_resid_pairs)) if len(_death_resid_pairs) > 0 else 0.0
+        if not np.isfinite(_case_rmse):
+            _case_rmse = 0.0
+        if not np.isfinite(_death_rmse):
+            _death_rmse = 0.0
+        residual_cases_lb_pct = _case_rmse * stats.norm.ppf(0.5 - q / 2)
+        residual_cases_ub_pct = _case_rmse * stats.norm.ppf(0.5 + q / 2)
+        residual_deaths_lb_pct = _death_rmse * stats.norm.ppf(0.5 - q / 2)
+        residual_deaths_ub_pct = _death_rmse * stats.norm.ppf(0.5 + q / 2)
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame(
             {
@@ -479,7 +469,7 @@ def create_datasets_with_confidence_intervals(
                 "Total Detected Deaths UB": [
                     max(
                         int(round(
-                            v * (1 + residual_deaths_lb_pct),
+                            v * (1 + residual_deaths_ub_pct),
                                 0)
                         ), 0
                     )

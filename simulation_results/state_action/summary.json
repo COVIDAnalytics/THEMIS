@@ -1,0 +1,20 @@
+{
+  "n_data_rows": 1140,
+  "n_regions": 4,
+  "n_weights": 5,
+  "weights": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "trees": {
+    "pooled": {
+      "cv_accuracy": 0.5614035087719298,
+      "depth": 4,
+      "n_train": 1140,
+      "n_classes": 7
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "trend_analysis": {
+    "n_blocks_tested": 9,
+    "n_significant_p005": 8,
+    "avg_abs_slope_per_month": 0.271719,
+    "avg_abs_pct_change_per_month": 132.27
+  },
+  "simulation_comparison": {
+    "lambda_0.05": {
+      "mean_pct_diff_cases": 10.435,
+      "max_pct_diff_cases": 23.746,
+      "mean_pct_diff_deaths": 8.635,
+      "max_pct_diff_deaths": 23.426
+    },
+    "lambda_0.10": {
+      "mean_pct_diff_cases": 23.477,
+      "max_pct_diff_cases": 52.94,
+      "mean_pct_diff_deaths": 19.224,
+      "max_pct_diff_deaths": 52.184
+    },
+    "lambda_0.15": {
+      "mean_pct_diff_cases": 36.948,
+      "max_pct_diff_cases": 88.628,
+      "mean_pct_diff_deaths": 30.824,
+      "max_pct_diff_deaths": 87.291
+    },
+    "lambda_0.20": {
+      "mean_pct_diff_cases": 53.032,
+      "max_pct_diff_cases": 132.201,
+      "mean_pct_diff_deaths": 44.64,
+      "max_pct_diff_deaths": 130.101
+    }
+  }
+}

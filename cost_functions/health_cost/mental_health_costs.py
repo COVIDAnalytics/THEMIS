@@ -14,30 +14,23 @@ def mental_health_costs(pandemic):
     """
     region = pandemic.region
     MH_DATA = MENTAL_HEALTH_COST[region]
+    gamma = pandemic.dict_region_policy_gamma
+    gamma_min = min(gamma.values())
+
     if pandemic.policy.policy_type == "hypothetical":
-        lockdown_months = 0
-        for lockdown_policy in MH_DATA["lockdown_equivalent_policies"]:
-            lockdown_months +=  sum(map(lambda a: a == lockdown_policy, pandemic.policy.policy_vector))
+        k = len(pandemic.policy.policy_vector)
+        adjust_factor = sum(
+            (1 - gamma[pandemic.policy.policy_vector[l]]) / (1 - gamma_min)
+            for l in range(k)
+        ) / 12.0
     else:
-        country, province = region_symbol_country_dict[region]
-        if country == 'US':
-            policy_data = read_policy_data_us_only(state=province, start_date=pandemic.policy.start_date, end_date=pandemic.policy.end_date)
-        else:
-            policy_data = read_oxford_country_policy_data(country=country, start_date=pandemic.policy.start_date, end_date=pandemic.policy.end_date)
-        total_lockdown_days = 0
-        for lockdown_policy in MH_DATA["lockdown_equivalent_policies"]:
-            total_lockdown_days += sum(policy_data[lockdown_policy])
-        lockdown_months = total_lockdown_days / 30
+        adjust_factor = sum(
+            pandemic.dict_region_policy_counts[x] * (1 - gamma[x])
+            for x in pandemic.dict_region_policy_counts
+        ) / (365.0 * (1 - gamma_min))
 
     cumulated_sick = np.array([pandemic.num_cases, pandemic.num_cases_lb, pandemic.num_cases_ub])
-    # depressed_patients = MH_DATA["exposed_health_workers"] * MH_DATA["depression_rate_hworkers_normal"] * lockdown_months/12.
-    # depressed_patients =  cumulated_sick * max(MH_DATA["depression_rate_inc_sick"] * 14/365, MH_DATA["depression_rate_inc_gen_population"]* lockdown_months/12.)
-    # gen_pop_depression = (MH_DATA["gen_population_over14"] - cumulated_sick )* MH_DATA["depression_rate_inc_gen_population"] * lockdown_months/12.
-    # depressed_patients += gen_pop_depression
 
-
-    adjust_factor = sum([pandemic.dict_region_policy_counts[x] * (1-pandemic.dict_region_policy_gamma[x]) for x in pandemic.dict_region_policy_counts]) / \
-    (sum(pandemic.dict_region_policy_counts.values()) * (1-min(pandemic.dict_region_policy_gamma.values())))
     depressed_patients = MH_DATA["gen_population_over14"] * MH_DATA["depression_rate_inc_gen_population"] * adjust_factor
 
     ptsd_patients = MH_DATA["exposed_health_workers"] * MH_DATA["ptsd_rate_inc_hworkers"]

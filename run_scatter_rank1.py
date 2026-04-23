@@ -54,6 +54,7 @@ OUTPUT_DIR = "simulation_results/rank1_scatter"
 FUTURE_POLICIES = [
     "No_Measure",
     "Restrict_Mass_Gatherings",
+    "Mass_Gatherings_Authorized_But_Others_Restricted",
     "Restrict_Mass_Gatherings_and_Schools",
     "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
     "Restrict_Mass_Gatherings_and_Schools_and_Others",
@@ -73,12 +74,7 @@ def compute_fresh_rank1_gammas() -> dict:
     """
     Build the observed gamma matrix from scratch, run rank-1 ALS,
     and return per-region gamma dicts with observed entries preserved.
-
-    For DE (Germany), the rank-1 ALS overestimates imputed gammas
-    because the globally learned g_lockdown is much higher than
-    Germany's actual policy effectiveness.  We fall back to the
-    calibrated get_region_gammas_v2 for DE, which scales the
-    hand-tuned defaults by a region-specific zmean.
+    All regions use the rank-1 estimates consistently.
     """
     print(f"  Building observed gamma matrix for {START_DATE} to {END_DATE} ...")
     gamma_matrix, obs_mask, region_ids, policy_names = build_gamma_matrix(
@@ -108,14 +104,6 @@ def compute_fresh_rank1_gammas() -> dict:
         for p in sorted(gammas):
             tag = " *" if obs_flags[p] else "  "
             print(f"    {tag}{p:55s} {gammas[p]:.6f}")
-
-    de_gammas_v2, _, de_obs = get_region_gammas_v2("DE")
-    print(f"\n  Overriding DE with get_region_gammas_v2 (zmean-based):")
-    for p in sorted(de_gammas_v2):
-        is_obs = de_obs and p in de_obs
-        tag = " *" if is_obs else "  "
-        print(f"    {tag}{p:55s} {de_gammas_v2[p]:.6f}")
-    rank1["DE"] = de_gammas_v2
 
     return rank1
 
@@ -218,29 +206,32 @@ def run_region(factory, region) -> pd.DataFrame:
 
 # ── Scatter plot generation ───────────────────────────────────────────────
 
-def build_scatter_plot(combined: pd.DataFrame, output_dir: str) -> None:
+def build_plots(combined: pd.DataFrame, output_dir: str) -> None:
+    from utils.visualization_utils import best_policy_cost_breakdown_plot_panel
+
     combined["start_date"] = pd.to_datetime(combined["start_date"])
     combined["life_costs"] = combined.d_costs + combined.h_costs + combined.mh_costs
+    combined["life_costs_lb"] = combined.d_costs_lb + combined.h_costs_lb + combined.mh_costs_lb
+    combined["life_costs_ub"] = combined.d_costs_ub + combined.h_costs_ub + combined.mh_costs_ub
+    combined["total_cost"] = combined.life_costs + combined.st_economic_costs
     combined["short_policy_name"] = [
         pname if pname == "actual" else shorten_policy_string(pname)
         for pname in combined["policy"]
     ]
-    combined["is_actual"] = [
-        "Actual" if pn == "actual" else "hypothetical"
-        for pn in combined["short_policy_name"]
-    ]
-
-    fig = region_policy_scatter_plot_panel(
-        combined, start_date="3/15/2020", y_val="life_costs"
-    )
 
     os.makedirs(output_dir, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    pdf_path = os.path.join(output_dir, f"scatter_plot_rank1_{timestamp}.pdf")
-    png_path = os.path.join(output_dir, f"scatter_plot_rank1_{timestamp}.png")
-    fig.write_image(pdf_path)
-    fig.write_image(png_path)
-    print(f"\n  Scatter plot saved to:\n    {pdf_path}\n    {png_path}")
+
+    fig = region_policy_scatter_plot_panel(
+        combined, start_date="2020-03-15", y_val="life_costs"
+    )
+    fig.write_image(os.path.join(output_dir, "scatter_plot.pdf"))
+    print(f"  Saved {output_dir}/scatter_plot.pdf")
+
+    fig2 = best_policy_cost_breakdown_plot_panel(
+        combined, n=20, start_date="2020-03-15"
+    )
+    fig2.write_image(os.path.join(output_dir, "best_policies.pdf"))
+    print(f"  Saved {output_dir}/best_policies.pdf")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────
@@ -267,7 +258,8 @@ if __name__ == "__main__":
     combined = pd.concat(region_dfs, axis=0, ignore_index=True)
     combined.to_csv(os.path.join(OUTPUT_DIR, "combined_rank1_results.csv"), index=False)
 
-    print("\nGenerating scatter plot ...")
-    build_scatter_plot(combined, OUTPUT_DIR)
+    print("\nGenerating plots ...")
+    build_plots(combined, OUTPUT_DIR)
+    build_plots(combined, "simulation_results")
 
     print("\nDone.")

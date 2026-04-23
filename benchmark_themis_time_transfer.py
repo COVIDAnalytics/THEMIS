@@ -1181,7 +1181,8 @@ def main() -> None:
             continue
 
         # ── DELPHI train fit ──────────────────────────────────────────────
-        if args.fresh_fit_cache and fresh_params_lookup is not None and ctx.region in fresh_params_lookup:
+        _use_cache = bool(args.fresh_fit_cache) and fresh_params_lookup is not None and ctx.region in fresh_params_lookup
+        if _use_cache:
             cached = fresh_params_lookup[ctx.region]
             params_tuple = (
                 float(cached["Infection Rate"]),
@@ -1258,9 +1259,9 @@ def main() -> None:
             origin_cases = float(init_at_origin_row["case_cnt"])
             origin_deaths = float(init_at_origin_row["death_cnt"])
 
-        # ── DELPHI lookahead fit (always fresh; skip in past-params mode) ─
+        # ── DELPHI lookahead fit (skip when using cached fits or past-params) ─
         fit_lookahead = None
-        if not args.use_past_params:
+        if not args.use_past_params and not _use_cache:
             try:
                 fit_lookahead = _fit_delphi_window(
                     region=ctx.region,
