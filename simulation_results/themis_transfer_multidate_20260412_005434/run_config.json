@@ -1,0 +1,28 @@
+{
+  "cutoffs_requested": [
+    "20200615",
+    "20200715"
+  ],
+  "cutoffs_used": [
+    "20200615",
+    "20200715"
+  ],
+  "cutoff_region_counts": {
+    "20200615": 20,
+    "20200715": 20
+  },
+  "n_splits": 2,
+  "train_fraction": 0.8,
+  "seed": 7,
+  "max_months": 2,
+  "max_regions": 20,
+  "robust_gamma_config": {
+    "robust_stat": "median",
+    "trim_quantile": 0.1,
+    "z_stat": "median",
+    "min_policy_regions": 2,
+    "shrinkage_regions": 12.0,
+    "gamma_floor": 0.05,
+    "gamma_cap": 1.2
+  }
+}

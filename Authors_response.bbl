@@ -1,0 +1,38 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem[{Athey et~al.(2021)Athey, Bayati, Doudchenko, Imbens,
+  \protect\BIBand{} Khosravi}]{athey2021matrix}
+Athey S, Bayati M, Doudchenko N, Imbens G, Khosravi K (2021) Matrix completion
+  methods for causal panel data models. \emph{Journal of the American
+  Statistical Association} 116(536):1716--1730,
+  \urlprefix\url{http://dx.doi.org/10.1080/01621459.2021.1891924}.
+
+\bibitem[{Bai(2009)}]{bai2009panel}
+Bai J (2009) Panel data models with interactive fixed effects.
+  \emph{Econometrica} 77(4):1229--1279,
+  \urlprefix\url{http://dx.doi.org/10.3982/ECTA6135}.
+
+\bibitem[{Cinelli \protect\BIBand{} Hazlett(2020)}]{cinelli2020making}
+Cinelli C, Hazlett C (2020) Making sense of sensitivity: Extending omitted
+  variable bias. \emph{Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)} 82(1):39--67,
+  \urlprefix\url{http://dx.doi.org/10.1111/rssb.12348}.
+
+\bibitem[{Hale et~al.(2021)Hale, Angrist, Goldszmidt, Kira, Petherick,
+  Phillips, Webster, Cameron-Blake, Hallas, Majumdar, \protect\BIBand{}
+  Tatlow}]{hale2021global}
+Hale T, Angrist N, Goldszmidt R, Kira B, Petherick A, Phillips T, Webster S,
+  Cameron-Blake E, Hallas L, Majumdar S, Tatlow H (2021) A global panel
+  database of pandemic policies ({Oxford COVID-19 Government Response
+  Tracker}). \emph{Nature Human Behaviour} 5(4):529--538,
+  \urlprefix\url{http://dx.doi.org/10.1038/s41562-021-01079-8}.
+
+\bibitem[{Moon \protect\BIBand{} Weidner(2015)}]{moon2015linear}
+Moon HR, Weidner M (2015) Linear regression for panel with unknown number of
+  factors as interactive fixed effects. \emph{Econometrica} 83(4):1543--1579,
+  \urlprefix\url{http://dx.doi.org/10.3982/ECTA9382}.
+
+\end{thebibliography}

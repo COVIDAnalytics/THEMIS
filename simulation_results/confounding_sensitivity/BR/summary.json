@@ -1,0 +1,105 @@
+{
+  "region": "BR",
+  "start_date": "2020-03-15",
+  "policy_length": 3,
+  "deltas_tested": [
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "baseline_delta": 1.0,
+  "baseline_top1": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+  "baseline_top_k": [
+    "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+    "Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+    "Lockdown-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools-Lockdown-No_Measure",
+    "Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "Lockdown-Restrict_Mass_Gatherings-Restrict_Mass_Gatherings",
+    "Lockdown-Restrict_Mass_Gatherings-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+    "Lockdown-Restrict_Mass_Gatherings-No_Measure",
+    "Lockdown-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+  ],
+  "base_gammas": {
+    "Mass_Gatherings_Authorized_But_Others_Restricted": 0.6968,
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.8283,
+    "Lockdown": 0.2493,
+    "No_Measure": 1.0432,
+    "Restrict_Mass_Gatherings": 0.9107,
+    "Restrict_Mass_Gatherings_and_Schools": 0.4997,
+    "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.4413
+  },
+  "stability": [
+    {
+      "delta": 0.8,
+      "top1_policy": "Lockdown-No_Measure-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 13,
+      "top20_overlap_pct": 65.0,
+      "spearman_rank_corr": 0.8758582502768547
+    },
+    {
+      "delta": 0.9,
+      "top1_policy": "Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 17,
+      "top20_overlap_pct": 85.0,
+      "spearman_rank_corr": 0.9740244584955763
+    },
+    {
+      "delta": 1.0,
+      "top1_policy": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+      "top1_matches_baseline": true,
+      "top20_overlap_with_baseline": 20,
+      "top20_overlap_pct": 100.0,
+      "spearman_rank_corr": 0.9999999999999999
+    },
+    {
+      "delta": 1.1,
+      "top1_policy": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+      "top1_matches_baseline": true,
+      "top20_overlap_with_baseline": 14,
+      "top20_overlap_pct": 70.0,
+      "spearman_rank_corr": 0.9850153014444085
+    },
+    {
+      "delta": 1.2,
+      "top1_policy": "Lockdown-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 9,
+      "top20_overlap_pct": 45.0,
+      "spearman_rank_corr": 0.9567058431274484
+    },
+    {
+      "delta": 1.3,
+      "top1_policy": "Lockdown-Lockdown-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 6,
+      "top20_overlap_pct": 30.0,
+      "spearman_rank_corr": 0.9246192500506077
+    },
+    {
+      "delta": 1.5,
+      "top1_policy": "Lockdown-Lockdown-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 4,
+      "top20_overlap_pct": 20.0,
+      "spearman_rank_corr": 0.8872182331297109
+    }
+  ]
+}

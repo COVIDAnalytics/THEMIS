@@ -346,7 +346,7 @@ def solve_and_predict_area(
         output = minimize(
             residuals_totalcases,
             parameter_list,
-            method=dual_annealing,  # Can't use Nelder-Mead if I want to put bounds on the params
+            method='TNC',
             bounds=bounds_params,
             options={'maxiter': max_iter}
         )

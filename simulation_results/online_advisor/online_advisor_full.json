@@ -1,0 +1,1434 @@
+{
+  "DE": {
+    "monthly": [
+      {
+        "month": 1,
+        "decision_date": "2020-03-15",
+        "actual_npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "actual_npi_short": "MG+Sch+Oth",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 455959187488.9502,
+        "online_gammas": {
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.794,
+          "Lockdown": 0.239,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.668,
+          "No_Measure": 1.0,
+          "Restrict_Mass_Gatherings": 0.873,
+          "Restrict_Mass_Gatherings_and_Schools": 0.479,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.423
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 116817535884.9358,
+            "humanitarian_costs": 339141651604.0144,
+            "total_costs": 455959187488.9502,
+            "num_deaths": 267653,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 122675269867.70544,
+            "humanitarian_costs": 872517829790.5759,
+            "total_costs": 995193099658.2814,
+            "num_deaths": 718471,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 57909141407.01447,
+            "humanitarian_costs": 964597669601.8594,
+            "total_costs": 1022506811008.8739,
+            "num_deaths": 795909,
+            "full_vector": [
+              "No_Measure",
+              "No_Measure",
+              "No_Measure"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 117113096903.58987,
+            "humanitarian_costs": 906667443212.0514,
+            "total_costs": 1023780540115.6412,
+            "num_deaths": 747148,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 73062439978.3694,
+            "humanitarian_costs": 961599506057.098,
+            "total_costs": 1034661946035.4674,
+            "num_deaths": 793402,
+            "full_vector": [
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 81569263085.9956,
+            "humanitarian_costs": 958462816870.5205,
+            "total_costs": 1040032079956.5161,
+            "num_deaths": 790686,
+            "full_vector": [
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "decision_date": "2020-04-15",
+        "actual_npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "actual_npi_short": "MG+Sch+Oth",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 126661601374.38824,
+        "online_gammas": {
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.255134814795719,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.4789055388836901,
+          "Lockdown": 0.1441541861375339,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.4029079344764546,
+          "No_Measure": 0.6031555905336147,
+          "Restrict_Mass_Gatherings": 0.5265548305358456,
+          "Restrict_Mass_Gatherings_and_Schools": 0.2889115278656014
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 89755884989.5471,
+            "humanitarian_costs": 36905716384.84114,
+            "total_costs": 126661601374.38824,
+            "num_deaths": 16649,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 88917172401.98648,
+            "humanitarian_costs": 152546715988.92386,
+            "total_costs": 241463888390.91034,
+            "num_deaths": 108513,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 93657837698.91673,
+            "humanitarian_costs": 233125059216.96286,
+            "total_costs": 326782896915.8796,
+            "num_deaths": 176312,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 98650484959.26639,
+            "humanitarian_costs": 682013701031.3041,
+            "total_costs": 780664185990.5704,
+            "num_deaths": 549178,
+            "full_vector": [
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 94564849303.92673,
+            "humanitarian_costs": 734857066584.2152,
+            "total_costs": 829421915888.142,
+            "num_deaths": 593698,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 85733652896.6474,
+            "humanitarian_costs": 781538409620.0244,
+            "total_costs": 867272062516.6719,
+            "num_deaths": 636837,
+            "full_vector": [
+              "Lockdown",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "decision_date": "2020-05-15",
+        "actual_npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "actual_npi_short": "Sch+MG+Oth",
+        "online_npi": "No_Measure",
+        "online_npi_short": "None",
+        "online_cost": 81913207614.4847,
+        "online_gammas": {
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.1068404878927165,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.20054692053621018,
+          "Lockdown": 0.06036613854931262,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.168722094355401,
+          "No_Measure": 0.2525779855619775,
+          "Restrict_Mass_Gatherings": 0.22050058139560638,
+          "Restrict_Mass_Gatherings_and_Schools": 0.12098485508418723
+        },
+        "ranking": [
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 59059386738.416435,
+            "humanitarian_costs": 22853820876.068256,
+            "total_costs": 81913207614.4847,
+            "num_deaths": 3077,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "No_Measure"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 64114206170.73381,
+            "humanitarian_costs": 22779169310.894367,
+            "total_costs": 86893375481.62817,
+            "num_deaths": 3031,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 66963821672.10382,
+            "humanitarian_costs": 22742863302.428898,
+            "total_costs": 89706684974.53271,
+            "num_deaths": 3008,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 79294353997.07565,
+            "humanitarian_costs": 22665998786.488403,
+            "total_costs": 101960352783.56406,
+            "num_deaths": 2959,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 81503898405.65083,
+            "humanitarian_costs": 22656845661.062485,
+            "total_costs": 104160744066.71332,
+            "num_deaths": 2953,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 88455147623.27788,
+            "humanitarian_costs": 22635960836.816475,
+            "total_costs": 111091108460.09436,
+            "num_deaths": 2939,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          }
+        ]
+      }
+    ],
+    "online_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "No_Measure"
+    ],
+    "actual_sequence": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "actual_sim_sequence": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "online_3mo_cost": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "No_Measure"
+      ],
+      "economic_costs": 59004457608.37204,
+      "humanitarian_costs": 22448761144.664955,
+      "total_costs": 81453218753.03699,
+      "num_cases": 45610,
+      "num_deaths": 2522,
+      "d_costs": 2814434122.1479154,
+      "h_costs": 53667746.74411765,
+      "mh_costs": 19580659275.772923
+    },
+    "actual_3mo_cost": {
+      "policy_vector": [
+        "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+      ],
+      "economic_costs": 53135191995.44456,
+      "humanitarian_costs": 24234970589.681984,
+      "total_costs": 77370162585.12654,
+      "num_cases": 79513,
+      "num_deaths": 3960,
+      "d_costs": 4480360970.006122,
+      "h_costs": 93186617.30294117,
+      "mh_costs": 19661423002.37292
+    },
+    "hindsight_optimal": {
+      "policy_vector": [
+        "Lockdown",
+        "No_Measure",
+        "No_Measure"
+      ],
+      "economic_costs": 29872733096.429035,
+      "humanitarian_costs": 25240834005.4063,
+      "total_costs": 55113567101.835335,
+      "num_cases": 128481,
+      "num_deaths": 4749,
+      "d_costs": 5347496140.898082,
+      "h_costs": 115263292.53529412,
+      "mh_costs": 19778074571.972923
+    }
+  },
+  "BR": {
+    "monthly": [
+      {
+        "month": 1,
+        "decision_date": "2020-03-15",
+        "actual_npi": "Mass_Gatherings_Authorized_But_Others_Restricted",
+        "actual_npi_short": "MG+Oth",
+        "online_npi": "Restrict_Mass_Gatherings_and_Schools",
+        "online_npi_short": "MG+Sch",
+        "online_cost": 108043038269.07507,
+        "online_gammas": {
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.794,
+          "Lockdown": 0.239,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.668,
+          "No_Measure": 1.0,
+          "Restrict_Mass_Gatherings": 0.873,
+          "Restrict_Mass_Gatherings_and_Schools": 0.479,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.423
+        },
+        "ranking": [
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 60856023675.27596,
+            "humanitarian_costs": 47187014593.79912,
+            "total_costs": 108043038269.07507,
+            "num_deaths": 1149,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 67378682958.90872,
+            "humanitarian_costs": 45192864190.85884,
+            "total_costs": 112571547149.76756,
+            "num_deaths": 704,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 88858868768.11324,
+            "humanitarian_costs": 43110581802.07483,
+            "total_costs": 131969450570.18806,
+            "num_deaths": 239,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 27361432204.079716,
+            "humanitarian_costs": 237169749023.93973,
+            "total_costs": 264531181228.01944,
+            "num_deaths": 43527,
+            "full_vector": [
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 21572381373.319477,
+            "humanitarian_costs": 538401782487.207,
+            "total_costs": 559974163860.5265,
+            "num_deaths": 110719,
+            "full_vector": [
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 24255322765.66937,
+            "humanitarian_costs": 1856174135006.99,
+            "total_costs": 1880429457772.6594,
+            "num_deaths": 404658,
+            "full_vector": [
+              "No_Measure",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "decision_date": "2020-04-15",
+        "actual_npi": "Mass_Gatherings_Authorized_But_Others_Restricted",
+        "actual_npi_short": "MG+Oth",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 101262641777.83171,
+        "online_gammas": {
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.9376589092714214,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 1.1145227155112403,
+          "Lockdown": 0.3354797594548947,
+          "No_Measure": 1.4036810019033252,
+          "Restrict_Mass_Gatherings": 1.225413514661603,
+          "Restrict_Mass_Gatherings_and_Schools": 0.6723631999116928,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.5937570638051065
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 79591963967.59303,
+            "humanitarian_costs": 21670677810.238674,
+            "total_costs": 101262641777.83171,
+            "num_deaths": 1799,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 65497644020.320915,
+            "humanitarian_costs": 40187839692.82774,
+            "total_costs": 105685483713.14865,
+            "num_deaths": 5929,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 61365650824.24421,
+            "humanitarian_costs": 57731376926.644455,
+            "total_costs": 119097027750.88867,
+            "num_deaths": 9842,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 49575553226.17718,
+            "humanitarian_costs": 960149599794.539,
+            "total_costs": 1009725153020.7161,
+            "num_deaths": 211140,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 54216355145.20269,
+            "humanitarian_costs": 1786388092786.0977,
+            "total_costs": 1840604447931.3003,
+            "num_deaths": 395455,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 69694264433.08975,
+            "humanitarian_costs": 3683091434775.526,
+            "total_costs": 3752785699208.6157,
+            "num_deaths": 818563,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "decision_date": "2020-05-15",
+        "actual_npi": "Mass_Gatherings_Authorized_But_Others_Restricted",
+        "actual_npi_short": "MG+Oth",
+        "online_npi": "No_Measure",
+        "online_npi_short": "None",
+        "online_cost": 91386987377.0891,
+        "online_gammas": {
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.8383369136201096,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.9964663314586336,
+          "Lockdown": 0.2999438957413267,
+          "No_Measure": 1.254995379670823,
+          "Restrict_Mass_Gatherings": 1.0956109664526286,
+          "Restrict_Mass_Gatherings_and_Schools": 0.6011427868623243,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.5308630456007581
+        },
+        "ranking": [
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 50093538690.33035,
+            "humanitarian_costs": 41293448686.75874,
+            "total_costs": 91386987377.0891,
+            "num_deaths": 3637,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "No_Measure"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 55016853766.14048,
+            "humanitarian_costs": 36752280491.825836,
+            "total_costs": 91769134257.96631,
+            "num_deaths": 2624,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 58264687290.46869,
+            "humanitarian_costs": 34851585090.52331,
+            "total_costs": 93116272380.992,
+            "num_deaths": 2200,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 70218430015.62001,
+            "humanitarian_costs": 31139644336.320103,
+            "total_costs": 101358074351.94011,
+            "num_deaths": 1372,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 72397087541.84138,
+            "humanitarian_costs": 30843868515.31549,
+            "total_costs": 103240956057.15688,
+            "num_deaths": 1306,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 79557552415.29958,
+            "humanitarian_costs": 30243005526.99604,
+            "total_costs": 109800557942.29562,
+            "num_deaths": 1172,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Lockdown",
+              "Lockdown"
+            ]
+          }
+        ]
+      }
+    ],
+    "online_sequence": [
+      "Restrict_Mass_Gatherings_and_Schools",
+      "Lockdown",
+      "No_Measure"
+    ],
+    "actual_sequence": [
+      "Mass_Gatherings_Authorized_But_Others_Restricted",
+      "Mass_Gatherings_Authorized_But_Others_Restricted",
+      "Mass_Gatherings_Authorized_But_Others_Restricted"
+    ],
+    "actual_sim_sequence": [
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+    ],
+    "online_3mo_cost": {
+      "policy_vector": [
+        "Restrict_Mass_Gatherings_and_Schools",
+        "Lockdown",
+        "No_Measure"
+      ],
+      "economic_costs": 49939323854.915504,
+      "humanitarian_costs": 44859167518.17734,
+      "total_costs": 94798491373.09283,
+      "num_cases": 21722,
+      "num_deaths": 1070,
+      "d_costs": 4709166340.762565,
+      "h_costs": 30417859.46341463,
+      "mh_costs": 40119583317.951355
+    },
+    "actual_3mo_cost": {
+      "policy_vector": [
+        "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+      ],
+      "economic_costs": 28287146892.737057,
+      "humanitarian_costs": 304448261968.8197,
+      "total_costs": 332735408861.55676,
+      "num_cases": 1285392,
+      "num_deaths": 58974,
+      "d_costs": 260270851514.68005,
+      "h_costs": 1200284060.0487807,
+      "mh_costs": 42977126394.0909
+    },
+    "hindsight_optimal": {
+      "policy_vector": [
+        "Lockdown",
+        "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "No_Measure"
+      ],
+      "economic_costs": 38062227398.28934,
+      "humanitarian_costs": 54071466986.53431,
+      "total_costs": 92133694384.82364,
+      "num_cases": 68417,
+      "num_deaths": 3124,
+      "d_costs": 13789867319.486483,
+      "h_costs": 56424720.00000001,
+      "mh_costs": 40225174947.04783
+    }
+  },
+  "ES": {
+    "monthly": [
+      {
+        "month": 1,
+        "decision_date": "2020-03-15",
+        "actual_npi": "Lockdown",
+        "actual_npi_short": "Lock",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 36111708490980.26,
+        "online_gammas": {
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.794,
+          "Lockdown": 0.239,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.668,
+          "No_Measure": 1.0,
+          "Restrict_Mass_Gatherings": 0.873,
+          "Restrict_Mass_Gatherings_and_Schools": 0.479,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.423
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 81705465003.1472,
+            "humanitarian_costs": 36030003025977.11,
+            "total_costs": 36111708490980.26,
+            "num_deaths": 234733,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 75930059010.20084,
+            "humanitarian_costs": 135719656463681.94,
+            "total_costs": 135795586522692.14,
+            "num_deaths": 884443,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 70933387564.43959,
+            "humanitarian_costs": 143677357387033.53,
+            "total_costs": 143748290774597.97,
+            "num_deaths": 936305,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 40820004851.21382,
+            "humanitarian_costs": 158648544004006.16,
+            "total_costs": 158689364008857.38,
+            "num_deaths": 1033880,
+            "full_vector": [
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 32899241710.48709,
+            "humanitarian_costs": 159907371678805.3,
+            "total_costs": 159940270920515.8,
+            "num_deaths": 1042085,
+            "full_vector": [
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 20170252369.910328,
+            "humanitarian_costs": 161302840093455.34,
+            "total_costs": 161323010345825.25,
+            "num_deaths": 1051181,
+            "full_vector": [
+              "No_Measure",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "decision_date": "2020-04-15",
+        "actual_npi": "Lockdown",
+        "actual_npi_short": "Lock",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 111958288817465.23,
+        "online_gammas": {
+          "Lockdown": 0.34196959857075615,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 1.1360831015279513,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.9557978738295612,
+          "No_Measure": 1.4308351404634148,
+          "Restrict_Mass_Gatherings": 1.249119077624561,
+          "Restrict_Mass_Gatherings_and_Schools": 0.6853700322819757,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.6052432644160244
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 91931712197.71838,
+            "humanitarian_costs": 111866357105267.52,
+            "total_costs": 111958288817465.23,
+            "num_deaths": 729011,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 83411230947.29144,
+            "humanitarian_costs": 144175968594387.7,
+            "total_costs": 144259379825334.97,
+            "num_deaths": 939581,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 79853252997.78229,
+            "humanitarian_costs": 146932479879391.78,
+            "total_costs": 147012333132389.56,
+            "num_deaths": 957546,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 59399296960.78838,
+            "humanitarian_costs": 151658211359647.44,
+            "total_costs": 151717610656608.22,
+            "num_deaths": 988344,
+            "full_vector": [
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 54093883318.886185,
+            "humanitarian_costs": 151906971243619.12,
+            "total_costs": 151961065126938.0,
+            "num_deaths": 989965,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 45587618790.679695,
+            "humanitarian_costs": 152367009949897.53,
+            "total_costs": 152412597568688.22,
+            "num_deaths": 992963,
+            "full_vector": [
+              "Lockdown",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "decision_date": "2020-05-15",
+        "actual_npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "actual_npi_short": "MG+Sch+Oth",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 2487548141761.631,
+        "online_gammas": {
+          "Lockdown": 0.12099640104984125,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.4019713072534475,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.338182409628845,
+          "No_Measure": 0.5062610922587499,
+          "Restrict_Mass_Gatherings": 0.4419659335418887,
+          "Restrict_Mass_Gatherings_and_Schools": 0.2424990631919412,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.21414844202545122
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 76504567318.38495,
+            "humanitarian_costs": 2411043574443.246,
+            "total_costs": 2487548141761.631,
+            "num_deaths": 15603,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 70382350289.06697,
+            "humanitarian_costs": 2655283287053.091,
+            "total_costs": 2725665637342.1577,
+            "num_deaths": 17195,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 68487046498.31731,
+            "humanitarian_costs": 2726054606771.0557,
+            "total_costs": 2794541653269.373,
+            "num_deaths": 17656,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 58388146373.23807,
+            "humanitarian_costs": 4070959278842.6353,
+            "total_costs": 4129347425215.8735,
+            "num_deaths": 26421,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 55874501179.79107,
+            "humanitarian_costs": 4657784127004.186,
+            "total_costs": 4713658628183.977,
+            "num_deaths": 30246,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 52030434912.8022,
+            "humanitarian_costs": 6318452008591.574,
+            "total_costs": 6370482443504.376,
+            "num_deaths": 41069,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "No_Measure"
+            ]
+          }
+        ]
+      }
+    ],
+    "online_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "Lockdown"
+    ],
+    "actual_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "actual_sim_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "online_3mo_cost": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "Lockdown"
+      ],
+      "economic_costs": 76467424424.52267,
+      "humanitarian_costs": 2141781179651.7627,
+      "total_costs": 2218248604076.285,
+      "num_cases": 119063,
+      "num_deaths": 13841,
+      "d_costs": 2123313649083.809,
+      "h_costs": 255315754.3137255,
+      "mh_costs": 18212214813.639835
+    },
+    "actual_3mo_cost": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "Restrict_Mass_Gatherings_and_Schools_and_Others"
+      ],
+      "economic_costs": 70306601599.88448,
+      "humanitarian_costs": 2186615777449.181,
+      "total_costs": 2256922379049.0654,
+      "num_cases": 122876,
+      "num_deaths": 14134,
+      "d_costs": 2168139081965.6667,
+      "h_costs": 259496316.27450982,
+      "mh_costs": 18217199167.239838
+    },
+    "hindsight_optimal": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "Lockdown"
+      ],
+      "economic_costs": 76467424424.52267,
+      "humanitarian_costs": 2141781179651.7627,
+      "total_costs": 2218248604076.285,
+      "num_cases": 119063,
+      "num_deaths": 13841,
+      "d_costs": 2123313649083.809,
+      "h_costs": 255315754.3137255,
+      "mh_costs": 18212214813.639835
+    }
+  },
+  "US-NY": {
+    "monthly": [
+      {
+        "month": 1,
+        "decision_date": "2020-03-15",
+        "actual_npi": "Lockdown",
+        "actual_npi_short": "Lock",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 259409389070.83804,
+        "online_gammas": {
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.794,
+          "Lockdown": 0.239,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.668,
+          "No_Measure": 1.0,
+          "Restrict_Mass_Gatherings": 0.873,
+          "Restrict_Mass_Gatherings_and_Schools": 0.479,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.423
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 54416682153.66001,
+            "humanitarian_costs": 204992706917.17804,
+            "total_costs": 259409389070.83804,
+            "num_deaths": 19672,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 57875249425.28735,
+            "humanitarian_costs": 903152792725.479,
+            "total_costs": 961028042150.7664,
+            "num_deaths": 133008,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 57488501149.42529,
+            "humanitarian_costs": 1120049137255.083,
+            "total_costs": 1177537638404.5083,
+            "num_deaths": 168500,
+            "full_vector": [
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 41114660133.091354,
+            "humanitarian_costs": 1716499728343.8132,
+            "total_costs": 1757614388476.9045,
+            "num_deaths": 267278,
+            "full_vector": [
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 35868868844.5251,
+            "humanitarian_costs": 1795021163695.7585,
+            "total_costs": 1830890032540.2837,
+            "num_deaths": 280449,
+            "full_vector": [
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 27400685057.471264,
+            "humanitarian_costs": 1894437803113.6719,
+            "total_costs": 1921838488171.143,
+            "num_deaths": 297149,
+            "full_vector": [
+              "No_Measure",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "decision_date": "2020-04-15",
+        "actual_npi": "Lockdown",
+        "actual_npi_short": "Lock",
+        "online_npi": "Lockdown",
+        "online_npi_short": "Lock",
+        "online_cost": 226268524249.85788,
+        "online_gammas": {
+          "Lockdown": 0.20344576000603143,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.6758825667145982,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.5686266430294101,
+          "No_Measure": 0.8512374895649851,
+          "Restrict_Mass_Gatherings": 0.743130328390232,
+          "Restrict_Mass_Gatherings_and_Schools": 0.40774275750162786,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.3600734580859887
+        },
+        "ranking": [
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 53485602903.81125,
+            "humanitarian_costs": 172782921346.04663,
+            "total_costs": 226268524249.85788,
+            "num_deaths": 13339,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 48325117241.37931,
+            "humanitarian_costs": 268784686530.6423,
+            "total_costs": 317109803772.0216,
+            "num_deaths": 28763,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 48753369751.966125,
+            "humanitarian_costs": 343769028657.6835,
+            "total_costs": 392522398409.6496,
+            "num_deaths": 40809,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 50364192982.45614,
+            "humanitarian_costs": 910025132562.9922,
+            "total_costs": 960389325545.4484,
+            "num_deaths": 132247,
+            "full_vector": [
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 48141662915.91047,
+            "humanitarian_costs": 1005085223681.6266,
+            "total_costs": 1053226886597.5371,
+            "num_deaths": 147711,
+            "full_vector": [
+              "Lockdown",
+              "Restrict_Mass_Gatherings",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 43529712401.69389,
+            "humanitarian_costs": 1098617416530.9244,
+            "total_costs": 1142147128932.6184,
+            "num_deaths": 162943,
+            "full_vector": [
+              "Lockdown",
+              "No_Measure",
+              "No_Measure"
+            ]
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "decision_date": "2020-05-15",
+        "actual_npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "actual_npi_short": "MG+Sch+Oth",
+        "online_npi": "No_Measure",
+        "online_npi_short": "None",
+        "online_cost": 181430290283.40506,
+        "online_gammas": {
+          "Lockdown": 0.018867228117474058,
+          "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.06268024738608538,
+          "Mass_Gatherings_Authorized_But_Others_Restricted": 0.0527335078764547,
+          "No_Measure": 0.07894237706056093,
+          "Restrict_Mass_Gatherings": 0.06891669517386968,
+          "Restrict_Mass_Gatherings_and_Schools": 0.037813398612008685,
+          "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.03339262549661727
+        },
+        "ranking": [
+          {
+            "npi": "No_Measure",
+            "npi_short": "None",
+            "economic_costs": 35093167090.13914,
+            "humanitarian_costs": 146337123193.26593,
+            "total_costs": 181430290283.40506,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "No_Measure"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings",
+            "npi_short": "MG",
+            "economic_costs": 38013152813.067154,
+            "humanitarian_costs": 146337081759.12393,
+            "total_costs": 184350234572.1911,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings"
+            ]
+          },
+          {
+            "npi": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+            "npi_short": "Sch+MG+Oth",
+            "economic_costs": 39863145674.53116,
+            "humanitarian_costs": 146337050061.41443,
+            "total_costs": 186200195735.9456,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools",
+            "npi_short": "MG+Sch",
+            "economic_costs": 46968124258.92317,
+            "humanitarian_costs": 146336980035.20145,
+            "total_costs": 193305104294.12463,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools"
+            ]
+          },
+          {
+            "npi": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+            "npi_short": "MG+Sch+Oth",
+            "economic_costs": 48185624258.92317,
+            "humanitarian_costs": 146336970179.56296,
+            "total_costs": 194522594438.48615,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Restrict_Mass_Gatherings_and_Schools_and_Others"
+            ]
+          },
+          {
+            "npi": "Lockdown",
+            "npi_short": "Lock",
+            "economic_costs": 52518109981.85118,
+            "humanitarian_costs": 146336916639.78247,
+            "total_costs": 198855026621.63367,
+            "num_deaths": 4582,
+            "full_vector": [
+              "Lockdown",
+              "Lockdown",
+              "Lockdown"
+            ]
+          }
+        ]
+      }
+    ],
+    "online_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "No_Measure"
+    ],
+    "actual_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "actual_sim_sequence": [
+      "Lockdown",
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ],
+    "online_3mo_cost": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "No_Measure"
+      ],
+      "economic_costs": 36662395765.27526,
+      "humanitarian_costs": 197410561876.85602,
+      "total_costs": 234072957642.1313,
+      "num_cases": 253889,
+      "num_deaths": 13371,
+      "d_costs": 78824800174.85394,
+      "h_costs": 1652322599.135383,
+      "mh_costs": 116933439102.8667
+    },
+    "actual_3mo_cost": {
+      "policy_vector": [
+        "Lockdown",
+        "Lockdown",
+        "Restrict_Mass_Gatherings_and_Schools_and_Others"
+      ],
+      "economic_costs": 48781078100.42347,
+      "humanitarian_costs": 180358537828.53223,
+      "total_costs": 229139615928.9557,
+      "num_cases": 117472,
+      "num_deaths": 10654,
+      "d_costs": 62880896556.878494,
+      "h_costs": 1166413611.0700562,
+      "mh_costs": 116311227660.5837
+    },
+    "hindsight_optimal": {
+      "policy_vector": [
+        "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "No_Measure"
+      ],
+      "economic_costs": 26701801451.905624,
+      "humanitarian_costs": 156930659742.01984,
+      "total_costs": 183632461193.92548,
+      "num_cases": 72396,
+      "num_deaths": 6824,
+      "d_costs": 40188615691.93177,
+      "h_costs": 636412488.0283772,
+      "mh_costs": 116105631562.0597
+    }
+  }
+}

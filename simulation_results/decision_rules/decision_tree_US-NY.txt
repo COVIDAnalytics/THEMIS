@@ -1,0 +1,13 @@
+|--- starts_strict <= 0.50
+|   |--- class: 0
+|--- starts_strict >  0.50
+|   |--- month1_severity <= 4.50
+|   |   |--- month2_severity <= 1.50
+|   |   |   |--- class: 0
+|   |   |--- month2_severity >  1.50
+|   |   |   |--- class: 1
+|   |--- month1_severity >  4.50
+|   |   |--- month2_severity <= 3.50
+|   |   |   |--- class: 0
+|   |   |--- month2_severity >  3.50
+|   |   |   |--- class: 0

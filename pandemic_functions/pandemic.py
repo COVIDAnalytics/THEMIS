@@ -4,9 +4,8 @@ import pandas as pd
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from policy_functions.policy import Policy
-from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario, get_region_gammas, get_region_gammas_v2
+from pandemic_functions.delphi_functions.DELPHI_model_policy_scenarios import run_delphi_policy_scenario, get_region_gammas, get_region_gammas_v2, read_policy_data_us_only, read_oxford_country_policy_data
 from pandemic_functions.pandemic_params import region_symbol_country_dict, p_v
-from pandemic_functions.delphi_functions.DELPHI_utils import read_policy_data_us_only, read_oxford_country_policy_data
 
 
 class Pandemic_Factory:

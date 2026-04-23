@@ -1,0 +1,61 @@
+{
+  "BR": {
+    "gammas": {
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.6968367652960428,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.8282760353967933,
+      "Lockdown": 0.24931734566729669,
+      "No_Measure": 1.0431688103234171,
+      "Restrict_Mass_Gatherings": 0.9106863714123431,
+      "Restrict_Mass_Gatherings_and_Schools": 0.4996778601449168,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.44126040676680545
+    },
+    "observed_policies": [
+      "Mass_Gatherings_Authorized_But_Others_Restricted"
+    ]
+  },
+  "DE": {
+    "gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.13149084446418452,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.08042853107496599,
+      "Lockdown": 0.04220511077189038,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.11796240165532544,
+      "No_Measure": 0.17659042163970873,
+      "Restrict_Mass_Gatherings": 0.1541634380914657,
+      "Restrict_Mass_Gatherings_and_Schools": 0.08458681196542048
+    },
+    "observed_policies": [
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ]
+  },
+  "US-NY": {
+    "gammas": {
+      "Lockdown": 0.18044320951013926,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0926528538902366,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.38668990525846,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.3253260160108958,
+      "No_Measure": 0.4870149940282871,
+      "Restrict_Mass_Gatherings": 0.4251640897866946,
+      "Restrict_Mass_Gatherings_and_Schools": 0.23328018213954949
+    },
+    "observed_policies": [
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others"
+    ]
+  },
+  "ES": {
+    "gammas": {
+      "Lockdown": 0.12132790582072436,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.291132428718352,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.3787592156316942,
+      "No_Measure": 0.4770267199391614,
+      "Restrict_Mass_Gatherings": 0.4164443265068879,
+      "Restrict_Mass_Gatherings_and_Schools": 0.2284957988508583,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.20178230253426527
+    },
+    "observed_policies": [
+      "Lockdown",
+      "Mass_Gatherings_Authorized_But_Others_Restricted"
+    ]
+  }
+}

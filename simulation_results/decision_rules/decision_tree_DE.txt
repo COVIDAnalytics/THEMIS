@@ -1,0 +1,22 @@
+|--- month3_severity <= 1.50
+|   |--- month2_severity <= 3.50
+|   |   |--- severity_trend <= -0.50
+|   |   |   |--- class: 1
+|   |   |--- severity_trend >  -0.50
+|   |   |   |--- class: 0
+|   |--- month2_severity >  3.50
+|   |   |--- severity_trend <= -2.50
+|   |   |   |--- class: 0
+|   |   |--- severity_trend >  -2.50
+|   |   |   |--- class: 0
+|--- month3_severity >  1.50
+|   |--- max_severity <= 3.50
+|   |   |--- month3_severity <= 2.50
+|   |   |   |--- class: 0
+|   |   |--- month3_severity >  2.50
+|   |   |   |--- class: 0
+|   |--- max_severity >  3.50
+|   |   |--- month2_severity <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- month2_severity >  0.50
+|   |   |   |--- class: 0

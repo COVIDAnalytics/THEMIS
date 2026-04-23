@@ -1,0 +1,33 @@
+{
+  "n_regions": 210,
+  "n_policies": 7,
+  "n_observed": 366,
+  "gamma_agreement_r1_vs_r3": {
+    "observed_corr": 1.0,
+    "observed_rmse": 0.0
+  },
+  "holdout": {
+    "n_splits": 20,
+    "holdout_frac": 0.2,
+    "rank1_rmse": 0.379789,
+    "rank3_rmse": 0.38622,
+    "rank1_mae": 0.257701,
+    "rank3_mae": 0.264956,
+    "rmse_improvement_pct": -1.69
+  },
+  "delphi_historical_all_regions": {
+    "n_regions": 210,
+    "cases_corr": 0.999992,
+    "deaths_corr": 0.999997,
+    "median_cases_diff_pct": 0.0,
+    "median_deaths_diff_pct": 0.0,
+    "mean_cases_diff_pct": 1.06,
+    "mean_deaths_diff_pct": 1.32
+  },
+  "delphi_hypothetical_paper_regions": {
+    "scenarios_corr_cases": 0.950924,
+    "scenarios_corr_deaths": 0.953291,
+    "median_cases_diff_pct": 13.38,
+    "median_deaths_diff_pct": 10.47
+  }
+}

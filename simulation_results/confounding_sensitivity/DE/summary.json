@@ -1,0 +1,105 @@
+{
+  "region": "DE",
+  "start_date": "2020-03-15",
+  "policy_length": 3,
+  "deltas_tested": [
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "baseline_delta": 1.0,
+  "baseline_top1": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+  "baseline_top_k": [
+    "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+    "Lockdown-No_Measure-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools-No_Measure-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools-No_Measure-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure-Restrict_Mass_Gatherings",
+    "Lockdown-Restrict_Mass_Gatherings-No_Measure",
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Lockdown-No_Measure-Restrict_Mass_Gatherings"
+  ],
+  "base_gammas": {
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.1315,
+    "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0804,
+    "Lockdown": 0.0422,
+    "Mass_Gatherings_Authorized_But_Others_Restricted": 0.118,
+    "No_Measure": 0.1766,
+    "Restrict_Mass_Gatherings": 0.1542,
+    "Restrict_Mass_Gatherings_and_Schools": 0.0846
+  },
+  "stability": [
+    {
+      "delta": 0.8,
+      "top1_policy": "No_Measure-No_Measure-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 5,
+      "top20_overlap_pct": 25.0,
+      "spearman_rank_corr": 0.7552795556228251
+    },
+    {
+      "delta": 0.9,
+      "top1_policy": "No_Measure-No_Measure-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 5,
+      "top20_overlap_pct": 25.0,
+      "spearman_rank_corr": 0.77860019308828
+    },
+    {
+      "delta": 1.0,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+      "top1_matches_baseline": true,
+      "top20_overlap_with_baseline": 20,
+      "top20_overlap_pct": 100.0,
+      "spearman_rank_corr": 0.9999999999999999
+    },
+    {
+      "delta": 1.1,
+      "top1_policy": "Lockdown-Lockdown-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 0,
+      "top20_overlap_pct": 0.0,
+      "spearman_rank_corr": -0.34122459186225124
+    },
+    {
+      "delta": 1.2,
+      "top1_policy": "Lockdown-Lockdown-Lockdown",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 0,
+      "top20_overlap_pct": 0.0,
+      "spearman_rank_corr": -0.46041867609759574
+    },
+    {
+      "delta": 1.3,
+      "top1_policy": "Lockdown-Lockdown-Lockdown",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 0,
+      "top20_overlap_pct": 0.0,
+      "spearman_rank_corr": -0.3768430202788792
+    },
+    {
+      "delta": 1.5,
+      "top1_policy": "Lockdown-Lockdown-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 0,
+      "top20_overlap_pct": 0.0,
+      "spearman_rank_corr": 0.38598101906428983
+    }
+  ]
+}

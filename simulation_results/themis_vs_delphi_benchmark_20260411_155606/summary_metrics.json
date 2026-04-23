@@ -1,0 +1,30 @@
+{
+  "start_date": "2020-07-03",
+  "end_date": "2020-08-03",
+  "months": 1,
+  "matched_regions": 106,
+  "evaluated_regions": 106,
+  "n_splits": 30,
+  "test_size": 21,
+  "baseline_median_ape_cases_pct": 82.8659188034188,
+  "baseline_median_ape_deaths_pct": 73.58874236610279,
+  "improved_median_ape_cases_pct": 76.92206476324735,
+  "improved_median_ape_deaths_pct": 65.47802959380469,
+  "raw_median_ape_cases_pct": 80.77827168624007,
+  "raw_median_ape_deaths_pct": 62.993920972644375,
+  "improvement_vs_baseline_cases_pp": 5.943854040171445,
+  "improvement_vs_baseline_deaths_pp": 8.1107127722981,
+  "gap_vs_raw_cases_pp": -3.856206922992726,
+  "gap_vs_raw_deaths_pp": 2.484108621160317,
+  "selected_robust_candidate": "median_shrink6",
+  "selected_robust_config": {
+    "name": "median_shrink6",
+    "robust_stat": "median",
+    "trim_quantile": 0.1,
+    "z_stat": "median",
+    "min_policy_regions": 2,
+    "shrinkage_regions": 6.0,
+    "gamma_floor": 0.05,
+    "gamma_cap": 1.5
+  }
+}

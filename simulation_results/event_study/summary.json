@@ -1,0 +1,24 @@
+{
+  "panel_size": 32130,
+  "n_regions": 210,
+  "n_transitions": 716,
+  "event_study": {
+    "n_regressions": 716,
+    "pct_significant_5pct": 16.666666666666664,
+    "mean_abs_beta_post": 0.08565471367779355,
+    "dose_response_slope": -0.005392074007802311,
+    "dose_response_r": -0.03127422885004903,
+    "dose_response_p": 0.4033892051317266
+  },
+  "placebo_test": {
+    "real_mean_abs_beta": 0.08565471367779355,
+    "placebo_p_value": 1.0,
+    "n_placebo": 500
+  },
+  "granger_causality": {
+    "n_regions_tested": 210,
+    "pct_significant_5pct": 16.666666666666664,
+    "pct_significant_1pct": 13.333333333333334,
+    "median_f_stat": 0.10345580192768292
+  }
+}

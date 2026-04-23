@@ -1,0 +1,32 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  16 APR 2026 22:58
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**./main2.tex
+(main2.tex
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-01>
+
+! LaTeX Error: File `informs3.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.5 ^^M
+       
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 23 strings out of 474591
+ 444 string characters out of 5745778
+ 1923533 words of memory out of 5000000
+ 22304 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 19i,0n,29p,97b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

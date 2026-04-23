@@ -1,0 +1,58 @@
+{
+  "train_start": "2020-03-15",
+  "train_end": "2020-06-15",
+  "eval_start": "2020-09-15",
+  "eval_end": "2020-12-15",
+  "gamma_policy_days_thresh": 20,
+  "seir_min_train_days": 21,
+  "optimization_method": "annealing",
+  "min_cases_threshold": 100,
+  "bootstrap_n": 5000,
+  "ci_alpha": 0.05,
+  "fit_quality_gate": false,
+  "fit_quality_max_train_mape": 40.0,
+  "fit_quality_max_corners": 1,
+  "themis_gamma_cap_ratio": 0.0,
+  "random_sample": 0,
+  "random_seed": 42,
+  "sampled_region_ids": null,
+  "total_case_files_discovered": 338,
+  "regions_evaluated": [
+    "Brazil",
+    "Germany",
+    "Spain",
+    "US - New York"
+  ],
+  "regions_failed": [],
+  "failed_reason_counts": {},
+  "model_order_expected_best_to_worst": [
+    "delphi_lookahead",
+    "themis",
+    "delphi",
+    "delphi_constant",
+    "sir",
+    "seir",
+    "seird"
+  ],
+  "expected_order_check": {
+    "expected_best_to_worst_cases": [
+      "delphi_lookahead",
+      "themis",
+      "delphi",
+      "delphi_constant",
+      "sir",
+      "seir",
+      "seird"
+    ],
+    "observed_best_to_worst_cases": [
+      "delphi_lookahead",
+      "delphi",
+      "themis",
+      "delphi_constant",
+      "seird",
+      "seir",
+      "sir"
+    ],
+    "matches_expected": false
+  }
+}

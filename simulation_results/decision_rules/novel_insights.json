@@ -1,0 +1,452 @@
+{
+  "marginal_costs": [
+    {
+      "region": "DE",
+      "severity": 0,
+      "npi": "None",
+      "avg_econ": 30390899608.705887,
+      "avg_human": 48164067798.86234,
+      "avg_total": 78554967407.56825,
+      "econ_pct_gdp": 0.7871250869905695
+    },
+    {
+      "region": "DE",
+      "severity": 1,
+      "npi": "MG",
+      "avg_econ": 34807815499.07828,
+      "avg_human": 39213708217.039566,
+      "avg_total": 74021523716.11783,
+      "econ_pct_gdp": 0.9015233229494503
+    },
+    {
+      "region": "DE",
+      "severity": 2,
+      "npi": "MG+Sch",
+      "avg_econ": 49024920630.86894,
+      "avg_human": 25745342655.37192,
+      "avg_total": 74770263286.24088,
+      "econ_pct_gdp": 1.2697467140862198
+    },
+    {
+      "region": "DE",
+      "severity": 3,
+      "npi": "Sch+MG+Oth",
+      "avg_econ": 37203932019.433754,
+      "avg_human": 32935594526.96269,
+      "avg_total": 70139526546.39642,
+      "econ_pct_gdp": 0.9635828028861372
+    },
+    {
+      "region": "DE",
+      "severity": 4,
+      "npi": "MG+Sch+Oth",
+      "avg_econ": 51203662334.69901,
+      "avg_human": 25308509520.910122,
+      "avg_total": 76512171855.60913,
+      "econ_pct_gdp": 1.326176180644885
+    },
+    {
+      "region": "DE",
+      "severity": 5,
+      "npi": "Lock",
+      "avg_econ": 57983127469.639084,
+      "avg_human": 22833586260.40841,
+      "avg_total": 80816713730.0475,
+      "econ_pct_gdp": 1.5017645032281555
+    },
+    {
+      "region": "BR",
+      "severity": 0,
+      "npi": "None",
+      "avg_econ": 35772192211.70338,
+      "avg_human": 589182966649.3146,
+      "avg_total": 624955158861.0181,
+      "econ_pct_gdp": 0.4802925914568123
+    },
+    {
+      "region": "BR",
+      "severity": 1,
+      "npi": "MG",
+      "avg_econ": 37796479916.08939,
+      "avg_human": 363537771053.0442,
+      "avg_total": 401334250969.1336,
+      "econ_pct_gdp": 0.5074715348561949
+    },
+    {
+      "region": "BR",
+      "severity": 2,
+      "npi": "MG+Sch",
+      "avg_econ": 49304188228.25599,
+      "avg_human": 78334611087.95734,
+      "avg_total": 127638799316.21332,
+      "econ_pct_gdp": 0.6619788967273897
+    },
+    {
+      "region": "BR",
+      "severity": 3,
+      "npi": "Sch+MG+Oth",
+      "avg_econ": 39758327696.44456,
+      "avg_human": 264028487007.10483,
+      "avg_total": 303786814703.5493,
+      "econ_pct_gdp": 0.5338121334109097
+    },
+    {
+      "region": "BR",
+      "severity": 4,
+      "npi": "MG+Sch+Oth",
+      "avg_econ": 51331627327.58871,
+      "avg_human": 66637601849.262856,
+      "avg_total": 117969229176.85158,
+      "econ_pct_gdp": 0.6892001520889999
+    },
+    {
+      "region": "BR",
+      "severity": 5,
+      "npi": "Lock",
+      "avg_econ": 58235103478.948784,
+      "avg_human": 46647801658.60935,
+      "avg_total": 104882905137.55814,
+      "econ_pct_gdp": 0.7818891444541995
+    },
+    {
+      "region": "ES",
+      "severity": 0,
+      "npi": "None",
+      "avg_econ": 40365043739.93159,
+      "avg_human": 120785409782480.31,
+      "avg_total": 120825774826220.25,
+      "econ_pct_gdp": 3.2421721879463123
+    },
+    {
+      "region": "ES",
+      "severity": 1,
+      "npi": "MG",
+      "avg_econ": 43459785176.404594,
+      "avg_human": 109441903101615.38,
+      "avg_total": 109485362886791.75,
+      "econ_pct_gdp": 3.490745797301574
+    },
+    {
+      "region": "ES",
+      "severity": 2,
+      "npi": "MG+Sch",
+      "avg_econ": 51391812232.165955,
+      "avg_human": 64577758180826.46,
+      "avg_total": 64629149993058.625,
+      "econ_pct_gdp": 4.1278564041900365
+    },
+    {
+      "region": "ES",
+      "severity": 3,
+      "npi": "Sch+MG+Oth",
+      "avg_econ": 45355579151.64277,
+      "avg_human": 101961480144847.39,
+      "avg_total": 102006835723999.03,
+      "econ_pct_gdp": 3.6430184057544395
+    },
+    {
+      "region": "ES",
+      "severity": 4,
+      "npi": "MG+Sch+Oth",
+      "avg_econ": 52280926691.72973,
+      "avg_human": 56784592893881.98,
+      "avg_total": 56836873820573.695,
+      "econ_pct_gdp": 4.199271220219255
+    },
+    {
+      "region": "ES",
+      "severity": 5,
+      "npi": "Lock",
+      "avg_econ": 54909469453.20004,
+      "avg_human": 31253418361932.004,
+      "avg_total": 31308327831385.203,
+      "econ_pct_gdp": 4.410399152867473
+    },
+    {
+      "region": "US-NY",
+      "severity": 0,
+      "npi": "None",
+      "avg_econ": 31154258624.050552,
+      "avg_human": 852252809224.0203,
+      "avg_total": 883407067848.0712,
+      "econ_pct_gdp": 1.7601276058785622
+    },
+    {
+      "region": "US-NY",
+      "severity": 1,
+      "npi": "MG",
+      "avg_econ": 31947035773.341396,
+      "avg_human": 705650897462.0046,
+      "avg_total": 737597933235.346,
+      "econ_pct_gdp": 1.8049172753300224
+    },
+    {
+      "region": "US-NY",
+      "severity": 2,
+      "npi": "MG+Sch",
+      "avg_econ": 33730732509.914627,
+      "avg_human": 323617594167.62933,
+      "avg_total": 357348326677.54407,
+      "econ_pct_gdp": 1.9056911022550638
+    },
+    {
+      "region": "US-NY",
+      "severity": 3,
+      "npi": "Sch+MG+Oth",
+      "avg_econ": 32431652157.69309,
+      "avg_human": 619509187071.85,
+      "avg_total": 651940839229.5431,
+      "econ_pct_gdp": 1.8322967320730559
+    },
+    {
+      "region": "US-NY",
+      "severity": 4,
+      "npi": "MG+Sch+Oth",
+      "avg_econ": 31187265076.964436,
+      "avg_human": 180319572566.6512,
+      "avg_total": 211506837643.61563,
+      "econ_pct_gdp": 1.761992377229629
+    },
+    {
+      "region": "US-NY",
+      "severity": 5,
+      "npi": "Lock",
+      "avg_econ": 37572485605.29677,
+      "avg_human": 254099947981.9606,
+      "avg_total": 291672433587.2574,
+      "econ_pct_gdp": 2.1227392997342807
+    }
+  ],
+  "month2_sensitivity": [
+    {
+      "region": "DE",
+      "month1_npi": "None",
+      "month1_severity": 0,
+      "cost_range": 31745485897.377274,
+      "cost_cv": 0.11956154808697265,
+      "n_scenarios": 36
+    },
+    {
+      "region": "DE",
+      "month1_npi": "MG",
+      "month1_severity": 1,
+      "cost_range": 37647723646.708954,
+      "cost_cv": 0.13112213397355424,
+      "n_scenarios": 36
+    },
+    {
+      "region": "DE",
+      "month1_npi": "MG+Sch",
+      "month1_severity": 2,
+      "cost_range": 52642579965.5072,
+      "cost_cv": 0.1829905156539671,
+      "n_scenarios": 36
+    },
+    {
+      "region": "DE",
+      "month1_npi": "Sch+MG+Oth",
+      "month1_severity": 3,
+      "cost_range": 42893504523.6784,
+      "cost_cv": 0.16145240440143113,
+      "n_scenarios": 36
+    },
+    {
+      "region": "DE",
+      "month1_npi": "MG+Sch+Oth",
+      "month1_severity": 4,
+      "cost_range": 53407406370.55282,
+      "cost_cv": 0.181425176172635,
+      "n_scenarios": 36
+    },
+    {
+      "region": "DE",
+      "month1_npi": "Lock",
+      "month1_severity": 5,
+      "cost_range": 57279697974.2106,
+      "cost_cv": 0.1817782882993085,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "None",
+      "month1_severity": 0,
+      "cost_range": 2502664478808.8604,
+      "cost_cv": 1.0188039119158308,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "MG",
+      "month1_severity": 1,
+      "cost_range": 1631252258214.2532,
+      "cost_cv": 0.9857172372545457,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "MG+Sch",
+      "month1_severity": 2,
+      "cost_range": 197716402631.61096,
+      "cost_cv": 0.3233276376601867,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "Sch+MG+Oth",
+      "month1_severity": 3,
+      "cost_range": 1178695030219.0015,
+      "cost_cv": 0.9172111785867538,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "MG+Sch+Oth",
+      "month1_severity": 4,
+      "cost_range": 131513932075.50902,
+      "cost_cv": 0.2211211125183386,
+      "n_scenarios": 36
+    },
+    {
+      "region": "BR",
+      "month1_npi": "Lock",
+      "month1_severity": 5,
+      "cost_range": 36631614591.068726,
+      "cost_cv": 0.09153982977456196,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "None",
+      "month1_severity": 0,
+      "cost_range": 58656672718172.266,
+      "cost_cv": 0.16319903472159747,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "MG",
+      "month1_severity": 1,
+      "cost_range": 80616808899432.66,
+      "cost_cv": 0.2430534813648487,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "MG+Sch",
+      "month1_severity": 2,
+      "cost_range": 114290492395040.98,
+      "cost_cv": 0.6138115696203114,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "Sch+MG+Oth",
+      "month1_severity": 3,
+      "cost_range": 92248254347816.9,
+      "cost_cv": 0.30066653443623914,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "MG+Sch+Oth",
+      "month1_severity": 4,
+      "cost_range": 113386612613634.62,
+      "cost_cv": 0.6815132848002303,
+      "n_scenarios": 36
+    },
+    {
+      "region": "ES",
+      "month1_npi": "Lock",
+      "month1_severity": 5,
+      "cost_range": 95139780897279.72,
+      "cost_cv": 0.941403060851124,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "None",
+      "month1_severity": 0,
+      "cost_range": 637200333435.3118,
+      "cost_cv": 0.2582483160420331,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "MG",
+      "month1_severity": 1,
+      "cost_range": 646165813031.4631,
+      "cost_cv": 0.30783604375308354,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "MG+Sch",
+      "month1_severity": 2,
+      "cost_range": 410427276613.3244,
+      "cost_cv": 0.3397514580567639,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "Sch+MG+Oth",
+      "month1_severity": 3,
+      "cost_range": 606405606000.4198,
+      "cost_cv": 0.32642925891610935,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "MG+Sch+Oth",
+      "month1_severity": 4,
+      "cost_range": 117962296303.69324,
+      "cost_cv": 0.12742866085991822,
+      "n_scenarios": 36
+    },
+    {
+      "region": "US-NY",
+      "month1_npi": "Lock",
+      "month1_severity": 5,
+      "cost_range": 295217121674.48724,
+      "cost_cv": 0.2766201461935619,
+      "n_scenarios": 36
+    }
+  ],
+  "lockdown_crossover": [
+    {
+      "region": "DE",
+      "no_measure_best_total": 62629851005.156815,
+      "lockdown_best_total": 53489581839.73605,
+      "lockdown_cheaper": "True",
+      "econ_premium_of_lock": 27592227860.933197,
+      "lives_saved_by_lock": 20714.722222222223,
+      "cost_per_life_saved": 1332010.5172027342
+    },
+    {
+      "region": "BR",
+      "no_measure_best_total": 127386383082.6087,
+      "lockdown_best_total": 92692501918.18762,
+      "lockdown_cheaper": "True",
+      "econ_premium_of_lock": 22462911267.245407,
+      "lives_saved_by_lock": 121017.41666666667,
+      "cost_per_life_saved": 185617.17714663997
+    },
+    {
+      "region": "ES",
+      "no_measure_best_total": 84820383700117.52,
+      "lockdown_best_total": 2501210645761.27,
+      "lockdown_cheaper": "True",
+      "econ_premium_of_lock": 14544425713.268456,
+      "lives_saved_by_lock": 583508.3333333334,
+      "cost_per_life_saved": 24925.82347570321
+    },
+    {
+      "region": "US-NY",
+      "no_measure_best_total": 562891956328.9924,
+      "lockdown_best_total": 209269457901.88776,
+      "lockdown_cheaper": "True",
+      "econ_premium_of_lock": 6418226981.246216,
+      "lives_saved_by_lock": 97652.97222222222,
+      "cost_per_life_saved": 65724.85030604797
+    }
+  ]
+}

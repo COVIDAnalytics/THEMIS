@@ -1,0 +1,114 @@
+{
+  "analysis": "granular_policy_sensitivity",
+  "start_date": "2020-03-15",
+  "end_date": "2020-06-15",
+  "n_granular_policies": 9,
+  "granular_policies": [
+    "G01_No_Measure",
+    "G02_Restrict_Mass_Gatherings",
+    "G03_Restrict_MG_and_Schools",
+    "G04_Others_Only",
+    "G05_MG_and_Others",
+    "G06_MG_Schools_Others_Moderate",
+    "G07_MG_Schools_Others_Strict",
+    "G08_Lockdown_Moderate",
+    "G09_Lockdown_Strict"
+  ],
+  "granular_to_original_mapping": {
+    "G01_No_Measure": "No_Measure",
+    "G02_Restrict_Mass_Gatherings": "Restrict_Mass_Gatherings",
+    "G03_Restrict_MG_and_Schools": "Restrict_Mass_Gatherings_and_Schools",
+    "G04_Others_Only": "Mass_Gatherings_Authorized_But_Others_Restricted",
+    "G05_MG_and_Others": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "G06_MG_Schools_Others_Moderate": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "G07_MG_Schools_Others_Strict": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "G08_Lockdown_Moderate": "Lockdown",
+    "G09_Lockdown_Strict": "Lockdown"
+  },
+  "gamma_matrix_shape": [
+    210,
+    9
+  ],
+  "observation_density": 0.2212,
+  "global_policy_counts": {
+    "G01_No_Measure": 0,
+    "G02_Restrict_Mass_Gatherings": 0,
+    "G03_Restrict_MG_and_Schools": 5,
+    "G04_Others_Only": 42,
+    "G05_MG_and_Others": 38,
+    "G06_MG_Schools_Others_Moderate": 70,
+    "G07_MG_Schools_Others_Strict": 107,
+    "G08_Lockdown_Moderate": 108,
+    "G09_Lockdown_Strict": 48
+  },
+  "holdout_rmse_granular": {
+    "rank_1": {
+      "mean": 0.4002,
+      "std": 0.0373
+    },
+    "rank_2": {
+      "mean": 0.4389,
+      "std": 0.0477
+    },
+    "rank_3": {
+      "mean": 0.4099,
+      "std": 0.0385
+    }
+  },
+  "holdout_rmse_original": {
+    "rank_1": {
+      "mean": 0.3775,
+      "std": 0.042
+    },
+    "rank_2": {
+      "mean": 0.4195,
+      "std": 0.0622
+    },
+    "rank_3": {
+      "mean": 0.391,
+      "std": 0.0419
+    }
+  },
+  "prediction_comparison": [
+    {
+      "region": "DE",
+      "display_name": "Germany",
+      "orig_cases": 144063,
+      "gran_cases": 152288,
+      "case_pct_diff": 5.71,
+      "orig_deaths": 6044,
+      "gran_deaths": 6386,
+      "death_pct_diff": 5.66
+    },
+    {
+      "region": "ES",
+      "display_name": "Spain",
+      "orig_cases": 118075,
+      "gran_cases": 117999,
+      "case_pct_diff": 0.06,
+      "orig_deaths": 13784,
+      "gran_deaths": 13778,
+      "death_pct_diff": 0.04
+    },
+    {
+      "region": "BR",
+      "display_name": "Brazil",
+      "orig_cases": 582815,
+      "gran_cases": 582815,
+      "case_pct_diff": 0.0,
+      "orig_deaths": 26949,
+      "gran_deaths": 26949,
+      "death_pct_diff": 0.0
+    },
+    {
+      "region": "US-NY",
+      "display_name": "New York",
+      "orig_cases": 130855,
+      "gran_cases": 116747,
+      "case_pct_diff": 10.78,
+      "orig_deaths": 11501,
+      "gran_deaths": 10392,
+      "death_pct_diff": 9.64
+    }
+  ]
+}

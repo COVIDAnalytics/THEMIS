@@ -1,0 +1,76 @@
+{
+  "periods": [
+    {
+      "label": "2020.03.15--2020.06.15",
+      "rank": 1,
+      "holdout_rmse": 0.3775,
+      "holdout_rmse_std": 0.042,
+      "n_regions": 210,
+      "n_obs": 366
+    },
+    {
+      "label": "2020.03.15--2020.06.15",
+      "rank": 2,
+      "holdout_rmse": 0.4195,
+      "holdout_rmse_std": 0.0622,
+      "n_regions": 210,
+      "n_obs": 366
+    },
+    {
+      "label": "2020.03.15--2020.06.15",
+      "rank": 3,
+      "holdout_rmse": 0.391,
+      "holdout_rmse_std": 0.0419,
+      "n_regions": 210,
+      "n_obs": 366
+    },
+    {
+      "label": "2020.06.15--2020.09.15",
+      "rank": 1,
+      "holdout_rmse": 0.2873,
+      "holdout_rmse_std": 0.0264,
+      "n_regions": 210,
+      "n_obs": 292
+    },
+    {
+      "label": "2020.06.15--2020.09.15",
+      "rank": 2,
+      "holdout_rmse": 0.2923,
+      "holdout_rmse_std": 0.0301,
+      "n_regions": 210,
+      "n_obs": 292
+    },
+    {
+      "label": "2020.06.15--2020.09.15",
+      "rank": 3,
+      "holdout_rmse": 0.2891,
+      "holdout_rmse_std": 0.0254,
+      "n_regions": 210,
+      "n_obs": 292
+    },
+    {
+      "label": "2020.09.15--2020.12.15",
+      "rank": 1,
+      "holdout_rmse": 0.2963,
+      "holdout_rmse_std": 0.0193,
+      "n_regions": 210,
+      "n_obs": 294
+    },
+    {
+      "label": "2020.09.15--2020.12.15",
+      "rank": 2,
+      "holdout_rmse": 0.2964,
+      "holdout_rmse_std": 0.0193,
+      "n_regions": 210,
+      "n_obs": 294
+    },
+    {
+      "label": "2020.09.15--2020.12.15",
+      "rank": 3,
+      "holdout_rmse": 0.2972,
+      "holdout_rmse_std": 0.02,
+      "n_regions": 210,
+      "n_obs": 294
+    }
+  ]
+}

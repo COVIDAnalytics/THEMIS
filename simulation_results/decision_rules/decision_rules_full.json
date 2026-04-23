@@ -1,0 +1,1002 @@
+{
+  "DE": {
+    "optimal_policy": [
+      "Restrict_Mass_Gatherings_and_Schools",
+      "No_Measure",
+      "No_Measure"
+    ],
+    "optimal_total_cost": 50675806463.52881,
+    "n_simulations": 216,
+    "overall_cv_accuracy": 0.8658562367864693,
+    "rules": [
+      {
+        "conditions": [
+          "month3_severity <= 1.5",
+          "month2_severity <= 3.5",
+          "severity_trend <= -0.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.667,
+        "n_samples": 36
+      },
+      {
+        "conditions": [
+          "month3_severity <= 1.5",
+          "month2_severity <= 3.5",
+          "severity_trend > -0.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.917,
+        "n_samples": 12
+      },
+      {
+        "conditions": [
+          "month3_severity <= 1.5",
+          "month2_severity > 3.5",
+          "severity_trend <= -2.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.9,
+        "n_samples": 10
+      },
+      {
+        "conditions": [
+          "month3_severity <= 1.5",
+          "month2_severity > 3.5",
+          "severity_trend > -2.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 14
+      },
+      {
+        "conditions": [
+          "month3_severity > 1.5",
+          "max_severity <= 3.5",
+          "month3_severity <= 2.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 16
+      },
+      {
+        "conditions": [
+          "month3_severity > 1.5",
+          "max_severity <= 3.5",
+          "month3_severity > 2.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.688,
+        "n_samples": 16
+      },
+      {
+        "conditions": [
+          "month3_severity > 1.5",
+          "max_severity > 3.5",
+          "month2_severity <= 0.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.875,
+        "n_samples": 16
+      },
+      {
+        "conditions": [
+          "month3_severity > 1.5",
+          "max_severity > 3.5",
+          "month2_severity > 0.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 96
+      }
+    ],
+    "actionable_rules": [
+      "IF month3_severity <= 1.5 (MG) AND month2_severity <= 3.5 (MG+Sch) AND severity_trend <= -0.5 (None) THEN recommend Near-Optimal sequence (confidence=67%, n=36)"
+    ],
+    "base_gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.1315,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0804,
+      "Lockdown": 0.0422,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.118,
+      "No_Measure": 0.1766,
+      "Restrict_Mass_Gatherings": 0.1542,
+      "Restrict_Mass_Gatherings_and_Schools": 0.0846
+    }
+  },
+  "BR": {
+    "optimal_policy": [
+      "Lockdown",
+      "Restrict_Mass_Gatherings_and_Schools",
+      "No_Measure"
+    ],
+    "optimal_total_cost": 92692501918.18762,
+    "n_simulations": 216,
+    "overall_cv_accuracy": 0.772832980972516,
+    "rules": [
+      {
+        "conditions": [
+          "severity_trend <= -3.5",
+          "avg_severity <= 2.167"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.667,
+        "n_samples": 6
+      },
+      {
+        "conditions": [
+          "severity_trend <= -3.5",
+          "avg_severity > 2.167",
+          "month3_severity <= 0.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.857,
+        "n_samples": 7
+      },
+      {
+        "conditions": [
+          "severity_trend <= -3.5",
+          "avg_severity > 2.167",
+          "month3_severity > 0.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.8,
+        "n_samples": 5
+      },
+      {
+        "conditions": [
+          "severity_trend > -3.5",
+          "severity_trend <= -0.5",
+          "max_severity <= 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.917,
+        "n_samples": 24
+      },
+      {
+        "conditions": [
+          "severity_trend > -3.5",
+          "severity_trend <= -0.5",
+          "max_severity > 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.667,
+        "n_samples": 48
+      },
+      {
+        "conditions": [
+          "severity_trend > -3.5",
+          "severity_trend > -0.5",
+          "month3_severity <= 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.95,
+        "n_samples": 60
+      },
+      {
+        "conditions": [
+          "severity_trend > -3.5",
+          "severity_trend > -0.5",
+          "month3_severity > 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 66
+      }
+    ],
+    "actionable_rules": [
+      "IF severity_trend <= -3.5 (Sch+MG+Oth) AND avg_severity > 2.167 (MG) AND month3_severity <= 0.5 (None) THEN recommend Near-Optimal sequence (confidence=86%, n=7)",
+      "IF severity_trend <= -3.5 (Sch+MG+Oth) AND avg_severity > 2.167 (MG) AND month3_severity > 0.5 (None) THEN recommend Near-Optimal sequence (confidence=80%, n=5)"
+    ],
+    "base_gammas": {
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.6968,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.8283,
+      "Lockdown": 0.2493,
+      "No_Measure": 1.0432,
+      "Restrict_Mass_Gatherings": 0.9107,
+      "Restrict_Mass_Gatherings_and_Schools": 0.4997,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.4413
+    }
+  },
+  "ES": {
+    "optimal_policy": [
+      "Lockdown",
+      "Lockdown",
+      "Lockdown"
+    ],
+    "optimal_total_cost": 2501210645761.27,
+    "n_simulations": 216,
+    "overall_cv_accuracy": 0.7867864693446089,
+    "rules": [
+      {
+        "conditions": [
+          "avg_severity <= 3.5",
+          "avg_severity <= 2.833",
+          "month1_severity <= 4.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 125
+      },
+      {
+        "conditions": [
+          "avg_severity <= 3.5",
+          "avg_severity <= 2.833",
+          "month1_severity > 4.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.9,
+        "n_samples": 10
+      },
+      {
+        "conditions": [
+          "avg_severity <= 3.5",
+          "avg_severity > 2.833",
+          "severity_trend <= -1.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.571,
+        "n_samples": 14
+      },
+      {
+        "conditions": [
+          "avg_severity <= 3.5",
+          "avg_severity > 2.833",
+          "severity_trend > -1.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.938,
+        "n_samples": 32
+      },
+      {
+        "conditions": [
+          "avg_severity > 3.5",
+          "month1_severity <= 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.7,
+        "n_samples": 10
+      },
+      {
+        "conditions": [
+          "avg_severity > 3.5",
+          "month1_severity > 3.5",
+          "month2_severity <= 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.556,
+        "n_samples": 9
+      },
+      {
+        "conditions": [
+          "avg_severity > 3.5",
+          "month1_severity > 3.5",
+          "month2_severity > 3.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.938,
+        "n_samples": 16
+      }
+    ],
+    "actionable_rules": [
+      "IF avg_severity <= 3.5 (Sch+MG+Oth) AND avg_severity > 2.833 (MG+Sch) AND severity_trend <= -1.5 (MG) THEN recommend Near-Optimal sequence (confidence=57%, n=14)",
+      "IF avg_severity > 3.5 (Sch+MG+Oth) AND month1_severity > 3.5 (MG) AND month2_severity > 3.5 (MG+Sch) THEN recommend Near-Optimal sequence (confidence=94%, n=16)"
+    ],
+    "base_gammas": {
+      "Lockdown": 0.1213,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.2911,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.3788,
+      "No_Measure": 0.477,
+      "Restrict_Mass_Gatherings": 0.4164,
+      "Restrict_Mass_Gatherings_and_Schools": 0.2285,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.2018
+    }
+  },
+  "US-NY": {
+    "optimal_policy": [
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "No_Measure"
+    ],
+    "optimal_total_cost": 180825765342.6853,
+    "n_simulations": 216,
+    "overall_cv_accuracy": 0.8472515856236786,
+    "rules": [
+      {
+        "conditions": [
+          "starts_strict <= 0.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 144
+      },
+      {
+        "conditions": [
+          "starts_strict > 0.5",
+          "month1_severity <= 4.5",
+          "month2_severity <= 1.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.667,
+        "n_samples": 12
+      },
+      {
+        "conditions": [
+          "starts_strict > 0.5",
+          "month1_severity <= 4.5",
+          "month2_severity > 1.5"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.958,
+        "n_samples": 24
+      },
+      {
+        "conditions": [
+          "starts_strict > 0.5",
+          "month1_severity > 4.5",
+          "month2_severity <= 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 1.0,
+        "n_samples": 24
+      },
+      {
+        "conditions": [
+          "starts_strict > 0.5",
+          "month1_severity > 4.5",
+          "month2_severity > 3.5"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.5,
+        "n_samples": 12
+      }
+    ],
+    "actionable_rules": [
+      "IF starts_strict > 0.5 (None) AND month1_severity <= 4.5 (MG) AND month2_severity > 1.5 (MG) THEN recommend Near-Optimal sequence (confidence=96%, n=24)"
+    ],
+    "base_gammas": {
+      "Lockdown": 0.1804,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0927,
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.3867,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.3253,
+      "No_Measure": 0.487,
+      "Restrict_Mass_Gatherings": 0.4252,
+      "Restrict_Mass_Gatherings_and_Schools": 0.2333
+    }
+  },
+  "_pooled": {
+    "cv_accuracy": 0.7950665412017743,
+    "rules": [
+      {
+        "conditions": [
+          "m1_intensity_ratio <= 0.687",
+          "total_employment_impact_pct <= 1.05",
+          "m1_intensity_ratio <= 0.271"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.935,
+        "n_samples": 46
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio <= 0.687",
+          "total_employment_impact_pct <= 1.05",
+          "m1_intensity_ratio > 0.271"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 0.9,
+        "n_samples": 10
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio <= 0.687",
+          "total_employment_impact_pct > 1.05",
+          "total_gdp_impact_pct <= 44.0"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.975,
+        "n_samples": 474
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio <= 0.687",
+          "total_employment_impact_pct > 1.05",
+          "total_gdp_impact_pct > 44.0"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.6,
+        "n_samples": 10
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio > 0.687",
+          "total_gdp_impact_pct <= 47.15",
+          "total_employment_impact_pct <= 1.35"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 1.0,
+        "n_samples": 15
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio > 0.687",
+          "total_gdp_impact_pct <= 47.15",
+          "total_employment_impact_pct > 1.35"
+        ],
+        "recommendation": "Dominated",
+        "confidence": 0.753,
+        "n_samples": 292
+      },
+      {
+        "conditions": [
+          "m1_intensity_ratio > 0.687",
+          "total_gdp_impact_pct > 47.15"
+        ],
+        "recommendation": "Near-Optimal",
+        "confidence": 1.0,
+        "n_samples": 17
+      }
+    ],
+    "feature_names": [
+      "m1_gdp_impact_pct",
+      "total_gdp_impact_pct",
+      "max_month_gdp_impact_pct",
+      "m1_employment_impact_pct",
+      "total_employment_impact_pct",
+      "m1_intensity_ratio",
+      "avg_intensity_ratio",
+      "lockdown_gdp_impact_pct",
+      "gdp_impact_range_pct",
+      "month1_severity",
+      "month2_severity",
+      "month3_severity",
+      "avg_severity",
+      "severity_trend",
+      "starts_strict",
+      "de_escalates"
+    ],
+    "feature_importances": {
+      "m1_intensity_ratio": 0.5125425631185125,
+      "total_employment_impact_pct": 0.24498951897571877,
+      "total_gdp_impact_pct": 0.24246791790576863,
+      "m1_gdp_impact_pct": 0.0,
+      "max_month_gdp_impact_pct": 0.0,
+      "m1_employment_impact_pct": 0.0,
+      "avg_intensity_ratio": 0.0,
+      "lockdown_gdp_impact_pct": 0.0,
+      "gdp_impact_range_pct": 0.0,
+      "month1_severity": 0.0,
+      "month2_severity": 0.0,
+      "month3_severity": 0.0,
+      "avg_severity": 0.0,
+      "severity_trend": 0.0,
+      "starts_strict": 0.0,
+      "de_escalates": 0.0
+    }
+  },
+  "_cross_country_escalation": {
+    "summary": [
+      {
+        "month1_intensity_bin": "10\u201330% (light)",
+        "n_near_optimal": 14,
+        "n_regions_supporting": 1,
+        "regions_supporting": "DE",
+        "avg_m1_severity": 2.5714285714285716,
+        "avg_m2_severity": 1.8571428571428572,
+        "avg_m3_severity": 0.9285714285714286,
+        "avg_severity_trend": -1.6428571428571428,
+        "pct_that_de_escalate": 92.85714285714286
+      },
+      {
+        "month1_intensity_bin": "55\u201380% (strict)",
+        "n_near_optimal": 73,
+        "n_regions_supporting": 4,
+        "regions_supporting": "BR, DE, ES, US-NY",
+        "avg_m1_severity": 3.3972602739726026,
+        "avg_m2_severity": 3.1095890410958904,
+        "avg_m3_severity": 2.191780821917808,
+        "avg_severity_trend": -1.2054794520547945,
+        "pct_that_de_escalate": 87.67123287671232
+      },
+      {
+        "month1_intensity_bin": "80\u2013100% (Lockdown-class)",
+        "n_near_optimal": 45,
+        "n_regions_supporting": 4,
+        "regions_supporting": "BR, DE, ES, US-NY",
+        "avg_m1_severity": 5.0,
+        "avg_m2_severity": 2.8222222222222224,
+        "avg_m3_severity": 2.066666666666667,
+        "avg_severity_trend": -2.933333333333333,
+        "pct_that_de_escalate": 97.77777777777777
+      }
+    ],
+    "rule": [
+      {
+        "month1_intensity_bin": "\u226410% (near-None)",
+        "n_near_optimal": 0,
+        "pct_de_escalate": 0.0,
+        "pct_constant": 0.0,
+        "pct_escalate": 0.0
+      },
+      {
+        "month1_intensity_bin": "10\u201330% (light)",
+        "n_near_optimal": 14,
+        "pct_de_escalate": 71.42857142857143,
+        "pct_constant": 28.571428571428573,
+        "pct_escalate": 0.0
+      },
+      {
+        "month1_intensity_bin": "30\u201355% (moderate)",
+        "n_near_optimal": 0,
+        "pct_de_escalate": 0.0,
+        "pct_constant": 0.0,
+        "pct_escalate": 0.0
+      },
+      {
+        "month1_intensity_bin": "55\u201380% (strict)",
+        "n_near_optimal": 73,
+        "pct_de_escalate": 64.38356164383562,
+        "pct_constant": 12.32876712328767,
+        "pct_escalate": 23.28767123287671
+      },
+      {
+        "month1_intensity_bin": "80\u2013100% (Lockdown-class)",
+        "n_near_optimal": 45,
+        "pct_de_escalate": 88.88888888888889,
+        "pct_constant": 11.11111111111111,
+        "pct_escalate": 0.0
+      }
+    ]
+  },
+  "_insights": {
+    "marginal_costs": [
+      {
+        "region": "DE",
+        "severity": 0,
+        "npi": "None",
+        "avg_econ": 30390899608.705887,
+        "avg_human": 48164067798.86234,
+        "avg_total": 78554967407.56825,
+        "econ_pct_gdp": 0.7871250869905695
+      },
+      {
+        "region": "DE",
+        "severity": 1,
+        "npi": "MG",
+        "avg_econ": 34807815499.07828,
+        "avg_human": 39213708217.039566,
+        "avg_total": 74021523716.11783,
+        "econ_pct_gdp": 0.9015233229494503
+      },
+      {
+        "region": "DE",
+        "severity": 2,
+        "npi": "MG+Sch",
+        "avg_econ": 49024920630.86894,
+        "avg_human": 25745342655.37192,
+        "avg_total": 74770263286.24088,
+        "econ_pct_gdp": 1.2697467140862198
+      },
+      {
+        "region": "DE",
+        "severity": 3,
+        "npi": "Sch+MG+Oth",
+        "avg_econ": 37203932019.433754,
+        "avg_human": 32935594526.96269,
+        "avg_total": 70139526546.39642,
+        "econ_pct_gdp": 0.9635828028861372
+      },
+      {
+        "region": "DE",
+        "severity": 4,
+        "npi": "MG+Sch+Oth",
+        "avg_econ": 51203662334.69901,
+        "avg_human": 25308509520.910122,
+        "avg_total": 76512171855.60913,
+        "econ_pct_gdp": 1.326176180644885
+      },
+      {
+        "region": "DE",
+        "severity": 5,
+        "npi": "Lock",
+        "avg_econ": 57983127469.639084,
+        "avg_human": 22833586260.40841,
+        "avg_total": 80816713730.0475,
+        "econ_pct_gdp": 1.5017645032281555
+      },
+      {
+        "region": "BR",
+        "severity": 0,
+        "npi": "None",
+        "avg_econ": 35772192211.70338,
+        "avg_human": 589182966649.3146,
+        "avg_total": 624955158861.0181,
+        "econ_pct_gdp": 0.4802925914568123
+      },
+      {
+        "region": "BR",
+        "severity": 1,
+        "npi": "MG",
+        "avg_econ": 37796479916.08939,
+        "avg_human": 363537771053.0442,
+        "avg_total": 401334250969.1336,
+        "econ_pct_gdp": 0.5074715348561949
+      },
+      {
+        "region": "BR",
+        "severity": 2,
+        "npi": "MG+Sch",
+        "avg_econ": 49304188228.25599,
+        "avg_human": 78334611087.95734,
+        "avg_total": 127638799316.21332,
+        "econ_pct_gdp": 0.6619788967273897
+      },
+      {
+        "region": "BR",
+        "severity": 3,
+        "npi": "Sch+MG+Oth",
+        "avg_econ": 39758327696.44456,
+        "avg_human": 264028487007.10483,
+        "avg_total": 303786814703.5493,
+        "econ_pct_gdp": 0.5338121334109097
+      },
+      {
+        "region": "BR",
+        "severity": 4,
+        "npi": "MG+Sch+Oth",
+        "avg_econ": 51331627327.58871,
+        "avg_human": 66637601849.262856,
+        "avg_total": 117969229176.85158,
+        "econ_pct_gdp": 0.6892001520889999
+      },
+      {
+        "region": "BR",
+        "severity": 5,
+        "npi": "Lock",
+        "avg_econ": 58235103478.948784,
+        "avg_human": 46647801658.60935,
+        "avg_total": 104882905137.55814,
+        "econ_pct_gdp": 0.7818891444541995
+      },
+      {
+        "region": "ES",
+        "severity": 0,
+        "npi": "None",
+        "avg_econ": 40365043739.93159,
+        "avg_human": 120785409782480.31,
+        "avg_total": 120825774826220.25,
+        "econ_pct_gdp": 3.2421721879463123
+      },
+      {
+        "region": "ES",
+        "severity": 1,
+        "npi": "MG",
+        "avg_econ": 43459785176.404594,
+        "avg_human": 109441903101615.38,
+        "avg_total": 109485362886791.75,
+        "econ_pct_gdp": 3.490745797301574
+      },
+      {
+        "region": "ES",
+        "severity": 2,
+        "npi": "MG+Sch",
+        "avg_econ": 51391812232.165955,
+        "avg_human": 64577758180826.46,
+        "avg_total": 64629149993058.625,
+        "econ_pct_gdp": 4.1278564041900365
+      },
+      {
+        "region": "ES",
+        "severity": 3,
+        "npi": "Sch+MG+Oth",
+        "avg_econ": 45355579151.64277,
+        "avg_human": 101961480144847.39,
+        "avg_total": 102006835723999.03,
+        "econ_pct_gdp": 3.6430184057544395
+      },
+      {
+        "region": "ES",
+        "severity": 4,
+        "npi": "MG+Sch+Oth",
+        "avg_econ": 52280926691.72973,
+        "avg_human": 56784592893881.98,
+        "avg_total": 56836873820573.695,
+        "econ_pct_gdp": 4.199271220219255
+      },
+      {
+        "region": "ES",
+        "severity": 5,
+        "npi": "Lock",
+        "avg_econ": 54909469453.20004,
+        "avg_human": 31253418361932.004,
+        "avg_total": 31308327831385.203,
+        "econ_pct_gdp": 4.410399152867473
+      },
+      {
+        "region": "US-NY",
+        "severity": 0,
+        "npi": "None",
+        "avg_econ": 31154258624.050552,
+        "avg_human": 852252809224.0203,
+        "avg_total": 883407067848.0712,
+        "econ_pct_gdp": 1.7601276058785622
+      },
+      {
+        "region": "US-NY",
+        "severity": 1,
+        "npi": "MG",
+        "avg_econ": 31947035773.341396,
+        "avg_human": 705650897462.0046,
+        "avg_total": 737597933235.346,
+        "econ_pct_gdp": 1.8049172753300224
+      },
+      {
+        "region": "US-NY",
+        "severity": 2,
+        "npi": "MG+Sch",
+        "avg_econ": 33730732509.914627,
+        "avg_human": 323617594167.62933,
+        "avg_total": 357348326677.54407,
+        "econ_pct_gdp": 1.9056911022550638
+      },
+      {
+        "region": "US-NY",
+        "severity": 3,
+        "npi": "Sch+MG+Oth",
+        "avg_econ": 32431652157.69309,
+        "avg_human": 619509187071.85,
+        "avg_total": 651940839229.5431,
+        "econ_pct_gdp": 1.8322967320730559
+      },
+      {
+        "region": "US-NY",
+        "severity": 4,
+        "npi": "MG+Sch+Oth",
+        "avg_econ": 31187265076.964436,
+        "avg_human": 180319572566.6512,
+        "avg_total": 211506837643.61563,
+        "econ_pct_gdp": 1.761992377229629
+      },
+      {
+        "region": "US-NY",
+        "severity": 5,
+        "npi": "Lock",
+        "avg_econ": 37572485605.29677,
+        "avg_human": 254099947981.9606,
+        "avg_total": 291672433587.2574,
+        "econ_pct_gdp": 2.1227392997342807
+      }
+    ],
+    "month2_sensitivity": [
+      {
+        "region": "DE",
+        "month1_npi": "None",
+        "month1_severity": 0,
+        "cost_range": 31745485897.377274,
+        "cost_cv": 0.11956154808697265,
+        "n_scenarios": 36
+      },
+      {
+        "region": "DE",
+        "month1_npi": "MG",
+        "month1_severity": 1,
+        "cost_range": 37647723646.708954,
+        "cost_cv": 0.13112213397355424,
+        "n_scenarios": 36
+      },
+      {
+        "region": "DE",
+        "month1_npi": "MG+Sch",
+        "month1_severity": 2,
+        "cost_range": 52642579965.5072,
+        "cost_cv": 0.1829905156539671,
+        "n_scenarios": 36
+      },
+      {
+        "region": "DE",
+        "month1_npi": "Sch+MG+Oth",
+        "month1_severity": 3,
+        "cost_range": 42893504523.6784,
+        "cost_cv": 0.16145240440143113,
+        "n_scenarios": 36
+      },
+      {
+        "region": "DE",
+        "month1_npi": "MG+Sch+Oth",
+        "month1_severity": 4,
+        "cost_range": 53407406370.55282,
+        "cost_cv": 0.181425176172635,
+        "n_scenarios": 36
+      },
+      {
+        "region": "DE",
+        "month1_npi": "Lock",
+        "month1_severity": 5,
+        "cost_range": 57279697974.2106,
+        "cost_cv": 0.1817782882993085,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "None",
+        "month1_severity": 0,
+        "cost_range": 2502664478808.8604,
+        "cost_cv": 1.0188039119158308,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "MG",
+        "month1_severity": 1,
+        "cost_range": 1631252258214.2532,
+        "cost_cv": 0.9857172372545457,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "MG+Sch",
+        "month1_severity": 2,
+        "cost_range": 197716402631.61096,
+        "cost_cv": 0.3233276376601867,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "Sch+MG+Oth",
+        "month1_severity": 3,
+        "cost_range": 1178695030219.0015,
+        "cost_cv": 0.9172111785867538,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "MG+Sch+Oth",
+        "month1_severity": 4,
+        "cost_range": 131513932075.50902,
+        "cost_cv": 0.2211211125183386,
+        "n_scenarios": 36
+      },
+      {
+        "region": "BR",
+        "month1_npi": "Lock",
+        "month1_severity": 5,
+        "cost_range": 36631614591.068726,
+        "cost_cv": 0.09153982977456196,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "None",
+        "month1_severity": 0,
+        "cost_range": 58656672718172.266,
+        "cost_cv": 0.16319903472159747,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "MG",
+        "month1_severity": 1,
+        "cost_range": 80616808899432.66,
+        "cost_cv": 0.2430534813648487,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "MG+Sch",
+        "month1_severity": 2,
+        "cost_range": 114290492395040.98,
+        "cost_cv": 0.6138115696203114,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "Sch+MG+Oth",
+        "month1_severity": 3,
+        "cost_range": 92248254347816.9,
+        "cost_cv": 0.30066653443623914,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "MG+Sch+Oth",
+        "month1_severity": 4,
+        "cost_range": 113386612613634.62,
+        "cost_cv": 0.6815132848002303,
+        "n_scenarios": 36
+      },
+      {
+        "region": "ES",
+        "month1_npi": "Lock",
+        "month1_severity": 5,
+        "cost_range": 95139780897279.72,
+        "cost_cv": 0.941403060851124,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "None",
+        "month1_severity": 0,
+        "cost_range": 637200333435.3118,
+        "cost_cv": 0.2582483160420331,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "MG",
+        "month1_severity": 1,
+        "cost_range": 646165813031.4631,
+        "cost_cv": 0.30783604375308354,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "MG+Sch",
+        "month1_severity": 2,
+        "cost_range": 410427276613.3244,
+        "cost_cv": 0.3397514580567639,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "Sch+MG+Oth",
+        "month1_severity": 3,
+        "cost_range": 606405606000.4198,
+        "cost_cv": 0.32642925891610935,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "MG+Sch+Oth",
+        "month1_severity": 4,
+        "cost_range": 117962296303.69324,
+        "cost_cv": 0.12742866085991822,
+        "n_scenarios": 36
+      },
+      {
+        "region": "US-NY",
+        "month1_npi": "Lock",
+        "month1_severity": 5,
+        "cost_range": 295217121674.48724,
+        "cost_cv": 0.2766201461935619,
+        "n_scenarios": 36
+      }
+    ],
+    "lockdown_crossover": [
+      {
+        "region": "DE",
+        "no_measure_best_total": 62629851005.156815,
+        "lockdown_best_total": 53489581839.73605,
+        "lockdown_cheaper": "True",
+        "econ_premium_of_lock": 27592227860.933197,
+        "lives_saved_by_lock": 20714.722222222223,
+        "cost_per_life_saved": 1332010.5172027342
+      },
+      {
+        "region": "BR",
+        "no_measure_best_total": 127386383082.6087,
+        "lockdown_best_total": 92692501918.18762,
+        "lockdown_cheaper": "True",
+        "econ_premium_of_lock": 22462911267.245407,
+        "lives_saved_by_lock": 121017.41666666667,
+        "cost_per_life_saved": 185617.17714663997
+      },
+      {
+        "region": "ES",
+        "no_measure_best_total": 84820383700117.52,
+        "lockdown_best_total": 2501210645761.27,
+        "lockdown_cheaper": "True",
+        "econ_premium_of_lock": 14544425713.268456,
+        "lives_saved_by_lock": 583508.3333333334,
+        "cost_per_life_saved": 24925.82347570321
+      },
+      {
+        "region": "US-NY",
+        "no_measure_best_total": 562891956328.9924,
+        "lockdown_best_total": 209269457901.88776,
+        "lockdown_cheaper": "True",
+        "econ_premium_of_lock": 6418226981.246216,
+        "lives_saved_by_lock": 97652.97222222222,
+        "cost_per_life_saved": 65724.85030604797
+      }
+    ]
+  }
+}

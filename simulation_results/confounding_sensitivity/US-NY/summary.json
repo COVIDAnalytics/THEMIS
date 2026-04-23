@@ -1,0 +1,105 @@
+{
+  "region": "US-NY",
+  "start_date": "2020-03-15",
+  "policy_length": 3,
+  "deltas_tested": [
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "baseline_delta": 1.0,
+  "baseline_top1": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+  "baseline_top_k": [
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-Restrict_Mass_Gatherings",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Restrict_Mass_Gatherings_and_Schools",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-Restrict_Mass_Gatherings_and_Schools",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools-Lockdown",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Lockdown-Lockdown",
+    "Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings_and_Schools"
+  ],
+  "base_gammas": {
+    "Lockdown": 0.1804,
+    "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0927,
+    "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.3867,
+    "Mass_Gatherings_Authorized_But_Others_Restricted": 0.3253,
+    "No_Measure": 0.487,
+    "Restrict_Mass_Gatherings": 0.4252,
+    "Restrict_Mass_Gatherings_and_Schools": 0.2333
+  },
+  "stability": [
+    {
+      "delta": 0.8,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 1,
+      "top20_overlap_pct": 5.0,
+      "spearman_rank_corr": 0.7833070369340478
+    },
+    {
+      "delta": 0.9,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 7,
+      "top20_overlap_pct": 35.0,
+      "spearman_rank_corr": 0.9654211171840578
+    },
+    {
+      "delta": 1.0,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+      "top1_matches_baseline": true,
+      "top20_overlap_with_baseline": 20,
+      "top20_overlap_pct": 100.0,
+      "spearman_rank_corr": 0.9999999999999999
+    },
+    {
+      "delta": 1.1,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 17,
+      "top20_overlap_pct": 85.0,
+      "spearman_rank_corr": 0.9895223805951487
+    },
+    {
+      "delta": 1.2,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 15,
+      "top20_overlap_pct": 75.0,
+      "spearman_rank_corr": 0.9861715428857214
+    },
+    {
+      "delta": 1.3,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 15,
+      "top20_overlap_pct": 75.0,
+      "spearman_rank_corr": 0.9852617916383857
+    },
+    {
+      "delta": 1.5,
+      "top1_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+      "top1_matches_baseline": false,
+      "top20_overlap_with_baseline": 15,
+      "top20_overlap_pct": 75.0,
+      "spearman_rank_corr": 0.9830433798925922
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "cutoffs_requested": [
+    "20200415",
+    "20200515",
+    "20200615",
+    "20200715"
+  ],
+  "cutoffs_used": [
+    "20200415",
+    "20200515",
+    "20200615",
+    "20200715"
+  ],
+  "cutoff_region_counts": {
+    "20200415": 153,
+    "20200515": 185,
+    "20200615": 201,
+    "20200715": 211
+  },
+  "n_splits": 20,
+  "train_fraction": 0.8,
+  "seed": 42,
+  "max_months": 3,
+  "max_regions": 0,
+  "primary_metric": "median",
+  "gamma_estimation_window": "evaluation_period_by_horizon_D_to_DplusX",
+  "transfer_gamma_mode": "relative_to_cutoff",
+  "relative_gamma_floor": 0.0,
+  "relative_gamma_cap": 1.2,
+  "min_eval_actual_cases": 0.0,
+  "min_eval_actual_deaths": 0.0,
+  "robust_gamma_config": {
+    "robust_stat": "median",
+    "trim_quantile": 0.1,
+    "z_stat": "median",
+    "min_policy_regions": 2,
+    "shrinkage_regions": 12.0,
+    "gamma_floor": 0.05,
+    "gamma_cap": 1.2
+  }
+}

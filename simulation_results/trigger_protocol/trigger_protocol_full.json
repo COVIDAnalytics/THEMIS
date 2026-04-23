@@ -1,0 +1,1012 @@
+{
+  "regions": {
+    "DE": {
+      "sensitivity": [
+        {
+          "region": "DE",
+          "w_humanitarian": 0.0,
+          "w_economic": 1.0,
+          "optimal_sequence": [
+            "None",
+            "None",
+            "None"
+          ],
+          "month1": "None",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 5018012862.563229,
+          "humanitarian_costs": 78560037229.0053,
+          "total_costs": 83578050091.56853,
+          "deaths_per_100k": 57.92468967771385,
+          "econ_pct_gdp": 0.12996666310705074
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.1,
+          "w_economic": 0.9,
+          "optimal_sequence": [
+            "None",
+            "None",
+            "None"
+          ],
+          "month1": "None",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 5018012862.563229,
+          "humanitarian_costs": 78560037229.0053,
+          "total_costs": 83578050091.56853,
+          "deaths_per_100k": 57.92468967771385,
+          "econ_pct_gdp": 0.12996666310705074
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.2,
+          "w_economic": 0.8,
+          "optimal_sequence": [
+            "Sch+MG+Oth",
+            "None",
+            "None"
+          ],
+          "month1": "Sch+MG+Oth",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 10060456755.041159,
+          "humanitarian_costs": 45008097325.18848,
+          "total_costs": 55068554080.22964,
+          "deaths_per_100k": 25.056949399272522,
+          "econ_pct_gdp": 0.2605660905216565
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.3,
+          "w_economic": 0.7,
+          "optimal_sequence": [
+            "Sch+MG+Oth",
+            "None",
+            "None"
+          ],
+          "month1": "Sch+MG+Oth",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 10060456755.041159,
+          "humanitarian_costs": 45008097325.18848,
+          "total_costs": 55068554080.22964,
+          "deaths_per_100k": 25.056949399272522,
+          "econ_pct_gdp": 0.2605660905216565
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.4,
+          "w_economic": 0.6,
+          "optimal_sequence": [
+            "Sch+MG+Oth",
+            "None",
+            "None"
+          ],
+          "month1": "Sch+MG+Oth",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 10060456755.041159,
+          "humanitarian_costs": 45008097325.18848,
+          "total_costs": 55068554080.22964,
+          "deaths_per_100k": 25.056949399272522,
+          "econ_pct_gdp": 0.2605660905216565
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.5,
+          "w_economic": 0.5,
+          "optimal_sequence": [
+            "MG+Sch",
+            "None",
+            "None"
+          ],
+          "month1": "MG+Sch",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 21042909654.447823,
+          "humanitarian_costs": 29632896809.08099,
+          "total_costs": 50675806463.52881,
+          "deaths_per_100k": 9.898668385355172,
+          "econ_pct_gdp": 0.5450119050621036
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.6,
+          "w_economic": 0.4,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 29702840911.929058,
+          "humanitarian_costs": 23786740927.806995,
+          "total_costs": 53489581839.73605,
+          "deaths_per_100k": 4.210835225396719,
+          "econ_pct_gdp": 0.7693043489233116
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.7,
+          "w_economic": 0.30000000000000004,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 29702840911.929058,
+          "humanitarian_costs": 23786740927.806995,
+          "total_costs": 53489581839.73605,
+          "deaths_per_100k": 4.210835225396719,
+          "econ_pct_gdp": 0.7693043489233116
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.8,
+          "w_economic": 0.19999999999999996,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 29702840911.929058,
+          "humanitarian_costs": 23786740927.806995,
+          "total_costs": 53489581839.73605,
+          "deaths_per_100k": 4.210835225396719,
+          "econ_pct_gdp": 0.7693043489233116
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 0.9,
+          "w_economic": 0.09999999999999998,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 29702840911.929058,
+          "humanitarian_costs": 23786740927.806995,
+          "total_costs": 53489581839.73605,
+          "deaths_per_100k": 4.210835225396719,
+          "econ_pct_gdp": 0.7693043489233116
+        },
+        {
+          "region": "DE",
+          "w_humanitarian": 1.0,
+          "w_economic": 0.0,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 88413194347.5958,
+          "humanitarian_costs": 22356085466.350857,
+          "total_costs": 110769279813.94666,
+          "deaths_per_100k": 2.876577467967078,
+          "econ_pct_gdp": 2.2899040235067547
+        }
+      ],
+      "pareto": [
+        {
+          "month1": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+          "economic_costs": 10060456755.041159,
+          "humanitarian_costs": 27687201855.408775,
+          "total_costs": 52025745094.656715,
+          "month1_short": "Sch+MG+Oth",
+          "is_pareto": true
+        },
+        {
+          "month1": "Lockdown",
+          "economic_costs": 29702840911.929058,
+          "humanitarian_costs": 22356085466.350857,
+          "total_costs": 53489581839.73605,
+          "month1_short": "Lock",
+          "is_pareto": true
+        },
+        {
+          "month1": "No_Measure",
+          "economic_costs": 5018012862.563229,
+          "humanitarian_costs": 34638632303.85364,
+          "total_costs": 62629851005.156815,
+          "month1_short": "None",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings",
+          "economic_costs": 8415372879.950702,
+          "humanitarian_costs": 30531019620.306435,
+          "total_costs": 57437194631.65289,
+          "month1_short": "MG",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools",
+          "economic_costs": 21042909654.447823,
+          "humanitarian_costs": 23971224456.168648,
+          "total_costs": 50675806463.52881,
+          "month1_short": "MG+Sch",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+          "economic_costs": 23191883714.478493,
+          "humanitarian_costs": 23809946738.796417,
+          "total_costs": 52023314552.757484,
+          "month1_short": "MG+Sch+Oth",
+          "is_pareto": true
+        }
+      ]
+    },
+    "BR": {
+      "sensitivity": [
+        {
+          "region": "BR",
+          "w_humanitarian": 0.0,
+          "w_economic": 1.0,
+          "optimal_sequence": [
+            "Sch+MG+Oth",
+            "MG",
+            "None"
+          ],
+          "month1": "Sch+MG+Oth",
+          "month2": "MG",
+          "month3": "None",
+          "economic_costs": 23048731691.44317,
+          "humanitarian_costs": 767902292665.9451,
+          "total_costs": 790951024357.3882,
+          "deaths_per_100k": 78.26330737117449,
+          "econ_pct_gdp": 0.3094620259323734
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.1,
+          "w_economic": 0.9,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 30164695798.75949,
+          "humanitarian_costs": 80104362640.50264,
+          "total_costs": 110269058439.26213,
+          "deaths_per_100k": 4.37797956700477,
+          "econ_pct_gdp": 0.4050039715193272
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.2,
+          "w_economic": 0.8,
+          "optimal_sequence": [
+            "Lock",
+            "None",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 30164695798.75949,
+          "humanitarian_costs": 80104362640.50264,
+          "total_costs": 110269058439.26213,
+          "deaths_per_100k": 4.37797956700477,
+          "econ_pct_gdp": 0.4050039715193272
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.3,
+          "w_economic": 0.7,
+          "optimal_sequence": [
+            "Lock",
+            "MG",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "MG",
+          "month3": "None",
+          "economic_costs": 34903016377.758354,
+          "humanitarian_costs": 61822220684.67514,
+          "total_costs": 96725237062.4335,
+          "deaths_per_100k": 2.414125131382127,
+          "econ_pct_gdp": 0.4686226688743066
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.4,
+          "w_economic": 0.6,
+          "optimal_sequence": [
+            "Lock",
+            "Sch+MG+Oth",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "Sch+MG+Oth",
+          "month3": "None",
+          "economic_costs": 38080905304.51792,
+          "humanitarian_costs": 54729760558.56373,
+          "total_costs": 92810665863.08165,
+          "deaths_per_100k": 1.6522767456158143,
+          "econ_pct_gdp": 0.511290350490305
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.5,
+          "w_economic": 0.5,
+          "optimal_sequence": [
+            "Lock",
+            "MG+Sch",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "MG+Sch",
+          "month3": "None",
+          "economic_costs": 49923639325.33159,
+          "humanitarian_costs": 42768862592.856026,
+          "total_costs": 92692501918.18762,
+          "deaths_per_100k": 0.3674401506572038,
+          "econ_pct_gdp": 0.6702959093089633
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.6,
+          "w_economic": 0.4,
+          "optimal_sequence": [
+            "Lock",
+            "MG+Sch",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "MG+Sch",
+          "month3": "None",
+          "economic_costs": 49923639325.33159,
+          "humanitarian_costs": 42768862592.856026,
+          "total_costs": 92692501918.18762,
+          "deaths_per_100k": 0.3674401506572038,
+          "econ_pct_gdp": 0.6702959093089633
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.7,
+          "w_economic": 0.30000000000000004,
+          "optimal_sequence": [
+            "Lock",
+            "MG+Sch",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "MG+Sch",
+          "month3": "None",
+          "economic_costs": 49923639325.33159,
+          "humanitarian_costs": 42768862592.856026,
+          "total_costs": 92692501918.18762,
+          "deaths_per_100k": 0.3674401506572038,
+          "econ_pct_gdp": 0.6702959093089633
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.8,
+          "w_economic": 0.19999999999999996,
+          "optimal_sequence": [
+            "Lock",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 52095906251.64246,
+          "humanitarian_costs": 41997928657.09393,
+          "total_costs": 94093834908.73639,
+          "deaths_per_100k": 0.2846096055549246,
+          "econ_pct_gdp": 0.699461684366843
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 0.9,
+          "w_economic": 0.09999999999999998,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "None"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "None",
+          "economic_costs": 59248337851.77167,
+          "humanitarian_costs": 40796554757.08842,
+          "total_costs": 100044892608.86008,
+          "deaths_per_100k": 0.15554805853509412,
+          "econ_pct_gdp": 0.7954932579453768
+        },
+        {
+          "region": "BR",
+          "w_humanitarian": 1.0,
+          "w_economic": 0.0,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 88859417235.48387,
+          "humanitarian_costs": 40464699273.772484,
+          "total_costs": 129324116509.25635,
+          "deaths_per_100k": 0.11991166122364842,
+          "econ_pct_gdp": 1.1930641411853367
+        }
+      ],
+      "pareto": [
+        {
+          "month1": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+          "economic_costs": 23048731691.44317,
+          "humanitarian_costs": 52378952096.90099,
+          "total_costs": 104001315548.70181,
+          "month1_short": "Sch+MG+Oth",
+          "is_pareto": true
+        },
+        {
+          "month1": "Lockdown",
+          "economic_costs": 30164695798.75949,
+          "humanitarian_costs": 40464699273.772484,
+          "total_costs": 92692501918.18762,
+          "month1_short": "Lock",
+          "is_pareto": true
+        },
+        {
+          "month1": "No_Measure",
+          "economic_costs": 23988306398.763424,
+          "humanitarian_costs": 72987537398.81978,
+          "total_costs": 127386383082.6087,
+          "month1_short": "None",
+          "is_pareto": false
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings",
+          "economic_costs": 23226053102.452408,
+          "humanitarian_costs": 58225818736.83358,
+          "total_costs": 110931287848.944,
+          "month1_short": "MG",
+          "is_pareto": false
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools",
+          "economic_costs": 23360821525.05814,
+          "humanitarian_costs": 42366068939.8479,
+          "total_costs": 94375713382.60333,
+          "month1_short": "MG+Sch",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+          "economic_costs": 24615682634.072655,
+          "humanitarian_costs": 41699218978.96483,
+          "total_costs": 93103915179.6208,
+          "month1_short": "MG+Sch+Oth",
+          "is_pareto": true
+        }
+      ]
+    },
+    "ES": {
+      "sensitivity": [
+        {
+          "region": "ES",
+          "w_humanitarian": 0.0,
+          "w_economic": 1.0,
+          "optimal_sequence": [
+            "None",
+            "None",
+            "None"
+          ],
+          "month1": "None",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 18945505609.283928,
+          "humanitarian_costs": 143458110912680.5,
+          "total_costs": 143477056418289.78,
+          "deaths_per_100k": 2012.8581200409724,
+          "econ_pct_gdp": 1.5217273581754158
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.1,
+          "w_economic": 0.9,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.2,
+          "w_economic": 0.8,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.3,
+          "w_economic": 0.7,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.4,
+          "w_economic": 0.6,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.5,
+          "w_economic": 0.5,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.6,
+          "w_economic": 0.4,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.7,
+          "w_economic": 0.30000000000000004,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.8,
+          "w_economic": 0.19999999999999996,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 0.9,
+          "w_economic": 0.09999999999999998,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        },
+        {
+          "region": "ES",
+          "w_humanitarian": 1.0,
+          "w_economic": 0.0,
+          "optimal_sequence": [
+            "Lock",
+            "Lock",
+            "Lock"
+          ],
+          "month1": "Lock",
+          "month2": "Lock",
+          "month3": "Lock",
+          "economic_costs": 76506387237.4606,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "deaths_per_100k": 33.78049661959266,
+          "econ_pct_gdp": 6.145091344374346
+        }
+      ],
+      "pareto": [
+        {
+          "month1": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+          "economic_costs": 25659555483.18407,
+          "humanitarian_costs": 46073918100651.68,
+          "total_costs": 46137723939304.164,
+          "month1_short": "Sch+MG+Oth",
+          "is_pareto": true
+        },
+        {
+          "month1": "Lockdown",
+          "economic_costs": 40907799203.65245,
+          "humanitarian_costs": 2424704258523.8096,
+          "total_costs": 2501210645761.27,
+          "month1_short": "Lock",
+          "is_pareto": true
+        },
+        {
+          "month1": "No_Measure",
+          "economic_costs": 18945505609.283928,
+          "humanitarian_costs": 84758553921826.52,
+          "total_costs": 84820383700117.52,
+          "month1_short": "None",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings",
+          "economic_costs": 23073126588.33095,
+          "humanitarian_costs": 59682958373272.484,
+          "total_costs": 59745856599600.12,
+          "month1_short": "MG",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools",
+          "economic_costs": 35218851779.267715,
+          "humanitarian_costs": 9361994355611.959,
+          "total_costs": 9431352387950.482,
+          "month1_short": "MG+Sch",
+          "is_pareto": true
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+          "economic_costs": 36854773563.002396,
+          "humanitarian_costs": 6650745808981.658,
+          "total_costs": 6721649868680.102,
+          "month1_short": "MG+Sch+Oth",
+          "is_pareto": true
+        }
+      ]
+    },
+    "US-NY": {
+      "sensitivity": [
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.0,
+          "w_economic": 1.0,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "None",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "None",
+          "month3": "None",
+          "economic_costs": 18967843496.672714,
+          "humanitarian_costs": 279820218149.7058,
+          "total_costs": 298788061646.37854,
+          "deaths_per_100k": 135.61527372803363,
+          "econ_pct_gdp": 1.0716295760832042
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.1,
+          "w_economic": 0.9,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "Sch+MG+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "Sch+MG+Oth",
+          "month3": "None",
+          "economic_costs": 20545961343.012703,
+          "humanitarian_costs": 204127360241.82355,
+          "total_costs": 224673321584.83624,
+          "deaths_per_100k": 73.36960055796469,
+          "econ_pct_gdp": 1.1607887764413956
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.2,
+          "w_economic": 0.8,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.3,
+          "w_economic": 0.7,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.4,
+          "w_economic": 0.6,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.5,
+          "w_economic": 0.5,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.6,
+          "w_economic": 0.4,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.7,
+          "w_economic": 0.30000000000000004,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.8,
+          "w_economic": 0.19999999999999996,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "None"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "None",
+          "economic_costs": 26607629885.057472,
+          "humanitarian_costs": 154218135457.62784,
+          "total_costs": 180825765342.6853,
+          "deaths_per_100k": 32.3231309681554,
+          "econ_pct_gdp": 1.5032559257094615
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 0.9,
+          "w_economic": 0.09999999999999998,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "MG"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "MG",
+          "economic_costs": 29506485541.439808,
+          "humanitarian_costs": 153819971800.94067,
+          "total_costs": 183326457342.3805,
+          "deaths_per_100k": 32.03526593408785,
+          "econ_pct_gdp": 1.6670330814372774
+        },
+        {
+          "region": "US-NY",
+          "w_humanitarian": 1.0,
+          "w_economic": 0.0,
+          "optimal_sequence": [
+            "MG+Sch+Oth",
+            "MG+Sch+Oth",
+            "MG+Sch+Oth"
+          ],
+          "month1": "MG+Sch+Oth",
+          "month2": "MG+Sch+Oth",
+          "month3": "MG+Sch+Oth",
+          "economic_costs": 39648261282.51664,
+          "humanitarian_costs": 153176596283.18576,
+          "total_costs": 192824857565.7024,
+          "deaths_per_100k": 31.562344806691176,
+          "econ_pct_gdp": 2.240014761724104
+        }
+      ],
+      "pareto": [
+        {
+          "month1": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+          "economic_costs": 22724185662.431942,
+          "humanitarian_costs": 354743957395.2935,
+          "total_costs": 389371641363.8356,
+          "month1_short": "Sch+MG+Oth",
+          "is_pareto": false
+        },
+        {
+          "month1": "Lockdown",
+          "economic_costs": 29179957531.760437,
+          "humanitarian_costs": 174672587462.96628,
+          "total_costs": 209269457901.88776,
+          "month1_short": "Lock",
+          "is_pareto": false
+        },
+        {
+          "month1": "No_Measure",
+          "economic_costs": 21171174047.186935,
+          "humanitarian_costs": 530189373025.90717,
+          "total_costs": 562891956328.9924,
+          "month1_short": "None",
+          "is_pareto": false
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings",
+          "economic_costs": 21738141258.31821,
+          "humanitarian_costs": 400648445108.3412,
+          "total_costs": 434130374206.94977,
+          "month1_short": "MG",
+          "is_pareto": false
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools",
+          "economic_costs": 26339098306.110104,
+          "humanitarian_costs": 197347819991.44153,
+          "total_costs": 229640609354.4228,
+          "month1_short": "MG+Sch",
+          "is_pareto": false
+        },
+        {
+          "month1": "Restrict_Mass_Gatherings_and_Schools_and_Others",
+          "economic_costs": 18967843496.672714,
+          "humanitarian_costs": 153176596283.18576,
+          "total_costs": 180825765342.6853,
+          "month1_short": "MG+Sch+Oth",
+          "is_pareto": true
+        }
+      ]
+    }
+  }
+}

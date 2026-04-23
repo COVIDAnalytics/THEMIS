@@ -1,0 +1,229 @@
+{
+  "literature_calibration": {
+    "upper_bound_delta": 1.4,
+    "central_estimate_delta": 1.2,
+    "lower_bound_delta": 1.05,
+    "sources": [
+      {
+        "authors": "Maloney and Taskin",
+        "year": 2020,
+        "journal": "NBER Working Paper",
+        "finding": "Voluntary mobility reductions preceded mandated lockdowns by 1-2 weeks; Google mobility declined ~25-35% before government orders.",
+        "implied_delta_range": "1.10-1.35"
+      },
+      {
+        "authors": "Abouk and Heydari",
+        "year": 2021,
+        "journal": "Health Economics",
+        "finding": "Social distancing increased 5-10pp before stay-at-home orders; orders added 5-12pp additional distancing.",
+        "implied_delta_range": "1.05-1.25"
+      },
+      {
+        "authors": "Yan et al.",
+        "year": 2021,
+        "journal": "PNAS",
+        "finding": "Fear-driven voluntary behavior accounted for 45% of total transmission reduction during stay-at-home orders.",
+        "implied_delta_range": "1.20-1.45"
+      },
+      {
+        "authors": "Gupta et al.",
+        "year": 2021,
+        "journal": "Journal of Public Economics",
+        "finding": "Stay-at-home orders reduced mobility by only 5-10% beyond the pre-existing voluntary trend.",
+        "implied_delta_range": "1.05-1.15"
+      }
+    ],
+    "interpretation": "The literature suggests that voluntary behavior changes inflated the apparent effect of NPIs by approximately 5-45%, with most estimates in the 10-25% range. This corresponds to a plausible delta range of approximately 1.05 to 1.40, with a central estimate around 1.20."
+  },
+  "regions": {
+    "DE": {
+      "region": "DE",
+      "optimal_policy": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+      "optimal_total_cost": 50675806463.52881,
+      "comparisons": [
+        {
+          "status": "not_found_in_range",
+          "delta_star": Infinity,
+          "cost_a_base": 50675806463.52881,
+          "cost_b_base": 110769279813.94666,
+          "margin_at_base": 60093473350.41785,
+          "delta_range_tested": [
+            0.5,
+            3.0
+          ],
+          "interpretation": "The comparison is extremely robust: even very large confounding does not reverse the cost ordering.",
+          "robust_to_plausible_confounding": true,
+          "comparison_name": "optimal_vs_lockdown",
+          "policy_a": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+          "policy_b": "Lockdown-Lockdown-Lockdown"
+        },
+        {
+          "status": "found",
+          "delta_star": 1.515625,
+          "cost_a_base": 50675806463.52881,
+          "cost_b_base": 83578050091.56853,
+          "margin_at_base": 32902243628.03972,
+          "margin_pct": 64.92692652403932,
+          "robust_to_plausible_confounding": true,
+          "interpretation": "Confounding must inflate NPI effects by >52% to reverse this comparison. This exceeds the plausible range (20% central, 40% upper bound).",
+          "comparison_name": "optimal_vs_no_action",
+          "policy_a": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure",
+          "policy_b": "No_Measure-No_Measure-No_Measure"
+        },
+        {
+          "status": "already_reversed",
+          "delta_star": 1.0,
+          "cost_a_base": 83578050091.56853,
+          "cost_b_base": 67457289145.41037,
+          "margin_at_base": -16120760946.158157,
+          "interpretation": "The cost ordering already favors B at baseline.",
+          "comparison_name": "pareto_top_vs_second",
+          "policy_a": "No_Measure-No_Measure-No_Measure",
+          "policy_b": "Restrict_Mass_Gatherings-No_Measure-No_Measure"
+        }
+      ]
+    },
+    "BR": {
+      "region": "BR",
+      "optimal_policy": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+      "optimal_total_cost": 92692501918.18762,
+      "comparisons": [
+        {
+          "status": "found",
+          "delta_star": 1.57421875,
+          "cost_a_base": 92692501918.18762,
+          "cost_b_base": 129324116509.25635,
+          "margin_at_base": 36631614591.068726,
+          "margin_pct": 39.519501397643324,
+          "robust_to_plausible_confounding": true,
+          "interpretation": "Confounding must inflate NPI effects by >57% to reverse this comparison. This exceeds the plausible range (20% central, 40% upper bound).",
+          "comparison_name": "optimal_vs_lockdown",
+          "policy_a": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+          "policy_b": "Lockdown-Lockdown-Lockdown"
+        },
+        {
+          "status": "not_found_in_range",
+          "delta_star": Infinity,
+          "cost_a_base": 92692501918.18762,
+          "cost_b_base": 2630050861891.469,
+          "margin_at_base": 2537358359973.2817,
+          "delta_range_tested": [
+            0.5,
+            3.0
+          ],
+          "interpretation": "The comparison is extremely robust: even very large confounding does not reverse the cost ordering.",
+          "robust_to_plausible_confounding": true,
+          "comparison_name": "optimal_vs_no_action",
+          "policy_a": "Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure",
+          "policy_b": "No_Measure-No_Measure-No_Measure"
+        },
+        {
+          "status": "already_reversed",
+          "delta_star": 1.0,
+          "cost_a_base": 790951024357.3882,
+          "cost_b_base": 292092116014.2143,
+          "margin_at_base": -498858908343.1739,
+          "interpretation": "The cost ordering already favors B at baseline.",
+          "comparison_name": "pareto_top_vs_second",
+          "policy_a": "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-Restrict_Mass_Gatherings-No_Measure",
+          "policy_b": "Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure"
+        }
+      ]
+    },
+    "ES": {
+      "region": "ES",
+      "optimal_policy": "Lockdown-Lockdown-Lockdown",
+      "optimal_total_cost": 2501210645761.27,
+      "comparisons": [
+        {
+          "status": "already_reversed",
+          "delta_star": 1.0,
+          "cost_a_base": 2501210645761.27,
+          "cost_b_base": 2501210645761.27,
+          "margin_at_base": 0.0,
+          "interpretation": "The cost ordering already favors B at baseline.",
+          "comparison_name": "optimal_vs_lockdown",
+          "policy_a": "Lockdown-Lockdown-Lockdown",
+          "policy_b": "Lockdown-Lockdown-Lockdown"
+        },
+        {
+          "status": "not_found_in_range",
+          "delta_star": Infinity,
+          "cost_a_base": 2501210645761.27,
+          "cost_b_base": 143477056418289.78,
+          "margin_at_base": 140975845772528.5,
+          "delta_range_tested": [
+            0.5,
+            3.0
+          ],
+          "interpretation": "The comparison is extremely robust: even very large confounding does not reverse the cost ordering.",
+          "robust_to_plausible_confounding": true,
+          "comparison_name": "optimal_vs_no_action",
+          "policy_a": "Lockdown-Lockdown-Lockdown",
+          "policy_b": "No_Measure-No_Measure-No_Measure"
+        },
+        {
+          "status": "already_reversed",
+          "delta_star": 1.0,
+          "cost_a_base": 143477056418289.78,
+          "cost_b_base": 139571067714749.78,
+          "margin_at_base": -3905988703540.0,
+          "interpretation": "The cost ordering already favors B at baseline.",
+          "comparison_name": "pareto_top_vs_second",
+          "policy_a": "No_Measure-No_Measure-No_Measure",
+          "policy_b": "No_Measure-Restrict_Mass_Gatherings-No_Measure"
+        }
+      ]
+    },
+    "US-NY": {
+      "region": "US-NY",
+      "optimal_policy": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+      "optimal_total_cost": 180825765342.6853,
+      "comparisons": [
+        {
+          "status": "not_found_in_range",
+          "delta_star": Infinity,
+          "cost_a_base": 180825765342.6853,
+          "cost_b_base": 234835425918.83002,
+          "margin_at_base": 54009660576.144714,
+          "delta_range_tested": [
+            0.5,
+            3.0
+          ],
+          "interpretation": "The comparison is extremely robust: even very large confounding does not reverse the cost ordering.",
+          "robust_to_plausible_confounding": true,
+          "comparison_name": "optimal_vs_lockdown",
+          "policy_a": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+          "policy_b": "Lockdown-Lockdown-Lockdown"
+        },
+        {
+          "status": "not_found_in_range",
+          "delta_star": Infinity,
+          "cost_a_base": 180825765342.6853,
+          "cost_b_base": 1200092289764.3042,
+          "margin_at_base": 1019266524421.6189,
+          "delta_range_tested": [
+            0.5,
+            3.0
+          ],
+          "interpretation": "The comparison is extremely robust: even very large confounding does not reverse the cost ordering.",
+          "robust_to_plausible_confounding": true,
+          "comparison_name": "optimal_vs_no_action",
+          "policy_a": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+          "policy_b": "No_Measure-No_Measure-No_Measure"
+        },
+        {
+          "status": "already_reversed",
+          "delta_star": 1.0,
+          "cost_a_base": 298788061646.37854,
+          "cost_b_base": 244910921872.7374,
+          "margin_at_base": -53877139773.64114,
+          "interpretation": "The cost ordering already favors B at baseline.",
+          "comparison_name": "pareto_top_vs_second",
+          "policy_a": "Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure-No_Measure",
+          "policy_b": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings-No_Measure"
+        }
+      ]
+    }
+  }
+}

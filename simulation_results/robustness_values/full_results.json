@@ -1,0 +1,554 @@
+{
+  "DE": {
+    "region": "DE",
+    "base_gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.3092,
+      "Lockdown": 0.1674,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.2471,
+      "No_Measure": 0.4505,
+      "Restrict_Mass_Gatherings": 0.3933,
+      "Restrict_Mass_Gatherings_and_Schools": 0.2388,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0804
+    },
+    "optimal_baseline": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "n_policies_simulated": 216,
+    "first_optimal_change_f": 0.1,
+    "sweep_summary": [
+      {
+        "f": 0.0,
+        "spearman_rho": 0.9999999999999999,
+        "kendall_tau": 0.9999999999999998,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.1,
+        "spearman_rho": 0.9988878171923932,
+        "kendall_tau": 0.9759689922480619,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.2,
+        "spearman_rho": 0.9978828040343418,
+        "kendall_tau": 0.9643410852713177,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.30000000000000004,
+        "spearman_rho": 0.9970278283856677,
+        "kendall_tau": 0.9573643410852711,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 90.0
+      },
+      {
+        "f": 0.4,
+        "spearman_rho": 0.995872777718239,
+        "kendall_tau": 0.9467700258397931,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.5,
+        "spearman_rho": 0.993573393348337,
+        "kendall_tau": 0.9353143841515933,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.6000000000000001,
+        "spearman_rho": 0.9929279939032376,
+        "kendall_tau": 0.9339362618432384,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.7000000000000001,
+        "spearman_rho": 0.9931840102882863,
+        "kendall_tau": 0.9322997416020671,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 70.0,
+        "top20_overlap_pct": 90.0
+      },
+      {
+        "f": 0.8,
+        "spearman_rho": 0.9887102728062968,
+        "kendall_tau": 0.91068044788975,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 70.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.9,
+        "spearman_rho": 0.9472177568201573,
+        "kendall_tau": 0.8083548664944012,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 80.0
+      },
+      {
+        "f": 1.0,
+        "spearman_rho": -0.7704480485636287,
+        "kendall_tau": -0.5740580029952392,
+        "optimal_unchanged": false,
+        "optimal_pert": "No_Measure-No_Measure-No_Measure",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 0.0,
+        "top10_overlap_pct": 0.0,
+        "top20_overlap_pct": 0.0
+      }
+    ]
+  },
+  "BR": {
+    "region": "BR",
+    "base_gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.7269,
+      "Lockdown": 0.5112,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.7547,
+      "No_Measure": 1.3759,
+      "Restrict_Mass_Gatherings": 1.2011,
+      "Restrict_Mass_Gatherings_and_Schools": 0.7293,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.5389
+    },
+    "optimal_baseline": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+    "n_policies_simulated": 216,
+    "first_optimal_change_f": 0.6000000000000001,
+    "sweep_summary": [
+      {
+        "f": 0.0,
+        "spearman_rho": 0.9999999999999999,
+        "kendall_tau": 0.9999999999999998,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.1,
+        "spearman_rho": 0.9995748937234307,
+        "kendall_tau": 0.9894918173987939,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 90.0
+      },
+      {
+        "f": 0.2,
+        "spearman_rho": 0.9985043880017622,
+        "kendall_tau": 0.9792420327304048,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 60.0,
+        "top10_overlap_pct": 80.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.30000000000000004,
+        "spearman_rho": 0.9969968682646851,
+        "kendall_tau": 0.9691645133505598,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 60.0,
+        "top10_overlap_pct": 60.0,
+        "top20_overlap_pct": 75.0
+      },
+      {
+        "f": 0.4,
+        "spearman_rho": 0.9956489122280568,
+        "kendall_tau": 0.9624461670973298,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 60.0,
+        "top10_overlap_pct": 50.0,
+        "top20_overlap_pct": 65.0
+      },
+      {
+        "f": 0.5,
+        "spearman_rho": 0.9945093416211195,
+        "kendall_tau": 0.9559000861326442,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 60.0,
+        "top10_overlap_pct": 50.0,
+        "top20_overlap_pct": 65.0
+      },
+      {
+        "f": 0.6000000000000001,
+        "spearman_rho": 0.9939877826599506,
+        "kendall_tau": 0.9519379844961239,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 60.0,
+        "top10_overlap_pct": 50.0,
+        "top20_overlap_pct": 65.0
+      },
+      {
+        "f": 0.7000000000000001,
+        "spearman_rho": 0.9936293597208825,
+        "kendall_tau": 0.9488372093023255,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 40.0,
+        "top10_overlap_pct": 50.0,
+        "top20_overlap_pct": 65.0
+      },
+      {
+        "f": 0.8,
+        "spearman_rho": 0.9931756748710986,
+        "kendall_tau": 0.941429801894918,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 40.0,
+        "top10_overlap_pct": 50.0,
+        "top20_overlap_pct": 65.0
+      },
+      {
+        "f": 0.9,
+        "spearman_rho": 0.9878898296002571,
+        "kendall_tau": 0.9108527131782944,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 70.0,
+        "top20_overlap_pct": 80.0
+      },
+      {
+        "f": 1.0,
+        "spearman_rho": -0.8262436279825502,
+        "kendall_tau": -0.6360173363491002,
+        "optimal_unchanged": false,
+        "optimal_pert": "No_Measure-No_Measure-No_Measure",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 0.0,
+        "top10_overlap_pct": 0.0,
+        "top20_overlap_pct": 0.0
+      }
+    ]
+  },
+  "ES": {
+    "region": "ES",
+    "base_gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.0981,
+      "Lockdown": 0.1134,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.1019,
+      "No_Measure": 0.1857,
+      "Restrict_Mass_Gatherings": 0.1621,
+      "Restrict_Mass_Gatherings_and_Schools": 0.0984,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.0306
+    },
+    "optimal_baseline": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "n_policies_simulated": 216,
+    "first_optimal_change_f": 0.4,
+    "sweep_summary": [
+      {
+        "f": 0.0,
+        "spearman_rho": 0.9999999999999999,
+        "kendall_tau": 0.9999999999999998,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.1,
+        "spearman_rho": 0.9999142642803558,
+        "kendall_tau": 0.9959517657192075,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.2,
+        "spearman_rho": 0.9998356732040152,
+        "kendall_tau": 0.9936261843238585,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.30000000000000004,
+        "spearman_rho": 0.9992390954881576,
+        "kendall_tau": 0.9862187769164512,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.4,
+        "spearman_rho": 0.9990045130330201,
+        "kendall_tau": 0.9837209302325579,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.5,
+        "spearman_rho": 0.9987092011098011,
+        "kendall_tau": 0.9801033591731265,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.6000000000000001,
+        "spearman_rho": 0.9982257469129185,
+        "kendall_tau": 0.9751937984496123,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.7000000000000001,
+        "spearman_rho": 0.9976196430059895,
+        "kendall_tau": 0.9681309216192936,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.8,
+        "spearman_rho": 0.9950928208242535,
+        "kendall_tau": 0.9509043927648577,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.9,
+        "spearman_rho": 0.9878945926957929,
+        "kendall_tau": 0.915934539190353,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 1.0,
+        "spearman_rho": -0.49516254102154983,
+        "kendall_tau": -0.3440350641626025,
+        "optimal_unchanged": false,
+        "optimal_pert": "No_Measure-No_Measure-No_Measure",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 0.0,
+        "top10_overlap_pct": 0.0,
+        "top20_overlap_pct": 0.0
+      }
+    ]
+  },
+  "US-NY": {
+    "region": "US-NY",
+    "base_gammas": {
+      "Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others": 0.235,
+      "Lockdown": 0.1804,
+      "Mass_Gatherings_Authorized_But_Others_Restricted": 0.244,
+      "No_Measure": 0.4448,
+      "Restrict_Mass_Gatherings": 0.3883,
+      "Restrict_Mass_Gatherings_and_Schools": 0.2358,
+      "Restrict_Mass_Gatherings_and_Schools_and_Others": 0.1598
+    },
+    "optimal_baseline": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+    "n_policies_simulated": 216,
+    "first_optimal_change_f": 0.1,
+    "sweep_summary": [
+      {
+        "f": 0.0,
+        "spearman_rho": 0.9999999999999999,
+        "kendall_tau": 0.9999999999999998,
+        "optimal_unchanged": true,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure",
+        "top1_overlap": 1,
+        "top5_overlap_pct": 100.0,
+        "top10_overlap_pct": 100.0,
+        "top20_overlap_pct": 100.0
+      },
+      {
+        "f": 0.1,
+        "spearman_rho": 0.9997308851022279,
+        "kendall_tau": 0.9911283376399654,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.2,
+        "spearman_rho": 0.9995617952107073,
+        "kendall_tau": 0.987080103359173,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.30000000000000004,
+        "spearman_rho": 0.9991462151252097,
+        "kendall_tau": 0.9813953488372091,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.4,
+        "spearman_rho": 0.9990021314852521,
+        "kendall_tau": 0.9782945736434108,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 95.0
+      },
+      {
+        "f": 0.5,
+        "spearman_rho": 0.9979399611807712,
+        "kendall_tau": 0.9666666666666666,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 90.0
+      },
+      {
+        "f": 0.6000000000000001,
+        "spearman_rho": 0.9962597792305218,
+        "kendall_tau": 0.9535745047372952,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 90.0
+      },
+      {
+        "f": 0.7000000000000001,
+        "spearman_rho": 0.9897069505471604,
+        "kendall_tau": 0.9240310077519378,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 85.0
+      },
+      {
+        "f": 0.8,
+        "spearman_rho": 0.9699520118124768,
+        "kendall_tau": 0.8627045650301463,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 80.0,
+        "top10_overlap_pct": 90.0,
+        "top20_overlap_pct": 80.0
+      },
+      {
+        "f": 0.9,
+        "spearman_rho": 0.810952738184546,
+        "kendall_tau": 0.6171403962101636,
+        "optimal_unchanged": false,
+        "optimal_pert": "Restrict_Mass_Gatherings_and_Schools_and_Others-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 40.0,
+        "top10_overlap_pct": 60.0,
+        "top20_overlap_pct": 50.0
+      },
+      {
+        "f": 1.0,
+        "spearman_rho": -0.6726668733183647,
+        "kendall_tau": -0.4854028586448204,
+        "optimal_unchanged": false,
+        "optimal_pert": "No_Measure-No_Measure-No_Measure",
+        "top1_overlap": 0,
+        "top5_overlap_pct": 0.0,
+        "top10_overlap_pct": 0.0,
+        "top20_overlap_pct": 0.0
+      }
+    ]
+  }
+}

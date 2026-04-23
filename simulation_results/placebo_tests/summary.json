@@ -1,0 +1,65 @@
+{
+  "split_half": {
+    "n_pairs": 485,
+    "mean_gamma_early": 0.7456624355434163,
+    "mean_gamma_late": 0.5627397711841967,
+    "mean_abs_diff": 0.21658604928076478,
+    "median_abs_diff": 0.1023246098857058,
+    "mean_rel_diff_pct": 46.469616247627386,
+    "pct_drift_increasing": 8.8659793814433,
+    "paired_ttest_stat": 12.36815742999674,
+    "paired_ttest_pvalue": 1.0042278171980622e-30,
+    "wilcoxon_stat": 10760.0,
+    "wilcoxon_pvalue": 7.544110272116993e-55,
+    "icc": 0.7362068200167258,
+    "interpretation": "MODERATE temporal stability (0.50 < ICC < 0.75): some drift detected but dominant signal is stable.",
+    "lag_degradation": 0.10536986000322313,
+    "lag_interpretation": "MODERATE degradation (0.105): some NPI timing signal detected but gamma also captures background trends."
+  },
+  "lag_falsification": [
+    {
+      "lag": "0",
+      "n_pairs": 574,
+      "pearson_corr": 1.0,
+      "pearson_pvalue": 0.0,
+      "mae": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "lag": "7",
+      "n_pairs": 572,
+      "pearson_corr": 0.975803587532252,
+      "pearson_pvalue": 0.0,
+      "mae": 0.04567644722097285,
+      "rmse": 0.10545310472263517
+    },
+    {
+      "lag": "14",
+      "n_pairs": 569,
+      "pearson_corr": 0.9361041354725789,
+      "pearson_pvalue": 1.7755790885588456e-259,
+      "mae": 0.08549524772560044,
+      "rmse": 0.17474399828239787
+    },
+    {
+      "lag": "21",
+      "n_pairs": 565,
+      "pearson_corr": 0.8946301399967769,
+      "pearson_pvalue": 3.9125130716331237e-199,
+      "mae": 0.12108833521837865,
+      "rmse": 0.22720523150617775
+    }
+  ],
+  "config": {
+    "start_date": "2020-03-01",
+    "end_date": "2020-07-31",
+    "min_days_per_half": 7,
+    "min_policy_days": 10,
+    "lags": [
+      0,
+      7,
+      14,
+      21
+    ]
+  }
+}
