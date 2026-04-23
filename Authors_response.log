@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  23 APR 2026 07:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  23 APR 2026 10:49
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **./Authors_response.tex
 (Authors_response.tex
@@ -1069,15 +1069,6 @@ Package bm Info: No bold for \U/msb/m/n, using \pmb.
 \symboldlasy=\mathgroup10
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
-(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\xr-hyper.sty
-Package: xr-hyper 2023-10-27 v7.01d eXternal References (DPC)
-)
-
-Package xr Warning: 
-No file ../Paper/delphi.aux
-LABELS NOT IMPORTED.
- on input line 92.
-
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
 
@@ -1190,53 +1181,28 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip144
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 103.
- (Authors_response.aux
-
-LaTeX Warning: Label `tab:oxford_mapping' multiply defined.
-
-
-LaTeX Warning: Label `tab:granular_policies' multiply defined.
-
-
-LaTeX Warning: Label `tab:granular_rmse' multiply defined.
-
-
-LaTeX Warning: Label `tab:granular_predictions' multiply defined.
-
-
-LaTeX Warning: Label `fig:granular_predictions' multiply defined.
-
-
-LaTeX Warning: Label `tab:time_transfer_main' multiply defined.
-
-
-LaTeX Warning: Label `tab:time_transfer_expanded' multiply defined.
-
-
-LaTeX Warning: Label `tab:ranking_stability' multiply defined.
-
-)
+Package hyperref Info: Option `colorlinks' set `true' on input line 101.
+ (Authors_response.aux)
 \openout1 = `Authors_response.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -1267,231 +1233,107 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 110.
+Package hyperref Info: Link coloring ON on input line 105.
  (Authors_response.out) (Authors_response.out)
 \@outlinefile=\write7
 \openout7 = `Authors_response.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 132
-.
 
-(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 132
-.
-
-(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 13
-2.
-
-(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 132.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 132.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
+No file Authors_response.toc.
+\tf@toc=\write8
+\openout8 = `Authors_response.toc'.
 
 [1{C:/Users/shazn/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/sh
 azn/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 125
+.
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 125
+.
 
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 12
+5.
 
-[2]
-Underfull \vbox (badness 3407) has occurred while \output is active []
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 125.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 125.
+ [2]
 
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 152.
 
+[3] [4]
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 173.
 
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[3]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[4]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[5]
+[5] [6] [7]
 <simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combined.p
-ng, id=124, 1084.7727pt x 641.2758pt>
+df, id=153, 1084.59427pt x 641.32524pt>
 File: simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combi
-ned.png Graphic file (type png)
+ned.pdf Graphic file (type pdf)
 <use simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combin
-ed.png>
+ed.pdf>
 Package pdftex.def Info: simulation_results/multiperiod_lowrank/scatter_rank1_v
-s_rank2_rank3_combined.png  used on input line 252.
-(pdftex.def)             Requested size: 469.75499pt x 277.70023pt.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[6]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[7 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combi
-ned.png>]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[8]
-
-LaTeX Warning: Reference `app:confounding' on page 9 undefined on input line 28
-8.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[9]
+s_rank2_rank3_combined.pdf  used on input line 277.
+(pdftex.def)             Requested size: 469.75499pt x 277.77057pt.
+ [8] [9 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_
+combined.pdf>] [10] [11]
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[10]
-Overfull \hbox (16.21036pt too wide) in paragraph at lines 332--333
+ [12]
+Overfull \hbox (16.21036pt too wide) in paragraph at lines 358--359
 []\T1/ppl/m/n/10.95 Specifically, the model is not writ-ten at the level of sep
 -a-rate school-closure, gathering-restriction,
  []
 
 
-Overfull \hbox (5.57986pt too wide) in paragraph at lines 339--341
+Overfull \hbox (5.57986pt too wide) in paragraph at lines 365--367
 \T1/ppl/m/n/10.95 Using four build-ing blocks---Schools (C1), Mass Gath-er-ings
 , Oth-ers, and Stay-at-Home (C6)---
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 345.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 371.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 345.
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[11]
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 371.
+[13]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[13]
-<simulation_results/granular_policies/combined_prediction_comparison.png, id=20
-1, 1002.02354pt x 733.5405pt>
-File: simulation_results/granular_policies/combined_prediction_comparison.png G
-raphic file (type png)
-<use simulation_results/granular_policies/combined_prediction_comparison.png>
-Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
-on_comparison.png  used on input line 430.
-(pdftex.def)             Requested size: 469.75499pt x 343.89102pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
 
 [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [15]
+<simulation_results/granular_policies/combined_prediction_comparison.pdf, id=29
+2, 1001.58664pt x 733.02385pt>
+File: simulation_results/granular_policies/combined_prediction_comparison.pdf G
+raphic file (type pdf)
+<use simulation_results/granular_policies/combined_prediction_comparison.pdf>
+Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
+on_comparison.pdf  used on input line 456.
+(pdftex.def)             Requested size: 469.75499pt x 343.79424pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+ [16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[15 <./simulation_results/granular_policies/combined_prediction_comparison.png>
-]
-Overfull \hbox (4.53867pt too wide) in paragraph at lines 452--453
+ [17 <./simulation_results/granular_policies/combined_prediction_comparison.pdf
+>]
+Overfull \hbox (4.53867pt too wide) in paragraph at lines 479--480
 \T1/ppl/m/n/10.95 recovered, and susceptible--exposed--infected--recovered--dec
 eased, re-spec-tively) with-out any
  []
@@ -1499,102 +1341,44 @@ eased, re-spec-tively) with-out any
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[16]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[17]
-Overfull \hbox (3.22473pt too wide) in paragraph at lines 493--494
+ [18]
+[19]
+Overfull \hbox (3.22473pt too wide) in paragraph at lines 520--521
 []\T1/ppl/m/n/10.95 Notably, for sev-eral re-gions THEMIS's piece-wise coun-ter
 -fac-tual curve ap-proaches or matches
  []
 
 
-LaTeX Warning: Reference `app:time_transfer' on page 18 undefined on input line
- 495.
+Underfull \vbox (badness 2150) has occurred while \output is active []
 
+ [20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 6173) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[18]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 5
-11.
- (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-)
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[19]
+ [21]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 612.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 61
-4.
- (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 634.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 63
+6.
+
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-<simulation_results/state_action/action_grid_by_region.png, id=241, 1422.5145pt
- x 747.9945pt>
-File: simulation_results/state_action/action_grid_by_region.png Graphic file (t
-ype png)
-<use simulation_results/state_action/action_grid_by_region.png>
+<simulation_results/state_action/action_grid_by_region.pdf, id=405, 1421.95915p
+t x 746.44257pt>
+File: simulation_results/state_action/action_grid_by_region.pdf Graphic file (t
+ype pdf)
+<use simulation_results/state_action/action_grid_by_region.pdf>
 Package pdftex.def Info: simulation_results/state_action/action_grid_by_region.
-png  used on input line 625.
-(pdftex.def)             Requested size: 469.75499pt x 247.01015pt.
+pdf  used on input line 647.
+(pdftex.def)             Requested size: 469.75499pt x 246.58876pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[20]
-Underfull \vbox (badness 7099) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[21 <./simulation_results/state_action/action_grid_by_region.png>]
-Overfull \hbox (0.43086pt too wide) in paragraph at lines 636--637
+ [23 <./simulation_results/state_action/action_grid_by_region.pdf>]
+Overfull \hbox (0.43086pt too wide) in paragraph at lines 658--659
 []\T1/ppl/m/n/10.95 Fourth, Rule R4 ($\OT1/cmr/m/n/10.95 45%$\T1/ppl/m/n/10.95 
 , $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = 553$\T1/ppl/m/n/10.95 ) is the mo
 st counter-intuitive leaf: even when $\OML/cmm/m/it/10.95 w \OMS/cmsy/m/n/10.95
@@ -1602,483 +1386,172 @@ st counter-intuitive leaf: even when $\OML/cmm/m/it/10.95 w \OMS/cmsy/m/n/10.95
 n/10.95 (economy-
  []
 
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 63
-8.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 66
+0.
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-
-LaTeX Warning: Reference `subsec:results' on page 22 undefined on input line 64
-2.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[22]
-<simulation_results/online_advisor_v2/online_advisor_v2_comparison.png, id=262,
- 985.40144pt x 694.5147pt>
-File: simulation_results/online_advisor_v2/online_advisor_v2_comparison.png Gra
-phic file (type png)
-<use simulation_results/online_advisor_v2/online_advisor_v2_comparison.png>
+ [24]
+<simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf, id=498,
+ 985.46918pt x 694.68658pt>
+File: simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf Gra
+phic file (type pdf)
+<use simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>
 Package pdftex.def Info: simulation_results/online_advisor_v2/online_advisor_v2
-_comparison.png  used on input line 663.
-(pdftex.def)             Requested size: 469.75499pt x 331.08481pt.
+_comparison.pdf  used on input line 685.
+(pdftex.def)             Requested size: 469.75499pt x 331.14555pt.
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[23 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.png>]
-<simulation_results/online_advisor_v2/revealed_preference_w.png, id=270, 1274.8
-428pt x 331.7193pt>
-File: simulation_results/online_advisor_v2/revealed_preference_w.png Graphic fi
-le (type png)
-<use simulation_results/online_advisor_v2/revealed_preference_w.png>
+[25 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>]
+<simulation_results/online_advisor_v2/revealed_preference_w.pdf, id=603, 1274.7
+2366pt x 331.15054pt>
+File: simulation_results/online_advisor_v2/revealed_preference_w.pdf Graphic fi
+le (type pdf)
+<use simulation_results/online_advisor_v2/revealed_preference_w.pdf>
 Package pdftex.def Info: simulation_results/online_advisor_v2/revealed_preferen
-ce_w.png  used on input line 680.
-(pdftex.def)             Requested size: 469.75499pt x 122.23311pt.
+ce_w.pdf  used on input line 702.
+(pdftex.def)             Requested size: 469.75499pt x 122.03365pt.
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[24 <./simulation_results/online_advisor_v2/revealed_preference_w.png>]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[25]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[26]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
+[26 <./simulation_results/online_advisor_v2/revealed_preference_w.pdf>]
 [27]
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 720.
 
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[28]
-File: simulation_results/granular_policies/combined_prediction_comparison.png G
-raphic file (type png)
-<use simulation_results/granular_policies/combined_prediction_comparison.png>
+[28] [29] [30]
+File: simulation_results/granular_policies/combined_prediction_comparison.pdf G
+raphic file (type pdf)
+<use simulation_results/granular_policies/combined_prediction_comparison.pdf>
 Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
-on_comparison.png  used on input line 809.
-(pdftex.def)             Requested size: 469.75499pt x 343.89102pt.
+on_comparison.pdf  used on input line 830.
+(pdftex.def)             Requested size: 469.75499pt x 343.79424pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[29]
+ [31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[30]
-Overfull \hbox (13.71463pt too wide) in paragraph at lines 832--833
+ [32]
+Overfull \hbox (13.71463pt too wide) in paragraph at lines 853--854
 \T1/ppl/b/n/10.95 SEIRD\T1/ppl/m/n/10.95 , stan-dard com-part-men-tal mod-els (
 susceptible--infected--recovered, and susceptible--exposed--
  []
 
 
-Overfull \hbox (1.19843pt too wide) in paragraph at lines 832--833
+Overfull \hbox (1.19843pt too wide) in paragraph at lines 853--854
 \T1/ppl/m/n/10.95 and SEIRD base-lines are in-cluded to demon-strate that sim-p
 le com-part-men-tal mod-els can-not match
  []
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[31]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[32]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
 [33]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[34]
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[35]
-
-LaTeX Warning: Reference `app:separability' on page 36 undefined on input line 
-929.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[36]
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[37]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [34]
+[35] [36]
+Underfull \vbox (badness 3407) has occurred while \output is active []
 
+ [37]
+[38] [39]
+Underfull \vbox (badness 3333) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[39]
-Overfull \hbox (12.65178pt too wide) in paragraph at lines 998--999
-[]\T1/ppl/m/n/10.95 Following your sug-ges-tion, we have im-ple-mented a true o
-n-line rolling-horizon ver-sion of THEMIS
- []
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[40]
+ [40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [41]
+[42]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
+057.
+ (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[41]
+ [43]
 Underfull \vbox (badness 1052) has occurred while \output is active []
 
+ [44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+[46]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1106.
 
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[42]
-Underfull \vbox (badness 1436) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[43]
-Overfull \hbox (10.52487pt too wide) in paragraph at lines 1072--1074
-[]\T1/ppl/m/n/10.95 Thank you for your care-ful read of our manuscript. At-tach
-ed is our point-by-point re-sponse: 
+ [47]
+Overfull \hbox (15.5363pt too wide) in paragraph at lines 1125--1126
+\T1/ppl/m/n/10.95 ac-tual archived files \T1/pcr/m/n/10.95 Parameters_Global_20
+200413.csv\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.95 20200515.csv\T1/ppl/m/n/10.95 ,
+ and \T1/pcr/m/n/10.95 20200615.csv\T1/ppl/m/n/10.95 ,
  []
 
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[44]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[45]
-
-LaTeX Warning: Reference `subsec:delphi' on page 46 undefined on input line 110
-6.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[46]
+ [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[47]
+ [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[48]
-
-LaTeX Warning: Reference `app:separability' on page 49 undefined on input line 
-1139.
-
-
+ [50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[49]
-<simulation_results/mh_sensitivity/mh_functional_forms.png, id=427, 325.215pt x
+ [51]
+<simulation_results/mh_sensitivity/mh_functional_forms.pdf, id=848, 325.215pt x
  252.945pt>
-File: simulation_results/mh_sensitivity/mh_functional_forms.png Graphic file (t
-ype png)
-<use simulation_results/mh_sensitivity/mh_functional_forms.png>
+File: simulation_results/mh_sensitivity/mh_functional_forms.pdf Graphic file (t
+ype pdf)
+<use simulation_results/mh_sensitivity/mh_functional_forms.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_functional_forms.
-png  used on input line 1160.
+pdf  used on input line 1179.
 (pdftex.def)             Requested size: 258.36667pt x 200.96681pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[50]
-<simulation_results/mh_sensitivity/mh_sensitivity_scatter.png, id=436, 867.24pt
+ [52]
+<simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf, id=857, 867.24pt
  x 722.7pt>
-File: simulation_results/mh_sensitivity/mh_sensitivity_scatter.png Graphic file
- (type png)
-<use simulation_results/mh_sensitivity/mh_sensitivity_scatter.png>
+File: simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf Graphic file
+ (type pdf)
+<use simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_scatt
-er.png  used on input line 1189.
+er.pdf  used on input line 1208.
 (pdftex.def)             Requested size: 469.75499pt x 391.46521pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[51 <./simulation_results/mh_sensitivity/mh_functional_forms.png>]
-<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.png, id=444, 10
-03.8303pt x 733.17915pt>
-File: simulation_results/mh_sensitivity/mh_sensitivity_best_policies.png Graphi
-c file (type png)
-<use simulation_results/mh_sensitivity/mh_sensitivity_best_policies.png>
+ [53 <./simulation_results/mh_sensitivity/mh_functional_forms.pdf>]
+<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf, id=915, 10
+03.97581pt x 733.17107pt>
+File: simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf Graphi
+c file (type pdf)
+<use simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_best_
-policies.png  used on input line 1196.
-(pdftex.def)             Requested size: 469.75499pt x 343.09514pt.
+policies.pdf  used on input line 1215.
+(pdftex.def)             Requested size: 469.75499pt x 343.0466pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[52 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.png>]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[53 <./simulation_results/mh_sensitivity/mh_sensitivity_best_policies.png>]
-
-LaTeX Warning: Reference `app:separability' on page 54 undefined on input line 
-1210.
-
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[54] (Authors_response.bbl)
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.59999pt}.
-
-[55] (Authors_response.aux)
+ [54 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>] [55 <./s
+imulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>] [56]
+(Authors_response.bbl) [57] (Authors_response.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `Authors_response.out' has not changed.
-(rerunfilecheck)             Checksum: F9DA4A421698F581BF5052A209961629;2028.
+(rerunfilecheck)             Checksum: 5494BA2E29618E1564C403CAA462384C;3305.
  ) 
 Here is how much of TeX's memory you used:
- 42278 strings out of 474591
- 902742 string characters out of 5745778
+ 42257 strings out of 474591
+ 902556 string characters out of 5745778
  1963533 words of memory out of 5000000
- 63687 multiletter control sequences out of 15000+600000
+ 63661 multiletter control sequences out of 15000+600000
  600154 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  140i,18n,132p,1617b,3252s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2105,9 +1578,9 @@ ppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/shaz
 n/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/s
 hazn/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/User
 s/shazn/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Authors_response.pdf (55 pages, 2584059 bytes).
+Output written on Authors_response.pdf (57 pages, 917094 bytes).
 PDF statistics:
- 596 PDF objects out of 1000 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1225 PDF objects out of 1440 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

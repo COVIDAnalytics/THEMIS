@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem[{Hale et~al.(2021)Hale, Angrist, Goldszmidt, Kira, Petherick,
+  Phillips, Webster, Cameron-Blake, Hallas, Majumdar, \protect\BIBand{}
+  Tatlow}]{hale2021global}
+Hale T, Angrist N, Goldszmidt R, Kira B, Petherick A, Phillips T, Webster S,
+  Cameron-Blake E, Hallas L, Majumdar S, Tatlow H (2021) A global panel
+  database of pandemic policies ({Oxford COVID-19 Government Response
+  Tracker}). \emph{Nature Human Behaviour} 5(4):529--538,
+  \urlprefix\url{http://dx.doi.org/10.1038/s41562-021-01079-8}.
+
+\end{thebibliography}

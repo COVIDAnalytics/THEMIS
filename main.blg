@@ -1,0 +1,87 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+The style file: informs2014.bst
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+Database file #1: Paper/bibliography.bib
+Warning--I didn't find a database entry for "hui2020continuing"
+Warning--I didn't find a database entry for "haug2020ranking"
+Warning--I didn't find a database entry for "wttc"
+Warning--I didn't find a database entry for "monitor2020covid"
+Warning--I didn't find a database entry for "XIONG202055"
+Warning--I didn't find a database entry for "di2023impact"
+Warning--I didn't find a database entry for "broughel2021benefits"
+Warning--I didn't find a database entry for "cutler2020covid"
+Warning--I didn't find a database entry for "layard2020release"
+Warning--I didn't find a database entry for "shlomai2021modeling"
+Warning--I didn't find a database entry for "rowthorn2020cost"
+Warning--I didn't find a database entry for "miles2021stay"
+Warning--I didn't find a database entry for "gros2020great"
+Warning--I didn't find a database entry for "zhao2021disease"
+Warning--I didn't find a database entry for "li:20"
+Warning--I didn't find a database entry for "kissler:20"
+Warning--I didn't find a database entry for "bertsimas:20"
+Warning--I didn't find a database entry for "liu2020factors"
+Warning--I didn't find a database entry for "carmassi2020ptsd"
+Warning--I didn't find a database entry for "pfefferbaum2020mental"
+Warning--I didn't find a database entry for "usher2020covid"
+Warning--I didn't find a database entry for "zhong2021mental"
+Warning--I didn't find a database entry for "serra2022post"
+Warning--I didn't find a database entry for "ferguson2020impact"
+Warning--I didn't find a database entry for "holmdahl2020"
+Warning--I didn't find a database entry for "bertsimas2020covidClinicalOutcomes"
+Warning--I didn't find a database entry for "wang2020evolving"
+Warning--I didn't find a database entry for "lauer2020incubation"
+Warning--I didn't find a database entry for "hu2020clinical"
+Warning--I didn't find a database entry for "kluytmans2020sars"
+Warning--I didn't find a database entry for "liu2020clinical"
+Warning--I didn't find a database entry for "grein2020compassionate"
+Warning--I didn't find a database entry for "krantz2020level"
+Warning--I didn't find a database entry for "niehus2020quantifying"
+Warning--I didn't find a database entry for "arons2020presymptomatic"
+Warning--I didn't find a database entry for "xu2020evaluation"
+Warning--I didn't find a database entry for "nocedal2006numerical"
+Warning--I didn't find a database entry for "xiang1997generalized"
+You've used 1 entry,
+            2869 wiz_defined-function locations,
+            646 strings with 5769 characters,
+and the built_in function-call counts, 2633 in all, are:
+= -- 280
+> -- 91
+< -- 0
++ -- 36
+- -- 34
+* -- 211
+:= -- 296
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 16
+chr.to.int$ -- 2
+cite$ -- 1
+duplicate$ -- 274
+empty$ -- 175
+format.name$ -- 36
+if$ -- 527
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 19
+newline$ -- 9
+num.names$ -- 4
+pop$ -- 140
+preamble$ -- 1
+purify$ -- 15
+quote$ -- 0
+skip$ -- 25
+stack$ -- 0
+substring$ -- 350
+swap$ -- 44
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 9
+warning$ -- 0
+while$ -- 16
+width$ -- 0
+write$ -- 17
+(There were 38 warnings)
