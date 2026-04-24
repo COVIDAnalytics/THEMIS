@@ -3,119 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: app.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 The style file: informs2014.bst
-Reallocating 'name_of_file' (item size: 1) to 23 items.
-Database file #1: Paper/bibliography.bib
-Warning--I didn't find a database entry for "robert2021robert"
-Warning--I didn't find a database entry for "INED"
-Warning--I didn't find a database entry for "NYDoH"
-Warning--I didn't find a database entry for "BRDeaths"
-Warning--I didn't find a database entry for "SB-mortality"
-Warning--I didn't find a database entry for "INE-Mortality"
-Warning--I didn't find a database entry for "SSA"
-Warning--I didn't find a database entry for "IBGE-Mortality"
-Warning--I didn't find a database entry for "schlander2017empirical"
-Warning--I didn't find a database entry for "robinson2021benefits"
-Warning--I didn't find a database entry for "mardones2018estimation"
-Warning--I didn't find a database entry for "hastie2023true"
-Warning--I didn't find a database entry for "davis2021characterizing"
-Warning--I didn't find a database entry for "martin2021model"
-Warning--I didn't find a database entry for "kaier2020mechanical"
-Warning--I didn't find a database entry for "iFHP"
-Warning--I didn't find a database entry for "BCBS2021"
-Warning--I didn't find a database entry for "santos2021public"
-Warning--I didn't find a database entry for "bittner2013intensive"
-Warning--I didn't find a database entry for "IMF20"
-Warning--I didn't find a database entry for "BEA20"
-Warning--I didn't find a database entry for "cascini2022cross"
-Warning--I didn't find a database entry for "rybakowski2014mddcost"
-Warning--I didn't find a database entry for "vieta2021esmddcost"
-Warning--I didn't find a database entry for "greenberg2015economic"
-Warning--I didn't find a database entry for "lepine2012mddcost"
-Warning--I didn't find a database entry for "bothe2020ptsdcost"
-Warning--I didn't find a database entry for "bothe2020expensive"
-Warning--I didn't find a database entry for "destatisHealthcareWorkersDE"
-Warning--I didn't find a database entry for "msssi_2019"
-Warning--I didn't find a database entry for "nyhcw"
-Warning--I didn't find a database entry for "wbbr20"
-Warning--I didn't find a database entry for "wbdepop20"
-Warning--I didn't find a database entry for "wbespop20"
-Warning--I didn't find a database entry for "nydohpop"
-Warning--I didn't find a database entry for "wbbrpop20"
-Warning--I didn't find a database entry for "dedepression"
-Warning--I didn't find a database entry for "ettman2020depression"
-Warning--I didn't find a database entry for "FETER2021101depression"
-Warning--I didn't find a database entry for "sanguino2020es"
-Warning--I didn't find a database entry for "deptsdbaseline"
-Warning--I didn't find a database entry for "wittchen2011size"
-Warning--I didn't find a database entry for "nimhusptsd"
-Warning--I didn't find a database entry for "dasilva2019ptsd"
-Warning--I didn't find a database entry for "georgieva2021prevalence"
-Warning--I didn't find a database entry for "liu2020factorsapp"
-Warning--I didn't find a database entry for "bryant2021symptoms"
-Warning--I didn't find a database entry for "GOULARTE202132"
-Warning--I didn't find a database entry for "wbde20"
-Warning--I didn't find a database entry for "wbes20"
-Warning--I didn't find a database entry for "bls20"
-Warning--I didn't find a database entry for "SB-unemployment"
-Warning--I didn't find a database entry for "oecd_2024"
-Warning--I didn't find a database entry for "nyunemployment"
-Warning--I didn't find a database entry for "IBGE-Unemployment"
-Warning--I didn't find a database entry for "chen2019effect"
-Warning--I didn't find a database entry for "gorjon2018social"
-Warning--I didn't find a database entry for "blanchflower2004well"
-Warning--I didn't find a database entry for "sebastiani2012"
-Warning--I didn't find a database entry for "centenarian_stats"
-Warning--I didn't find a database entry for "germany2024"
-Warning--I didn't find a database entry for "spain2024"
-Warning--I didn't find a database entry for "pew2024"
-Warning--I didn't find a database entry for "brazil2024"
-Warning--I didn't find a database entry for "cutler2022economic"
-Warning--I didn't find a database entry for "tenforde2020symptom"
-Warning--I didn't find a database entry for "oecd2024idd"
-Warning--I didn't find a database entry for "li:20app"
-Warning--I didn't find a database entry for "dasta2005daily"
-Warning--I didn't find a database entry for "davis2022economic"
-Warning--I didn't find a database entry for "young2021hcwmentalhealth"
-Warning--I didn't find a database entry for "moore1988quantity"
-You've used 6 entries,
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+Database file #1: bibliography.bib
+Database file #2: Paper/bibliography.bib
+You've used 78 entries,
             2869 wiz_defined-function locations,
-            730 strings with 6996 characters,
-and the built_in function-call counts, 5680 in all, are:
-= -- 567
-> -- 161
-< -- 3
-+ -- 62
-- -- 55
-* -- 429
-:= -- 730
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 48
-chr.to.int$ -- 7
-cite$ -- 6
-duplicate$ -- 546
-empty$ -- 432
-format.name$ -- 74
-if$ -- 1146
-int.to.chr$ -- 1
+            1057 strings with 22040 characters,
+and the built_in function-call counts, 85063 in all, are:
+= -- 9084
+> -- 2382
+< -- 45
++ -- 924
+- -- 817
+* -- 6259
+:= -- 10417
+add.period$ -- 153
+call.type$ -- 78
+change.case$ -- 667
+chr.to.int$ -- 79
+cite$ -- 78
+duplicate$ -- 8743
+empty$ -- 6125
+format.name$ -- 992
+if$ -- 17270
+int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 63
-newline$ -- 24
-num.names$ -- 24
-pop$ -- 259
+missing$ -- 715
+newline$ -- 240
+num.names$ -- 312
+pop$ -- 4245
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 584
 quote$ -- 0
-skip$ -- 100
+skip$ -- 1217
 stack$ -- 0
-substring$ -- 564
-swap$ -- 147
+substring$ -- 9905
+swap$ -- 1620
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 702
 warning$ -- 0
-while$ -- 44
+while$ -- 558
 width$ -- 0
-write$ -- 72
-(There were 72 warnings)
+write$ -- 841

@@ -14,7 +14,6 @@
 \let\@currsize\normalsize
 \makeatother
 \usepackage{caption}
-\usepackage{subcaption}
 % If hyperref is used, dvi-to-ps driver of choice must be declared as
 %   an additional option to the \documentclass. For example
 %\documentclass[dvips,msom]{informs3}      % if dvips is used
@@ -55,11 +54,9 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{multicol}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage[normalem]{ulem}
-\usepackage{graphicx, amsmath, amssymb, amssymb, amsfonts, enumerate, booktabs, float, adjustbox, hyperref, tikz, multirow,pgfplots,wrapfig,bm,bbm,graphicx,subcaption,enumitem,makecell}
+\usepackage{graphicx, amsmath, amssymb, amssymb, amsfonts, enumerate, booktabs, float, adjustbox, hyperref, tikz, multirow,pgfplots,wrapfig,bm,bbm,graphicx,enumitem,makecell}
 \usepackage{url}
 \usepackage[titlenumbered,ruled]{algorithm2e}
 
@@ -91,6 +88,7 @@
 \definecolor{mypurple}{RGB}{142, 36, 170}
 \definecolor{mygray}{RGB}{200,200,200}
 \newcommand{\rev}[1]{{\color{blue}#1}}
+\pdfstringdefDisableCommands{\def\rev#1{#1}}
 
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{decorations.pathmorphing}
@@ -124,14 +122,14 @@
 \ABSTRACT{%
 {
 \linespread{0.85}\selectfont
-\noindent\textbf{Problem Definition}:  Since December 2019, the COVID-19 pandemic has prompted governments worldwide to implement a wide range of non-pharmaceutical interventions (NPIs), from mass gathering restrictions to complete lockdowns. While these measures have been effective in reducing virus transmission, they also carry significant economic and humanitarian costs, including unemployment, mental health issues, and social unrest. This work aims to quantitatively assess the trade-offs between these diverse NPIs across economic and humanitarian dimensions, and to identify pandemic mitigation strategies tailored to different regions in the early stage of an outbreak.
+\noindent\textbf{Problem Definition}: Governments used non-pharmaceutical interventions (NPIs) to slow COVID-19, but those policies also imposed large economic and humanitarian costs. We study how to compare feasible NPI sequences on a common basis and how the preferred response depends on regional conditions early in a pandemic.
 
-\noindent\textbf{Methodology}: We develop THEMIS, a comprehensive data-driven counterfactual prediction framework that integrates econometric modeling, a policy-driven epidemiological model, and data-driven cost estimates. \rev{To recover policy effects when each region is observed under only a subset of NPIs, we estimate region and policy effects jointly under a rank-$1$ low-rank structure and evaluate that approximation through held-out entries, later-period transfer tests, and alternative policy partitions.} THEMIS quantifies the impacts of various NPIs across multiple dimensions during a pandemic, enabling a robust comparison of counterfactual scenarios.
+\noindent\textbf{Methodology}: We develop THEMIS, a data-driven counterfactual framework that combines the DELPHI epidemiological model with economic and humanitarian cost modules. \rev{To recover policy effects when each region is observed under only a subset of NPIs, we estimate region and policy effects jointly under a rank-$1$ low-rank structure and evaluate that approximation through held-out entries, later-period transfer tests, and alternative policy partitions.}
 
 
-\noindent\textbf{Results}: Leveraging data from 80+ sources, we apply THEMIS to evaluate thousands of policy alternatives across New York, Germany, Brazil, and Spain during COVID-19. Our analysis reveals that actual policies often deviated from the efficient frontier, leading to high costs in both humanitarian and economic dimensions. Short but moderately strong restrictions (e.g., limits on gatherings, travel, and work for 6–8 weeks) generally yielded the best outcomes, whereas prolonged lockdowns imposed high costs without proportional benefits. \rev{We also show that a rolling-horizon version of THEMIS, initialized with dated DELPHI snapshots and a warm-start approximation in the first month, would have improved on the realized policy cost in three of the four focal regions. In addition, a pooled region-blind decision tree provides an interpretable compression of the simulated policy map in per-capita and per-GDP units.} Trade-off profiles varied significantly across regions, emphasizing the importance of tailoring policies to local economic and epidemiological conditions rather than adopting uniform strategies.
+\noindent\textbf{Results}: Applying THEMIS to Germany, New York, Spain, and Brazil, we find that realized first-wave policies often lay inside rather than on the efficient frontier. Across regions, the best three-month sequences typically act strongly early and relax later, whereas prolonged lockdown rarely minimizes total cost. \rev{A pooled state-action tree makes these thresholds interpretable in observable units, and online THEMIS would have improved on realized policy cost in three of the four focal regions.}
 
-\noindent\textbf{Managerial Implications}: THEMIS provides policymakers with a structured way to quantify and compare the trade-offs between different NPIs, enabling more informed decision-making in pandemic response planning. \rev{Beyond retrospective frontier analysis, the framework yields two operational summaries: an interpretable decision tree that compresses the simulated state-action map for the focal regions, and a rolling-horizon advisor that can be updated sequentially as new data arrive after an initial warm start.} By tailoring strategies to the specific socio-economic contexts of different regions, governments can compare candidate responses on a common economic and humanitarian basis.
+\noindent\textbf{Managerial Implications}: THEMIS provides policymakers with a transparent way to compare candidate NPI paths in common economic and humanitarian units. \rev{Beyond retrospective frontier analysis, the framework yields interpretable escalation and exit rules and an online version of THEMIS that can be updated sequentially as early-wave data accumulate.}
 }
 }
 
@@ -150,13 +148,13 @@ Given these challenges, it is unsurprising that, despite significant global inte
 
 To simulate the pandemic under different NPI sequences, we employ the policy-driven compartmental epidemiological model DELPHI. DELPHI extends classical compartmental models to capture key features of the COVID-19 pandemic, such as underdetection due to limited testing, governmental and societal responses, and declining mortality rates \citepmain{li:20}. Since April 2020, DELPHI has been applied to over 200 countries and regions, producing country and state-level predictions. DELPHI forecasts have been incorporated into the central ensemble at the CDC and used by various organizations for pandemic planning.
 
-In assessing the costs associated with the pandemic under various policy scenarios, we focus on both economic and humanitarian dimensions, following the broad categorizations established in previous research \citepmain{cutler2020covid}. We emphasize directly measurable costs in both categories. Humanitarian costs include direct consequences of COVID-19 infections, such as mortality, hospitalization, long-term health impairments, and mental health challenges. Economic costs encompass reductions in output, increased unemployment, and the associated economic burdens. We acknowledge the complexity and multitude of costs resulting from COVID-19, recognizing that any attempt to quantify these is necessarily partial. A detailed discussion of why certain significant costs were not included in our analysis is provided in Section \ref{sec:discussion}. Each cost item is modeled based on the most recent and relevant studies, and a detailed discussion on the selection and verification of sources is contained in Appendix \ref{app:region_specific_params}.
+In assessing the costs associated with the pandemic under various policy scenarios, we focus on both economic and humanitarian dimensions, following the broad categorizations established in previous research \citepmain{cutler2020covid}. We emphasize directly measurable costs in both categories. Humanitarian costs include direct consequences of COVID-19 infections, such as mortality, hospitalization, long-term health impairments, and mental health challenges. Economic costs encompass reductions in output, increased unemployment, and the associated economic burdens. We acknowledge the complexity and multitude of costs resulting from COVID-19, recognizing that any attempt to quantify these is necessarily partial. A detailed discussion of why certain significant costs were not included in our analysis is provided in Section \ref{sec:limitations}. Each cost item is modeled based on the most recent and relevant studies, and a detailed discussion on the selection and verification of sources is contained in Appendix \ref{app:region_specific_params}.
 
 To demonstrate the wide applicability of the THEMIS framework, we implemented it for Germany, New York in the United States, Spain, and Brazil, using the latest economic and health data (see Appendix \ref{app:region_specific_params} for sources). We investigated the optimal 3-month NPI sequence starting on March 15, 2020, when governments were considering responses to the growing pandemic.
 
 Our simulation results yield three main insights. First, the effectiveness of NPIs varies significantly across regions, emphasizing the need for tailored interventions rather than uniform strategies. In high-density areas, both extreme and lenient policies resulted in high economic costs, making moderate interventions more effective. Second, while NPIs can significantly reduce humanitarian costs, overly stringent lockdowns do not always yield proportional benefits and can impose unnecessary economic and mental health burdens. Third, timing plays a crucial role—early intervention can drastically reduce total costs, but in some regions, delays in response meant that even the most stringent measures would have had limited impact.
 
-\rev{Methodologically, the paper frames the region--policy effect matrix as a partially observed low-rank object and estimates the rank-$1$ structure jointly rather than fixing policy effects from historical averages. Empirically, we show that this parsimonious structure remains competitive across holdout exercises, higher-rank alternatives, a finer 9-category policy partition, and later-period transfer tests against a constant-$\gamma$ benchmark. Managerially, we use the resulting simulation framework not only to trace efficient frontiers, but also to construct a region-blind state-action decision tree and a rolling-horizon advisor that translate the model into concrete, monitorable policy summaries.}
+\rev{Methodologically, the paper frames the region--policy effect matrix as a partially observed low-rank object and estimates the rank-$1$ structure jointly rather than fixing policy effects from historical averages. Empirically, we show that this parsimonious structure remains competitive across holdout exercises, higher-rank alternatives, a finer 9-category policy partition, and later-period transfer tests against a constant-$\gamma$ benchmark. Managerially, we use the resulting simulation framework not only to trace efficient frontiers, but also to construct a region-blind state-action decision tree and online THEMIS, which translate the model into concrete, monitorable policy summaries.}
 
 \rev{In summary, this paper contributes by formulating a quantitative and operational framework for conducting cost-benefit analyses of COVID-19 NPIs, validating the underlying counterfactual structure, and distilling the resulting policy trade-offs into decision support tools that can be deployed sequentially as a pandemic unfolds. The THEMIS codebase is open-source and available at \url{https://github.com/COVIDAnalytics/THEMIS}, facilitating its application to other regions.}
 
@@ -197,7 +195,8 @@ where we suppress the dependence on the policy $\bm{P}$ when it is clear. The fo
 
 \begin{figure*}[h!]
 \centering
-\begin{tikzpicture}[scale=0.6]
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[scale=0.55]
 \linespread{0.5}\selectfont
 \node[rounded rectangle, draw=black, text width=3cm, align=center] (Policy) at (3, 12) {Policy\\ $\bm{P}=(\bm{I},\bm{T})$};
 \node[rounded rectangle, draw=black, text width=3cm, align=center] (Region) at (17, 12) {Region-specific Information\\ $\bm{R}$};
@@ -216,10 +215,11 @@ where we suppress the dependence on the policy $\bm{P}$ when it is clear. The fo
 \draw[->] (DELPHI) --(Mortality);
 \draw[->] (DELPHI) to [bend left=30] (Hospitalization);
 \end{tikzpicture}
-\caption{THEMIS Schematic. Here we ignore the arrows from $\bm{R}$ to every module for simplicity.}
+}
+\caption{THEMIS schematic.}
 \label{fig:data_flowchart}
 \end{figure*}
-\subsection{The DELPHI model $f$: Forecasting the dynamics of the COVID-19 pandemic}
+\subsection{The DELPHI Model: Forecasting the Dynamics of the COVID-19 Pandemic}
 \label{subsec:delphi}
 DELPHI is a policy-driven compartmental epidemiological model that extends the widely used SEIR model to account for effects specific to the COVID-19 pandemic.  The model is governed deterministically by a system of ordinary differential equations (ODEs) involving 11 states: susceptible ($M^S$), exposed ($M^E$), infectious ($M^I$), undetected cases who will recover ($M^{UR}$) or die ($M^{UD}$), detected hospitalized cases who will recover ($M^{HR}$) or die ($M^{HD}$), detected quarantined cases who will recover ($M^{QR}$) or die ($M^{QD}$), recovered ($M^{R}$) and deceased ($M^{D}$). Within the hospitalized states ($M^{HR},M^{UD}$), there are also helper states to govern patients that are in the ICU ($M^{IC}$) and patients who are ventilated ($M^{V}$). Since its conception in late March 2020, it has been successfully applied to more than 210 countries and regions worldwide with high accuracy, and is utilized by organizations including the Hartford Hospital system for pandemic planning. \citepmain{li:20}
 
@@ -483,6 +483,7 @@ where the OxCGRT indicators correspond to cancellation of public events (C3), re
 \begin{table}[h!]
 \centering
 {\color{blue}\small
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{|l|c|c|c|c|l|}
 \hline
 \textbf{THEMIS Policy Category} & \textbf{Schools} & \textbf{Mass Gath.} & \textbf{Others} & \textbf{C6} & \textbf{Rule} \\\hline
@@ -494,6 +495,7 @@ where the OxCGRT indicators correspond to cancellation of public events (C3), re
 (6) Mass Gath.\ + Schools + Others & 1 & 1 & $\geq 1$ & 0 & sum $> 2$, C1+MG on, C6 off \\
 (7) Stay-at-Home / Lockdown & --- & --- & --- & 1 & C6 on \\\hline
 \end{tabular}
+\end{adjustbox}
 }
 \caption{\rev{Mapping from OxCGRT binary indicators to the seven MECE policy categories used in THEMIS. ``Mass Gath.'' denotes $\mathbf{1}[\text{C3} \lor \text{C4} \lor \text{C5}]$ and ``Others'' denotes $\mathbf{1}[\text{C2} \lor \text{C7} \lor \text{C8}]$. Stay-at-home (C6 $=1$) takes precedence and maps to Lockdown regardless of the other indicators.}}
 \label{tab:oxford_mapping}
@@ -518,7 +520,7 @@ To rigorously quantify uncertainty in our model and construct confidence interva
 \end{enumerate}
 By integrating these two sources of uncertainty, we can enable decision-makers to better understand the range of possible outcomes under different policy interventions.
 
-\subsection{Results and Discussion}
+\subsection{Results}
 \label{subsec:results}
 \begin{figure*}
     \centering
@@ -565,16 +567,67 @@ This pattern helps clarify what drives the cross-region heterogeneity in the fro
 The broader managerial implication is that THEMIS does not recommend a single canonical response. What is robust across regions is the value of acting strongly before the epidemic accelerates. What varies is how long that stance should be maintained and how quickly it should be unwound. This is precisely why region-specific counterfactual evaluation is necessary: the optimal trade-off depends jointly on epidemiological timing, on the local composition of humanitarian versus economic costs, and on how close a region is to the threshold at which the preferred policy changes.}
 
 {\color{blue}
-The appendices show that these conclusions are not artifacts of one particular modeling choice. Appendix~\ref{app:granular} replaces the seven policy bundles with a finer 9-category partition and obtains similar qualitative predictions along the realized paths, although the New York comparison shows that the partition is not entirely innocuous. Appendix~\ref{app:time_transfer} shows that policy effects estimated in one pandemic period retain modest incremental predictive content over a constant-$\gamma$ benchmark in the next period. Appendix~\ref{app:prescriptive} then converts the full simulation output into two operational summaries: a region-blind state-action tree that compresses the focal-region policy map, and a rolling-horizon advisor that uses dated information plus an initial warm start. Together these extensions make the prescriptive content of THEMIS more explicit than a frontier plot alone.}
+The appendix evidence also shows that these frontier comparisons are not artifacts of one particular coding choice. Appendix~\ref{app:granular} replaces the seven policy bundles with a finer 9-category partition and obtains similar qualitative predictions along the realized paths, while Appendix~\ref{app:time_transfer} shows that policy effects estimated in one pandemic period retain modest incremental predictive content over a constant-$\gamma$ benchmark in the next period.}
 
-\section{Limitations}
+\section{\rev{Discussion}}
 \label{sec:discussion}
 {\color{blue}
-Although THEMIS yields actionable insights, it remains subject to several important limitations. First, because policy effects are learned from historically observed bundles, the framework cannot evaluate an NPI that has never been implemented anywhere in the underlying data. The counterfactual exercise is therefore strongest when it compares feasible policies within a menu that has already appeared in practice. The same point limits fully day-zero use for a completely novel pathogen: before even limited first-wave data accumulate, a policymaker would need additional inputs such as expert priors or analogies to prior outbreaks. The online advisor in Appendix~\ref{app:prescriptive} shows that THEMIS can be deployed sequentially once early-wave information begins to arrive, but it is not a zero-data oracle.
+To move from frontier plots to operational guidance, we summarize the simulated policy map with a pooled state-action tree estimated across the four focal regions. The tree uses only observable pandemic conditions, realized prefix costs, and the humanitarian weight $w$; it does not use any region indicator or region-specific covariate. We therefore interpret it as a compression of the simulated policy map rather than as a separate structural model.
 
-Second, confounding remains an inherent concern because NPIs are not randomly assigned. Voluntary behavior, seasonal factors, testing intensity, and other contemporaneous changes may all move together with policy. The revised appendix therefore focuses on the object most relevant for our conclusions: the ranking of candidate policies. Appendix~\ref{app:confounding} shows that the policy ordering is highly stable when the estimated differential NPI effects are shrunk substantially toward a no-contrast benchmark, and supplements this with an event-study analysis around 716 policy transitions. These exercises do not eliminate the usual identification concerns of an observational study, but they do indicate that the paper's qualitative policy conclusions are not driven by a knife-edge estimate of the differential policy effects.
+\begin{table}[H]
+\centering\small
+\renewcommand{\arraystretch}{1.15}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|c|l|c|c|c|}
+\hline
+\textbf{\#} & \textbf{State condition} & \textbf{NPI} & \textbf{Purity} & \textbf{$n$} \\\hline
+R1 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} > 16.9\%\,\text{GDP}$;\; $\text{act.\ hosp.} \leq 0.019\%\,\text{pop.}$;\; $w \leq 0.71$ \end{tabular} & $1$ & $97\%$ & $546$ \\[4pt]
+R2 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \in [6.6\%,\,16.9\%]\,\text{GDP}$;\; $w > 0.34$;\; $\text{act.\ cases} > 0.27\%\,\text{pop.}$ \end{tabular} & $6$ & $92\%$ & $741$ \\[4pt]
+R3 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} > 16.9\%\,\text{GDP}$;\; $\text{act.\ hosp.} > 0.019\%\,\text{pop.}$;\; $w \leq 0.24$ \end{tabular} & $1$ & $87\%$ & $90$ \\[4pt]
+R4 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \leq 16.9\%\,\text{GDP}$;\; $w \leq 0.34$;\; $\text{deaths} > 0.002\%\,\text{pop.}$;\; $\text{hum.\ cost} \leq 55.5\%\,\text{GDP}$ \end{tabular} & $6$ & $45\%$ & $553$ \\[4pt]
+R5 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \leq 6.6\%\,\text{GDP}$;\; $w > 0.34$;\; $\text{act.\ cases} > 0.016\%\,\text{pop.}$ \end{tabular} & $7$ & $60\%$ & $624$ \\[4pt]\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\rev{Five representative leaves of the pooled state-action tree. None of the conditions references a region indicator.}}
+\label{tab:state_action_rules}
+\end{table}
 
-Third, the component models necessarily simplify a complex phenomenon. DELPHI, like other SEIR-based models, requires a sufficiently large population and epidemic size for its aggregate dynamics to be reliable \citepmain{holmdahl2020}. The cost model is likewise intended as a first-order accounting framework rather than a complete welfare representation. Some channels are modeled linearly or additively for tractability. Appendix~\ref{app:additional_sensitivity} therefore revisits several of these assumptions directly: it shows that the policy ranking is essentially unchanged under nonlinear mental-health cost functions, that the epidemiological ranking is highly stable under within-block adherence decay, and that a shorter one-month optimization horizon tends to recommend a weaker first-month intervention than the baseline three-month problem. These checks reduce, but do not eliminate, model dependence.
+Table~\ref{tab:state_action_rules} highlights three regularities. First, active epidemiological burden---especially active cases and active hospitalizations---drives the key escalation and exit splits. Second, once cumulative economic cost is already large and hospital pressure has subsided, the tree recommends rapid relaxation. Third, lockdown appears only as an early preemptive instrument; later in the horizon the tree typically prefers NPI~6 to NPI~7. This threshold view also helps explain the wider uncertainty bands in Germany and Spain: many candidate policies place those regions closer to the boundary at which the preferred action changes.
+
+The pooled tree does not replace region-specific simulation, but it clarifies the structure behind the frontier comparisons in observable units. Across the focal regions, THEMIS points to the same broad logic: act strongly before the wave accelerates, then relax once active burden is under control and the economic cost of staying tight has already accumulated. What varies across regions is not that logic, but the state thresholds at which the preferred taper begins.}
+
+\section{\rev{Online THEMIS}}
+\label{sec:online_themis}
+{\color{blue}
+THEMIS is not a day-zero oracle, but it can be deployed sequentially once limited early-wave data begin to accumulate. We therefore implement online THEMIS as a rolling-horizon version of the framework. At each monthly decision date, it uses the dated DELPHI snapshot available at that time, estimates policy effects from the data observed up to that date, and chooses the next-month NPI by one-step lookahead. When the first decision window is too short for the date-restricted matrix estimate, we use the factory rank-$1$ estimate as a warm start and then switch to the date-restricted estimator from the second decision onward.
+
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{|l|c|c|c|r|r|r|r|r|}
+\hline
+\textbf{Region} & $\pi^{\text{online}}_R$ & $\pi^{\text{actual}}_R$ & $\pi^{\text{HS}}_R$ & \textbf{Online} & \textbf{Actual} & \textbf{Hindsight} & \textbf{Online} & \textbf{Actual} \\
+                &                          &                         &                     & \textbf{cost}   & \textbf{cost}   & \textbf{cost}      & \textbf{gap}    & \textbf{gap}   \\\hline
+Germany   & $6$--$4$--$5$ & $6$--$6$--$5$ & $6$--$6$--$1$ & $10.5\%$  & $8.0\%$   & $6.3\%$  & $+66.3\%$ & $+26.3\%$ \\
+Brazil    & $6$--$4$--$7$ & $3$--$3$--$3$ & $6$--$6$--$5$ & $6.2\%$   & $12.9\%$  & $4.8\%$  & $+29.6\%$ & $+171.4\%$ \\
+Spain     & $5$--$4$--$5$ & $7$--$7$--$6$ & $6$--$1$--$1$ & $17.4\%$  & $31.2\%$  & $11.5\%$ & $+50.7\%$ & $+171.2\%$ \\
+New York  & $6$--$4$--$1$ & $7$--$7$--$6$ & $6$--$6$--$1$ & $29.3\%$  & $60.3\%$  & $26.4\%$ & $+11.3\%$ & $+128.6\%$ \\\hline
+\multicolumn{4}{|r|}{\textbf{Mean}} & & & & \textbf{$+39.5\%$} & \textbf{$+124.4\%$} \\\hline
+\end{tabular}
+\caption{\rev{Online THEMIS versus the unattainable hindsight optimum. Costs are expressed as \% of quarterly GDP.}}
+\label{tab:rolling_advisor_v2}
+\end{table}
+
+Table~\ref{tab:rolling_advisor_v2} shows that online THEMIS improves on the realized policy cost in Brazil, Spain, and New York, reducing the mean gap to hindsight from $124.4\%$ to $39.5\%$. The selected sequences are also not uniformly draconian: after the first month, online THEMIS typically moves toward moderate restrictions rather than extended lockdown. We view this exercise as evidence that the framework can support sequential policy updating once early-wave information is available, even though the fully cold-start problem of a novel pathogen remains outside the scope of the paper.}
+
+\section{Limitations}
+\label{sec:limitations}
+{\color{blue}
+Although THEMIS yields actionable insights, it remains subject to several important limitations. First, because policy effects are learned from historically observed bundles, the framework cannot evaluate an NPI that has never been implemented anywhere in the underlying data. The counterfactual exercise is therefore strongest when it compares feasible policies within a menu that has already appeared in practice. The same point limits fully day-zero use for a completely novel pathogen: before even limited first-wave data accumulate, a policymaker would need additional inputs such as expert priors or analogies to prior outbreaks. Section~\ref{sec:online_themis} shows that THEMIS can nevertheless be deployed sequentially once early-wave information begins to arrive.
+
+Second, confounding remains an inherent concern because NPIs are not randomly assigned. Voluntary behavior, seasonal factors, testing intensity, and other contemporaneous changes may all move together with policy. \rev{Appendix~\ref{app:confounding} therefore focuses on the object most relevant for our conclusions: the ranking of candidate policies. It shows that the policy ordering is highly stable when the estimated differential NPI effects are shrunk substantially toward a no-contrast benchmark, and supplements this with an event-study analysis around 716 policy transitions.} These exercises do not eliminate the usual identification concerns of an observational study, but they do indicate that the paper's qualitative policy conclusions are not driven by a knife-edge estimate of the differential policy effects.
+
+Third, the component models necessarily simplify a complex phenomenon. DELPHI, like other SEIR-based models, requires a sufficiently large population and epidemic size for its aggregate dynamics to be reliable \citepmain{holmdahl2020}. The cost model is likewise intended as a first-order accounting framework rather than a complete welfare representation. Some channels are modeled linearly or additively for tractability. \rev{Appendix~\ref{app:addsens_mental} shows that the policy ranking is essentially unchanged under nonlinear mental-health cost functions, Appendix~\ref{app:addsens_adherence} shows that the epidemiological ranking is highly stable under within-block adherence decay, and Appendix~\ref{app:addsens_horizon} shows that a shorter one-month optimization horizon tends to recommend a weaker first-month intervention than the baseline three-month problem.} These checks reduce, but do not eliminate, model dependence.
 
 Finally, the framework omits several important spillovers whose measurement is difficult or whose horizon lies far beyond the three-month policy window studied here. We do not include elective-surgery backlogs, long-run educational losses, or other downstream effects that unfold gradually and are difficult to quantify comparably across countries. Nor do we model endogenous variant emergence. The appearance of a new variant would alter the underlying epidemiological parameters and could therefore shift the efficient frontier, so THEMIS would need to be re-calibrated before being used in that setting. At the same time, some omitted channels go in the opposite direction, such as reductions in influenza burden under stronger NPIs. For this reason, the missing channels create incompleteness, but not an obvious one-sided bias. THEMIS should therefore be read as a structured and transparent framework for comparative policy evaluation, not as a claim to exhaustive welfare accounting.}
 \section{Conclusion}
@@ -583,132 +636,20 @@ In this paper, we introduced THEMIS, a counterfactual prediction framework for e
 
 We observe that humanitarian costs rise exponentially when NPIs fail to contain the virus, while economic costs remain relatively stable, suggesting that small economic sacrifices can yield significant humanitarian benefits. However, overly stringent lockdowns do not always justify their costs. Comparing actual policies to the efficient frontier, Germany prioritized minimizing humanitarian costs, while New York incurred high costs in both dimensions, underscoring the need for more adaptive strategies. Regional differences in policy uncertainty further highlight the importance of real-time monitoring and data-driven policymaking.
 
-\rev{The additional robustness exercises strengthen this conclusion materially. The rank-$1$ low-rank structure remains competitive across holdout exercises, higher-rank alternatives, finer policy partitions, and time-transfer tests. The prescriptive extensions likewise show that the framework can be distilled into operational guidance: the pooled state-action tree identifies threshold-based escalation and exit rules in observable units, while the online rolling-horizon advisor improves on the realized policy cost in three of the four focal regions using only information available at each decision date.}
+\rev{The additional robustness exercises strengthen this conclusion materially. The rank-$1$ low-rank structure remains competitive across holdout exercises, higher-rank alternatives, finer policy partitions, and time-transfer tests. The main-text prescriptive analysis likewise shows that the framework can be distilled into operational guidance: the pooled state-action tree identifies threshold-based escalation and exit rules in observable units, while online THEMIS improves on the realized policy cost in three of the four focal regions using only information available at each decision date.}
 
 \rev{THEMIS therefore provides more than a retrospective frontier plot. It offers a transparent and open-source framework for evaluating pandemic policies, for organizing sequential decisions once limited early-wave data are available, and for clarifying how economic and humanitarian trade-offs vary across regions. We view this combination of counterfactual evaluation, robustness analysis, and operational decision support as the paper's main contribution to pandemic planning.}
 
 \bibliographystylemain{informs2014}
-\bibliographymain{Paper/bibliography.bib}
+\bibliographymain{bibliography,Paper/bibliography}
 
 \clearpage
 
 \begin{APPENDICES}
+\renewcommand{\theHsection}{app.\Alph{section}}
+\renewcommand{\theHsubsection}{app.\Alph{section}.\arabic{subsection}}
+\renewcommand{\theHsubsubsection}{app.\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
 
-\section{The DELPHI Model}
-\label{app:delphi_fitting_procedure}
-The DELPHI model is a compartment epidemiological model that extends the classical SEIR model into 11 states under the following 8 groups:
-\begin{itemize}[topsep=0pt,itemsep=0pt]
-    \item \textbf{Susceptible ($\bm{M^S}$)}: People who have not been infected.
-    \item \textbf{Exposed ($\bm{M^E}$)}: People currently infected, but not contagious and within the incubation period. 
-    \item \textbf{Infected ($\bm{M^I}$)}: People currently infected and contagious. 
-    \item \textbf{Undetected ($\bm{M^{UR}}$) \& ($\bm{M^{UD}}$)}: People infected and self-quarantined due to the effects of the disease, but not confirmed due to lack of testing. Some of these people recover ($M^{HR}$) and some die ($M^{HD}$).
-    \item \textbf{Detected, Hospitalized ($\bm{M^{HR}}$) \& ($\bm{M^{HD}}$)}: People who are infected, confirmed, and hospitalized. Some of these people recover ($M^{HR}$) and some die ($M^{HD}$).
-    \item \textbf{Detected, Quarantine ($\bm{M^{QR}}$) \& ($\bm{M^{QD}}$)}: People who are infected, confirmed, and home-quarantined rather than hospitalized. Some of these people recover ($M^{QR}$) and some die ($M^{QD}$).
-    \item \textbf{Recovered ($\bm{M^{R}}$)}: People who have recovered from the disease (and assumed to be immune).
-    \item \textbf{Deceased ($\bm{M^{D}}$)}:  People who have died from the disease. 
- \end{itemize}
-In addition to main functional states, we introduce auxiliary states to calculate a few useful quantities: Total Hospitalized ($M^{TH}$), Total Detected deaths ($M^{DD}$) and Total Detected Cases ($M^{DT}$). The full mathematical formulation of the model is as followed:
-\begin{align*}
-\frac{\mathrm{d} M^S}{\mathrm{d} t} &= -\widetilde{\alpha} \gamma(t)M^S(t)M^I(t) \\
-\frac{\mathrm{d} M^E}{\mathrm{d} t} &= \widetilde{\alpha} \gamma(t)M^S(t)M^I(t)-\beta M^E(t) \\
-\frac{\mathrm{d} M^I}{\mathrm{d} t} &= \beta M^E(t)-r_d M^I(t) \\
-\frac{\mathrm{d} M^{UR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))(1-\widetilde{p_d})M^I(t) - \sigma M^{UR}(t) \\
-\frac{\mathrm{d} M^{HR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))\widetilde{p_d} p_h M^I(t) - \kappa M^{HR}(t) \\
-\frac{\mathrm{d} M^{QR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))\widetilde{p_d} (1-p_h) M^I(t) - \sigma M^{QR}(t) \\
-\frac{\mathrm{d} M^{UD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) (1-\widetilde{p_d}) M^I(t) - \widetilde{\tau} M^{UD}(t)\\
-\frac{\mathrm{d} M^{HD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) \widetilde{p_d} p_h M^I(t) - \widetilde{\tau} M^{HD}(t) \\
-\frac{\mathrm{d} M^{QD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) \widetilde{p_d} (1-p_h) M^I(t) - \widetilde{\tau} M^{QD}(t) \\
-\frac{\mathrm{d} M^{TH}}{\mathrm{d} t} &= r_d \widetilde{p_d} p_h M^I(t) \\
-\frac{\mathrm{d} M^{DD}}{\mathrm{d} t} &= \widetilde{\tau} (M^{HD}(t) + M^{QD}(t)) \\
-\frac{\mathrm{d} M^{DT}}{\mathrm{d} t} &= r_d \widetilde{p_d} M^I(t) \\
-\frac{\mathrm{d} M^R}{\mathrm{d} t} &= \sigma(M^{UR}(t)+M^{QR}(t))+\kappa M^{HR}(t)\\
-\frac{\mathrm{d} M^D}{\mathrm{d} t} &= \widetilde{\tau}(M^{UD}(t)+M^{QD}(t)+M^{HD}(t))
-\end{align*}
-
-\makeatletter
-\let\normalsize\relax
-\let\@currsize\normalsize
-\makeatother
-
-\begin{figure}[t]
-\centering
-\resizebox{0.5\textwidth}{!}{
-\begin{tikzpicture}[scale=0.45]
-    \node[circ,draw=black] (S) at (0, 0){$M^S$};
-    \node[circ,draw=black] (E) at (4,0){$M^E$};
-    \node[circ,draw=black] (I) at (8,0) {$M^I$};
-    
-    \node[circ,draw=black] (UR) at (16,6) {$M^{UR}$};
-    \node[circ,draw=black] (UD) at (16,4) {$M^{UD}$};
-    \draw[dotted] (14.5,2.75) rectangle (17.5,7.25);
-
-    \node[circ,draw=black] (HR) at (16,1) {$M^{HR}$};
-    \node[circ,draw=black] (HD) at (16,-1) {$M^{HD}$};
-    \draw[dotted] (14.5,-2.25) rectangle (17.5,2.25);
-
-    \node[circ,draw=black] (QR) at (16,-4) {$M^{QR}$};
-    \node[circ,draw=black] (QD) at (16,-6) {$M^{QD}$};
-    \draw[dotted] (14.5,-7.25) rectangle (17.5,-2.75);
-
-    \node[circ,draw=black] (R) at (24,3) {$M^R$};
-    \node[circ,draw=black] (D) at (24,-3) {$M^D$};
-
-    \draw[->] (S) -- (E) node[midway,above]{$\widetilde{\alpha}, \gamma(t)$};
-    \draw[->] (E) -- (I) node[midway,above]{$\beta$};
-    \draw[->] (I) -- (HR);
-    \draw[->] (I) -- (HD);
-    \draw[->] (I) -- (QR);
-    \draw[->] (I) -- (QD);
-    \draw[->] (I) -- (UD);
-    \draw[->] (I) -- (UR);
-
-    \draw[->] (QR) -- (R);
-    \draw[->] (UR) -- (R);
-    \draw[->] (HR) -- (R);
-    \draw[->] (UD) -- (D);
-    \draw[->] (HD) -- (D);
-    \draw[->] (QD) -- (D);
-\end{tikzpicture}
-}
-\caption{Flow Diagram of DELPHI.}
-\label{fig:DELPHI}
-\end{figure}
-Figure~\ref{fig:DELPHI} depicts a flow representation of the model, where each arrow represents how individuals can flow between different states.
-The underlying differential equations are governed by 16 parameters which are shown on the appropriate arrows in Figure~\ref{fig:DELPHI} and defined below. To limit the amount of data needed to train this model, only the parameters denoted with a tilde are being fitted against historical data for each area (country/state/province); the others are largely biological parameters that are fixed using available clinical data from a meta-analysis of over 190 papers on COVID-19 available at time of model creation \citepmain{bertsimas2020covidClinicalOutcomes}. A small selection of references for each parameter is given below.
-\begin{itemize}[topsep=0pt,itemsep=0pt]
-    \item $\widetilde{\alpha}$ is the baseline infection rate. 
-
-    \item $\gamma(t)$ measures the effect of government response and is defined as:
-    \[\gamma(t)=1 + \frac{2}{\pi}\arctan\left(\frac{-(t-\widetilde{t_0})}{\widetilde{k}}\right) + \widetilde{c}\exp\left(-\frac{(t-\widetilde{t_\text{jump}})^2}{2\widetilde{\sigma}^2}\right), \]
-    where the parameters $\widetilde{t_0}$ and $\widetilde{k}$ capture, respectively, the timing and the strength of the response. The exponential term intends to reflect a resurgence in infections due to relaxation of governmental policy and societal response, where $\widetilde{c}$ controls the magnitude of resurgence, $\widetilde{t_\text{jump}}$ the time of the acme of the resurgence, and $\widetilde{\sigma}$ the duration of the resurgence phase.  The effective infection rate in the model is $\widetilde{\alpha}\gamma(t)$, which is time dependent. The $\frac{2}{\pi}$ constant is so that the starting $\gamma(t)$ with $\widetilde{c}=0$ is normalized to the range of $[0,2]$ with $\gamma(t)=1$ if $t=t_0$. This allows both $\gamma(t)$ and $\alpha$ to be identified and be used within the THEMIS model. 
-    \item $r_d$ is the rate of detection. This equals to $\frac{\log 2}{T_{d}}$, where $T_{d}$ is the median time to detection (fixed to be 2 days), see  \citemain{wang2020evolving}.
-    \item $\beta$ is the rate of infection leaving incubation phase. This equals to $\frac{\log 2}{T_{\beta}}$, where $T_{\beta}$ is the median time to leave incubation (fixed at 5 days), see  \citemain{lauer2020incubation}.
-    \item $\sigma$ is the rate of recovery of non-hospitalized patients. This equals to $\frac{\log 2}{T_{\sigma}}$, where $T_{\sigma}$ is the median time to recovery of non-hospitalized patients  (fixed at 10 days), see \citemain{hu2020clinical,kluytmans2020sars}.
-    \item $\kappa$ is the rate of recovery under hospitalization.  This equals to $\frac{\log 2}{T_{\kappa}}$, where $T_{\kappa}$ is the median time to recovery under hospitalization (fixed at 15 days), see \citemain{liu2020clinical,grein2020compassionate}.
-    \item $\widetilde{\tau}$ is the rate of death. This captures the speed at which a dying patient dies, and thus inversely proportional to how long a dying patient stays alive.
-
-    \item $\widetilde{\mu}(t)$ is the case fatality rate, defined as:
-    \begin{align*}
-        \widetilde{\mu}(t) = \left(\widetilde{\mu_0} - \mu_{\min}\right)\left(1 + \frac{2}{\pi}\arctan\left(-\widetilde{r_m} t\right)\right) + \mu_{\min},
-\end{align*}
-Where $\widetilde{\mu_0}$ is the initial case fatality rate, $\mu_{\min}$ is the minimum case fatality rate and $\widetilde{r_m}$ is the decay rate for mortality. This parametric curve describes the natural decay of case fatality rate as standard of care improves throughout the pandemic. Notice that this quantity measures the percentage of people who die from the disease in a particular region, and is independent from the rate of death. If $r_m<0$, this function can also capture the effect of an increasing mortality rate. 
-    \item $p_d$ is the percentage of infectious cases detected, which is fixed at $20\%$ based on various reports trying to understand the extent of underdetection in countries with earlier outbreaks. \citemain{wang2020evolving, krantz2020level,niehus2020quantifying}
-    \item $p_h$ is the (constant) percentage of detected cases hospitalized, which is set to $15\%$, see \citemain{arons2020presymptomatic,xu2020evaluation}.
-\end{itemize}
-
-We fit on 9 parameters from the list above ($\widetilde{\alpha}$,  $\widetilde{t_0}$, $\widetilde{k}$, 
- $\widetilde{c}$, $\widetilde{t_\text{jump}}$, $\widetilde{\sigma}$, $\widetilde{\mu_0}$, $\widetilde{r_m}, \$\widetilde{\tau}$). In addition, we introduce 2 additional parameters $\widetilde{k_1}$, $\widetilde{k_2}$ to account for the unknown initial population in the infected ($M^I$) and exposed ($M^E$) states. We thus fit 11 parameters per area.
-
-The parameters are fitted by minimizing a weighted Mean Squared Error (MSE) metric with respect to the parameters. In general, other loss functions may be used as the calibration errors for a pandemic evolution are not necessarily random - however we have experimentally found that the MSE metric, which gives more prominence to days with larger number of cases and deaths, produce predictions that generalize better into the future.  Let  $M^{DT}(t)$ and $M^{DD}(t)$ denote  the number of reported total detected cases and detected deaths, respectively, on day $t$. Then, the loss function for a training period of $T$ days is defined as:
-$$
-\begin{aligned}
-\sum_{t=1}^{T} \frac{t^2}{T^2} \cdot \left(\widetilde{M^{DT}}(t) - M^{DT}(t)\right)^2 + \lambda^2 \cdot \sum_{t=1}^{T} t \cdot \left(\widetilde{M^{DD}}(t) - M^{DD}(t)\right)^2,
-\end{aligned}
-$$
-where $\widetilde{M^{DT}}(t)$ and $\widetilde{M^{DD}}(t)$ are respectively the total detected cases and deaths predicted by DELPHI. We utilize mean-squared error (MSE) for model calibration because it emphasizes larger errors, which is crucial for our application. Specifically, in the context of THEMIS, periods with a high number of cases contribute disproportionately to the overall cost. By using MSE, the calibration process prioritizes accuracy during these critical periods, ensuring that the model is more sensitive to situations where errors could have a significant impact. The factor $\frac{t^2}{T^2}$ gives more prominence to more recent data, as recent errors are more likely to propagate into future errors. The lambda factor $\lambda= \min\Big\{ \frac{M^{DT}(T)}{3\cdot M^{DD}(T)}, 10\Big\}$ balances the fitting between detected cases and deaths while the factor 10 avoids data stability issues due to low amount of deaths; this re-scaling coefficient was obtained experimentally through cross-validation on early pandemic data. We specifically exclude historical data starting before the area recorded more than 100 cases; this allows us to exclude sporadic outbreaks that are not epidemics. To optimize over the highly non-convex search space, we utilize both the local truncated newton algorithm (TNC) \citepmain{nocedal2006numerical} and the global optimization method of dual annealing (DA) \citepmain{xiang1997generalized}.TNC is utilized to produce forecasts on a daily basis while DA, being more computationally expensive, is performed on a weekly basis to shift and re-adjust the parameters more significantly if the underlying mechanics have changed (e.g. in the case of a new wave of cases). We use a bound of $20\%$ deviation around the latest value for TNC, and a bound of $50\%$ deviation for DA. 
-\vfill
-\newpage
-\newpage
 \section{List of Region-specific Cost Parameters}
 \label{app:region_specific_params}
 
@@ -910,25 +851,125 @@ If there are multiple sources that each pertain to a subset of the target popula
 \paragraph{Unemployment ($U_R(i)$):} Unemployment data is directly sourced from the Brazilian Institute of Geography and Statistics.
 
 \paragraph{Unemployment Cost ($c^Y_{R,U}$):} \citeapp{chen2019effect} suggests that unemployment costs are roughly equivalent to 1.5 years of GDP per capita. We extrapolate this using Brazil's 2019 GDP per capita.
-\section{Regional Adjustment Factor and Error}
-\label{app:adjustment_factor}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Country} & $k_R$ & $\sigma(k_R)$ \\ \hline
-Brazil  & 1.043 & 0.020 \\ \hline
-Germany & 0.286 & 0.084 \\ \hline
-New York, US & 0.549 & 0.114 \\ \hline
-Spain      & 0.442 & 0.019 \\ \hline
-\end{tabular}
-\caption{Table of $k_R$ and $\sigma(k_R)$ for different countries.}
-\label{tab:kr_values}
-\end{table}
+\section{The DELPHI Model}
+\label{app:delphi_fitting_procedure}
+The DELPHI model is a compartment epidemiological model that extends the classical SEIR model into 11 states under the following 8 groups:
+\begin{itemize}[topsep=0pt,itemsep=0pt]
+    \item \textbf{Susceptible ($\bm{M^S}$)}: People who have not been infected.
+    \item \textbf{Exposed ($\bm{M^E}$)}: People currently infected, but not contagious and within the incubation period. 
+    \item \textbf{Infected ($\bm{M^I}$)}: People currently infected and contagious. 
+    \item \textbf{Undetected ($\bm{M^{UR}}$) \& ($\bm{M^{UD}}$)}: People infected and self-quarantined due to the effects of the disease, but not confirmed due to lack of testing. Some of these people recover ($M^{HR}$) and some die ($M^{HD}$).
+    \item \textbf{Detected, Hospitalized ($\bm{M^{HR}}$) \& ($\bm{M^{HD}}$)}: People who are infected, confirmed, and hospitalized. Some of these people recover ($M^{HR}$) and some die ($M^{HD}$).
+    \item \textbf{Detected, Quarantine ($\bm{M^{QR}}$) \& ($\bm{M^{QD}}$)}: People who are infected, confirmed, and home-quarantined rather than hospitalized. Some of these people recover ($M^{QR}$) and some die ($M^{QD}$).
+    \item \textbf{Recovered ($\bm{M^{R}}$)}: People who have recovered from the disease (and assumed to be immune).
+    \item \textbf{Deceased ($\bm{M^{D}}$)}:  People who have died from the disease. 
+ \end{itemize}
+In addition to main functional states, we introduce auxiliary states to calculate a few useful quantities: Total Hospitalized ($M^{TH}$), Total Detected deaths ($M^{DD}$) and Total Detected Cases ($M^{DT}$). The full mathematical formulation of the model is as followed:
+\begin{align*}
+\frac{\mathrm{d} M^S}{\mathrm{d} t} &= -\widetilde{\alpha} \gamma(t)M^S(t)M^I(t) \\
+\frac{\mathrm{d} M^E}{\mathrm{d} t} &= \widetilde{\alpha} \gamma(t)M^S(t)M^I(t)-\beta M^E(t) \\
+\frac{\mathrm{d} M^I}{\mathrm{d} t} &= \beta M^E(t)-r_d M^I(t) \\
+\frac{\mathrm{d} M^{UR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))(1-\widetilde{p_d})M^I(t) - \sigma M^{UR}(t) \\
+\frac{\mathrm{d} M^{HR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))\widetilde{p_d} p_h M^I(t) - \kappa M^{HR}(t) \\
+\frac{\mathrm{d} M^{QR}}{\mathrm{d} t} &= r_d(1-\widetilde{\mu}(t))\widetilde{p_d} (1-p_h) M^I(t) - \sigma M^{QR}(t) \\
+\frac{\mathrm{d} M^{UD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) (1-\widetilde{p_d}) M^I(t) - \widetilde{\tau} M^{UD}(t)\\
+\frac{\mathrm{d} M^{HD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) \widetilde{p_d} p_h M^I(t) - \widetilde{\tau} M^{HD}(t) \\
+\frac{\mathrm{d} M^{QD}}{\mathrm{d} t} &= r_d \widetilde{\mu}(t) \widetilde{p_d} (1-p_h) M^I(t) - \widetilde{\tau} M^{QD}(t) \\
+\frac{\mathrm{d} M^{TH}}{\mathrm{d} t} &= r_d \widetilde{p_d} p_h M^I(t) \\
+\frac{\mathrm{d} M^{DD}}{\mathrm{d} t} &= \widetilde{\tau} (M^{HD}(t) + M^{QD}(t)) \\
+\frac{\mathrm{d} M^{DT}}{\mathrm{d} t} &= r_d \widetilde{p_d} M^I(t) \\
+\frac{\mathrm{d} M^R}{\mathrm{d} t} &= \sigma(M^{UR}(t)+M^{QR}(t))+\kappa M^{HR}(t)\\
+\frac{\mathrm{d} M^D}{\mathrm{d} t} &= \widetilde{\tau}(M^{UD}(t)+M^{QD}(t)+M^{HD}(t))
+\end{align*}
 
-\section{Empirical Validation of the Separability Assumption}
+\makeatletter
+\let\normalsize\relax
+\let\@currsize\normalsize
+\makeatother
+
+\begin{figure}[t]
+\centering
+\resizebox{0.5\textwidth}{!}{
+\begin{tikzpicture}[scale=0.45]
+    \node[circ,draw=black] (S) at (0, 0){$M^S$};
+    \node[circ,draw=black] (E) at (4,0){$M^E$};
+    \node[circ,draw=black] (I) at (8,0) {$M^I$};
+    
+    \node[circ,draw=black] (UR) at (16,6) {$M^{UR}$};
+    \node[circ,draw=black] (UD) at (16,4) {$M^{UD}$};
+    \draw[dotted] (14.5,2.75) rectangle (17.5,7.25);
+
+    \node[circ,draw=black] (HR) at (16,1) {$M^{HR}$};
+    \node[circ,draw=black] (HD) at (16,-1) {$M^{HD}$};
+    \draw[dotted] (14.5,-2.25) rectangle (17.5,2.25);
+
+    \node[circ,draw=black] (QR) at (16,-4) {$M^{QR}$};
+    \node[circ,draw=black] (QD) at (16,-6) {$M^{QD}$};
+    \draw[dotted] (14.5,-7.25) rectangle (17.5,-2.75);
+
+    \node[circ,draw=black] (R) at (24,3) {$M^R$};
+    \node[circ,draw=black] (D) at (24,-3) {$M^D$};
+
+    \draw[->] (S) -- (E) node[midway,above]{$\widetilde{\alpha}, \gamma(t)$};
+    \draw[->] (E) -- (I) node[midway,above]{$\beta$};
+    \draw[->] (I) -- (HR);
+    \draw[->] (I) -- (HD);
+    \draw[->] (I) -- (QR);
+    \draw[->] (I) -- (QD);
+    \draw[->] (I) -- (UD);
+    \draw[->] (I) -- (UR);
+
+    \draw[->] (QR) -- (R);
+    \draw[->] (UR) -- (R);
+    \draw[->] (HR) -- (R);
+    \draw[->] (UD) -- (D);
+    \draw[->] (HD) -- (D);
+    \draw[->] (QD) -- (D);
+\end{tikzpicture}
+}
+\caption{Flow Diagram of DELPHI.}
+\label{fig:DELPHI}
+\end{figure}
+Figure~\ref{fig:DELPHI} depicts a flow representation of the model, where each arrow represents how individuals can flow between different states.
+The underlying differential equations are governed by 16 parameters which are shown on the appropriate arrows in Figure~\ref{fig:DELPHI} and defined below. To limit the amount of data needed to train this model, only the parameters denoted with a tilde are being fitted against historical data for each area (country/state/province); the others are largely biological parameters that are fixed using available clinical data from a meta-analysis of over 190 papers on COVID-19 available at time of model creation \citepmain{bertsimas2020covidClinicalOutcomes}. A small selection of references for each parameter is given below.
+\begin{itemize}[topsep=0pt,itemsep=0pt]
+    \item $\widetilde{\alpha}$ is the baseline infection rate. 
+
+    \item $\gamma(t)$ measures the effect of government response and is defined as:
+    \[\gamma(t)=1 + \frac{2}{\pi}\arctan\left(\frac{-(t-\widetilde{t_0})}{\widetilde{k}}\right) + \widetilde{c}\exp\left(-\frac{(t-\widetilde{t_\text{jump}})^2}{2\widetilde{\sigma}^2}\right), \]
+    where the parameters $\widetilde{t_0}$ and $\widetilde{k}$ capture, respectively, the timing and the strength of the response. The exponential term intends to reflect a resurgence in infections due to relaxation of governmental policy and societal response, where $\widetilde{c}$ controls the magnitude of resurgence, $\widetilde{t_\text{jump}}$ the time of the acme of the resurgence, and $\widetilde{\sigma}$ the duration of the resurgence phase.  The effective infection rate in the model is $\widetilde{\alpha}\gamma(t)$, which is time dependent. The $\frac{2}{\pi}$ constant is so that the starting $\gamma(t)$ with $\widetilde{c}=0$ is normalized to the range of $[0,2]$ with $\gamma(t)=1$ if $t=t_0$. This allows both $\gamma(t)$ and $\alpha$ to be identified and be used within the THEMIS model. 
+    \item $r_d$ is the rate of detection. This equals to $\frac{\log 2}{T_{d}}$, where $T_{d}$ is the median time to detection (fixed to be 2 days), see  \citemain{wang2020evolving}.
+    \item $\beta$ is the rate of infection leaving incubation phase. This equals to $\frac{\log 2}{T_{\beta}}$, where $T_{\beta}$ is the median time to leave incubation (fixed at 5 days), see  \citemain{lauer2020incubation}.
+    \item $\sigma$ is the rate of recovery of non-hospitalized patients. This equals to $\frac{\log 2}{T_{\sigma}}$, where $T_{\sigma}$ is the median time to recovery of non-hospitalized patients  (fixed at 10 days), see \citemain{hu2020clinical,kluytmans2020sars}.
+    \item $\kappa$ is the rate of recovery under hospitalization.  This equals to $\frac{\log 2}{T_{\kappa}}$, where $T_{\kappa}$ is the median time to recovery under hospitalization (fixed at 15 days), see \citemain{liu2020clinical,grein2020compassionate}.
+    \item $\widetilde{\tau}$ is the rate of death. This captures the speed at which a dying patient dies, and thus inversely proportional to how long a dying patient stays alive.
+
+    \item $\widetilde{\mu}(t)$ is the case fatality rate, defined as:
+    \begin{align*}
+        \widetilde{\mu}(t) = \left(\widetilde{\mu_0} - \mu_{\min}\right)\left(1 + \frac{2}{\pi}\arctan\left(-\widetilde{r_m} t\right)\right) + \mu_{\min},
+\end{align*}
+Where $\widetilde{\mu_0}$ is the initial case fatality rate, $\mu_{\min}$ is the minimum case fatality rate and $\widetilde{r_m}$ is the decay rate for mortality. This parametric curve describes the natural decay of case fatality rate as standard of care improves throughout the pandemic. Notice that this quantity measures the percentage of people who die from the disease in a particular region, and is independent from the rate of death. If $r_m<0$, this function can also capture the effect of an increasing mortality rate. 
+    \item $p_d$ is the percentage of infectious cases detected, which is fixed at $20\%$ based on various reports trying to understand the extent of underdetection in countries with earlier outbreaks. \citemain{wang2020evolving, krantz2020level,niehus2020quantifying}
+    \item $p_h$ is the (constant) percentage of detected cases hospitalized, which is set to $15\%$, see \citemain{arons2020presymptomatic,xu2020evaluation}.
+\end{itemize}
+
+We fit on 9 parameters from the list above ($\widetilde{\alpha}$,  $\widetilde{t_0}$, $\widetilde{k}$, 
+ $\widetilde{c}$, $\widetilde{t_\text{jump}}$, $\widetilde{\sigma}$, $\widetilde{\mu_0}$, $\widetilde{r_m}, \$\widetilde{\tau}$). In addition, we introduce 2 additional parameters $\widetilde{k_1}$, $\widetilde{k_2}$ to account for the unknown initial population in the infected ($M^I$) and exposed ($M^E$) states. We thus fit 11 parameters per area.
+
+The parameters are fitted by minimizing a weighted Mean Squared Error (MSE) metric with respect to the parameters. In general, other loss functions may be used as the calibration errors for a pandemic evolution are not necessarily random - however we have experimentally found that the MSE metric, which gives more prominence to days with larger number of cases and deaths, produce predictions that generalize better into the future.  Let  $M^{DT}(t)$ and $M^{DD}(t)$ denote  the number of reported total detected cases and detected deaths, respectively, on day $t$. Then, the loss function for a training period of $T$ days is defined as:
+$$
+\begin{aligned}
+\sum_{t=1}^{T} \frac{t^2}{T^2} \cdot \left(\widetilde{M^{DT}}(t) - M^{DT}(t)\right)^2 + \lambda^2 \cdot \sum_{t=1}^{T} t \cdot \left(\widetilde{M^{DD}}(t) - M^{DD}(t)\right)^2,
+\end{aligned}
+$$
+where $\widetilde{M^{DT}}(t)$ and $\widetilde{M^{DD}}(t)$ are respectively the total detected cases and deaths predicted by DELPHI. We utilize mean-squared error (MSE) for model calibration because it emphasizes larger errors, which is crucial for our application. Specifically, in the context of THEMIS, periods with a high number of cases contribute disproportionately to the overall cost. By using MSE, the calibration process prioritizes accuracy during these critical periods, ensuring that the model is more sensitive to situations where errors could have a significant impact. The factor $\frac{t^2}{T^2}$ gives more prominence to more recent data, as recent errors are more likely to propagate into future errors. The lambda factor $\lambda= \min\Big\{ \frac{M^{DT}(T)}{3\cdot M^{DD}(T)}, 10\Big\}$ balances the fitting between detected cases and deaths while the factor 10 avoids data stability issues due to low amount of deaths; this re-scaling coefficient was obtained experimentally through cross-validation on early pandemic data. We specifically exclude historical data starting before the area recorded more than 100 cases; this allows us to exclude sporadic outbreaks that are not epidemics. To optimize over the highly non-convex search space, we utilize both the local truncated newton algorithm (TNC) \citepmain{nocedal2006numerical} and the global optimization method of dual annealing (DA) \citepmain{xiang1997generalized}.TNC is utilized to produce forecasts on a daily basis while DA, being more computationally expensive, is performed on a weekly basis to shift and re-adjust the parameters more significantly if the underlying mechanics have changed (e.g. in the case of a new wave of cases). We use a bound of $20\%$ deviation around the latest value for TNC, and a bound of $50\%$ deviation for DA. 
+\vfill
+\newpage
+\newpage
+\section{\rev{Empirical Validation of the Separability Assumption}}
 \label{app:separability}
 
+{\color{blue}
 A key assumption in Section \ref{subsec:delphi} is the separable structure $\gamma_{R,i} = k_R g_i + \epsilon_{R,i}$, which implies that the matrix $\Gamma \in \mathbb{R}^{|\mathcal{R}| \times |\mathcal{I}|}$ of region--policy effects is approximately rank-1. In this section, we provide empirical validation of this assumption across three distinct time periods of the pandemic.
 
 \subsection*{Low-Rank Structure: Formulation}
@@ -994,70 +1035,23 @@ The rank-1 model substantially outperforms both baselines in the first two perio
 
 \subsection*{Conclusion}
 
-The multi-period holdout analysis shows that the separability structure $\gamma_{R,i} = k_R g_i$ is a parsimonious and practically competitive approximation for the region--policy interaction matrix across different phases of the pandemic. The rank-1 model achieves holdout RMSE comparable to or better than higher-rank alternatives, and outperforms simpler baselines that capture only one dimension of heterogeneity. In that sense, rank-1 provides a disciplined regularization that is well-suited to the sparsity of the policy data used for counterfactual simulation.
+The multi-period holdout analysis shows that the separability structure $\gamma_{R,i} = k_R g_i$ is a parsimonious and practically competitive approximation for the region--policy interaction matrix across different phases of the pandemic. The rank-1 model achieves holdout RMSE comparable to or better than higher-rank alternatives, and outperforms simpler baselines that capture only one dimension of heterogeneity. In that sense, rank-1 provides a disciplined regularization that is well-suited to the sparsity of the policy data used for counterfactual simulation.}
 
-\section{\rev{Sensitivity Analysis for Unmeasured Confounding}}
-\label{app:confounding}
-
-{\color{blue}
-A fundamental concern in any observational study of NPI effectiveness is the potential for unmeasured confounding. Because $\gamma_{R,i}$ is estimated from observational variation in the fitted DELPHI response curves, the estimate may partly reflect concurrent changes in voluntary behavior, seasonal factors, testing intensity, or other omitted drivers. In this section, we therefore evaluate robustness at the level that matters most for the paper's conclusions: the ranking of candidate policy sequences.
-
-\subsection*{Approach 1: Policy Ranking Stability Under Confounding Perturbation}
-
-Following the logic of \citeapp{cinelli2020making}, we shrink each policy-specific effect toward the within-region mean by a fraction $f \in [0,1]$:
-\begin{equation}
-    \gamma_{R,i}^{(f)} = (1-f)\,\gamma_{R,i} + f\,\bar{\gamma}_R, \qquad \bar{\gamma}_R = \frac{1}{|\mathcal{I}|}\sum_{i\in\mathcal{I}} \gamma_{R,i}. \label{eq:confounding_blend}
-\end{equation}
-At $f=0$, the original estimates are used. At $f=1$, all policies share the same $\gamma$ and NPIs have no differential effect within a region. For each value of $f$, we re-simulate all $7^3=343$ candidate policy sequences and compare the perturbed ranking to the baseline ranking using the Spearman rank correlation coefficient $\rho$ and the overlap of the lowest-cost policy sets.
-}
-
-\begin{table}[H]
+\section{Regional Adjustment Factor and Error}
+\label{app:adjustment_factor}
+\begin{table}[h!]
 \centering
-{\color{blue}
-\begin{tabular}{|l|c|c|cc|}
+\begin{tabular}{|l|c|c|}
 \hline
-& & $f=0.50$ & \multicolumn{2}{c|}{First $f$ at which} \\
-Region & Optimal policy & $\rho$ & optimal changes & $\rho < 0.80$ \\\hline
-Germany & Moderate--taper & $0.99$ & $0.10$ & $1.00$ \\
-Brazil  & Moderate--taper & $0.99$ & $0.60$ & $1.00$ \\
-Spain   & Moderate--taper & $1.00$ & $0.40$ & $1.00$ \\
-New York & Moderate--taper & $1.00$ & $0.10$ & $1.00$ \\\hline
+\textbf{Country} & $k_R$ & $\sigma(k_R)$ \\ \hline
+Brazil  & 1.043 & 0.020 \\ \hline
+Germany & 0.286 & 0.084 \\ \hline
+New York, US & 0.549 & 0.114 \\ \hline
+Spain      & 0.442 & 0.019 \\ \hline
 \end{tabular}
-}
-\caption{\rev{Ranking stability under confounding perturbation. $f$ is the fraction of the differential NPI effect shrunk toward the cross-policy mean, and $\rho$ is the Spearman rank correlation between the perturbed and baseline cost rankings across all 343 policies. ``First $f$ at which optimal changes'' reports the smallest $f$ for which the cost-minimizing policy differs from baseline. ``$\rho < 0.80$'' reports the smallest $f$ at which $\rho$ drops below $0.80$.}}
-\label{tab:ranking_stability}
+\caption{Table of $k_R$ and $\sigma(k_R)$ for different countries.}
+\label{tab:kr_values}
 \end{table}
-
-{\color{blue}
-Table~\ref{tab:ranking_stability} shows that the conclusions are highly stable. At $f=0.50$, the rank correlation exceeds $0.99$ in all four focal regions. Even when the identity of the optimal policy changes at smaller $f$ values, it changes only to a closely related moderate sequence that differs in the tapering month rather than in the overall qualitative prescription. In every region, $\rho$ remains above $0.80$ through $f=0.90$ and does not fall below that level before the limiting case $f=1.00$.
-}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth]{simulation_results/robustness_values/ranking_stability.pdf}
-\caption{\rev{Policy ranking stability as the differential NPI effects are attenuated toward the cross-policy mean. The top panel reports Spearman rank correlation relative to the baseline ranking; the bottom panel reports top-20 set overlap. The qualitative ordering remains highly stable until almost all differential policy contrast is removed.}}
-\label{fig:ranking_stability}
-\end{figure}
-
-{\color{blue}
-\subsection*{Approach 2: Event-Study Falsification Test}
-
-We also examine whether the fitted response curve $\gamma_R(t)$ exhibits discrete jumps around observed policy transitions. For each transition date $t_0$, we estimate
-\begin{equation}
-    \gamma(t) = \alpha + \beta_{\text{post}} \cdot \mathbf{1}[t \geq t_0] + \beta_{\text{trend}} \cdot (t - t_0) + \varepsilon_t, \label{eq:event_study}
-\end{equation}
-in a symmetric window around $t_0$. If $\gamma(t)$ were moving only as a smooth time trend unrelated to policy timing, the discontinuity coefficient $\beta_{\text{post}}$ would be centered near zero regardless of whether the transition is a tightening or a relaxation. By contrast, a policy-driven mechanism predicts negative jumps when policy tightens and positive jumps when policy relaxes.
-}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{simulation_results/event_study/event_study_results.pdf}
-\caption{\rev{Event-study evidence around 716 observed policy transitions across 210 regions. The left panel shows the distribution of the estimated discontinuity $\beta_{\text{post}}$ separately for tightening and relaxing transitions; the right panel reports the distribution of $p$-values from the local event-study regressions. Tightening transitions are associated with more negative jumps in $\gamma(t)$, while relaxing transitions are associated with more positive jumps.}}
-\label{fig:event_study_app}
-\end{figure}
-
-{\color{blue}
-Figure~\ref{fig:event_study_app} is consistent with that directional prediction. The sample contains 509 tightening transitions and 207 relaxing transitions. The distribution of $\beta_{\text{post}}$ is visibly shifted downward for tightening transitions and upward for relaxing transitions, and 43\% of the local event-study regressions are individually significant at the 5\% level. The point of this exercise is not to claim that every transition delivers clean local identification, but rather to show that the DELPHI response curve does react discretely around policy changes in the predicted direction instead of moving only through a smooth latent trend.}
 
 \section{\rev{Sensitivity to Granular Policy Partition}}
 \label{app:granular}
@@ -1207,125 +1201,75 @@ THEMIS wins & --- & --- & \multicolumn{2}{c|}{$39/40$ ($97.5\%$)} & --- & --- \\
 {\color{blue}
 Across this broader sample, THEMIS outperforms DELPHI-constant on 39 of the 40 regions. The implication is not that the policy-based approximation dominates a fully re-fit DELPHI model, but that the estimated $\gamma_{R,i}$ retain some predictive content when carried forward to a later period. This is the limited sense in which the time-transfer exercise supports temporal transferability of the policy-effect estimates.}
 
-\section{\rev{Prescriptive Extensions}}
-\label{app:prescriptive}
+\section{\rev{Sensitivity Analysis for Unmeasured Confounding}}
+\label{app:confounding}
 
 {\color{blue}
-\subsection*{Region-Blind State-Action Decision Tree}
+A fundamental concern in any observational study of NPI effectiveness is the potential for unmeasured confounding. Because $\gamma_{R,i}$ is estimated from observational variation in the fitted DELPHI response curves, the estimate may partly reflect concurrent changes in voluntary behavior, seasonal factors, testing intensity, or other omitted drivers. In this section, we therefore evaluate robustness at the level that matters most for the paper's conclusions: the ranking of candidate policy sequences.
 
-To distill the full simulation output into an interpretable summary, we construct a pooled state-action dataset over the four focal regions, all policy prefixes of length $0$, $1$, and $2$, and a 20-point grid of humanitarian weights $w \in [0,1]$. For each tuple we record the observable state at the start of the next month and the cost-minimizing next-month NPI under full THEMIS simulation. The state vector includes cumulative cases, cumulative deaths, active cases, active hospitalizations, cumulative economic cost, cumulative humanitarian cost, and the severity of the realized policy prefix; it deliberately excludes any region indicator or region-specific covariate. Pooling across the four regions yields $4{,}560$ (state, action) observations.
+\subsection*{Approach 1: Policy Ranking Stability Under Confounding Perturbation}
 
-We then train a single pooled CART tree of depth 4 with minimum leaf size 20, using $w$ as an additional feature. The resulting tree has five-fold cross-validation accuracy 0.47 and produces 16 leaves. Table~\ref{tab:state_action_action_distribution} summarizes how the optimal action shifts across the weight grid. We view the tree as a compression of the simulated state-action map for the focal regions rather than as a separately validated predictor for new regions.
+Following the logic of \citeapp{cinelli2020making}, we shrink each policy-specific effect toward the within-region mean by a fraction $f \in [0,1]$:
+\begin{equation}
+    \gamma_{R,i}^{(f)} = (1-f)\,\gamma_{R,i} + f\,\bar{\gamma}_R, \qquad \bar{\gamma}_R = \frac{1}{|\mathcal{I}|}\sum_{i\in\mathcal{I}} \gamma_{R,i}. \label{eq:confounding_blend}
+\end{equation}
+At $f=0$, the original estimates are used. At $f=1$, all policies share the same $\gamma$ and NPIs have no differential effect within a region. For each value of $f$, we re-simulate all $7^3=343$ candidate policy sequences and compare the perturbed ranking to the baseline ranking using the Spearman rank correlation coefficient $\rho$ and the overlap of the lowest-cost policy sets.
 }
 
 \begin{table}[H]
-\centering\small
-\renewcommand{\arraystretch}{1.05}
-{\color{blue}
-\begin{tabular}{|c|ccccccc|}
-\hline
-$w$ & $1$ (None) & $2$ (MG) & $3$ (T+W) & $4$ (MG+Sch) & $5$ (MG+T+W) & $6$ (MG+Sch+T+W) & $7$ (Lock) \\\hline
-$0.00$ & $161$ & $0$ & $4$ & $0$ & $48$ & $15$  & $0$  \\
-$0.26$ & $78$  & $0$ & $5$ & $0$ & $68$ & $59$  & $18$ \\
-$0.47$ & $58$  & $0$ & $0$ & $0$ & $57$ & $89$  & $24$ \\
-$0.74$ & $37$  & $0$ & $0$ & $0$ & $38$ & $118$ & $35$ \\
-$1.00$ & $3$   & $5$ & $0$ & $1$ & $2$  & $162$ & $55$ \\\hline
-\end{tabular}
-}
-\caption{\rev{Distribution of the cost-optimal next-month NPI across 228 (region, prefix) decision points per row, at five representative humanitarian weights. The optimum shifts monotonically from the relaxed end of the menu at $w=0$ to the strict end at $w=1$.}}
-\label{tab:state_action_action_distribution}
-\end{table}
-
-{\color{blue}
-The pooled tree is shown in Figure~\ref{fig:state_action_pooled_tree}. The most managerially informative leaves are summarized in Table~\ref{tab:state_action_rules}. Four findings stand out. First, active epidemiological burden---especially active cases and active hospitalizations---drives the key escalation and exit splits. Second, once cumulative economic cost becomes large and active hospitalizations fall below a small threshold, the tree prescribes rapid relaxation. Third, lockdown appears only as an early, preemptive tool; later in the horizon the tree prefers NPI~6 over NPI~7. Fourth, even economy-first planners face states in which rising deaths trigger renewed restriction.
-}
-
-\begin{table}[H]
-\centering\small
-\renewcommand{\arraystretch}{1.15}
-{\color{blue}
-\begin{tabular}{|c|l|c|c|c|}
-\hline
-\textbf{\#} & \textbf{State condition} & \textbf{NPI} & \textbf{Purity} & \textbf{$n$} \\\hline
-R1 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} > 16.9\%\,\text{GDP}$;\; $\text{act.\ hosp.} \leq 0.019\%\,\text{pop.}$;\; $w \leq 0.71$ \end{tabular} & $1$ & $97\%$ & $546$ \\[4pt]
-R2 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \in [6.6\%,\,16.9\%]\,\text{GDP}$;\; $w > 0.34$;\; $\text{act.\ cases} > 0.27\%\,\text{pop.}$ \end{tabular} & $6$ & $92\%$ & $741$ \\[4pt]
-R3 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} > 16.9\%\,\text{GDP}$;\; $\text{act.\ hosp.} > 0.019\%\,\text{pop.}$;\; $w \leq 0.24$ \end{tabular} & $1$ & $87\%$ & $90$ \\[4pt]
-R4 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \leq 16.9\%\,\text{GDP}$;\; $w \leq 0.34$;\; $\text{deaths} > 0.002\%\,\text{pop.}$;\; $\text{hum.\ cost} \leq 55.5\%\,\text{GDP}$ \end{tabular} & $6$ & $45\%$ & $553$ \\[4pt]
-R5 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \leq 6.6\%\,\text{GDP}$;\; $w > 0.34$;\; $\text{act.\ cases} > 0.016\%\,\text{pop.}$ \end{tabular} & $7$ & $60\%$ & $624$ \\[4pt]\hline
-\end{tabular}
-}
-\caption{\rev{Five managerially informative leaves of the pooled state-action tree (depth 4, minimum leaf size 20, 4,560 training points). None of the conditions references a region indicator.}}
-\label{tab:state_action_rules}
-\end{table}
-
-\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{simulation_results/state_action/tree_pooled_with_w.pdf}
-\caption{\rev{Pooled state-action decision tree with humanitarian weight $w$ as an input feature. Internal nodes split on observable pandemic conditions and realized prefix costs; leaves predict the cost-optimal next-month NPI.}}
-\label{fig:state_action_pooled_tree}
-\end{figure}
-
 {\color{blue}
-\subsection*{True Online Rolling-Horizon Advisor}
-
-We also implement a rolling-horizon version of THEMIS with an explicit warm start. At each monthly decision date $t \in \{$Mar~15, Apr~15, May~15$\}$, the advisor uses dated DELPHI snapshots and date-restricted policy information available by that point to choose the next-month NPI by one-step lookahead. When the first decision window is too short for the date-restricted matrix estimate, we use the factory's rank-$1$ gamma estimate as a warm start and then switch to the date-restricted estimator from the second decision onward.
-}
-
-\begin{table}[H]
-\centering\footnotesize
-\renewcommand{\arraystretch}{1.05}
-{\color{blue}
-\begin{tabular}{|l|c|c|c|r|r|r|r|r|}
+\begin{tabular}{|l|c|c|cc|}
 \hline
-\textbf{Region} & $\pi^{\text{online}}_R$ & $\pi^{\text{actual}}_R$ & $\pi^{\text{HS}}_R$ & \textbf{Online} & \textbf{Actual} & \textbf{Hindsight} & \textbf{Online} & \textbf{Actual} \\
-                &                          &                         &                     & \textbf{cost}   & \textbf{cost}   & \textbf{cost}      & \textbf{gap}    & \textbf{gap}   \\\hline
-Germany   & $6$--$4$--$5$ & $6$--$6$--$5$ & $6$--$6$--$1$ & $10.5\%$  & $8.0\%$   & $6.3\%$  & $+66.3\%$ & $+26.3\%$ \\
-Brazil    & $6$--$4$--$7$ & $3$--$3$--$3$ & $6$--$6$--$5$ & $6.2\%$   & $12.9\%$  & $4.8\%$  & $+29.6\%$ & $+171.4\%$ \\
-Spain     & $5$--$4$--$5$ & $7$--$7$--$6$ & $6$--$1$--$1$ & $17.4\%$  & $31.2\%$  & $11.5\%$ & $+50.7\%$ & $+171.2\%$ \\
-New York  & $6$--$4$--$1$ & $7$--$7$--$6$ & $6$--$6$--$1$ & $29.3\%$  & $60.3\%$  & $26.4\%$ & $+11.3\%$ & $+128.6\%$ \\\hline
-\multicolumn{4}{|r|}{\textbf{Mean}} & & & & \textbf{$+39.5\%$} & \textbf{$+124.4\%$} \\\hline
+& & $f=0.50$ & \multicolumn{2}{c|}{First $f$ at which} \\
+Region & Optimal policy & $\rho$ & optimal changes & $\rho < 0.80$ \\\hline
+Germany & Moderate--taper & $0.99$ & $0.10$ & $1.00$ \\
+Brazil  & Moderate--taper & $0.99$ & $0.60$ & $1.00$ \\
+Spain   & Moderate--taper & $1.00$ & $0.40$ & $1.00$ \\
+New York & Moderate--taper & $1.00$ & $0.10$ & $1.00$ \\\hline
 \end{tabular}
 }
-\caption{\rev{Online rolling-horizon advisor versus the unattainable hindsight optimum. Costs are expressed as \% of quarterly GDP. The gap columns report percentage distance from the hindsight-optimal cost.}}
-\label{tab:rolling_advisor_v2}
+\caption{\rev{Ranking stability under confounding perturbation. $f$ is the fraction of the differential NPI effect shrunk toward the cross-policy mean, and $\rho$ is the Spearman rank correlation between the perturbed and baseline cost rankings across all 343 policies. ``First $f$ at which optimal changes'' reports the smallest $f$ for which the cost-minimizing policy differs from baseline. ``$\rho < 0.80$'' reports the smallest $f$ at which $\rho$ drops below $0.80$.}}
+\label{tab:ranking_stability}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf}
-\caption{\rev{Three-month total cost for each region under the online advisor, the realized historical policy, and the hindsight optimum. Bars decompose total cost into economic and humanitarian components.}}
-\label{fig:rolling_advisor_v2}
-\end{figure}
-
 {\color{blue}
-The online advisor outperforms the realized historical policy in Brazil, Spain, and New York, and reduces the mean gap to hindsight from 124.4\% to 39.5\%. The sequences it selects are also not uniformly draconian: after the initial month, the advisor typically moves toward moderate restrictions rather than prolonged lockdown.
-
-\subsection*{Revealed-Preference Weights}
-
-Finally, we infer the humanitarian--economic weight under which each region's realized policy looks closest to optimal. For region $R$, let
-\[
-w_R^\star = \arg\min_{w \in [0,1]} \frac{C_R^{\text{actual}}(w)}{\min_{\pi \in \mathcal{I}^3} C_{R,\pi}(w)},
-\qquad
-C(w)=w \cdot \text{hum} + (1-w)\cdot \text{econ}.
-\]
-Evaluating the hindsight policy, the online advisor, and the realized policy under this common $w_R^\star$ provides a more charitable comparison from the perspective of the policymaker's own revealed trade-off.
+Table~\ref{tab:ranking_stability} shows that the conclusions are highly stable. At $f=0.50$, the rank correlation exceeds $0.99$ in all four focal regions. Even when the identity of the optimal policy changes at smaller $f$ values, it changes only to a closely related moderate sequence that differs in the tapering month rather than in the overall qualitative prescription. In every region, $\rho$ remains above $0.80$ through $f=0.90$ and does not fall below that level before the limiting case $f=1.00$.
 }
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{simulation_results/online_advisor_v2/revealed_preference_w.pdf}
-\caption{\rev{Weighted costs under each region's revealed-preference weight $w_R^\star$. Germany places relatively high weight on humanitarian outcomes ($w^\star=0.72$), Brazil places almost all weight on the economy ($w^\star=0.01$), Spain is close to balanced ($w^\star=0.45$), and New York leans economic ($w^\star=0.10$).}}
-\label{fig:revealed_preference}
+\includegraphics[width=0.9\textwidth]{simulation_results/robustness_values/ranking_stability.pdf}
+\caption{\rev{Policy ranking stability as the differential NPI effects are attenuated toward the cross-policy mean. The top panel reports Spearman rank correlation relative to the baseline ranking; the bottom panel reports top-20 set overlap. The qualitative ordering remains highly stable until almost all differential policy contrast is removed.}}
+\label{fig:ranking_stability}
 \end{figure}
 
 {\color{blue}
-The revealed-preference analysis sharpens the same message. Germany's actual policy is comparatively close to its own hindsight optimum, whereas Spain and New York remain far from optimal even after one evaluates them under the most favorable weight. The online advisor reduces weighted cost relative to the realized policy in all four regions, with especially large gains in Spain and New York.}
+\subsection*{Approach 2: Event-Study Falsification Test}
+
+We also examine whether the fitted response curve $\gamma_R(t)$ exhibits discrete jumps around observed policy transitions. For each transition date $t_0$, we estimate
+\begin{equation}
+    \gamma(t) = \alpha + \beta_{\text{post}} \cdot \mathbf{1}[t \geq t_0] + \beta_{\text{trend}} \cdot (t - t_0) + \varepsilon_t, \label{eq:event_study}
+\end{equation}
+in a symmetric window around $t_0$. If $\gamma(t)$ were moving only as a smooth time trend unrelated to policy timing, the discontinuity coefficient $\beta_{\text{post}}$ would be centered near zero regardless of whether the transition is a tightening or a relaxation. By contrast, a policy-driven mechanism predicts negative jumps when policy tightens and positive jumps when policy relaxes.
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{simulation_results/event_study/event_study_results.pdf}
+\caption{\rev{Event-study evidence around 716 observed policy transitions across 210 regions. The left panel shows the distribution of the estimated discontinuity $\beta_{\text{post}}$ separately for tightening and relaxing transitions; the right panel reports the distribution of $p$-values from the local event-study regressions. Tightening transitions are associated with more negative jumps in $\gamma(t)$, while relaxing transitions are associated with more positive jumps.}}
+\label{fig:event_study_app}
+\end{figure}
+
+{\color{blue}
+Figure~\ref{fig:event_study_app} is consistent with that directional prediction. The sample contains 509 tightening transitions and 207 relaxing transitions. The distribution of $\beta_{\text{post}}$ is visibly shifted downward for tightening transitions and upward for relaxing transitions, and 43\% of the local event-study regressions are individually significant at the 5\% level. The point of this exercise is not to claim that every transition delivers clean local identification, but rather to show that the DELPHI response curve does react discretely around policy changes in the predicted direction instead of moving only through a smooth latent trend.}
 
 \section{\rev{Additional Sensitivity Analyses}}
 \label{app:additional_sensitivity}
 
 {\color{blue}
-\subsection*{Nonlinear Mental-Health Cost Functions}
+\subsection{\rev{Nonlinear Mental-Health Cost Functions}}
+\label{app:addsens_mental}
 
 The baseline cost model assumes that the depression component of mental-health costs scales linearly with policy stringency. To test whether that functional-form choice matters, we replace the linear mapping with two deliberately extreme alternatives:
 \begin{itemize}
@@ -1381,7 +1325,8 @@ Brazil     & Convex (threshold)   & 0.9996 & 5/5 & 9/10  & 6-6-5 \\
 {\color{blue}
 The resulting policy rankings are almost identical. In every region, the cost-minimizing policy is unchanged across all three models, the Spearman rank correlation exceeds 0.999, and the top-10 sets are preserved almost exactly. The linear mental-health specification is therefore a modeling convenience rather than a driver of the paper's conclusions.
 
-\subsection*{Within-Block Adherence Decay}
+\subsection{\rev{Within-Block Adherence Decay}}
+\label{app:addsens_adherence}
 
 We also test whether holding $\gamma_{R,i}$ fixed within each one-month policy block materially affects the ordering of policies. To do so, we let the within-block response decay linearly over the month,
 \[
@@ -1410,7 +1355,8 @@ $0.20$ & $0.9977$ & $0.9986$ & $0.9996$ & $0.9984$ \\\hline
 {\color{blue}
 Across all four regions and all decay rates tested, the rank correlation exceeds 0.997. Even under an aggressive 20\% monthly adherence decay, the epidemiological ordering of the candidate policies changes very little. This suggests that the constant-within-block approximation is unlikely to be the first-order driver of the frontier comparisons, even though the table does not by itself prove invariance of the full cost ranking.
 
-\subsection*{Planning Horizon: One Month versus Three Months}
+\subsection{\rev{Planning Horizon: One Month versus Three Months}}
+\label{app:addsens_horizon}
 
 The main paper optimizes over a three-month policy horizon beginning on March 15, 2020. To assess how much this matters, we re-solve the optimization problem for a one-month horizon starting on the same date and compare the resulting recommendation to the first action of the three-month optimum.
 }
@@ -1434,7 +1380,78 @@ New York & $6$ & $6$--$6$--$1$ & $6$ \\\hline
 {\color{blue}
 The shorter horizon never recommends a stricter initial action than the longer horizon, and in three of the four regions it recommends a weaker one. Germany provides the starkest example: optimizing only over the next month selects policy 3, whereas the three-month problem selects policy 6 in the first month. Brazil and Spain show the same pattern, though with a smaller severity gap. This is exactly the mechanism raised by the reviewer: a short horizon underweights the downstream epidemiological benefits of acting strongly before the wave accelerates. At the same time, the comparison does not overturn the paper's qualitative message. The three-month horizon still favors a front-loaded response that relaxes later, rather than a prolonged lockdown for its own sake.}
 
+\section{\rev{Supplementary Prescriptive Details}}
+\label{app:prescriptive}
+
+{\color{blue}
+\subsection*{Action Distribution in the Pooled Tree}
+
+To complement the main-text discussion, Table~\ref{tab:state_action_action_distribution} reports how the cost-optimal next-month NPI shifts across the humanitarian-weight grid in the pooled state-action sample. Most of the mass lies on a smaller subset of the seven-category menu, with the relaxed end favored at low $w$ and NPI~6 or NPI~7 favored as the humanitarian weight increases.}
+
+\begin{table}[H]
+\centering\small
+\renewcommand{\arraystretch}{1.05}
+{\color{blue}
+\begin{tabular}{|c|ccccccc|}
+\hline
+$w$ & $1$ (None) & $2$ (MG) & $3$ (T+W) & $4$ (MG+Sch) & $5$ (MG+T+W) & $6$ (MG+Sch+T+W) & $7$ (Lock) \\\hline
+$0.00$ & $161$ & $0$ & $4$ & $0$ & $48$ & $15$  & $0$  \\
+$0.26$ & $78$  & $0$ & $5$ & $0$ & $68$ & $59$  & $18$ \\
+$0.47$ & $58$  & $0$ & $0$ & $0$ & $57$ & $89$  & $24$ \\
+$0.74$ & $37$  & $0$ & $0$ & $0$ & $38$ & $118$ & $35$ \\
+$1.00$ & $3$   & $5$ & $0$ & $1$ & $2$  & $162$ & $55$ \\\hline
+\end{tabular}
+}
+\caption{\rev{Distribution of the cost-optimal next-month NPI across 228 (region, prefix) decision points per row, at five representative humanitarian weights. The optimum shifts monotonically from the relaxed end of the menu at $w=0$ to the strict end at $w=1$.}}
+\label{tab:state_action_action_distribution}
+\end{table}
+
+{\color{blue}
+\subsection*{Full Pooled Tree}
+
+Figure~\ref{fig:state_action_pooled_tree} reports the full pooled tree corresponding to the main-text summary. We view it as a detailed visualization of the threshold structure discussed in Section~\ref{sec:discussion}.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{simulation_results/state_action/tree_pooled_with_w.pdf}
+\caption{\rev{Pooled state-action decision tree with humanitarian weight $w$ as an input feature. Internal nodes split on observable pandemic conditions and realized prefix costs; leaves predict the cost-optimal next-month NPI.}}
+\label{fig:state_action_pooled_tree}
+\end{figure}
+
+{\color{blue}
+\subsection*{Additional Online THEMIS Results}
+
+Figure~\ref{fig:rolling_advisor_v2} compares total cost under online THEMIS, the realized historical policy, and the hindsight optimum. The decomposition makes clear that the gains in Brazil, Spain, and New York do not come from uniformly harsher policy, but from earlier moderation of restrictions after the initial response.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf}
+\caption{\rev{Three-month total cost for each region under online THEMIS, the realized historical policy, and the hindsight optimum. Bars decompose total cost into economic and humanitarian components.}}
+\label{fig:rolling_advisor_v2}
+\end{figure}
+
+{\color{blue}
+\subsection*{Revealed-Preference Weights}
+
+Finally, we infer the humanitarian--economic weight under which each region's realized policy looks closest to optimal. For region $R$, let
+\[
+w_R^\star = \arg\min_{w \in [0,1]} \frac{C_R^{\text{actual}}(w)}{\min_{\pi \in \mathcal{I}^3} C_{R,\pi}(w)},
+\qquad
+C(w)=w \cdot \text{hum} + (1-w)\cdot \text{econ}.
+\]
+Evaluating the hindsight policy, online THEMIS, and the realized policy under this common $w_R^\star$ provides a more charitable comparison from the perspective of the policymaker's own revealed trade-off.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{simulation_results/online_advisor_v2/revealed_preference_w.pdf}
+\caption{\rev{Weighted costs under each region's revealed-preference weight $w_R^\star$. Germany places relatively high weight on humanitarian outcomes ($w^\star=0.72$), Brazil places almost all weight on the economy ($w^\star=0.01$), Spain is close to balanced ($w^\star=0.45$), and New York leans economic ($w^\star=0.10$).}}
+\label{fig:revealed_preference}
+\end{figure}
+
+{\color{blue}
+The revealed-preference analysis sharpens the same message. Germany's actual policy is comparatively close to its own hindsight optimum, whereas Spain and New York remain far from optimal even after one evaluates them under the most favorable weight. Online THEMIS reduces weighted cost relative to the realized policy in all four regions, with especially large gains in Spain and New York.}
+
 \bibliographystyleapp{informs2014}
-\bibliographyapp{Paper/bibliography.bib}
+\bibliographyapp{bibliography,Paper/bibliography}
 \end{APPENDICES}
 \end{document}

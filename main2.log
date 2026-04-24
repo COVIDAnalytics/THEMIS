@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  23 APR 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  24 APR 2026 10:01
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./main2.tex
 (main2.tex
@@ -207,22 +207,16 @@ Package caption Info: Document class w/o caption stuff detected.
 \c@caption@flags=\count275
 \c@continuedfloat=\count276
 )
-(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
-Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
-Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count277
-Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count278
-) (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip57
 \bibsep=\skip58
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count279
+\c@NAT@ctr=\count277
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/multibib\multibib.sty
 Package: multibib 2008/12/10 v1.4 Multiple bibliographies for one document.
-\mb@biblabelwidth=\count280
+\mb@biblabelwidth=\count278
 )
 \@auxoutmain=\write3
 
@@ -238,25 +232,25 @@ Package: multibib 2008/12/10 v1.4 Multiple bibliographies for one document.
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box58
 )
-\c@theorem=\count281
-\c@lemma=\count282
-\c@proposition=\count283
-\c@corollary=\count284
-\c@claim=\count285
-\c@conjecture=\count286
-\c@hypothesis=\count287
-\c@assumption=\count288
-\c@remark=\count289
-\c@example=\count290
-\c@problem=\count291
-\c@definition=\count292
-\c@question=\count293
-\c@answer=\count294
-\c@exercise=\count295
+\c@theorem=\count279
+\c@lemma=\count280
+\c@proposition=\count281
+\c@corollary=\count282
+\c@claim=\count283
+\c@conjecture=\count284
+\c@hypothesis=\count285
+\c@assumption=\count286
+\c@remark=\count287
+\c@example=\count288
+\c@problem=\count289
+\c@definition=\count290
+\c@question=\count291
+\c@answer=\count292
+\c@exercise=\count293
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
-\c@r@tfl@t=\count296
+\c@r@tfl@t=\count294
 \rotFPtop=\skip59
 \rotFPbot=\skip60
 \rot@float@box=\box59
@@ -317,15 +311,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count297
+\c@section@level=\count295
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count298
+\etb@tempcnta=\count296
 )
 \@linkdim=\dimen184
-\Hy@linkcounter=\count299
-\Hy@pagecounter=\count300
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-10-27 v7.01d Hyperref: PDFDocEncoding definition (HO)
@@ -335,7 +329,7 @@ Now handling font encoding PD1 ...
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count301
+\Hy@SavedSpaceFactor=\count299
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-10-27 v7.01d Hyperref: PDF Unicode definition (HO)
@@ -349,7 +343,7 @@ Package hyperref Info: Plain pages OFF on input line 4183.
 Package hyperref Info: Backreferencing OFF on input line 4188.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4435.
-\c@Hy@tempcnt=\count302
+\c@Hy@tempcnt=\count300
 LaTeX Info: Redefining \url on input line 4773.
 \XeTeXLinkMargin=\dimen185
 
@@ -361,7 +355,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count303
+\Fld@menulength=\count301
 \Field@Width=\dimen186
 \Fld@charsize=\dimen187
 Package hyperref Info: Hyper figures OFF on input line 6052.
@@ -376,9 +370,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6082.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count304
-\c@Item=\count305
-\c@Hfootnote=\count306
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -389,8 +383,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count307
-\c@bookmark@seq@number=\count308
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -417,24 +411,24 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen195
 \cmidrulekern=\dimen196
 \defaultaddspace=\dimen197
-\@cmidla=\count309
-\@cmidlb=\count310
+\@cmidla=\count307
+\@cmidlb=\count308
 \@aboverulesep=\dimen198
 \@belowrulesep=\dimen199
-\@thisruleclass=\count311
-\@lastruleclass=\count312
+\@thisruleclass=\count309
+\@lastruleclass=\count310
 \@thisrulewidth=\dimen256
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
-\c@tracingmulticols=\count313
+\c@tracingmulticols=\count311
 \mult@box=\box60
 \multicol@leftmargin=\dimen257
-\c@unbalance=\count314
-\c@collectmore=\count315
-\doublecol@number=\count316
-\multicoltolerance=\count317
-\multicolpretolerance=\count318
+\c@unbalance=\count312
+\c@collectmore=\count313
+\doublecol@number=\count314
+\multicoltolerance=\count315
+\multicolpretolerance=\count316
 \full@width=\dimen258
 \page@free=\dimen259
 \premulticols=\dimen260
@@ -485,15 +479,15 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \@tempa=\box101
 \@tempa=\box102
 \@tempa=\box103
-\c@minrows=\count319
-\c@columnbadness=\count320
-\c@finalcolumnbadness=\count321
+\c@minrows=\count317
+\c@columnbadness=\count318
+\c@finalcolumnbadness=\count319
 \last@try=\dimen263
 \multicolovershoot=\dimen264
 \multicolundershoot=\dimen265
 \mult@nat@firstbox=\box104
 \colbreak@box=\box105
-\mc@col@check@num=\count322
+\mc@col@check@num=\count320
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
@@ -519,7 +513,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 \UL@skip=\skip64
 \UL@hook=\toks27
 \UL@height=\dimen266
-\UL@pe=\count323
+\UL@pe=\count321
 \UL@pixel=\dimen267
 \ULC@box=\box108
 Package: ulem 2019/11/18
@@ -531,7 +525,7 @@ Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count324
+\c@float@type=\count322
 \float@exts=\toks29
 \float@box=\box109
 \@float@everytoks=\toks30
@@ -547,7 +541,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks31
 \XKV@tempa@toks=\toks32
 )
-\XKV@depth=\count325
+\XKV@depth=\count323
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
@@ -582,11 +576,11 @@ File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count326
+\c@checkoddpage=\count324
 ) (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box112
-\sift@deathcycles=\count327
+\sift@deathcycles=\count325
 \@vwid@loff=\dimen281
 \@vwid@roff=\dimen282
 ))
@@ -641,14 +635,14 @@ libraryfiltered.code.tex
 \pgf@yd=\dimen294
 \w@pgf@writea=\write5
 \r@pgf@reada=\read2
-\c@pgf@counta=\count328
-\c@pgf@countb=\count329
-\c@pgf@countc=\count330
-\c@pgf@countd=\count331
+\c@pgf@counta=\count326
+\c@pgf@countb=\count327
+\c@pgf@countc=\count328
+\c@pgf@countd=\count329
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count332
+\pgf@sys@id@count=\count330
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
 fg
@@ -667,8 +661,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count333
-\pgfsyssoftpath@bigbuffer@items=\count334
+\pgfsyssoftpath@smallbuffer@items=\count331
+\pgfsyssoftpath@bigbuffer@items=\count332
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 sprotocol.code.tex
@@ -685,7 +679,7 @@ code.tex)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
 \pgfmath@dimen=\dimen295
-\pgfmath@count=\count335
+\pgfmath@count=\count333
 \pgfmath@box=\box114
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
@@ -713,7 +707,7 @@ ions.integerarithmetics.code.tex)
 code.tex)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count336
+\c@pgfmathroundto@lastzeros=\count334
 ))
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
 tex)
@@ -753,7 +747,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box115
 \pgf@hbox=\box116
 \pgf@layerbox@main=\box117
-\pgf@picture@serial@count=\count337
+\pgf@picture@serial@count=\count335
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
@@ -788,8 +782,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 eshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen319
-\pgf@sys@shading@range@num=\count338
-\pgf@shadingcount=\count339
+\pgf@sys@shading@range@num=\count336
+\pgf@shadingcount=\count337
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eimage.code.tex
@@ -859,7 +853,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count340
+\pgf@plot@mark@count=\count338
 \pgfplotmarksize=\dimen324
 )
 \tikz@lastx=\dimen325
@@ -874,19 +868,19 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box121
 \tikz@tempbox=\box122
 \tikz@tempbox@bg=\box123
-\tikztreelevel=\count341
-\tikznumberofchildren=\count342
-\tikznumberofcurrentchild=\count343
-\tikz@fig@count=\count344
+\tikztreelevel=\count339
+\tikznumberofchildren=\count340
+\tikznumberofcurrentchild=\count341
+\tikz@fig@count=\count342
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count345
-\pgfmatrixcurrentcolumn=\count346
-\pgf@matrix@numberofcolumns=\count347
+\pgfmatrixcurrentrow=\count343
+\pgfmatrixcurrentcolumn=\count344
+\pgf@matrix@numberofcolumns=\count345
 )
-\tikz@expandcount=\count348
+\tikz@expandcount=\count346
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -895,7 +889,7 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip65
-\multirow@cntb=\count349
+\multirow@cntb=\count347
 \multirow@dima=\skip66
 \bigstrutjot=\dimen333
 )
@@ -912,8 +906,8 @@ e.tex
 \t@pgfplots@tokb=\toks46
 \t@pgfplots@tokc=\toks47
 \pgfplots@tmpa=\dimen334
-\c@pgfplots@coordindex=\count350
-\c@pgfplots@scanlineindex=\count351
+\c@pgfplots@coordindex=\count348
+\c@pgfplots@scanlineindex=\count349
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplots
 sysgeneric.code.tex))
@@ -938,13 +932,13 @@ e\pgfplotsliststructure.code.tex)
 e\pgfplotsliststructureext.code.tex)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count352
+\c@pgfplotsarray@tmp=\count350
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsmatrix.code.tex)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
 plotstableshared.code.tex
-\c@pgfplotstable@counta=\count353
+\c@pgfplotstable@counta=\count351
 \t@pgfplotstable@a=\toks51
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
@@ -957,7 +951,7 @@ sbinary.data.code.tex))
 sutil.verb.code.tex)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibr
 arypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count354
+\c@pgfplotslibrarysurf@no=\count352
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
 rypgfplots.surfshading.pgfsys-pdftex.def)))
@@ -994,7 +988,7 @@ decorations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen337
 \pgfdecoratedinputsegmentremainingdistance=\dimen338
 \pgf@decorate@distancetomove=\dimen339
-\pgf@decorate@repeatstate=\count355
+\pgf@decorate@repeatstate=\count353
 \pgfdecorationsegmentamplitude=\dimen340
 \pgfdecorationsegmentlength=\dimen341
 )
@@ -1010,7 +1004,7 @@ z/libraries\tikzlibrarydecorations.pathreplacing.code.tex
 ions\pgflibrarydecorations.pathreplacing.code.tex))
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
 rarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count356
+\pgfplots@numplots=\count354
 \pgfplots@xmin@reg=\dimen342
 \pgfplots@xmax@reg=\dimen343
 \pgfplots@ymin@reg=\dimen344
@@ -1029,7 +1023,7 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
 \wrapoverhang=\dimen348
 \WF@size=\dimen349
-\c@WF@wrappedlines=\count357
+\c@WF@wrappedlines=\count355
 \WF@box=\box125
 \WF@everypar=\toks52
 Package: wrapfig 2003/01/31  v 3.6
@@ -1060,19 +1054,19 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@outerparindent=\dimen350
 \enit@toks=\toks53
 \enit@inbox=\box126
-\enit@count@id=\count358
-\enitdp@description=\count359
+\enit@count@id=\count356
+\enitdp@description=\count357
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen351
-\c@nlinenum=\count360
+\c@nlinenum=\count358
 \TeXr@lab=\toks54
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e
 .sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count361
+\c@AlgoLine=\count359
 \algocf@hangindent=\skip68
  (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -1110,9 +1104,9 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip84
 \algotitleheightruledefault=\skip85
 \algotitleheightrule=\skip86
-\c@algocfline=\count362
-\c@algocfproc=\count363
-\c@algocf=\count364
+\c@algocfline=\count360
+\c@algocfproc=\count361
+\c@algocf=\count362
 \algocf@algoframe=\box133
 \algocf@algobox=\box134
 )
@@ -1242,43 +1236,43 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count365
+\l__color_backend_stack_int=\count363
 \l__pdf_internal_box=\box157
 ) (main2.aux)
 \openout1 = `main2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count366
+\scratchcounter=\count364
 \scratchdimen=\dimen363
 \scratchbox=\box158
-\nofMPsegments=\count367
-\nofMParguments=\count368
+\nofMPsegments=\count365
+\nofMParguments=\count366
 \everyMPshowfont=\toks55
-\MPscratchCnt=\count369
+\MPscratchCnt=\count367
 \MPscratchDim=\dimen364
-\MPnumerator=\count370
-\makeMPintoPDFobject=\count371
+\MPnumerator=\count368
+\makeMPintoPDFobject=\count369
 \everyMPtoPDFconversion=\toks56
 )
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1306,7 +1300,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 107.
+Package hyperref Info: Link coloring OFF on input line 105.
  (main2.out) (main2.out)
 \@outlinefile=\write6
 \openout6 = `main2.out'.
@@ -1320,167 +1314,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
-{C:/Users/shazn/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+{C:/Users/shazn/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2{C:/Users/
+shazn/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
- [2]
-
-Package natbib Warning: Citation `hui2020continuing' on page 3 undefined on inp
-ut line 143.
-
-
-Package natbib Warning: Citation `haug2020ranking' on page 3 undefined on input
- line 145.
-
-
-Package natbib Warning: Citation `wttc' on page 3 undefined on input line 145.
-
-
-Package natbib Warning: Citation `monitor2020covid' on page 3 undefined on inpu
-t line 145.
-
-
-Package natbib Warning: Citation `XIONG202055' on page 3 undefined on input lin
-e 145.
-
-
-Package natbib Warning: Citation `di2023impact' on page 3 undefined on input li
-ne 145.
-
-
-Package natbib Warning: Citation `broughel2021benefits' on page 3 undefined on 
-input line 149.
-
-
-Package natbib Warning: Citation `cutler2020covid' on page 3 undefined on input
- line 149.
-
-
-Package natbib Warning: Citation `layard2020release' on page 3 undefined on inp
-ut line 149.
-
-
-Package natbib Warning: Citation `shlomai2021modeling' on page 3 undefined on i
-nput line 149.
-
-
-Package natbib Warning: Citation `rowthorn2020cost' on page 3 undefined on inpu
-t line 149.
-
-
-Package natbib Warning: Citation `miles2021stay' on page 3 undefined on input l
-ine 149.
-
-
-Package natbib Warning: Citation `gros2020great' on page 3 undefined on input l
-ine 149.
-
-
-Package natbib Warning: Citation `zhao2021disease' on page 3 undefined on input
- line 149.
-
-[3{C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
-er-ts1.enc}]
-
-Package natbib Warning: Citation `li:20' on page 4 undefined on input line 151.
-
-
-
-Package natbib Warning: Citation `cutler2020covid' on page 4 undefined on input
- line 153.
-
-[4] [5]
-
-Package natbib Warning: Citation `cutler2020covid' on page 6 undefined on input
- line 192.
-
-
-Overfull \hbox (55.18951pt too wide) in paragraph at lines 218--219
- [][] 
- []
-
-[6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 222.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 222.
-
-
-Package natbib Warning: Citation `li:20' on page 7 undefined on input line 224.
-
-
-[7]
-
-Package natbib Warning: Citation `kissler:20' on page 8 undefined on input line
- 226.
-
-
-Package natbib Warning: Citation `bertsimas:20' on page 8 undefined on input li
-ne 270.
-
-[8]
-
-Package natbib Warning: Citation `li:20' on page 9 undefined on input line 273.
-
-
-[9]
+[3] [4] [5] [6] [7] [8] [9]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [10]
-
-Package natbib Warning: Citation `liu2020factors' on page 11 undefined on input
- line 357.
-
-
-Package natbib Warning: Citation `carmassi2020ptsd' on page 11 undefined on inp
-ut line 357.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [11]
-
-Package natbib Warning: Citation `pfefferbaum2020mental' on page 12 undefined o
-n input line 383.
-
-
-Package natbib Warning: Citation `usher2020covid' on page 12 undefined on input
- line 383.
-
-
-Package natbib Warning: Citation `zhong2021mental' on page 12 undefined on inpu
-t line 383.
-
-
-Package natbib Warning: Citation `liu2020factors' on page 12 undefined on input
- line 383.
-
-
-Package natbib Warning: Citation `carmassi2020ptsd' on page 12 undefined on inp
-ut line 383.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [12]
-
-Package natbib Warning: Citation `carmassi2020ptsd' on page 13 undefined on inp
-ut line 389.
-
-
-Package natbib Warning: Citation `serra2022post' on page 13 undefined on input 
-line 389.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
@@ -1496,96 +1348,86 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
  []
 
 [15]
-
-Package natbib Warning: Citation `ferguson2020impact' on page 16 undefined on i
-nput line 464.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [16]
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 487.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 487.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 487.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 487.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 487.
+
+
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [17]
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 486.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 486.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 486.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 486.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 486.
-
-
-Overfull \hbox (17.58498pt too wide) in paragraph at lines 486--498
- [][] 
- []
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [18]
+<simulation_results/scatter_plot_v7.pdf, id=376, 903.375pt x 903.375pt>
+File: simulation_results/scatter_plot_v7.pdf Graphic file (type pdf)
+<use simulation_results/scatter_plot_v7.pdf>
+Package pdftex.def Info: simulation_results/scatter_plot_v7.pdf  used on input 
+line 527.
+(pdftex.def)             Requested size: 469.75499pt x 469.7577pt.
+
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [19]
-<simulation_results/scatter_plot_v7.pdf, id=266, 903.375pt x 903.375pt>
-File: simulation_results/scatter_plot_v7.pdf Graphic file (type pdf)
-<use simulation_results/scatter_plot_v7.pdf>
-Package pdftex.def Info: simulation_results/scatter_plot_v7.pdf  used on input 
-line 525.
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[20 <./simulation_results/scatter_plot_v7.pdf>]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[21]
+<simulation_results/best_policies_v7.pdf, id=408, 903.375pt x 903.375pt>
+File: simulation_results/best_policies_v7.pdf Graphic file (type pdf)
+<use simulation_results/best_policies_v7.pdf>
+Package pdftex.def Info: simulation_results/best_policies_v7.pdf  used on input
+ line 555.
 (pdftex.def)             Requested size: 469.75499pt x 469.7577pt.
 
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[20]
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[21 <./simulation_results/scatter_plot_v7.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [22]
-<simulation_results/best_policies_v7.pdf, id=296, 903.375pt x 903.375pt>
-File: simulation_results/best_policies_v7.pdf Graphic file (type pdf)
-<use simulation_results/best_policies_v7.pdf>
-Package pdftex.def Info: simulation_results/best_policies_v7.pdf  used on input
- line 553.
-(pdftex.def)             Requested size: 469.75499pt x 469.7577pt.
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[23]
+[23 <./simulation_results/best_policies_v7.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[24 <./simulation_results/best_policies_v7.pdf>]
+[24]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
@@ -1596,814 +1438,103 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
  []
 
 [26]
-
-Package natbib Warning: Citation `holmdahl2020' on page 27 undefined on input l
-ine 577.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[27] (main.bbl
+[27]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[28])
+[28] (main.bbl
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [29]
-pdfTeX warning (ext4): destination with the same identifier (name{section.0.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.597 \section{The DELPHI Model}
-                                
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[30
-
-]
-
-Package natbib Warning: Citation `bertsimas2020covidClinicalOutcomes' on page 3
-1 undefined on input line 677.
-
-
+[30]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [31]
-
-Package natbib Warning: Citation `wang2020evolving' on page 32 undefined on inp
-ut line 684.
-
-
-Package natbib Warning: Citation `lauer2020incubation' on page 32 undefined on 
-input line 685.
-
-
-Package natbib Warning: Citation `hu2020clinical' on page 32 undefined on input
- line 686.
-
-
-Package natbib Warning: Citation `kluytmans2020sars' on page 32 undefined on in
-put line 686.
-
-
-Package natbib Warning: Citation `liu2020clinical' on page 32 undefined on inpu
-t line 687.
-
-
-Package natbib Warning: Citation `grein2020compassionate' on page 32 undefined 
-on input line 687.
-
-
-Package natbib Warning: Citation `wang2020evolving' on page 32 undefined on inp
-ut line 695.
-
-
-Package natbib Warning: Citation `krantz2020level' on page 32 undefined on inpu
-t line 695.
-
-
-Package natbib Warning: Citation `niehus2020quantifying' on page 32 undefined o
-n input line 695.
-
-
-Package natbib Warning: Citation `arons2020presymptomatic' on page 32 undefined
- on input line 696.
-
-
-Package natbib Warning: Citation `xu2020evaluation' on page 32 undefined on inp
-ut line 696.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[32]
-
-Package natbib Warning: Citation `nocedal2006numerical' on page 33 undefined on
- input line 708.
-
-
-Package natbib Warning: Citation `xiang1997generalized' on page 33 undefined on
- input line 708.
-
-
+[32])
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [33]
-pdfTeX warning (ext4): destination with the same identifier (name{section.0.2})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.712 ...{List of Region-specific Cost Parameters}
-                                                  
-pdfTeX warning (ext4): destination with the same identifier (name{subsection.0.
-2.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.715 \subsection{Summary Table}
-                                
-
-Package natbib Warning: Citation `robert2021robert' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `INED' on page 34 undefined on input line 756.
-
-
-
-Package natbib Warning: Citation `NYDoH' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `BRDeaths' on page 34 undefined on input line 
-756.
-
-
-Package natbib Warning: Citation `SB-mortality' on page 34 undefined on input l
-ine 756.
-
-
-Package natbib Warning: Citation `INE-Mortality' on page 34 undefined on input 
-line 756.
-
-
-Package natbib Warning: Citation `SSA' on page 34 undefined on input line 756.
-
-
-Package natbib Warning: Citation `IBGE-Mortality' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `schlander2017empirical' on page 34 undefined 
-on input line 756.
-
-
-Package natbib Warning: Citation `schlander2017empirical' on page 34 undefined 
-on input line 756.
-
-
-Package natbib Warning: Citation `robinson2021benefits' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `mardones2018estimation' on page 34 undefined 
-on input line 756.
-
-
-Package natbib Warning: Citation `hastie2023true' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `hastie2023true' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `hastie2023true' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `hastie2023true' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `davis2021characterizing' on page 34 undefined
- on input line 756.
-
-
-Package natbib Warning: Citation `davis2021characterizing' on page 34 undefined
- on input line 756.
-
-
-Package natbib Warning: Citation `davis2021characterizing' on page 34 undefined
- on input line 756.
-
-
-Package natbib Warning: Citation `davis2021characterizing' on page 34 undefined
- on input line 756.
-
-
-Package natbib Warning: Citation `martin2021model' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `martin2021model' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `martin2021model' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `martin2021model' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `kaier2020mechanical' on page 34 undefined on 
-input line 756.
-
-
-Package natbib Warning: Citation `iFHP' on page 34 undefined on input line 756.
-
-
-
-Package natbib Warning: Citation `BCBS2021' on page 34 undefined on input line 
-756.
-
-
-Package natbib Warning: Citation `santos2021public' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `kaier2020mechanical' on page 34 undefined on 
-input line 756.
-
-
-Package natbib Warning: Citation `bittner2013intensive' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `BCBS2021' on page 34 undefined on input line 
-756.
-
-
-Package natbib Warning: Citation `kaier2020mechanical' on page 34 undefined on 
-input line 756.
-
-
-Package natbib Warning: Citation `bittner2013intensive' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `BCBS2021' on page 34 undefined on input line 
-756.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `BEA20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `BEA20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `cascini2022cross' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `cascini2022cross' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `cascini2022cross' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `cascini2022cross' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `rybakowski2014mddcost' on page 34 undefined o
-n input line 756.
-
-
-Package natbib Warning: Citation `vieta2021esmddcost' on page 34 undefined on i
-nput line 756.
-
-
-Package natbib Warning: Citation `greenberg2015economic' on page 34 undefined o
-n input line 756.
-
-
-Package natbib Warning: Citation `lepine2012mddcost' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `bothe2020ptsdcost' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `bothe2020ptsdcost' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `bothe2020expensive' on page 34 undefined on i
-nput line 756.
-
-
-Package natbib Warning: Citation `lepine2012mddcost' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `destatisHealthcareWorkersDE' on page 34 undef
-ined on input line 756.
-
-
-Package natbib Warning: Citation `msssi_2019' on page 34 undefined on input lin
-e 756.
-
-
-Package natbib Warning: Citation `nyhcw' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `wbbr20' on page 34 undefined on input line 75
-6.
-
-
-Package natbib Warning: Citation `wbdepop20' on page 34 undefined on input line
- 756.
-
-
-Package natbib Warning: Citation `wbespop20' on page 34 undefined on input line
- 756.
-
-
-Package natbib Warning: Citation `nydohpop' on page 34 undefined on input line 
-756.
-
-
-Package natbib Warning: Citation `wbbrpop20' on page 34 undefined on input line
- 756.
-
-
-Package natbib Warning: Citation `dedepression' on page 34 undefined on input l
-ine 756.
-
-
-Package natbib Warning: Citation `vieta2021esmddcost' on page 34 undefined on i
-nput line 756.
-
-
-Package natbib Warning: Citation `ettman2020depression' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `FETER2021101depression' on page 34 undefined 
-on input line 756.
-
-
-Package natbib Warning: Citation `dedepression' on page 34 undefined on input l
-ine 756.
-
-
-Package natbib Warning: Citation `sanguino2020es' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `ettman2020depression' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `FETER2021101depression' on page 34 undefined 
-on input line 756.
-
-
-Package natbib Warning: Citation `deptsdbaseline' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `wittchen2011size' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `nimhusptsd' on page 34 undefined on input lin
-e 756.
-
-
-Package natbib Warning: Citation `dasilva2019ptsd' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `georgieva2021prevalence' on page 34 undefined
- on input line 756.
-
-
-Package natbib Warning: Citation `sanguino2020es' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `liu2020factorsapp' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `bryant2021symptoms' on page 34 undefined on i
-nput line 756.
-
-
-Package natbib Warning: Citation `GOULARTE202132' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `wbde20' on page 34 undefined on input line 75
-6.
-
-
-Package natbib Warning: Citation `wbes20' on page 34 undefined on input line 75
-6.
-
-
-Package natbib Warning: Citation `bls20' on page 34 undefined on input line 756
-.
-
-
-Package natbib Warning: Citation `wbbr20' on page 34 undefined on input line 75
-6.
-
-
-Package natbib Warning: Citation `SB-unemployment' on page 34 undefined on inpu
-t line 756.
-
-
-Package natbib Warning: Citation `oecd_2024' on page 34 undefined on input line
- 756.
-
-
-Package natbib Warning: Citation `nyunemployment' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `IBGE-Unemployment' on page 34 undefined on in
-put line 756.
-
-
-Package natbib Warning: Citation `chen2019effect' on page 34 undefined on input
- line 756.
-
-
-Package natbib Warning: Citation `gorjon2018social' on page 34 undefined on inp
-ut line 756.
-
-
-Package natbib Warning: Citation `blanchflower2004well' on page 34 undefined on
- input line 756.
-
-
-Package natbib Warning: Citation `chen2019effect' on page 34 undefined on input
- line 756.
-
-
-Overfull \vbox (744.3945pt too high) has occurred while \output is active []
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[34]
-pdfTeX warning (ext4): destination with the same identifier (name{subsection.0.
-2.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.759 \subsection{Detailed Justification}
-                                         
+[34
 
-Package natbib Warning: Citation `sebastiani2012' on page 35 undefined on input
- line 796.
-
-
-Package natbib Warning: Citation `centenarian_stats' on page 35 undefined on in
-put line 796.
-
-
-Package natbib Warning: Citation `germany2024' on page 35 undefined on input li
-ne 804.
-
-
-Package natbib Warning: Citation `spain2024' on page 35 undefined on input line
- 804.
-
-
-Package natbib Warning: Citation `pew2024' on page 35 undefined on input line 8
-04.
-
-
-Package natbib Warning: Citation `brazil2024' on page 35 undefined on input lin
-e 804.
-
-
+]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [35]
-
-Package natbib Warning: Citation `hastie2023true' on page 36 undefined on input
- line 811.
-
-
-Package natbib Warning: Citation `cutler2022economic' on page 36 undefined on i
-nput line 811.
-
-
-Package natbib Warning: Citation `davis2021characterizing' on page 36 undefined
- on input line 811.
-
-
-Package natbib Warning: Citation `martin2021model' on page 36 undefined on inpu
-t line 811.
-
-
-Package natbib Warning: Citation `cascini2022cross' on page 36 undefined on inp
-ut line 812.
-
-
-Package natbib Warning: Citation `tenforde2020symptom' on page 36 undefined on 
-input line 812.
-
-
-Package natbib Warning: Citation `schlander2017empirical' on page 36 undefined 
-on input line 817.
-
-
-Package natbib Warning: Citation `kaier2020mechanical' on page 36 undefined on 
-input line 819.
-
-
-Package natbib Warning: Citation `IMF20' on page 36 undefined on input line 820
-.
-
-
-Package natbib Warning: Citation `rybakowski2014mddcost' on page 36 undefined o
-n input line 822.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [36]
-
-Package natbib Warning: Citation `bothe2020expensive' on page 37 undefined on i
-nput line 823.
-
-
-Package natbib Warning: Citation `dedepression' on page 37 undefined on input l
-ine 826.
-
-
-Package natbib Warning: Citation `deptsdbaseline' on page 37 undefined on input
- line 828.
-
-
-Package natbib Warning: Citation `georgieva2021prevalence' on page 37 undefined
- on input line 828.
-
-
-Package natbib Warning: Citation `chen2019effect' on page 37 undefined on input
- line 834.
-
-
-Package natbib Warning: Citation `oecd2024idd' on page 37 undefined on input li
-ne 834.
-
-
-Package natbib Warning: Citation `schlander2017empirical' on page 37 undefined 
-on input line 840.
-
-
-Package natbib Warning: Citation `iFHP' on page 37 undefined on input line 841.
-
-
-
-Package natbib Warning: Citation `bittner2013intensive' on page 37 undefined on
- input line 841.
-
-
-Package natbib Warning: Citation `IMF20' on page 37 undefined on input line 842
-.
-
-
-Package natbib Warning: Citation `IMF20' on page 37 undefined on input line 844
-.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [37]
-
-Package natbib Warning: Citation `vieta2021esmddcost' on page 38 undefined on i
-nput line 845.
-
-
-Package natbib Warning: Citation `bothe2020expensive' on page 38 undefined on i
-nput line 846.
-
-
-Package natbib Warning: Citation `vieta2021esmddcost' on page 38 undefined on i
-nput line 849.
-
-
-Package natbib Warning: Citation `sanguino2020es' on page 38 undefined on input
- line 849.
-
-
-Package natbib Warning: Citation `wittchen2011size' on page 38 undefined on inp
-ut line 852.
-
-
-Package natbib Warning: Citation `sanguino2020es' on page 38 undefined on input
- line 852.
-
-
-Package natbib Warning: Citation `oecd_2024' on page 38 undefined on input line
- 855.
-
-
-Package natbib Warning: Citation `gorjon2018social' on page 38 undefined on inp
-ut line 857.
-
-
-Package natbib Warning: Citation `NYDoH' on page 38 undefined on input line 861
-.
-
-
-Package natbib Warning: Citation `SSA' on page 38 undefined on input line 862.
-
-
-Package natbib Warning: Citation `robinson2021benefits' on page 38 undefined on
- input line 863.
-
-
-Package natbib Warning: Citation `BCBS2021' on page 38 undefined on input line 
-864.
-
-
-Package natbib Warning: Citation `li:20app' on page 38 undefined on input line 
-864.
-
-
-Package natbib Warning: Citation `dasta2005daily' on page 38 undefined on input
- line 864.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [38]
-
-Package natbib Warning: Citation `BEA20' on page 39 undefined on input line 868
-.
-
-
-Package natbib Warning: Citation `greenberg2015economic' on page 39 undefined o
-n input line 870.
-
-
-Package natbib Warning: Citation `davis2022economic' on page 39 undefined on in
-put line 873.
-
-
-Package natbib Warning: Citation `nydohpop' on page 39 undefined on input line 
-877.
-
-
-Package natbib Warning: Citation `ettman2020depression' on page 39 undefined on
- input line 878.
-
-
-Package natbib Warning: Citation `young2021hcwmentalhealth' on page 39 undefine
-d on input line 878.
-
-
-Package natbib Warning: Citation `nimhusptsd' on page 39 undefined on input lin
-e 880.
-
-
-Package natbib Warning: Citation `liu2020factorsapp' on page 39 undefined on in
-put line 880.
-
-
-Package natbib Warning: Citation `bryant2021symptoms' on page 39 undefined on i
-nput line 880.
-
-
-Package natbib Warning: Citation `blanchflower2004well' on page 39 undefined on
- input line 886.
-
-
-Package natbib Warning: Citation `chen2019effect' on page 39 undefined on input
- line 886.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [39]
-
-Package natbib Warning: Citation `mardones2018estimation' on page 40 undefined 
-on input line 894.
-
-
-Package natbib Warning: Citation `moore1988quantity' on page 40 undefined on in
-put line 894.
-
-
-Package natbib Warning: Citation `santos2021public' on page 40 undefined on inp
-ut line 895.
-
-
-Package natbib Warning: Citation `IMF20' on page 40 undefined on input line 896
-.
-
-
-Package natbib Warning: Citation `lepine2012mddcost' on page 40 undefined on in
-put line 899.
-
-
-Package natbib Warning: Citation `FETER2021101depression' on page 40 undefined 
-on input line 904.
-
-
-Package natbib Warning: Citation `dasilva2019ptsd' on page 40 undefined on inpu
-t line 906.
-
-
-Package natbib Warning: Citation `GOULARTE202132' on page 40 undefined on input
- line 906.
-
-
-Package natbib Warning: Citation `chen2019effect' on page 40 undefined on input
- line 912.
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [40]
-pdfTeX warning (ext4): destination with the same identifier (name{section.0.3})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.913 ...ion{Regional Adjustment Factor and Error}
-                                                  
-pdfTeX warning (ext4): destination with the same identifier (name{section.0.4})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.929 ...alidation of the Separability Assumption}
-                                                  
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [41]
-<simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combined.p
-df, id=495, 1084.59427pt x 641.32524pt>
-File: simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combi
-ned.pdf Graphic file (type pdf)
-<use simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combin
-ed.pdf>
-Package pdftex.def Info: simulation_results/multiperiod_lowrank/scatter_rank1_v
-s_rank2_rank3_combined.pdf  used on input line 970.
-(pdftex.def)             Requested size: 469.75499pt x 277.77057pt.
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [42]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[43]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[44]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[45]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2412,103 +1543,67 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[43 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_comb
+[46]
+<simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combined.p
+df, id=1071, 1084.59427pt x 641.32524pt>
+File: simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combi
+ned.pdf Graphic file (type pdf)
+<use simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combin
+ed.pdf>
+Package pdftex.def Info: simulation_results/multiperiod_lowrank/scatter_rank1_v
+s_rank2_rank3_combined.pdf  used on input line 1011.
+(pdftex.def)             Requested size: 469.75499pt x 277.77057pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[47]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[48 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_comb
 ined.pdf>]
-pdfTeX warning (ext4): destination with the same identifier (name{section.0.5})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.999 ...ity Analysis for Unmeasured Confounding}}
-                                                  
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 999.
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[44]
-<simulation_results/robustness_values/ranking_stability.pdf, id=589, 1001.76884
-pt x 422.92691pt>
-File: simulation_results/robustness_values/ranking_stability.pdf Graphic file (
-type pdf)
-<use simulation_results/robustness_values/ranking_stability.pdf>
-Package pdftex.def Info: simulation_results/robustness_values/ranking_stability
-.pdf  used on input line 1037.
-(pdftex.def)             Requested size: 422.77661pt x 178.48637pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[45]
-<simulation_results/event_study/event_study_results.pdf, id=595, 1293.5615pt x 
-349.94827pt>
-File: simulation_results/event_study/event_study_results.pdf Graphic file (type
- pdf)
-<use simulation_results/event_study/event_study_results.pdf>
-Package pdftex.def Info: simulation_results/event_study/event_study_results.pdf
-  used on input line 1054.
-(pdftex.def)             Requested size: 469.75499pt x 127.08127pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[46 <./simulation_results/robustness_values/ranking_stability.pdf>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1062.
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[47 <./simulation_results/event_study/event_study_results.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[48]
-<simulation_results/granular_policies/combined_prediction_comparison.pdf, id=74
-7, 1001.58664pt x 733.02385pt>
-File: simulation_results/granular_policies/combined_prediction_comparison.pdf G
-raphic file (type pdf)
-<use simulation_results/granular_policies/combined_prediction_comparison.pdf>
-Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
-on_comparison.pdf  used on input line 1149.
-(pdftex.def)             Requested size: 469.75499pt x 343.79424pt.
-
-Underfull \vbox (badness 1259) has occurred while \output is active []
-
-
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [49]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1157.
+[50]
+<simulation_results/granular_policies/combined_prediction_comparison.pdf, id=11
+66, 1001.58664pt x 733.02385pt>
+File: simulation_results/granular_policies/combined_prediction_comparison.pdf G
+raphic file (type pdf)
+<use simulation_results/granular_policies/combined_prediction_comparison.pdf>
+Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
+on_comparison.pdf  used on input line 1143.
+(pdftex.def)             Requested size: 469.75499pt x 343.79424pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[50 <./simulation_results/granular_policies/combined_prediction_comparison.pdf>
+[51]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[52 <./simulation_results/granular_policies/combined_prediction_comparison.pdf>
 ]
 Underfull \vbox (badness 1701) has occurred while \output is active []
 
@@ -2517,77 +1612,47 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[51]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1210.
-
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[52]
-Overfull \hbox (17.3556pt too wide) in paragraph at lines 1247--1257
- [][] 
- []
-
-<simulation_results/state_action/tree_pooled_with_w.pdf, id=850, 2882.1277pt x 
-849.1725pt>
-File: simulation_results/state_action/tree_pooled_with_w.pdf Graphic file (type
- pdf)
-<use simulation_results/state_action/tree_pooled_with_w.pdf>
-Package pdftex.def Info: simulation_results/state_action/tree_pooled_with_w.pdf
-  used on input line 1263.
-(pdftex.def)             Requested size: 469.75499pt x 138.39705pt.
-
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
 [53]
-<simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf, id=857,
- 985.46918pt x 694.68658pt>
-File: simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf Gra
-phic file (type pdf)
-<use simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>
-Package pdftex.def Info: simulation_results/online_advisor_v2/online_advisor_v2
-_comparison.pdf  used on input line 1295.
-(pdftex.def)             Requested size: 469.75499pt x 331.14555pt.
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
 
-Underfull \vbox (badness 1270) has occurred while \output is active []
-
+[54]
+<simulation_results/robustness_values/ranking_stability.pdf, id=1268, 1001.7688
+4pt x 422.92691pt>
+File: simulation_results/robustness_values/ranking_stability.pdf Graphic file (
+type pdf)
+<use simulation_results/robustness_values/ranking_stability.pdf>
+Package pdftex.def Info: simulation_results/robustness_values/ranking_stability
+.pdf  used on input line 1242.
+(pdftex.def)             Requested size: 422.77661pt x 178.48637pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[54 <./simulation_results/state_action/tree_pooled_with_w.pdf>]
-<simulation_results/online_advisor_v2/revealed_preference_w.pdf, id=915, 1274.7
-2366pt x 331.15054pt>
-File: simulation_results/online_advisor_v2/revealed_preference_w.pdf Graphic fi
-le (type pdf)
-<use simulation_results/online_advisor_v2/revealed_preference_w.pdf>
-Package pdftex.def Info: simulation_results/online_advisor_v2/revealed_preferen
-ce_w.pdf  used on input line 1316.
-(pdftex.def)             Requested size: 469.75499pt x 122.03365pt.
+[55 <./simulation_results/robustness_values/ranking_stability.pdf>]
+<simulation_results/event_study/event_study_results.pdf, id=1338, 1293.5615pt x
+ 349.94827pt>
+File: simulation_results/event_study/event_study_results.pdf Graphic file (type
+ pdf)
+<use simulation_results/event_study/event_study_results.pdf>
+Package pdftex.def Info: simulation_results/event_study/event_study_results.pdf
+  used on input line 1259.
+(pdftex.def)             Requested size: 469.75499pt x 127.08127pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[55 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1324.
-
-<simulation_results/mh_sensitivity/mh_functional_forms.pdf, id=1020, 325.215pt 
+[56 <./simulation_results/event_study/event_study_results.pdf>]
+<simulation_results/mh_sensitivity/mh_functional_forms.pdf, id=1414, 325.215pt 
 x 252.945pt>
 File: simulation_results/mh_sensitivity/mh_functional_forms.pdf Graphic file (t
 ype pdf)
 <use simulation_results/mh_sensitivity/mh_functional_forms.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_functional_forms.
-pdf  used on input line 1340.
+pdf  used on input line 1284.
 (pdftex.def)             Requested size: 258.36667pt x 200.96681pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2597,14 +1662,14 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[56 <./simulation_results/online_advisor_v2/revealed_preference_w.pdf>]
-<simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf, id=1111, 867.24p
+[57 <./simulation_results/mh_sensitivity/mh_functional_forms.pdf>]
+<simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf, id=1471, 867.24p
 t x 722.7pt>
 File: simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf Graphic file
  (type pdf)
 <use simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_scatt
-er.pdf  used on input line 1369.
+er.pdf  used on input line 1313.
 (pdftex.def)             Requested size: 469.75499pt x 391.46521pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2614,14 +1679,14 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[57 <./simulation_results/mh_sensitivity/mh_functional_forms.pdf>]
-<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf, id=1169, 1
+[58]
+<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf, id=1477, 1
 003.97581pt x 733.17107pt>
 File: simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf Graphi
 c file (type pdf)
 <use simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_best_
-policies.pdf  used on input line 1376.
+policies.pdf  used on input line 1320.
 (pdftex.def)             Requested size: 469.75499pt x 343.0466pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2631,30 +1696,142 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[58 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>]
+[59 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[59 <./simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>]
+[60 <./simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[60] (app.bbl)
+[61]
+<simulation_results/state_action/tree_pooled_with_w.pdf, id=1656, 2882.1277pt x
+ 849.1725pt>
+File: simulation_results/state_action/tree_pooled_with_w.pdf Graphic file (type
+ pdf)
+<use simulation_results/state_action/tree_pooled_with_w.pdf>
+Package pdftex.def Info: simulation_results/state_action/tree_pooled_with_w.pdf
+  used on input line 1416.
+(pdftex.def)             Requested size: 469.75499pt x 138.39705pt.
 
-Package caption Warning: Unused \captionsetup[sub] on input line 60.
-See the caption package documentation for explanation.
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
 
+[62]
+<simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf, id=1666
+, 985.46918pt x 694.68658pt>
+File: simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf Gra
+phic file (type pdf)
+<use simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>
+Package pdftex.def Info: simulation_results/online_advisor_v2/online_advisor_v2
+_comparison.pdf  used on input line 1428.
+(pdftex.def)             Requested size: 469.75499pt x 331.14555pt.
 
-Package natbib Warning: There were undefined citations.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[61] (main2.aux)
+[63 <./simulation_results/state_action/tree_pooled_with_w.pdf>]
+<simulation_results/online_advisor_v2/revealed_preference_w.pdf, id=1724, 1274.
+72366pt x 331.15054pt>
+File: simulation_results/online_advisor_v2/revealed_preference_w.pdf Graphic fi
+le (type pdf)
+<use simulation_results/online_advisor_v2/revealed_preference_w.pdf>
+Package pdftex.def Info: simulation_results/online_advisor_v2/revealed_preferen
+ce_w.pdf  used on input line 1446.
+(pdftex.def)             Requested size: 469.75499pt x 122.03365pt.
+
+Underfull \vbox (badness 3930) has occurred while \output is active []
+
+
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[64 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>]
+(app.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 34--37
+[]\OT1/cmr/m/n/10 BCBS (2021) Info-graphic: Covid-19 patients with high-risk co
+n-di-tions 3x more likely
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--37
+\OT1/cmr/m/n/10 to need the icu. URL []$\OT1/cmtt/m/n/10 https : / / www . bcbs
+ . com / coronavirus-[]updates / stories /
+ []
+
+
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[65 <./simulation_results/online_advisor_v2/revealed_preference_w.pdf>]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[66]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[67]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 293--297
+\OT1/cmr/m/n/10 Health Sys-tem. []$\OT1/cmtt/m/n/10 https : / / www . sanidad .
+ gob . es / estadEstudios / estadisticas / sisInfSanSNS /
+ []
+
+
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[69]
+Underfull \hbox (badness 6775) in paragraph at lines 308--310
+[]\OT1/cmr/m/n/10 NIMH (2021) Post-traumatic stress dis-or-der (ptsd). URL []$\
+OT1/cmtt/m/n/10 https : / / www . nimh . nih . gov / health /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
+[]\OT1/cmr/m/n/10 Statistisches Bun-de-samt (2020a) Peri-o-den-ster-betafeln f^
+^?ur deutsch-land. URL []$\OT1/cmtt/m/n/10 https : / / www .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
+\OT1/cmtt/m/n/10 destatis . de / DE / Themen / Gesellschaft-[]Umwelt / Bevoelke
+rung / Sterbefaelle-[]Lebenserwartung /
+ []
+
+
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[70]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[71])
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[72] (main2.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
@@ -2665,16 +1842,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `main2.out' has not changed.
-(rerunfilecheck)             Checksum: 20F43843708F2F36C878E7E2C9C3A21E;5442.
+(rerunfilecheck)             Checksum: 0BC4B36586A3B60EA10FEAB6EF347F18;6362.
  ) 
 Here is how much of TeX's memory you used:
- 40771 strings out of 474591
- 939064 string characters out of 5745778
- 1975533 words of memory out of 5000000
- 62031 multiletter control sequences out of 15000+600000
+ 41149 strings out of 474591
+ 947219 string characters out of 5745778
+ 1986533 words of memory out of 5000000
+ 62279 multiletter control sequences out of 15000+600000
  580857 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,18n,87p,1868b,2187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,19n,87p,1863b,2185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -2712,9 +1889,9 @@ amsfonts/cm/cmtt10.pfb><C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type
 s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/shazn/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/shazn/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main2.pdf (61 pages, 1308858 bytes).
+Output written on main2.pdf (72 pages, 1462157 bytes).
 PDF statistics:
- 1544 PDF objects out of 1728 (max. 8388607)
- 231 named destinations out of 1000 (max. 500000)
- 289 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2229 PDF objects out of 2487 (max. 8388607)
+ 362 named destinations out of 1000 (max. 500000)
+ 329 words of extra memory for PDF output out of 10000 (max. 10000000)
 

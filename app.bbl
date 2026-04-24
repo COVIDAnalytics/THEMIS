@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{78}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -20,19 +20,422 @@ Bai J (2009) Panel data models with interactive fixed effects.
   \emph{Econometrica} 77(4):1229--1279,
   \urlprefix\url{http://dx.doi.org/10.3982/ECTA6135}.
 
+\bibitem[{B{\"a}uerle et~al.(2020)B{\"a}uerle, Steinbach, Schweda, Beckord,
+  Hetkamp, Weism{\"u}ller, Kohler, Musche, D{\"o}rrie, Teufel,
+  \protect\BIBand{} Skoda}]{dedepression}
+B{\"a}uerle A, Steinbach J, Schweda A, Beckord J, Hetkamp M, Weism{\"u}ller B,
+  Kohler H, Musche V, D{\"o}rrie N, Teufel M, Skoda EM (2020) Mental health
+  burden of the covid-19 outbreak in germany: Predictors of mental health
+  impairment. \emph{Journal of Primary Care \& Community Health}
+  11:2150132720953682,
+  \urlprefix\url{http://dx.doi.org/10.1177/2150132720953682}, pMID: 32865107.
+
+\bibitem[{BCBS(2021)}]{BCBS2021}
+BCBS (2021) Infographic: Covid-19 patients with high-risk conditions 3x more
+  likely to need the icu.
+  \urlprefix\url{https://www.bcbs.com/coronavirus-updates/stories/infographic-covid-19-patients-high-risk-conditions-3x-more-likely-need-the-icu}.
+
+\bibitem[{Bittner et~al.(2013)Bittner, Donnelly, Van~Zanten, Andersen, Guidet,
+  Trujillano~Cabello, Gardiner, Fitzpatrick, Winter, Joannidis
+  et~al.}]{bittner2013intensive}
+Bittner MI, Donnelly M, Van~Zanten AR, Andersen JS, Guidet B,
+  Trujillano~Cabello JJ, Gardiner S, Fitzpatrick G, Winter B, Joannidis M,
+  et~al. (2013) How is intensive care reimbursed? a review of eight european
+  countries. \emph{Annals of intensive care} 3(1):1--9.
+
+\bibitem[{Blanchflower \protect\BIBand{} Oswald(2004)}]{blanchflower2004well}
+Blanchflower DG, Oswald AJ (2004) Well-being over time in britain and the usa.
+  \emph{Journal of public economics} 88(7-8):1359--1386.
+
+\bibitem[{Bothe et~al.(2020{\natexlab{a}})Bothe, Jacob, Kr{\"o}ger,
+  \protect\BIBand{} Walker}]{bothe2020expensive}
+Bothe T, Jacob J, Kr{\"o}ger C, Walker J (2020{\natexlab{a}}) How expensive are
+  post-traumatic stress disorders? estimating incremental health care and
+  economic costs on anonymised claims data. \emph{The European Journal of
+  Health Economics} 21(6):917--930.
+
+\bibitem[{Bothe et~al.(2020{\natexlab{b}})Bothe, Jacob, Kröger,
+  \protect\BIBand{} Walker}]{bothe2020ptsdcost}
+Bothe T, Jacob J, Kröger C, Walker J (2020{\natexlab{b}}) How expensive are
+  post-traumatic stress disorders? estimating incremental health care and
+  economic costs on anonymised claims data. \emph{The European journal of
+  health economics : HEPAC : health economics in prevention and care} 21, ISSN
+  1618-7598.
+
+\bibitem[{Bryant-Genevier et~al.(2021)Bryant-Genevier, Rao, Lopes-Cardozo,
+  Kone, Rose, Thomas, Orquiola et~al.}]{bryant2021symptoms}
+Bryant-Genevier J, Rao CY, Lopes-Cardozo B, Kone A, Rose C, Thomas I, Orquiola
+  D, et~al. (2021) Symptoms of depression, anxiety, post-traumatic stress
+  disorder, and suicidal ideation among state, tribal, local, and territorial
+  public health workers during the covid-19 pandemic — united states,
+  march–april 2021. \emph{Morbidity and Mortality Weekly Report}
+  70(48):1680--1685,
+  \urlprefix\url{https://www.cdc.gov/mmwr/volumes/70/wr/mm7048a6.htm}.
+
+\bibitem[{{Bureau of Economic Analysis}(2020)}]{BEA20}
+{Bureau of Economic Analysis} (2020) Gross domestic product by state.
+  \urlprefix\url{https://www.bea.gov/data/gdp/gdp-state}.
+
+\bibitem[{{Bureau of Labor Statistics}(2020)}]{bls20}
+{Bureau of Labor Statistics} (2020) Labor force statistics including the
+  national unemployment rate.
+  \urlprefix\url{https://www.bls.gov/data/#unemployment}.
+
+\bibitem[{Burri \protect\BIBand{} Maercker(2014)}]{deptsdbaseline}
+Burri A, Maercker A (2014) Differences in prevalence rates of ptsd in various
+  european countries explained by war exposure, other trauma and cultural value
+  orientation. \emph{BMC Research Notes} 7(1):1--11.
+
+\bibitem[{Cascini et~al.(2022)Cascini, Failla, Gobbi, Pallini, Hui, Luxi,
+  Villani, Quentin, Boccia, \protect\BIBand{} Ricciardi}]{cascini2022cross}
+Cascini F, Failla G, Gobbi C, Pallini E, Hui J, Luxi W, Villani L, Quentin W,
+  Boccia S, Ricciardi W (2022) A cross-country comparison of covid-19
+  containment measures and their effects on the epidemic curves. \emph{BMC
+  Public Health} 22(1):1765.
+
+\bibitem[{{CDC}(2018)}]{nyhcw}
+{CDC} (2018) The healthcare workforce in new york - trends in the supply of and
+  demand for health workers.
+  \urlprefix\url{https://www.chwsny.org/wp-content/uploads/2018/04/Full_CHWS_NY_Tracking_Report-2018b-1.pdf}.
+
+\bibitem[{Center(2024)}]{pew2024}
+Center PR (2024) Number of people 100 and older is growing in us and around the
+  world. \url{https://www.pewresearch.org}.
+
+\bibitem[{Chen \protect\BIBand{} Hou(2019)}]{chen2019effect}
+Chen WH, Hou F (2019) The effect of unemployment on life satisfaction: a
+  cross-national comparison between canada, germany, the united kingdom and the
+  united states. \emph{Applied Research in Quality of Life} 14(4):1035--1058.
+
 \bibitem[{Cinelli \protect\BIBand{} Hazlett(2020)}]{cinelli2020making}
 Cinelli C, Hazlett C (2020) Making sense of sensitivity: Extending omitted
   variable bias. \emph{Journal of the Royal Statistical Society: Series B
   (Statistical Methodology)} 82(1):39--67.
 
+\bibitem[{Cutler(2022)}]{cutler2022economic}
+Cutler DM (2022) The economic cost of long covid: an update. \emph{Publish
+  Online July} .
+
+\bibitem[{da~Silva et~al.(2018)da~Silva, Furtado~da Rosa, Berger, Luz,
+  Mendlowicz, Coutinho, Portella, Marques, Mograbi, Figueira
+  et~al.}]{dasilva2019ptsd}
+da~Silva HC, Furtado~da Rosa MM, Berger W, Luz MP, Mendlowicz M, Coutinho ES,
+  Portella CM, Marques PI, Mograbi DC, Figueira I, et~al. (2018) Ptsd in mental
+  health outpatient settings: highly prevalent and under-recognized.
+  \emph{Brazilian Journal of Psychiatry} 41:213--217.
+
+\bibitem[{Dasta et~al.(2005)Dasta, McLaughlin, Mody, \protect\BIBand{}
+  Piech}]{dasta2005daily}
+Dasta JF, McLaughlin TP, Mody SH, Piech CT (2005) Daily cost of an intensive
+  care unit day: the contribution of mechanical ventilation. \emph{Critical
+  care medicine} 33(6):1266--1271.
+
+\bibitem[{Davis et~al.(2021)Davis, Assaf, McCorkell, Wei, Low, Re'em, Redfield,
+  Austin, \protect\BIBand{} Akrami}]{davis2021characterizing}
+Davis HE, Assaf GS, McCorkell L, Wei H, Low RJ, Re'em Y, Redfield S, Austin JP,
+  Akrami A (2021) Characterizing long covid in an international cohort: 7
+  months of symptoms and their impact. \emph{EClinicalMedicine} 38.
+
+\bibitem[{Davis et~al.(2022)Davis, Schein, Cloutier, Gagnon-Sanschagrin,
+  Maitland, Urganus, Guerin, Lefebvre, \protect\BIBand{}
+  Houle}]{davis2022economic}
+Davis LL, Schein J, Cloutier M, Gagnon-Sanschagrin P, Maitland J, Urganus A,
+  Guerin A, Lefebvre P, Houle CR (2022) The economic burden of posttraumatic
+  stress disorder in the united states from a societal perspective. \emph{The
+  Journal of clinical psychiatry} 83(3):40672.
+
+\bibitem[{{Destatis}(2024)}]{germany2024}
+{Destatis} (2024) Population by age groups 2023. \url{https://www.destatis.de}.
+
+\bibitem[{DoH(2021)}]{NYDoH}
+DoH NY (2021) Department of health covid-19 tracker.
+  \urlprefix\url{https://coronavirus.health.ny.gov/covid-19-testing-tracker?\%3Aembed=yes&amp;\%3Atoolbar=no&amp;\%3Atabs=n}.
+
+\bibitem[{Ettman et~al.(2020)Ettman, Abdalla, Cohen, Sampson, Vivier,
+  \protect\BIBand{} Galea}]{ettman2020depression}
+Ettman CK, Abdalla SM, Cohen GH, Sampson L, Vivier PM, Galea S (2020)
+  {Prevalence of Depression Symptoms in US Adults Before and During the
+  COVID-19 Pandemic}. \emph{JAMA Network Open} 3(9):e2019686--e2019686, ISSN
+  2574-3805,
+  \urlprefix\url{http://dx.doi.org/10.1001/jamanetworkopen.2020.19686}.
+
+\bibitem[{{Federal Statistical Office, Wiesbaden,
+  Germany}(2020)}]{destatisHealthcareWorkersDE}
+{Federal Statistical Office, Wiesbaden, Germany} (2020) Health personnel:
+  Germany, years, facilities, sex, occupations in healthcare.
+  \urlprefix\url{https://www-genesis.destatis.de/genesis/online?sequenz=tabelleErgebnis&selectionname=23621-0002&language=en#abreadcrumb}.
+
+\bibitem[{Feter et~al.(2021)Feter, Caputo, Doring, Leite, Cassuriaga, Reichert,
+  {da Silva}, Coombes, \protect\BIBand{} Rombaldi}]{FETER2021101depression}
+Feter N, Caputo E, Doring I, Leite J, Cassuriaga J, Reichert F, {da Silva} M,
+  Coombes J, Rombaldi A (2021) Sharp increase in depression and anxiety among
+  brazilian adults during the covid-19 pandemic: findings from the pampa
+  cohort. \emph{Public Health} 190:101--107, ISSN 0033-3506,
+  \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.puhe.2020.11.013}.
+
+\bibitem[{FIOCRUZ(2021)}]{BRDeaths}
+FIOCRUZ (2021) Observatório covid-19.
+  \urlprefix\url{https://portal.fiocruz.br/sites/portal.fiocruz.br/files/documentos/boletim_covid_2021-semanas_10-11-red.pdf}.
+
+\bibitem[{for Economic Co-operation \protect\BIBand{}
+  (OECD)(2024)}]{oecd2024idd}
+for Economic Co-operation O, (OECD) D (2024) Oecd income distribution database
+  (idd). \urlprefix\url{https://stats.oecd.org/Index.aspx?DataSetCode=IDD},
+  last updated: July 11, 2024. Accessed: 2024-08-13.
+
+\bibitem[{Georgieva et~al.(2021)Georgieva, Lepping, Bozev, Lickiewicz, Pekara,
+  Wikman, Losevi{\v{c}}a, Raveesh, Mihai, \protect\BIBand{}
+  Lantta}]{georgieva2021prevalence}
+Georgieva I, Lepping P, Bozev V, Lickiewicz J, Pekara J, Wikman S,
+  Losevi{\v{c}}a M, Raveesh BN, Mihai A, Lantta T (2021) Prevalence, new
+  incidence, course, and risk factors of ptsd, depression, anxiety, and panic
+  disorder during the covid-19 pandemic in 11 countries. \emph{Healthcare}
+  9(6):664.
+
+\bibitem[{González-Sanguino et~al.(2020)González-Sanguino, Ausín,
+  Castellanos, Saiz, López-Gómez, Ugidos, \protect\BIBand{}
+  M.}]{sanguino2020es}
+González-Sanguino C, Ausín B, Castellanos M, Saiz J, López-Gómez A, Ugidos
+  C, M M (2020) Mental health consequences during the initial stage of the 2020
+  coronavirus pandemic (covid-19) in spain. \emph{Brain Behav Immun.}
+  \urlprefix\url{http://dx.doi.org/10.1016/j.bbi.2020.05.040.}
+
+\bibitem[{Gorj{\'o}n et~al.(2018)Gorj{\'o}n, de~la Rica, \protect\BIBand{}
+  Villar}]{gorjon2018social}
+Gorj{\'o}n L, de~la Rica S, Villar A (2018) The social cost of unemployment:
+  the spanish labour market from a social welfare approach. \emph{Available at
+  SSRN 3261709} .
+
+\bibitem[{Goularte et~al.(2021)Goularte, Serafim, Colombo, Hogg, Caldieraro,
+  \protect\BIBand{} Rosa}]{GOULARTE202132}
+Goularte JF, Serafim SD, Colombo R, Hogg B, Caldieraro MA, Rosa AR (2021)
+  Covid-19 and mental health in brazil: Psychiatric symptoms in the general
+  population. \emph{Journal of Psychiatric Research} 132:32--37, ISSN
+  0022-3956,
+  \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.jpsychires.2020.09.021}.
+
+\bibitem[{Greenberg et~al.(2015)Greenberg, Fournier, Sisitsky, Pike,
+  \protect\BIBand{} Kessler}]{greenberg2015economic}
+Greenberg PE, Fournier AA, Sisitsky T, Pike CT, Kessler RC (2015) The economic
+  burden of adults with major depressive disorder in the united states (2005
+  and 2010). \emph{The Journal of clinical psychiatry} 76(2):5356.
+
+\bibitem[{Hastie et~al.(2023)Hastie, Lowe, McAuley, Mills, Winter, Black,
+  Scott, O’donnell, Blane, Browne et~al.}]{hastie2023true}
+Hastie CE, Lowe DJ, McAuley A, Mills NL, Winter AJ, Black C, Scott JT,
+  O’donnell CA, Blane DN, Browne S, et~al. (2023) True prevalence of
+  long-covid in a nationwide, population cohort study. \emph{Nature
+  Communications} 14(1):7892.
+
+\bibitem[{IBGE(2020)}]{IBGE-Mortality}
+IBGE (2020) Complete life tables.
+  \urlprefix\url{https://www.ibge.gov.br/en/statistics/social/population/17117-complete-life-tables.html?=&t=resultados}.
+
+\bibitem[{{IBGE}(2020)}]{IBGE-Unemployment}
+{IBGE} (2020) Unemployment rate.
+
+\bibitem[{iFHP(2021)}]{iFHP}
+iFHP (2021) Ifhp comparative price report.
+
+\bibitem[{{IMF}(2020)}]{IMF20}
+{IMF} (2020) Gross domestic product and components selected indicators.
+  \urlprefix\url{https://data.imf.org/regular.aspx?key=61545852}.
+
+\bibitem[{INE(2021)}]{INE-Mortality}
+INE (2021) Tablas de mortalidad por año, provincia, sexo, edad y funciones.
+  \urlprefix\url{https://ine.es/jaxiT3/Datos.htm?t=27155}.
+
+\bibitem[{INED(2021)}]{INED}
+INED (2021) Spain.
+  \urlprefix\url{https://dc-covid.site.ined.fr/en/data/spain/}.
+
+\bibitem[{Institut(2021)}]{robert2021robert}
+Institut RK (2021) “robert koch-institut: Covid-19-dashboard.
+
+\bibitem[{Kaier et~al.(2020)Kaier, Heister, Wolff, \protect\BIBand{}
+  Wolkewitz}]{kaier2020mechanical}
+Kaier K, Heister T, Wolff J, Wolkewitz M (2020) Mechanical ventilation and the
+  daily cost of icu care. \emph{BMC health services research} 20(1):1--5.
+
 \bibitem[{Lee \protect\BIBand{} Seung(2001)}]{lee2001algorithms}
 Lee DD, Seung HS (2001) Algorithms for non-negative matrix factorization.
   \emph{Advances in Neural Information Processing Systems} 13.
+
+\bibitem[{Lepine(2012)}]{lepine2012mddcost}
+Lepine BAea (2012) Treatment-resistant depression increases health costs and
+  resource utilization. \emph{Brazilian Journal of Psychiatry [online].} .
+
+\bibitem[{Li et~al.(2023)Li, Bouardi, Lami, Trikalinos, Trichakis,
+  \protect\BIBand{} Bertsimas}]{li:20app}
+Li ML, Bouardi HT, Lami OS, Trikalinos TA, Trichakis N, Bertsimas D (2023)
+  Forecasting covid-19 and analyzing the effect of government interventions.
+  \emph{Operations Research} 71(1):184--201.
+
+\bibitem[{Liu et~al.(2020)Liu, Zhang, Wong, Hyun et~al.}]{liu2020factorsapp}
+Liu CH, Zhang E, Wong GTF, Hyun S, et~al. (2020) Factors associated with
+  depression, anxiety, and ptsd symptomatology during the covid-19 pandemic:
+  Clinical implications for us young adult mental health. \emph{Psychiatry
+  research} 290:113172.
+
+\bibitem[{Mardones \protect\BIBand{} Riquelme(2018)}]{mardones2018estimation}
+Mardones C, Riquelme M (2018) Estimation of the value of statistical life in
+  chile and extrapolation to other latin american countries. \emph{Latin
+  American Research Review} 53(4):815--830.
+
+\bibitem[{Martin et~al.(2021)Martin, Luteijn, Letton, Robertson,
+  \protect\BIBand{} McDonald}]{martin2021model}
+Martin C, Luteijn M, Letton W, Robertson J, McDonald S (2021) A model framework
+  for projecting the prevalence and impact of long-covid in the uk. \emph{PLoS
+  One} 16(12):e0260843.
+
+\bibitem[{{Ministry of Health, Social Services and Equality,
+  Spain}(2020)}]{msssi_2019}
+{Ministry of Health, Social Services and Equality, Spain} (2020) {2019 Annual
+  Report of the National Health System}.
+  \url{https://www.sanidad.gob.es/estadEstudios/estadisticas/sisInfSanSNS/tablasEstadisticas/InfAnualSNS2019/ExecutiveSummary_2019.pdf},
+  accessed: 2024-08-13.
+
+\bibitem[{Moore \protect\BIBand{} Viscusi(1988)}]{moore1988quantity}
+Moore MJ, Viscusi WK (1988) The quantity-adjusted value of life. \emph{Economic
+  Inquiry} 26(3):369--388.
+
+\bibitem[{{New York, Department of Health}(2018)}]{nydohpop}
+{New York, Department of Health} (2018) Estimated population by age, sex and
+  region, new york state - 2018.
+  \urlprefix\url{https://www.health.ny.gov/statistics/vital_statistics/2018/table01.htm}.
+
+\bibitem[{{NIMH}(2021)}]{nimhusptsd}
+{NIMH} (2021) Post-traumatic stress disorder (ptsd).
+  \urlprefix\url{https://www.nimh.nih.gov/health/statistics/post-traumatic-stress-disorder-ptsd}.
+
+\bibitem[{{Organization for Economic Co-operation and
+  Development}(2024)}]{oecd_2024}
+{Organization for Economic Co-operation and Development} (2024) {Infra-Annual
+  Labor Statistics: Monthly Unemployment Rate Total: 15 Years or over for
+  Spain}. retrieved from FRED, Federal Reserve Bank of St. Louis;
+  \url{https://fred.stlouisfed.org/series/LRHUTTTTESM156S}, accessed: August
+  13, 2024.
+
+\bibitem[{Robinson et~al.(2021)Robinson, Sullivan, \protect\BIBand{}
+  Shogren}]{robinson2021benefits}
+Robinson LA, Sullivan R, Shogren JF (2021) Do the benefits of covid-19 policies
+  exceed the costs? exploring uncertainties in the age--vsl relationship.
+  \emph{Risk Analysis} 41(5):761--770.
+
+\bibitem[{Rybakowski et~al.(2014)Rybakowski, Krauth, Stahmeyer, Petersen,
+  Freytag, Gerlach, \protect\BIBand{} Gensichen}]{rybakowski2014mddcost}
+Rybakowski JK, Krauth C, Stahmeyer JT, Petersen JJ, Freytag A, Gerlach FM,
+  Gensichen J (2014) Resource utilisation and costs of depressive patients in
+  germany: Results from the primary care monitoring for depressive patients
+  trial (article). \emph{Depression Research and Treatment} 2014:730891.
+
+\bibitem[{Santos et~al.(2021)Santos, Maciel, Santos~Junior, Martins,
+  \protect\BIBand{} Prado}]{santos2021public}
+Santos HLPCd, Maciel FBM, Santos~Junior GM, Martins PC, Prado NMdBL (2021)
+  Public expenditure on hospitalizations for covid-19 treatment in 2020, in
+  brazil. \emph{Revista de Sa{\'u}de P{\'u}blica} 55:52.
+
+\bibitem[{Schlander et~al.(2017)Schlander, Schaefer, \protect\BIBand{}
+  Schwarz}]{schlander2017empirical}
+Schlander M, Schaefer R, Schwarz O (2017) Empirical studies on the economic
+  value of a statistical life year (vsly) in europe: what do they tell us?
+  \emph{Value in Health} 20(9):A666.
+
+\bibitem[{Sebastiani et~al.(2012)Sebastiani, Solovieff, DeWan
+  et~al.}]{sebastiani2012}
+Sebastiani P, Solovieff N, DeWan AT, et~al. (2012) Genetic signatures of
+  exceptional longevity in humans. \emph{PLOS ONE}
+  \urlprefix\url{http://dx.doi.org/10.1371/journal.pone.0029848}.
+
+\bibitem[{SSA(2021)}]{SSA}
+SSA (2021) Actuarial life table.
+  \urlprefix\url{https://www.ssa.gov/oact/STATS/table4c6.html}.
+
+\bibitem[{{St. Louis Fed}(2020)}]{nyunemployment}
+{St Louis Fed} (2020) Unemployment rate in new york.
+  \urlprefix\url{https://fred.stlouisfed.org/series/NYUR}.
+
+\bibitem[{{Statistisches Bundesamt}(2020{\natexlab{a}})}]{SB-mortality}
+{Statistisches Bundesamt} (2020{\natexlab{a}}) Periodensterbetafeln für
+  deutschland.
+  \urlprefix\url{https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Publikationen/\_publikationen-innen-periodensterbetafel.html}.
+
+\bibitem[{{Statistisches Bundesamt}(2020{\natexlab{b}})}]{SB-unemployment}
+{Statistisches Bundesamt} (2020{\natexlab{b}}) Unemployment.
+  \urlprefix\url{https://www.destatis.de/EN/Themes/Labour/Labour-Market/Unemployment/_node.html}.
+
+\bibitem[{Study(2024)}]{centenarian_stats}
+Study NEC (2024) Centenarian statistics. \url{https://www.bumc.bu.edu}.
+
+\bibitem[{Tenforde(2020)}]{tenforde2020symptom}
+Tenforde MW (2020) Symptom duration and risk factors for delayed return to
+  usual health among outpatients with covid-19 in a multistate health care
+  systems network—united states, march--june 2020. \emph{MMWR. Morbidity and
+  mortality weekly report} 69.
+
+\bibitem[{Vieta et~al.(2021)Vieta, Alonso, P{\'e}rez-Sola, Roca, Hernando,
+  Sicras-Mainar, Sicras-Navarro, Herrera, \protect\BIBand{}
+  Gabilondo}]{vieta2021esmddcost}
+Vieta E, Alonso J, P{\'e}rez-Sola V, Roca M, Hernando T, Sicras-Mainar A,
+  Sicras-Navarro A, Herrera B, Gabilondo A (2021) Epidemiology and costs of
+  depressive disorder in spain. \emph{European Neuropsychopharmacology}
+  50:93--103, ISSN 0924-977X,
+  \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.euroneuro.2021.04.022}.
+
+\bibitem[{Wittchen et~al.(2011)Wittchen, Jacobi, Rehm, Gustavsson, Svensson,
+  J{\"o}nsson, Olesen, Allgulander, Alonso, Faravelli
+  et~al.}]{wittchen2011size}
+Wittchen HU, Jacobi F, Rehm J, Gustavsson A, Svensson M, J{\"o}nsson B, Olesen
+  J, Allgulander C, Alonso J, Faravelli C, et~al. (2011) The size and burden of
+  mental disorders and other disorders of the brain in europe 2010.
+  \emph{European neuropsychopharmacology} 21(9):655--679.
+
+\bibitem[{{World Bank}(2020{\natexlab{a}})}]{wbbr20}
+{World Bank} (2020{\natexlab{a}}) Labor force, total - brazil.
+  \urlprefix\url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=BR}.
+
+\bibitem[{{World Bank}(2020{\natexlab{b}})}]{wbde20}
+{World Bank} (2020{\natexlab{b}}) Labor force, total - germany.
+  \urlprefix\url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=DE}.
+
+\bibitem[{{World Bank}(2020{\natexlab{c}})}]{wbes20}
+{World Bank} (2020{\natexlab{c}}) Labor force, total - spain.
+  \urlprefix\url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=ES}.
+
+\bibitem[{{World Bank}(2020{\natexlab{d}})}]{wbbrpop20}
+{World Bank} (2020{\natexlab{d}}) Population ages 0-14 (\% of total population)
+  - brazil.
+  \urlprefix\url{https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=BR}.
+
+\bibitem[{{World Bank}(2020{\natexlab{e}})}]{wbdepop20}
+{World Bank} (2020{\natexlab{e}}) Population ages 0-14 (\% of total population)
+  - germany.
+  \urlprefix\url{https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=DE}.
+
+\bibitem[{{World Bank}(2020{\natexlab{f}})}]{wbespop20}
+{World Bank} (2020{\natexlab{f}}) Population ages 0-14 (\% of total population)
+  - spain.
+  \urlprefix\url{https://data.worldbank.org/indicator/SP.POP.0014.TO.ZS?locations=ES}.
+
+\bibitem[{Worldometer(2024{\natexlab{a}})}]{brazil2024}
+Worldometer (2024{\natexlab{a}}) Brazil demographics 2024.
+  \url{https://www.worldometers.info}.
+
+\bibitem[{Worldometer(2024{\natexlab{b}})}]{spain2024}
+Worldometer (2024{\natexlab{b}}) Spain demographics 2024.
+  \url{https://www.worldometers.info}.
 
 \bibitem[{Xu et~al.(2012)Xu, Yin, Wen, \protect\BIBand{}
   Zhang}]{xu2012alternating}
 Xu Y, Yin W, Wen Z, Zhang Y (2012) An alternating direction algorithm for
   matrix completion with nonnegative factors. \emph{Frontiers of Mathematics in
   China} 7(2):365--384.
+
+\bibitem[{Young et~al.(2021)Young, Kolcz, O'Sullivan, Ferrand, Fried,
+  \protect\BIBand{} Robinson}]{young2021hcwmentalhealth}
+Young KP, Kolcz DL, O'Sullivan DM, Ferrand J, Fried J, Robinson K (2021) Health
+  care workers' mental health and quality of life during covid-19: Results from
+  a mid-pandemic, national survey. \emph{Psychiatric Services} 72(2):122--128,
+  \urlprefix\url{http://dx.doi.org/10.1176/appi.ps.202000424}, pMID: 33267652.
 
 \end{thebibliography}
