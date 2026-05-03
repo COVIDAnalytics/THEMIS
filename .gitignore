@@ -29,3 +29,5 @@ logs/
 
 *.csv
 *.pdf
+!simulation_results/*.pdf
+!simulation_results/**/*.pdf

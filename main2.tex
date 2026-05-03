@@ -54,6 +54,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{multicol}
+\usepackage{pdflscape}
 \usepackage{xcolor}
 \usepackage[normalem]{ulem}
 \usepackage{graphicx, amsmath, amssymb, amssymb, amsfonts, enumerate, booktabs, float, adjustbox, hyperref, tikz, multirow,pgfplots,wrapfig,bm,bbm,graphicx,enumitem,makecell}
@@ -591,6 +592,40 @@ R5 & \begin{tabular}[t]{@{}l@{}}$\text{econ.\ cost} \leq 6.6\%\,\text{GDP}$;\; $
 \caption{\rev{Five representative leaves of the pooled state-action tree. None of the conditions references a region indicator.}}
 \label{tab:state_action_rules}
 \end{table}
+
+\begin{landscape}
+\begin{table}[!htbp]\centering
+	\caption{Within-Period Fatigue Effects}
+	\label{tab:fatigue-effects}
+	\begin{tabular}{lcccc}
+		\toprule
+		& (1) & (2) & (3) & (4) \\
+		\midrule
+		& Log review time & Mean review time & Synthetic sensitivity & Non-synthetic flagging \\
+		Within-period order & -0.0086*** & -1.7472*** & 0.0104* & 0.0042 \\
+		& (0.0011) & (0.3703) & (0.0050) & (0.0030) \\
+		Low × order (vs control) & -0.0004 & -0.1612 &  & -0.0005 \\
+		& (0.0010) & (0.2032) &  & (0.0012) \\
+		Medium × order (vs control) & 0.0006 & 0.0280 &  & 0.0005 \\
+		& (0.0009) & (0.2220) &  & (0.0008) \\
+		High × order (vs control) & -0.0002 & -0.0899 &  & 0.0024* \\
+		& (0.0009) & (0.2344) &  & (0.0012) \\
+		Medium × order (vs low) &  &  & 0.0034 &  \\
+		&  &  & (0.0030) &  \\
+		High × order (vs low) &  &  & 0.0023 &  \\
+		&  &  & (0.0033) &  \\
+		\midrule
+		Student FE & Yes & Yes & Yes & Yes \\
+		Document FE & Yes & Yes & Yes & Yes \\
+		Period FE & Yes & Yes & Yes & Yes \\
+		Global order & Yes & Yes & Yes & Yes \\
+		Pre-survey × order & Yes & Yes & Yes & Yes \\
+		Observations & 8,117 & 8,117 & 8,525 & 129,193 \\
+		\bottomrule
+		\multicolumn{5}{p{0.95\linewidth}}{\footnotesize Note. The table reports within-period order slopes and condition-by-order interactions. Columns (1) and (2) are OLS; columns (3) and (4) are logit models. Standard errors are clustered by participant. † p < 0.10, * p < 0.05, ** p < 0.01, *** p < 0.001.}\\
+	\end{tabular}
+\end{table}
+\end{landscape}
 
 Table~\ref{tab:state_action_rules} highlights three regularities. First, active epidemiological burden---especially active cases and active hospitalizations---drives the key escalation and exit splits. Second, once cumulative economic cost is already large and hospital pressure has subsided, the tree recommends rapid relaxation. Third, lockdown appears only as an early preemptive instrument; later in the horizon the tree typically prefers NPI~6 to NPI~7. This threshold view also helps explain the wider uncertainty bands in Germany and Spain: many candidate policies place those regions closer to the boundary at which the preferred action changes.
 

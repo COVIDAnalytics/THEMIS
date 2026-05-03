@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  24 APR 2026 10:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.5)  27 APR 2026 01:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -489,6 +489,19 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \colbreak@box=\box105
 \mc@col@check@num=\count320
 )
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+etadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
@@ -1241,24 +1254,24 @@ File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
 ) (main2.aux)
 \openout1 = `main2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
 
 (C:\Users\shazn\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -1300,7 +1313,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 105.
+Package hyperref Info: Link coloring OFF on input line 106.
  (main2.out) (main2.out)
 \@outlinefile=\write6
 \openout6 = `main2.out'.
@@ -1355,23 +1368,23 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [16]
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 487.
+(Font)              size <6> substituted on input line 488.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 487.
+(Font)              size <6> substituted on input line 488.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 487.
+(Font)              size <6> substituted on input line 488.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 487.
+(Font)              size <6> substituted on input line 488.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 487.
+(Font)              size <6> substituted on input line 488.
 
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
@@ -1388,7 +1401,7 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 File: simulation_results/scatter_plot_v7.pdf Graphic file (type pdf)
 <use simulation_results/scatter_plot_v7.pdf>
 Package pdftex.def Info: simulation_results/scatter_plot_v7.pdf  used on input 
-line 527.
+line 528.
 (pdftex.def)             Requested size: 469.75499pt x 469.7577pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
@@ -1410,7 +1423,7 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 File: simulation_results/best_policies_v7.pdf Graphic file (type pdf)
 <use simulation_results/best_policies_v7.pdf>
 Package pdftex.def Info: simulation_results/best_policies_v7.pdf  used on input
- line 555.
+ line 556.
 (pdftex.def)             Requested size: 469.75499pt x 469.7577pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
@@ -1433,26 +1446,36 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
  []
 
 [25]
+
+LaTeX Warning: Float too large for page by 114.44347pt on input line 627.
+
+
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
 [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[27]
+[27
+
+
+]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[28] (main.bbl
+[28]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[29]
+[29] (main.bbl
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
@@ -1467,24 +1490,24 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[32])
+[32]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[33]
+[33])
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[34
+[34]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[35
 
 ]
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[35]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
@@ -1535,6 +1558,11 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
  []
 
 [45]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[46]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1543,15 +1571,15 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[46]
+[47]
 <simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combined.p
-df, id=1071, 1084.59427pt x 641.32524pt>
+df, id=1077, 1084.59427pt x 641.32524pt>
 File: simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combi
 ned.pdf Graphic file (type pdf)
 <use simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_combin
 ed.pdf>
 Package pdftex.def Info: simulation_results/multiperiod_lowrank/scatter_rank1_v
-s_rank2_rank3_combined.pdf  used on input line 1011.
+s_rank2_rank3_combined.pdf  used on input line 1046.
 (pdftex.def)             Requested size: 469.75499pt x 277.77057pt.
 
 
@@ -1565,30 +1593,30 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[47]
+[48]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[48 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_comb
+[49 <./simulation_results/multiperiod_lowrank/scatter_rank1_vs_rank2_rank3_comb
 ined.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[49]
+[50]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[50]
+[51]
 <simulation_results/granular_policies/combined_prediction_comparison.pdf, id=11
-66, 1001.58664pt x 733.02385pt>
+72, 1001.58664pt x 733.02385pt>
 File: simulation_results/granular_policies/combined_prediction_comparison.pdf G
 raphic file (type pdf)
 <use simulation_results/granular_policies/combined_prediction_comparison.pdf>
 Package pdftex.def Info: simulation_results/granular_policies/combined_predicti
-on_comparison.pdf  used on input line 1143.
+on_comparison.pdf  used on input line 1178.
 (pdftex.def)             Requested size: 469.75499pt x 343.79424pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1598,12 +1626,12 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[51]
+[52]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[52 <./simulation_results/granular_policies/combined_prediction_comparison.pdf>
+[53 <./simulation_results/granular_policies/combined_prediction_comparison.pdf>
 ]
 Underfull \vbox (badness 1701) has occurred while \output is active []
 
@@ -1612,47 +1640,47 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[53]
+[54]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[54]
-<simulation_results/robustness_values/ranking_stability.pdf, id=1268, 1001.7688
+[55]
+<simulation_results/robustness_values/ranking_stability.pdf, id=1275, 1001.7688
 4pt x 422.92691pt>
 File: simulation_results/robustness_values/ranking_stability.pdf Graphic file (
 type pdf)
 <use simulation_results/robustness_values/ranking_stability.pdf>
 Package pdftex.def Info: simulation_results/robustness_values/ranking_stability
-.pdf  used on input line 1242.
+.pdf  used on input line 1277.
 (pdftex.def)             Requested size: 422.77661pt x 178.48637pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[55 <./simulation_results/robustness_values/ranking_stability.pdf>]
-<simulation_results/event_study/event_study_results.pdf, id=1338, 1293.5615pt x
+[56 <./simulation_results/robustness_values/ranking_stability.pdf>]
+<simulation_results/event_study/event_study_results.pdf, id=1344, 1293.5615pt x
  349.94827pt>
 File: simulation_results/event_study/event_study_results.pdf Graphic file (type
  pdf)
 <use simulation_results/event_study/event_study_results.pdf>
 Package pdftex.def Info: simulation_results/event_study/event_study_results.pdf
-  used on input line 1259.
+  used on input line 1294.
 (pdftex.def)             Requested size: 469.75499pt x 127.08127pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[56 <./simulation_results/event_study/event_study_results.pdf>]
-<simulation_results/mh_sensitivity/mh_functional_forms.pdf, id=1414, 325.215pt 
+[57 <./simulation_results/event_study/event_study_results.pdf>]
+<simulation_results/mh_sensitivity/mh_functional_forms.pdf, id=1420, 325.215pt 
 x 252.945pt>
 File: simulation_results/mh_sensitivity/mh_functional_forms.pdf Graphic file (t
 ype pdf)
 <use simulation_results/mh_sensitivity/mh_functional_forms.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_functional_forms.
-pdf  used on input line 1284.
+pdf  used on input line 1319.
 (pdftex.def)             Requested size: 258.36667pt x 200.96681pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1662,14 +1690,14 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[57 <./simulation_results/mh_sensitivity/mh_functional_forms.pdf>]
-<simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf, id=1471, 867.24p
+[58 <./simulation_results/mh_sensitivity/mh_functional_forms.pdf>]
+<simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf, id=1477, 867.24p
 t x 722.7pt>
 File: simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf Graphic file
  (type pdf)
 <use simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_scatt
-er.pdf  used on input line 1313.
+er.pdf  used on input line 1348.
 (pdftex.def)             Requested size: 469.75499pt x 391.46521pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1679,14 +1707,14 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[58]
-<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf, id=1477, 1
+[59]
+<simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf, id=1483, 1
 003.97581pt x 733.17107pt>
 File: simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf Graphi
 c file (type pdf)
 <use simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>
 Package pdftex.def Info: simulation_results/mh_sensitivity/mh_sensitivity_best_
-policies.pdf  used on input line 1320.
+policies.pdf  used on input line 1355.
 (pdftex.def)             Requested size: 469.75499pt x 343.0466pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1696,38 +1724,38 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[59 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>]
+[60 <./simulation_results/mh_sensitivity/mh_sensitivity_scatter.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[60 <./simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>]
+[61 <./simulation_results/mh_sensitivity/mh_sensitivity_best_policies.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[61]
-<simulation_results/state_action/tree_pooled_with_w.pdf, id=1656, 2882.1277pt x
+[62]
+<simulation_results/state_action/tree_pooled_with_w.pdf, id=1662, 2882.1277pt x
  849.1725pt>
 File: simulation_results/state_action/tree_pooled_with_w.pdf Graphic file (type
  pdf)
 <use simulation_results/state_action/tree_pooled_with_w.pdf>
 Package pdftex.def Info: simulation_results/state_action/tree_pooled_with_w.pdf
-  used on input line 1416.
+  used on input line 1451.
 (pdftex.def)             Requested size: 469.75499pt x 138.39705pt.
 
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[62]
-<simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf, id=1666
+[63]
+<simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf, id=1672
 , 985.46918pt x 694.68658pt>
 File: simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf Gra
 phic file (type pdf)
 <use simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>
 Package pdftex.def Info: simulation_results/online_advisor_v2/online_advisor_v2
-_comparison.pdf  used on input line 1428.
+_comparison.pdf  used on input line 1463.
 (pdftex.def)             Requested size: 469.75499pt x 331.14555pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1737,14 +1765,14 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[63 <./simulation_results/state_action/tree_pooled_with_w.pdf>]
-<simulation_results/online_advisor_v2/revealed_preference_w.pdf, id=1724, 1274.
+[64 <./simulation_results/state_action/tree_pooled_with_w.pdf>]
+<simulation_results/online_advisor_v2/revealed_preference_w.pdf, id=1730, 1274.
 72366pt x 331.15054pt>
 File: simulation_results/online_advisor_v2/revealed_preference_w.pdf Graphic fi
 le (type pdf)
 <use simulation_results/online_advisor_v2/revealed_preference_w.pdf>
 Package pdftex.def Info: simulation_results/online_advisor_v2/revealed_preferen
-ce_w.pdf  used on input line 1446.
+ce_w.pdf  used on input line 1481.
 (pdftex.def)             Requested size: 469.75499pt x 122.03365pt.
 
 Underfull \vbox (badness 3930) has occurred while \output is active []
@@ -1754,7 +1782,7 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[64 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>]
+[65 <./simulation_results/online_advisor_v2/online_advisor_v2_comparison.pdf>]
 (app.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 34--37
 []\OT1/cmr/m/n/10 BCBS (2021) Info-graphic: Covid-19 patients with high-risk co
@@ -1772,12 +1800,7 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[65 <./simulation_results/online_advisor_v2/revealed_preference_w.pdf>]
-Overfull \hbox (1.86058pt too wide) has occurred while \output is active
-[] [] 
- []
-
-[66]
+[66 <./simulation_results/online_advisor_v2/revealed_preference_w.pdf>]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
@@ -1788,6 +1811,11 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
  []
 
 [68]
+Overfull \hbox (1.86058pt too wide) has occurred while \output is active
+[] [] 
+ []
+
+[69]
 Underfull \hbox (badness 10000) in paragraph at lines 293--297
 \OT1/cmr/m/n/10 Health Sys-tem. []$\OT1/cmtt/m/n/10 https : / / www . sanidad .
  gob . es / estadEstudios / estadisticas / sisInfSanSNS /
@@ -1798,7 +1826,7 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[69]
+[70]
 Underfull \hbox (badness 6775) in paragraph at lines 308--310
 []\OT1/cmr/m/n/10 NIMH (2021) Post-traumatic stress dis-or-der (ptsd). URL []$\
 OT1/cmtt/m/n/10 https : / / www . nimh . nih . gov / health /
@@ -1821,17 +1849,17 @@ Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[70]
+[71]
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[71])
+[72])
 Overfull \hbox (1.86058pt too wide) has occurred while \output is active
 [] [] 
  []
 
-[72] (main2.aux)
+[73] (main2.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
@@ -1845,11 +1873,11 @@ Package rerunfilecheck Info: File `main2.out' has not changed.
 (rerunfilecheck)             Checksum: 0BC4B36586A3B60EA10FEAB6EF347F18;6362.
  ) 
 Here is how much of TeX's memory you used:
- 41149 strings out of 474591
- 947219 string characters out of 5745778
+ 41229 strings out of 474591
+ 949481 string characters out of 5745778
  1986533 words of memory out of 5000000
- 62279 multiletter control sequences out of 15000+600000
- 580857 words of font info for 120 fonts, out of 8000000 for 9000
+ 62346 multiletter control sequences out of 15000+600000
+ 581194 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,87p,1863b,2185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1887,11 +1915,12 @@ hazn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C
 amsfonts/cm/cmtt10.pfb><C:/Users/shazn/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/eurosym/feymr10.pfb><C:/Users/shazn/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/shazn/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/shazn/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main2.pdf (72 pages, 1462157 bytes).
+ms/MiKTeX/fonts/type1/public/cm-super/sfrm0900.pfb><C:/Users/shazn/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/shazn/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on main2.pdf (73 pages, 1474520 bytes).
 PDF statistics:
- 2229 PDF objects out of 2487 (max. 8388607)
- 362 named destinations out of 1000 (max. 500000)
+ 2241 PDF objects out of 2487 (max. 8388607)
+ 364 named destinations out of 1000 (max. 500000)
  329 words of extra memory for PDF output out of 10000 (max. 10000000)
 
