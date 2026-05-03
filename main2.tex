@@ -148,13 +148,14 @@ Given these challenges, it is unsurprising that, despite significant global inte
 
 To simulate the pandemic under different NPI sequences, we employ the policy-driven compartmental epidemiological model DELPHI. DELPHI extends classical compartmental models to capture key features of the COVID-19 pandemic, such as underdetection due to limited testing, governmental and societal responses, and declining mortality rates \citepmain{li:20}. Since April 2020, DELPHI has been applied to over 200 countries and regions, producing country and state-level predictions. DELPHI forecasts have been incorporated into the central ensemble at the CDC and used by various organizations for pandemic planning.
 
-In assessing the costs associated with the pandemic under various policy scenarios, we focus on both economic and humanitarian dimensions, following the broad categorizations established in previous research \citepmain{cutler2020covid}. We emphasize directly measurable costs in both categories. Humanitarian costs include direct consequences of COVID-19 infections, such as mortality, hospitalization, long-term health impairments, and mental health challenges. Economic costs encompass reductions in output, increased unemployment, and the associated economic burdens. We acknowledge the complexity and multitude of costs resulting from COVID-19, recognizing that any attempt to quantify these is necessarily partial. A detailed discussion of why certain significant costs were not included in our analysis is provided in Section \ref{sec:limitations}. Each cost item is modeled based on the most recent and relevant studies, and a detailed discussion on the selection and verification of sources is contained in Appendix \ref{app:region_specific_params}.
+\rev{To enable counterfactual analysis, we focus on the societal response function $\gamma(t)$, which captures how policy and behavioral responses modulate the baseline infection rate. We model the policy effects across regions using a low-rank structure, assuming $\gamma_{R,i} = k_R \gamma_i$. This specification allows us to pool information across regions while preserving systematic regional heterogeneity. We provide empirical support for this structure and show that it yields stable counterfactual estimates under alternative specifications, policy partitions, and time splits.  }
+
+Then, to assess the costs associated with the pandemic under various counterfactual policy scenarios, we focus on both economic and humanitarian dimensions, following the broad categorizations established in previous research \citepmain{cutler2020covid}. We emphasize directly measurable costs in both categories. Humanitarian costs include direct consequences of COVID-19 infections, such as mortality, hospitalization, long-term health impairments, and mental health challenges. Economic costs encompass reductions in output, increased unemployment, and the associated economic burdens. \rev{We acknowledge the complexity and multitude of costs resulting from COVID-19, recognizing that any attempt to quantify these is necessarily partial. A detailed discussion of why certain significant costs were not included in our analysis is provided in Section \ref{sec:limitations}.} Each cost item is modeled based on the most recent and relevant studies, and a detailed discussion on the selection and verification of sources is contained in Appendix \ref{app:region_specific_params}.
 
 To demonstrate the wide applicability of the THEMIS framework, we implemented it for Germany, New York in the United States, Spain, and Brazil, using the latest economic and health data (see Appendix \ref{app:region_specific_params} for sources). We investigated the optimal 3-month NPI sequence starting on March 15, 2020, when governments were considering responses to the growing pandemic.
 
 Our simulation results yield three main insights. First, the effectiveness of NPIs varies significantly across regions, emphasizing the need for tailored interventions rather than uniform strategies. In high-density areas, both extreme and lenient policies resulted in high economic costs, making moderate interventions more effective. Second, while NPIs can significantly reduce humanitarian costs, overly stringent lockdowns do not always yield proportional benefits and can impose unnecessary economic and mental health burdens. Third, timing plays a crucial role—early intervention can drastically reduce total costs, but in some regions, delays in response meant that even the most stringent measures would have had limited impact.
 
-\rev{Methodologically, the paper frames the region--policy effect matrix as a partially observed low-rank object and estimates the rank-$1$ structure jointly rather than fixing policy effects from historical averages. Empirically, we show that this parsimonious structure remains competitive across holdout exercises, higher-rank alternatives, a finer 9-category policy partition, and later-period transfer tests against a constant-$\gamma$ benchmark. Managerially, we use the resulting simulation framework not only to trace efficient frontiers, but also to construct a region-blind state-action decision tree and online THEMIS, which translate the model into concrete, monitorable policy summaries.}
 
 \rev{In summary, this paper contributes by formulating a quantitative and operational framework for conducting cost-benefit analyses of COVID-19 NPIs, validating the underlying counterfactual structure, and distilling the resulting policy trade-offs into decision support tools that can be deployed sequentially as a pandemic unfolds. The THEMIS codebase is open-source and available at \url{https://github.com/COVIDAnalytics/THEMIS}, facilitating its application to other regions.}
 
@@ -276,7 +277,7 @@ We utilize the DELPHI model to provide THEMIS with a highly accurate epidemiolog
 \end{equation}
 Here $\alpha_R$ is the fitted natural infection rate in region $R$, while $\gamma_R(t)$ is the fitted time-varying response curve for the policy that was actually implemented in that region. Equation~\eqref{eq:gamma} gives the common functional form used in DELPHI; $\gamma_R(t)$ is the region-specific realization of that curve after fitting the DELPHI parameters to region-level case and death data. The normalization of $\gamma_R(t)$ to $[0,2]$ makes $\alpha_R$ and $\gamma_R(t)$ separately identifiable.
 
-To simulate the pandemic under a hypothetical policy $\bm{P}=(\bm{I},\bm{T})$, we therefore need a counterfactual policy effect $\gamma_{R,i}$ for every region--policy pair. For observed pairs, we estimate
+To simulate the pandemic under a hypothetical policy $\bm{P}=(\bm{I},\bm{T})$, we define a counterfactual policy effect $\gamma_{R,i}$ for every region--policy pair. For observed pairs, we estimate the counterfactual policy effect utilizing the empirical mean of the $\gamma_R(t)$ estimated in the DELPHI model:
 \begin{equation}
     \gamma_{R,i} = \frac{\sum_{t \in \mathcal{D}_{R,i}} \gamma_R(t)}{|\mathcal{D}_{R,i}|}, \qquad i \in \mathcal{I}_R,
     \label{eq:obsgamma}
@@ -285,14 +286,16 @@ where $\mathcal{D}_{R,i}$ is the set of days on which policy $i$ was active in r
 \[
     \Gamma = (\gamma_{R,i})_{R \in \mathcal{R},\, i \in \mathcal{I}},
 \]
-in which each region is observed under only a subset of the candidate policies.
-
-Our baseline assumption is that $\Gamma$ is well-approximated by a rank-$1$ factorization:
+in which each region is observed under only a subset of the candidate policies. Our key assumption is that $\Gamma$ is well-approximated by a rank-$1$ factorization:
 \begin{equation}
     \gamma_{R,i} = k_R g_i + \epsilon_{R,i}, \qquad \gamma_{R,i} \ge 0,
     \label{eq:uobsgamma}
 \end{equation}
-where $k_R$ captures region-specific scaling and $g_i$ captures the common policy component. Equivalently, the missing counterfactual entries are treated as a partially observed low-rank matrix-completion problem. We initialize the policy component with the global empirical average
+where $k_R$ captures region-specific scaling and $g_i$ captures the common policy component. Equivalently, the missing counterfactual entries are treated as a partially observed matrix-completion problem where we specify the rank $l=1$. In our setting, the rank-1 structure reflects a restriction on how policies translate into transmission changes across regions. Specifically, it assumes that policies share a common ordering in their impact on transmission, captured by $g_i$, while regions differ primarily in the magnitude of that impact, captured by $k_R$. This is consistent with the epidemiological mechanism underlying DELPHI, where NPIs operate by reducing contact rates through similar channels (e.g., mobility restrictions, distancing), but the realized effect depends on region-specific factors such as population density, compliance, and baseline behavior. Under this interpretation, the rank-1 structure imposes a common shape on policy effects while allowing for systematic regional scaling, which is the minimal structure needed to extrapolate from observed to unobserved region–policy pairs. These type of low-rank assumptions are also commonly used for counterfactual analysis in observational data with multiple units. For example, \citeapp{bai2009panel} develops panel data models with interactive fixed effects relying on a low-rank factor structure and \citeapp{athey2021matrix} uses a low-rank model for matrix completion of panel data. 
+
+In Appendix~\ref{app:rank}, we evaluate higher-rank specifications ($l>1$) using out-of-sample prediction across multiple time periods. These models do not yield systematic improvements in predictive accuracy relative to the rank-1 specification, indicating that additional latent factors do not capture meaningful incremental signal in the data. Consistent with this, the estimated policy effects $\gamma_{R,i}$ from higher-rank models are highly correlated with those obtained under the rank-1 structure, implying that the resulting counterfactual trajectories are robust to the specification of the rank-1 structure. We complement this analysis in Appendix~\ref{app:alternative} by considering restricted specifications that fix either the region or policy component. These models perform strictly worse out-of-sample, indicating that both dimensions are required to capture the observed heterogeneity. Taken together, these results show that the rank-1 specification captures the relevant variation in $\Gamma$ while avoiding additional structure that does not improve empirical performance.
+
+To operationalize the rank-1 estimation, we initialize the policy component with the global empirical average
 \[
     g_i^0 = \frac{\sum_{R} \sum_{t \in \mathcal{D}_{R,i}} \gamma_R(t)}{\sum_{R} |\mathcal{D}_{R,i}|},
 \]
@@ -300,19 +303,14 @@ and then estimate $(k_R,g_i)$ jointly from the observed entries of $\Gamma$ by n
 \begin{equation}
     \min_{k_R \ge 0,\; g_i \ge 0} \sum_{(R,i)\in\Omega} \left(\gamma_{R,i} - k_R g_i\right)^2,
 \end{equation}
-where $\Omega$ is the set of observed region--policy pairs. For entries that are observed in the data, we retain the empirical estimate in \eqref{eq:obsgamma}; for entries that are unobserved, we impute
-\[
-    \hat{\gamma}_{R,i} = \hat{k}_R \hat{g}_i.
-\]
-Appendix~\ref{app:separability} shows that this rank-$1$ structure performs at least as well as higher-rank and one-dimensional alternatives in repeated holdout tests across multiple pandemic periods. Appendix~\ref{app:adjustment_factor} reports the resulting $\hat{k}_R$ estimates and their bootstrap standard deviations for the four focal regions.
-
-Then, for the hypothetical policy $\bm{P}=(\bm{I},\bm{T})$, we define $\gamma_R^P(t)$ as a piecewise-constant function of the region-specific policy effects:
+where $\Omega$ is the set of observed region--policy pairs. For entries that are observed in the data, we retain the empirical estimate in \eqref{eq:obsgamma} (i.e.  $\hat{\gamma}_{R,i} = \gamma_{R,i}$); for entries that are unobserved, we impute $
+    \hat{\gamma}_{R,i} = \hat{k}_R \hat{g}_i$. Then, for the hypothetical policy $\bm{P}=(\bm{I},\bm{T})$, we define $\gamma_R^P(t)$ as a piecewise-constant function of the region-specific policy effects:
 \begin{equation}
-    \gamma_R^P(t)=\begin{cases}
-    \gamma_{R,i_0} & t_0\leq t<t_1\\
-    \gamma_{R,i_1} & t_1\leq t<t_2\\ 
+     \hat{\gamma}_R^P(t)=\begin{cases}
+     \hat{\gamma}_{R,i_0} & t_0\leq t<t_1\\
+     \hat{\gamma}_{R,i_1} & t_1\leq t<t_2\\ 
     \vdots & \vdots \\
-    \gamma_{R,i_{k-1}} & t_{k-1}\leq t<t_k\\ 
+    \hat{\gamma}_{R,i_{k-1}} & t_{k-1}\leq t<t_k\\ 
     \end{cases}
 \end{equation}
 Intuitively, each NPI induces a region-specific constant reduction in the infection rate during the period in which that policy is active. Once the policy sequence changes, the DELPHI trajectory changes accordingly through the counterfactual curve $\gamma_R^P(t)$.}
@@ -376,7 +374,7 @@ where $M^R$ is the total number of people who recovered from COVID-19. The total
 \subsubsection*{Cost of COVID-19 Hospitalizations}
 Our calculation of the cost of COVID-19 hospitalizations separates into three categories: general hospitalizations, Intensive Care Unit (ICU) hospitalizations, and ventilated hospitalizations. This separation is natural due to the large differences in both the length and cost of treatment across the three categories, of which the DELPHI epidemiological model takes into account. Therefore, we can extract the total number of hospitalization-days in each category from the DELPHI simulated pandemic $\bm{M}$ as $M^H_R, M^I_R, M^V_R$ respectively. Then, denoting the daily treatment cost in each category as $c^D_{R,H}, c^D_{R,I}, c^D_{R,V}$, the cost of COVID-19 hospitalizations can be written as:
 \begin{equation}
-    c_{R,H}=c^D_{R,H}M^H_R,+c^D_{R,I} M^I_R+c^D_{R,V} M^V_R
+    c_{R,H}=c^D_{R,H}M^H_R+c^D_{R,I} M^I_R+c^D_{R,V} M^V_R
 \end{equation}
 
 \subsubsection*{Cost of Mental Illnesses}
@@ -468,40 +466,41 @@ Using the THEMIS model, we now proceed to analyze the governmental response duri
 During the first wave of the pandemic, there was still much unknown about COVID-19. Although the Wuhan outbreak proved COVID-19's capability to transmit between humans, key characteristics such as symptoms, mode of transmission, and mortality, were still being heavily debated in the scientific community. There were few effective pharmaceutical interventions to limit the effects of COVID-19 and an effective vaccine would not be produced until a year later. 
 
 With such context, in the THEMIS model simulation, we would limit the set of potential NPIs $\mathcal{I}$ to only mobility restrictions that were actually implemented around the world during the very early stages of the first wave (2020.03-2020.04). This ensures that our comparison is realistic for the early stage of a pandemic caused by a new virus, when the set of available and feasible interventions is extremely limited. 
-
-We collected the mobility restriction NPIs deployed by 167 countries and regions around the world during March and April of 2020, and categorized the NPIs based on whether they restrict mass gatherings, schools, travel and work activities. We group travel restrictions and work restrictions together due to their tendency to be implemented simultaneously. The set $\mathcal{I}$ includes seven strategies, ranked from least to most severe: (1) \emph{No measure}; (2) \emph{Restrict mass gatherings only}; (3) \emph{Restrict travel and work only}; (4) \emph{Restrict mass gatherings and schools}; (5) \emph{Restrict mass gatherings, travel and work}; (6) \emph{Restrict mass gatherings, schools, travel and work}; and (7) \emph{Stay-at-Home/Lockdown}. We specify that each NPI would last for one month, and thus throughout the period of consideration [2020.03.15, 2020.06.15] each policy consists of three different NPIs. We consider all $7^3$ combinations of NPIs as valid policies $\bm{P}$. For simplicity, we would refer to policies by the numerical numbering of the NPIs below - a 7-7-7 policy thus represents a policy that enforced lockdowns for 3 months. \rev{The larger appendix validations use the full 210-region DELPHI estimation sample, which augments this focal first-wave policy catalog with additional subnational units and later-period observations.}
-
 {\color{blue}
-The key point for interpretation is that these seven policies are \emph{bundles}, not additive combinations of separately estimated school, gathering, and travel coefficients. We build them from the Oxford COVID-19 Government Response Tracker (OxCGRT) by first binarizing the underlying indicators and then mapping each region-day into exactly one mutually exclusive and collectively exhaustive category. Let
+We construct $\mathcal{I}$ from the Oxford COVID-19 Government Response Tracker (OxCGRT) using observations from 167 countries and regions. Each region-day is mapped into a mutually exclusive and collectively exhaustive policy category obtained by binarizing the underlying OxCGRT indicators and aggregating them into three components: restrictions on mass gatherings, school closures, and a composite “other” category capturing workplace closure, transport restrictions, and travel controls. Formally,
 \[
 \text{Restrict Mass Gatherings} = \mathbf{1}[\text{C3} \lor \text{C4} \lor \text{C5}],
 \qquad
 \text{Others} = \mathbf{1}[\text{C2} \lor \text{C7} \lor \text{C8}],
 \]
-where the OxCGRT indicators correspond to cancellation of public events (C3), restrictions on gatherings (C4), public-transport closure (C5), workplace closure (C2), internal-movement restrictions (C7), and international travel controls (C8) \citepmain{hale2021global}. Combined with school closure (C1) and stay-at-home orders (C6), these features induce the seven policy bundles used in THEMIS. Table~\ref{tab:oxford_mapping} summarizes the mapping. Appendix~\ref{app:granular} then shows that the main conclusions remain intact under a finer 9-category partition that splits the two broadest bundles by within-category stringency.}
+with school closures (C1) and stay-at-home orders (C6) entering separately.
+
+These components induce seven bundled policies ordered by increasing restrictiveness: (1) no measure; (2) mass gatherings only; (3) others only; (4) mass gatherings and schools; (5) mass gatherings and others; (6) mass gatherings, schools, and others; and (7) stay-at-home orders. Stay-at-home policies take precedence and define the most restrictive category. Table~\ref{tab:oxford_mapping} summarizes the mapping. In Appendix~\ref{app:granular}, we further show that all our qualitative conclusions hold under a finer 9-category partition that splits the two broadest bundles by within-category stringency.
 
 \begin{table}[h!]
-\centering
-{\color{blue}\small
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|l|c|c|c|c|l|}
-\hline
-\textbf{THEMIS Policy Category} & \textbf{Schools} & \textbf{Mass Gath.} & \textbf{Others} & \textbf{C6} & \textbf{Rule} \\\hline
-(1) No Measure & 0 & 0 & 0 & 0 & sum $= 0$ \\
-(2) Restrict Mass Gatherings & 0 & 1 & 0 & 0 & sum $= 1$, MG on \\
-(3) Others Only & 0 & 0 & $\geq 1$ & 0 & MG off, C6 off \\
-(4) Mass Gath.\ + Schools & 1 & 1 & 0 & 0 & sum $= 2$, C1+MG \\
-(5) Mass Gath.\ + Others (no Schools) & 0 & 1 & $\geq 1$ & 0 & C1 off, MG on, C6 off \\
-(6) Mass Gath.\ + Schools + Others & 1 & 1 & $\geq 1$ & 0 & sum $> 2$, C1+MG on, C6 off \\
-(7) Stay-at-Home / Lockdown & --- & --- & --- & 1 & C6 on \\\hline
-\end{tabular}
-\end{adjustbox}
-}
-\caption{\rev{Mapping from OxCGRT binary indicators to the seven MECE policy categories used in THEMIS. ``Mass Gath.'' denotes $\mathbf{1}[\text{C3} \lor \text{C4} \lor \text{C5}]$ and ``Others'' denotes $\mathbf{1}[\text{C2} \lor \text{C7} \lor \text{C8}]$. Stay-at-home (C6 $=1$) takes precedence and maps to Lockdown regardless of the other indicators.}}
-\label{tab:oxford_mapping}
+	\centering
+	{\color{blue}\small
+		\begin{adjustbox}{max width=\textwidth}
+			\begin{tabular}{|l|c|c|c|c|l|}
+				\hline
+				\textbf{THEMIS Policy Category} & \textbf{Schools} & \textbf{Mass Gath.} & \textbf{Others} & \textbf{C6} & \textbf{Rule} \\\hline
+				(1) No Measure & 0 & 0 & 0 & 0 & sum $= 0$ \\
+				(2) Restrict Mass Gatherings & 0 & 1 & 0 & 0 & sum $= 1$, MG on \\
+				(3) Others Only & 0 & 0 & $\geq 1$ & 0 & MG off, C6 off \\
+				(4) Mass Gath.\ + Schools & 1 & 1 & 0 & 0 & sum $= 2$, C1+MG \\
+				(5) Mass Gath.\ + Others (no Schools) & 0 & 1 & $\geq 1$ & 0 & C1 off, MG on, C6 off \\
+				(6) Mass Gath.\ + Schools + Others & 1 & 1 & $\geq 1$ & 0 & sum $> 2$, C1+MG on, C6 off \\
+				(7) Stay-at-Home / Lockdown & --- & --- & --- & 1 & C6 on \\\hline
+			\end{tabular}
+		\end{adjustbox}
+	}
+	\caption{\rev{Mapping from OxCGRT binary indicators to the seven MECE policy categories used in THEMIS. ``Mass Gath.'' denotes $\mathbf{1}[\text{C3} \lor \text{C4} \lor \text{C5}]$ and ``Others'' denotes $\mathbf{1}[\text{C2} \lor \text{C7} \lor \text{C8}]$. Stay-at-home (C6 $=1$) takes precedence and maps to Lockdown regardless of the other indicators.}}
+	\label{tab:oxford_mapping}
 \end{table}
 
-To highlight the broad applicability of THEMIS, we applied it to a diverse set of regions: Germany, New York in the United States, Spain, and Brazil. To ensure precise modeling of alternative strategies, we utilized region-specific epidemiological parameters from the DELPHI model, calibrated at the end of the first wave (2020-07-01). The region-specific reduction coefficients, $\gamma_{R,i}$, were estimated following the methodology detailed in Section \ref{subsec:delphi}. The regional adjustment factors and their corresponding standard deviations are documented in Appendix \ref{app:adjustment_factor}. Notably, the standard deviations $\sigma(\hat{k}_R)$ are consistently smaller than the adjustment factors, indicating stable estimations. For region-specific cost parameters, we used the most recent available data, applying inflation adjustments where necessary. We identified credible sources for all parameters, except for the COVID-19 ICU costs in Brazil, where we instead used a blended hospitalization cost. A comprehensive table of all regional parameters, their sources, and the rationale for each selection is provided in Appendix \ref{app:region_specific_params}. The THEMIS codebase and associated data are available at \url{https://github.com/COVIDAnalytics/THEMIS}.
+Time is discretized at the monthly level over the horizon $[2020.03.15, 2020.06.15]$. A policy $\bm{P}$ is a sequence of three interventions from $\mathcal{I}$, one per month. We evaluate the full policy space $\mathcal{P} = \mathcal{I}^3$, yielding $7^3$ feasible policies. We refer to a policy by its sequence of category indices; for example, $(7,7,7)$ denotes a three-month lockdown.
+
+To highlight the broad applicability of THEMIS, we applied it to a diverse set of regions: Germany, New York in the United States, Spain, and Brazil. To ensure precise modeling of alternative strategies, we utilized region-specific epidemiological parameters from the DELPHI model, calibrated at the end of the first wave (2020-07-01). The region-specific reduction coefficients, $\gamma_{R,i}$, were estimated following the methodology detailed in Section \ref{subsec:delphi}. \rev{Appendix~\ref{app:adjustment_factor} reports the resulting $\hat{k}_R$ estimates and their bootstrap standard deviations for the four focal regions. Notably, the standard deviations $\sigma(\hat{k}_R)$ are consistently smaller than the adjustment factors, indicating stable estimations.} For region-specific cost parameters, we used the most recent available data, applying inflation adjustments where necessary. We identified credible sources for all parameters, except for the COVID-19 ICU costs in Brazil, where we instead used a blended hospitalization cost. A comprehensive table of all regional parameters, their sources, and the rationale for each selection is provided in Appendix \ref{app:region_specific_params}. The THEMIS codebase and associated data are available at \url{https://github.com/COVIDAnalytics/THEMIS}.
 
 To rigorously quantify uncertainty in our model and construct confidence intervals, we incorporate two key sources of variability:
 
@@ -552,7 +551,7 @@ In contrast, regions like Brazil and New York may benefit from broader, more con
 
 \begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{simulation_results/best_policies_v7.pdf}
+   % \includegraphics[width=\textwidth]{simulation_results/best_policies_v7.pdf}
     \caption{The 20 minimum total cost policies for different regions, starting on March 15th and continuing for 3 months. All costs are expressed as \% of 2019 GDP to enable cross-country comparison. The purple bar is mental health costs, the red bar is loss of life costs, the green bar is hospitalization costs, while the blue bar is economic costs.}
     \label{fig:best_policies_mar15}
 \end{figure*}
@@ -599,8 +598,7 @@ The pooled tree does not replace region-specific simulation, but it clarifies th
 \section{\rev{Online THEMIS}}
 \label{sec:online_themis}
 {\color{blue}
-THEMIS is not a day-zero oracle, but it can be deployed sequentially once limited early-wave data begin to accumulate. We therefore implement online THEMIS as a rolling-horizon version of the framework. At each monthly decision date, it uses the dated DELPHI snapshot available at that time, estimates policy effects from the data observed up to that date, and chooses the next-month NPI by one-step lookahead. When the first decision window is too short for the date-restricted matrix estimate, we use the factory rank-$1$ estimate as a warm start and then switch to the date-restricted estimator from the second decision onward.
-
+To ensure that THEMIS is usable as a framework for future pandemics, we further consider an online version of THEMIS that only utilizes the pandemic data sequentially as they enter. Specifically, we implement THEMIS in a rolling-horizon fashion in which, We therefore implement online THEMIS as a rolling-horizon version of the framework. At each monthly decision date, it uses the dated DELPHI snapshot available at that time, estimates policy effects from the data observed up to that date, and chooses the next-month NPI by one-step lookahead. 
 \begin{table}[H]
 \centering\footnotesize
 \renewcommand{\arraystretch}{1.05}
@@ -618,14 +616,14 @@ New York  & $6$--$4$--$1$ & $7$--$7$--$6$ & $6$--$6$--$1$ & $29.3\%$  & $60.3\%$
 \label{tab:rolling_advisor_v2}
 \end{table}
 
-Table~\ref{tab:rolling_advisor_v2} shows that online THEMIS improves on the realized policy cost in Brazil, Spain, and New York, reducing the mean gap to hindsight from $124.4\%$ to $39.5\%$. The selected sequences are also not uniformly draconian: after the first month, online THEMIS typically moves toward moderate restrictions rather than extended lockdown. We view this exercise as evidence that the framework can support sequential policy updating once early-wave information is available, even though the fully cold-start problem of a novel pathogen remains outside the scope of the paper.}
+Table~\ref{tab:rolling_advisor_v2} shows that online THEMIS improves on the realized policy cost in Brazil, Spain, and New York, reducing the mean gap to hindsight from $124.4\%$ to $39.5\%$. The selected sequences are also not uniformly draconian: after the first month, online THEMIS typically moves toward moderate restrictions rather than extended lockdown. We view this exercise as evidence that the framework can support sequential policy updating once early-wave information is available. We note that this analysis  assumes that the region-specific cost parameters in \cite{app:}. Of course, it is impossible  cost parameters for the  though the fully cold-start problem of a novel pathogen remains outside the scope of the paper.}
 
 \section{Limitations}
 \label{sec:limitations}
 {\color{blue}
 Although THEMIS yields actionable insights, it remains subject to several important limitations. First, because policy effects are learned from historically observed bundles, the framework cannot evaluate an NPI that has never been implemented anywhere in the underlying data. The counterfactual exercise is therefore strongest when it compares feasible policies within a menu that has already appeared in practice. The same point limits fully day-zero use for a completely novel pathogen: before even limited first-wave data accumulate, a policymaker would need additional inputs such as expert priors or analogies to prior outbreaks. Section~\ref{sec:online_themis} shows that THEMIS can nevertheless be deployed sequentially once early-wave information begins to arrive.
 
-Second, confounding remains an inherent concern because NPIs are not randomly assigned. Voluntary behavior, seasonal factors, testing intensity, and other contemporaneous changes may all move together with policy. \rev{Appendix~\ref{app:confounding} therefore focuses on the object most relevant for our conclusions: the ranking of candidate policies. It shows that the policy ordering is highly stable when the estimated differential NPI effects are shrunk substantially toward a no-contrast benchmark, and supplements this with an event-study analysis around 716 policy transitions.} These exercises do not eliminate the usual identification concerns of an observational study, but they do indicate that the paper's qualitative policy conclusions are not driven by a knife-edge estimate of the differential policy effects.
+Second, confounding remains an inherent concern because NPIs are not randomly assigned. Voluntary behavior, seasonal factors, testing intensity, and other contemporaneous changes may all move together with policy. \rev{In Appendix~\ref{app:confounding}, we conduct a sensitivity analysis based on \cite{cinelli2020making} that shows our policy recommendations are highly stable even after a high degree of shrinkage towards a null benchmark. This sensitivity analysis do not eliminate the identification concerns of an observational study, but they do indicate that the paper's qualitative policy conclusions are not driven by a knife-edge estimate of the differential policy effects.}
 
 Third, the component models necessarily simplify a complex phenomenon. DELPHI, like other SEIR-based models, requires a sufficiently large population and epidemic size for its aggregate dynamics to be reliable \citepmain{holmdahl2020}. The cost model is likewise intended as a first-order accounting framework rather than a complete welfare representation. Some channels are modeled linearly or additively for tractability. \rev{Appendix~\ref{app:addsens_mental} shows that the policy ranking is essentially unchanged under nonlinear mental-health cost functions, Appendix~\ref{app:addsens_adherence} shows that the epidemiological ranking is highly stable under within-block adherence decay, and Appendix~\ref{app:addsens_horizon} shows that a shorter one-month optimization horizon tends to recommend a weaker first-month intervention than the baseline three-month problem.} These checks reduce, but do not eliminate, model dependence.
 
@@ -966,7 +964,7 @@ where $\widetilde{M^{DT}}(t)$ and $\widetilde{M^{DD}}(t)$ are respectively the t
 \vfill
 \newpage
 \newpage
-\section{\rev{Empirical Validation of the Separability Assumption}}
+\section{\rev{Empirical Validation of the Rank-1 Structure}}
 \label{app:separability}
 
 {\color{blue}
@@ -977,11 +975,13 @@ We generalize the separability assumption by considering the matrix $\Gamma$ wit
 \begin{equation}
     \Gamma \approx U V^\top, \qquad U \in \mathbb{R}^{|R| \times l},\; V \in \mathbb{R}^{|\mathcal{I}| \times l},
 \end{equation}
-where $l$ is the effective rank. The current model (Equation \ref{eq:uobsgamma}) corresponds to $l = 1$, with $U = \bm{k}$ (the vector of regional adjustment factors) and $V = \bm{\gamma}$ (the vector of global policy effects). Low-rank assumptions are commonly used for counterfactual analysis in observational data with multiple units. For example, \citeapp{athey2021matrix} uses a low-rank model for matrix completion of panel data, \citeapp{bai2009panel} develops panel data models with interactive fixed effects relying on a low-rank factor structure, and \citeapp{agarwal2021synthetic} proposes synthetic interventions using low-rank factor models.
+where $l$ is the effective rank. The current model (Equation \ref{eq:uobsgamma}) corresponds to $l = 1$, with $U = \bm{k}$ (the vector of regional adjustment factors) and $V = \bm{\gamma}$ (the vector of global policy effects). 
 
+In the following, we test the suitability of the rank-1 estimation against both higher-rank models and simpler baselines.
+
+\subsection{Robustness Against Higher Ranks}
+\label{app:rank}
 To test whether $l = 1$ is adequate, we assemble the observed $\gamma_{R,i}$ values from 210 regions worldwide and 7 NPI categories across three time periods: 2020.03.15--2020.06.15, 2020.06.15--2020.09.15, and 2020.09.15--2020.12.15. Since $\gamma_{R,i}$ represents an infection-rate multiplier, we impose the physical constraint $\gamma_{R,i} \geq 0$. Both factors $K^{(l)}$ and $G^{(l)}$ are estimated from observed data via non-negative alternating least squares \citeapp{lee2001algorithms,xu2012alternating}. We use a \textbf{holdout RMSE} test: we randomly withhold 20\% of observed entries, estimate the rank-$l$ model on the remainder, and compute $\text{RMSE}_l = \sqrt{|\Omega_{\text{test}}|^{-1}\sum_{(R,i)\in\Omega_{\text{test}}} (\hat{\gamma}_{R,i}^{(l)} - \gamma_{R,i})^2}$, averaged over 20 random splits.
-
-\subsection*{Multi-Period Holdout Analysis}
 
 Table \ref{tab:low_rank} reports the holdout RMSE for rank-$l$ models ($l = 1, 2, 3$) across the three time periods.
 
@@ -998,11 +998,7 @@ Table \ref{tab:low_rank} reports the holdout RMSE for rank-$l$ models ($l = 1, 2
 \label{tab:low_rank}
 \end{table}
 
-The rank-1 model achieves the lowest holdout RMSE in two of three periods and is tied in the third. In Period~1, both rank-2 ($0.420 \pm 0.062$) and rank-3 ($0.391 \pm 0.042$) yield higher RMSE than rank-1 ($0.378 \pm 0.042$). In Periods~2 and~3, all ranks produce comparable RMSE within one standard deviation. Higher-rank models do not improve out-of-sample fit due to the extreme sparsity of the observation matrix (median 2 observed entries per region out of 7 policies), which leaves additional latent factors underdetermined.
-
-\textbf{Remark on identifiability.} The rank-$l$ models for $l \geq 2$ are estimated via iterative truncated SVD with non-negative projection, warm-started from the converged rank-1 solution. With a median of 2 observed entries per region out of 7 policy categories (24.9\% observation rate in Period~1), higher-rank models are severely underdetermined---a rank-3 model requires 3 latent factors per region, but most regions have at most 2 observations to constrain them. Under this level of sparsity, the fact that neither rank-2 nor rank-3 improves upon rank-1 should be interpreted as evidence that rank-1 is a well-behaved and practically effective regularization, rather than as proof that richer interaction structure is absent.
-
-\subsection*{Rank-1 vs.\ Rank-2 and Rank-3 Comparison}
+The rank-1 model achieves the lowest holdout RMSE in two of three periods and is tied in the third. In Period~1, both rank-2 ($0.420 \pm 0.062$) and rank-3 ($0.391 \pm 0.042$) yield higher RMSE than rank-1 ($0.378 \pm 0.042$). In Periods~2 and~3, all ranks produce comparable RMSE within one standard deviation. Higher-rank models do not improve out-of-sample fit.
 
 To further validate robustness, we compare the imputed $\gamma_{R,i}$ values from the rank-1 model against both rank-2 and rank-3 directly. Figure \ref{fig:rank1_vs_rank3_scatter} shows scatter plots for both comparisons across all three periods.
 
@@ -1015,15 +1011,15 @@ To further validate robustness, we compare the imputed $\gamma_{R,i}$ values fro
 
 The scatter plots show high correlation between the rank-1 model and both higher-rank alternatives on imputed entries across all periods, confirming that the rank-1 separability assumption produces similar counterfactual estimates as more flexible models.
 
-\subsection*{Alternative Specifications}
-
+\subsection{Robustness against Simpler Specifications}
+\label{app:alternative}
 We also compare the rank-1 model against two natural baselines that each capture only one dimension of heterogeneity: (i) a \textbf{policy-only} model $\gamma_{R,i} = \beta_i$ that ignores region heterogeneity, and (ii) a \textbf{region-only} model $\gamma_{R,i} = \alpha_R$ that ignores policy heterogeneity. Both are special cases of the rank-1 model.
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline Model & 2020.03.15--2020.06.15 & 2020.06.15--2020.09.15 & 2020.09.15--2020.12.15\\\hline
-Rank-1 & $\mathbf{0.378} \pm 0.042$ & $\mathbf{0.287} \pm 0.026$ & $0.296 \pm 0.019$ \\
+Rank-1 & $\mathbf{0.378 \pm 0.042}$ & $\mathbf{0.287 \pm 0.026}$ & $0.296 \pm 0.019$ \\
 Policy-only ($\beta_i$) & $0.402 \pm 0.036$ & $0.334 \pm 0.030$ & $0.291 \pm 0.023$ \\
 Region-only ($\alpha_R$) & $0.511 \pm 0.056$ & $0.387 \pm 0.050$ & $0.292 \pm 0.038$ \\\hline
 \end{tabular}
@@ -1031,17 +1027,13 @@ Region-only ($\alpha_R$) & $0.511 \pm 0.056$ & $0.387 \pm 0.050$ & $0.292 \pm 0.
 \label{tab:alt_specs}
 \end{table}
 
-The rank-1 model substantially outperforms both baselines in the first two periods, confirming that the multiplicative region--policy interaction captures real structure in the data. In Period~3, all three models converge to similar RMSE due to lower variance in the later pandemic phase.
+The rank-1 model substantially outperforms both baselines in the first two periods, confirming that the multiplicative region--policy interaction captures real structure in the data. In Period~3, all three models converge to similar RMSE due to lower variance in different policies in the later pandemic phase.}
 
-\subsection*{Conclusion}
-
-The multi-period holdout analysis shows that the separability structure $\gamma_{R,i} = k_R g_i$ is a parsimonious and practically competitive approximation for the region--policy interaction matrix across different phases of the pandemic. The rank-1 model achieves holdout RMSE comparable to or better than higher-rank alternatives, and outperforms simpler baselines that capture only one dimension of heterogeneity. In that sense, rank-1 provides a disciplined regularization that is well-suited to the sparsity of the policy data used for counterfactual simulation.}
-
-\section{Regional Adjustment Factor and Error}
+\section{\rev{Regional Adjustment Factor and Error}}
 \label{app:adjustment_factor}
-\begin{table}[h!]
+ \begin{table}[h!]
 \centering
-\begin{tabular}{|l|c|c|}
+{\color{blue}\begin{tabular}{|l|c|c|}
 \hline
 \textbf{Country} & $k_R$ & $\sigma(k_R)$ \\ \hline
 Brazil  & 1.043 & 0.020 \\ \hline
@@ -1049,10 +1041,10 @@ Germany & 0.286 & 0.084 \\ \hline
 New York, US & 0.549 & 0.114 \\ \hline
 Spain      & 0.442 & 0.019 \\ \hline
 \end{tabular}
+}
 \caption{Table of $k_R$ and $\sigma(k_R)$ for different countries.}
 \label{tab:kr_values}
 \end{table}
-
 \section{\rev{Sensitivity to Granular Policy Partition}}
 \label{app:granular}
 
