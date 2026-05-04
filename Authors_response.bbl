@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -34,5 +34,11 @@ Hale T, Angrist N, Goldszmidt R, Kira B, Petherick A, Phillips T, Webster S,
 Moon HR, Weidner M (2015) Linear regression for panel with unknown number of
   factors as interactive fixed effects. \emph{Econometrica} 83(4):1543--1579,
   \urlprefix\url{http://dx.doi.org/10.3982/ECTA9382}.
+
+\bibitem[{Wieler et~al.(2020)Wieler, Rexroth, \protect\BIBand{}
+  Gottschalk}]{wieler2020covid}
+Wieler LH, Rexroth U, Gottschalk R (2020) Emerging covid-19 success story:
+  Germany’s strong enabling environment. \emph{Euro Surveillance}
+  25(18):2000946.
 
 \end{thebibliography}

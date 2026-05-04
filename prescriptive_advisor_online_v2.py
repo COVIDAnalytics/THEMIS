@@ -565,7 +565,7 @@ REGION_LONG = {"DE": "Germany", "BR": "Brazil", "ES": "Spain", "US-NY": "New Yor
 
 def _plot_online_results_v2(all_results, output_dir):
     """2x2 grouped-bar comparison: online advisor, real actual,
-    hindsight optimal (costs as % of quarterly GDP)."""
+    hindsight optimal (costs as % of 2019 GDP)."""
     regions = list(all_results.keys())[:4]
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
@@ -575,7 +575,7 @@ def _plot_online_results_v2(all_results, output_dir):
         online = data.get("online_3mo_cost") or {}
         real_actual = data.get("real_actual_cost") or {}
         hindsight = data.get("hindsight_optimal") or {}
-        qgdp = TOTAL_GDP[region] / 4.0
+        gdp = TOTAL_GDP[region]
 
         econ = [online.get("economic_costs", 0),
                 real_actual.get("economic_costs", 0),
@@ -591,9 +591,9 @@ def _plot_online_results_v2(all_results, output_dir):
         seq_labels = [" - ".join(str(POLICY_NUMBER.get(p, p))
                       for p in s) if s else "?" for s in seqs]
 
-        e_pct = [100 * v / qgdp for v in econ]
-        h_pct = [100 * v / qgdp for v in human]
-        t_pct = [100 * v / qgdp for v in total]
+        e_pct = [100 * v / gdp for v in econ]
+        h_pct = [100 * v / gdp for v in human]
+        t_pct = [100 * v / gdp for v in total]
 
         x = np.arange(3)
         ax.bar(x, e_pct, 0.55, label="Economic", color="#4e79a7",
@@ -609,7 +609,7 @@ def _plot_online_results_v2(all_results, output_dir):
                     ha="center", va="top", fontsize=7, color="gray",
                     style="italic")
 
-        ax.set_ylabel("3-Month Total Cost (% quarterly GDP)", fontsize=9)
+        ax.set_ylabel("3-Month Total Cost (% 2019 GDP)", fontsize=9)
         ax.set_xticks(x)
         ax.set_xticklabels(["Online\nAdvisor", "Real\nActual",
                             "Hindsight\nOptimal"], fontsize=9)
@@ -631,7 +631,7 @@ def _print_online_summary_v2(all_results):
     print("\n" + "=" * 90)
     print("  TRUE ONLINE ROLLING-HORIZON ADVISOR (v2 - rank-1 ALS gammas)")
     print("  Actual cost = REAL OBSERVED cost (policy_type='actual')")
-    print("  Costs shown as % of quarterly GDP")
+    print("  Costs shown as % of 2019 GDP")
     print("=" * 90)
     rows = []
     for region, data in all_results.items():
@@ -639,7 +639,7 @@ def _print_online_summary_v2(all_results):
         tp = data.get("tree_policy_cost")
         ac = data.get("real_actual_cost")
         ho = data.get("hindsight_optimal")
-        qgdp = TOTAL_GDP[region] / 4.0
+        gdp = TOTAL_GDP[region]
 
         def _seq_nums(seq):
             return "-".join(str(POLICY_NUMBER.get(p, p)) for p in seq)
@@ -655,7 +655,7 @@ def _print_online_summary_v2(all_results):
         ho_total = ho["total_costs"] if ho else None
 
         def _pct(x):
-            return 100 * x / qgdp if x is not None else None
+            return 100 * x / gdp if x is not None else None
 
         def _gap(x):
             if x is None or ho_total is None:
@@ -698,7 +698,7 @@ def _revealed_preference_analysis(all_results, factory, output_dir):
             print(f"  [{region}] skipping: missing data")
             continue
 
-        qgdp = TOTAL_GDP[region] / 4.0
+        gdp = TOTAL_GDP[region]
         econ_actual = actual["economic_costs"]
         hum_actual = actual["humanitarian_costs"]
 
@@ -742,17 +742,17 @@ def _revealed_preference_analysis(all_results, factory, output_dir):
             "online_seq": data.get("online_sequence", []),
             "actual_weighted": actual_weighted,
             "actual_seq": data.get("actual_sequence", []),
-            "qgdp": qgdp,
+            "gdp": gdp,
         }
 
         print(f"\n  [{REGION_LONG.get(region, region)}] revealed w* = "
               f"{revealed_w:.3f} (regret ratio = "
               f"{best_regret_ratio:.4f})")
-        print(f"    Hindsight  : {hs_at_w_cost/qgdp*100:.1f}% of Q-GDP  "
+        print(f"    Hindsight  : {hs_at_w_cost/gdp*100:.1f}% of 2019 GDP  "
               f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in hs_at_w_seq.get('policy_vector',[]))})")
-        print(f"    Online     : {on_weighted/qgdp*100:.1f}% of Q-GDP  "
+        print(f"    Online     : {on_weighted/gdp*100:.1f}% of 2019 GDP  "
               f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in data.get('online_sequence',[]))})")
-        print(f"    Actual     : {actual_weighted/qgdp*100:.1f}% of Q-GDP  "
+        print(f"    Actual     : {actual_weighted/gdp*100:.1f}% of 2019 GDP  "
               f"({'-'.join(str(POLICY_NUMBER.get(p,p)) for p in data.get('actual_sequence',[]))})")
 
     _plot_revealed_preference(results, output_dir)
@@ -773,12 +773,12 @@ def _plot_revealed_preference(results, output_dir):
 
     for ax, region in zip(axes, regions):
         r = results[region]
-        qgdp = r["qgdp"]
+        gdp = r["gdp"]
         labels = ["Hindsight", "Online", "Actual"]
         vals = [
-            100 * r["hindsight_weighted"] / qgdp,
-            100 * r["online_weighted"] / qgdp,
-            100 * r["actual_weighted"] / qgdp,
+            100 * r["hindsight_weighted"] / gdp,
+            100 * r["online_weighted"] / gdp,
+            100 * r["actual_weighted"] / gdp,
         ]
         colors = ["#59a14f", "#4e79a7", "#e15759"]
         bars = ax.bar(labels, vals, color=colors, edgecolor="white",
@@ -787,7 +787,7 @@ def _plot_revealed_preference(results, output_dir):
             ax.text(bar.get_x() + bar.get_width() / 2, val + max(vals) * 0.02,
                     f"{val:.1f}%", ha="center", va="bottom",
                     fontsize=10, fontweight="bold")
-        ax.set_ylabel("Weighted cost (% quarterly GDP)", fontsize=10)
+        ax.set_ylabel("Weighted cost (% 2019 GDP)", fontsize=10)
         ax.set_title(f"{REGION_LONG.get(region, region)}\n"
                      f"$w^* = {r['revealed_w']:.2f}$",
                      fontsize=12, fontweight="bold")

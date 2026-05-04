@@ -1,24 +1,14 @@
-\begin{thebibliography}{78}
+\begin{thebibliography}{86}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
-\bibitem[{Agarwal et~al.(2021)Agarwal, Shah, Shen, \protect\BIBand{}
-  Song}]{agarwal2021synthetic}
-Agarwal A, Shah D, Shen D, Song D (2021) Synthetic interventions. \emph{arXiv
-  preprint arXiv:2006.07691} .
-
-\bibitem[{Athey et~al.(2021)Athey, Bayati, Doudchenko, Imbens,
-  \protect\BIBand{} Khosravi}]{athey2021matrix}
-Athey S, Bayati M, Doudchenko N, Imbens G, Khosravi K (2021) Matrix completion
-  methods for causal panel data models. \emph{Journal of the American
-  Statistical Association} 116(536):1716--1730,
-  \urlprefix\url{http://dx.doi.org/10.1080/01621459.2021.1891924}.
-
-\bibitem[{Bai(2009)}]{bai2009panel}
-Bai J (2009) Panel data models with interactive fixed effects.
-  \emph{Econometrica} 77(4):1229--1279,
-  \urlprefix\url{http://dx.doi.org/10.3982/ECTA6135}.
+\bibitem[{Arons et~al.(2020)Arons, Hatfield, Reddy, Kimball, James, Jacobs,
+  Taylor, Spicer, Bardossy, Oakley et~al.}]{arons2020presymptomatic}
+Arons MM, Hatfield KM, Reddy SC, Kimball A, James A, Jacobs JR, Taylor J,
+  Spicer K, Bardossy AC, Oakley LP, et~al. (2020) Presymptomatic sars-cov-2
+  infections and transmission in a skilled nursing facility. \emph{New England
+  Journal of Medicine} .
 
 \bibitem[{B{\"a}uerle et~al.(2020)B{\"a}uerle, Steinbach, Schweda, Beckord,
   Hetkamp, Weism{\"u}ller, Kohler, Musche, D{\"o}rrie, Teufel,
@@ -34,6 +24,18 @@ B{\"a}uerle A, Steinbach J, Schweda A, Beckord J, Hetkamp M, Weism{\"u}ller B,
 BCBS (2021) Infographic: Covid-19 patients with high-risk conditions 3x more
   likely to need the icu.
   \urlprefix\url{https://www.bcbs.com/coronavirus-updates/stories/infographic-covid-19-patients-high-risk-conditions-3x-more-likely-need-the-icu}.
+
+\bibitem[{Bertsimas et~al.(2020)Bertsimas, Bandi, Boussioux, Cory-Wright,
+  Delarue, Digalakis, Gilmour, Graham, Kim, Lahlou~Kitane, Lin, Lukin, Li,
+  Mingardi, Na, Orfanoudaki, Papalexopoulos, Paskov, Pauphilet, Skali~Lami,
+  Sobiesk, Stellato, Carballo, Wang, Wiberg, \protect\BIBand{}
+  Zeng}]{bertsimas2020covidClinicalOutcomes}
+Bertsimas D, Bandi H, Boussioux L, Cory-Wright R, Delarue A, Digalakis V,
+  Gilmour S, Graham J, Kim A, Lahlou~Kitane D, Lin Z, Lukin G, Li M, Mingardi
+  L, Na L, Orfanoudaki A, Papalexopoulos T, Paskov I, Pauphilet J, Skali~Lami
+  O, Sobiesk M, Stellato B, Carballo K, Wang Y, Wiberg H, Zeng C (2020) An
+  aggregated dataset of clinical outcomes for covid-19 patients.
+  \urlprefix\url{http://www.covidanalytics.io/dataset_documentation}.
 
 \bibitem[{Bittner et~al.(2013)Bittner, Donnelly, Van~Zanten, Andersen, Guidet,
   Trujillano~Cabello, Gardiner, Fitzpatrick, Winter, Joannidis
@@ -220,12 +222,25 @@ Greenberg PE, Fournier AA, Sisitsky T, Pike CT, Kessler RC (2015) The economic
   burden of adults with major depressive disorder in the united states (2005
   and 2010). \emph{The Journal of clinical psychiatry} 76(2):5356.
 
+\bibitem[{Grein et~al.(2020)Grein, Ohmagari, Shin, Diaz, Asperges, Castagna,
+  Feldt, Green, Green, Lescure et~al.}]{grein2020compassionate}
+Grein J, Ohmagari N, Shin D, Diaz G, Asperges E, Castagna A, Feldt T, Green G,
+  Green ML, Lescure FX, et~al. (2020) Compassionate use of remdesivir for
+  patients with severe covid-19. \emph{New England Journal of Medicine} .
+
 \bibitem[{Hastie et~al.(2023)Hastie, Lowe, McAuley, Mills, Winter, Black,
   Scott, O’donnell, Blane, Browne et~al.}]{hastie2023true}
 Hastie CE, Lowe DJ, McAuley A, Mills NL, Winter AJ, Black C, Scott JT,
   O’donnell CA, Blane DN, Browne S, et~al. (2023) True prevalence of
   long-covid in a nationwide, population cohort study. \emph{Nature
   Communications} 14(1):7892.
+
+\bibitem[{Hu et~al.(2020)Hu, Song, Xu, Jin, Chen, Xu, Ma, Chen, Lin, Zheng
+  et~al.}]{hu2020clinical}
+Hu Z, Song C, Xu C, Jin G, Chen Y, Xu X, Ma H, Chen W, Lin Y, Zheng Y, et~al.
+  (2020) Clinical characteristics of 24 asymptomatic infections with covid-19
+  screened among close contacts in nanjing, china. \emph{Science China Life
+  Sciences} 1--6.
 
 \bibitem[{IBGE(2020)}]{IBGE-Mortality}
 IBGE (2020) Complete life tables.
@@ -257,6 +272,27 @@ Institut RK (2021) “robert koch-institut: Covid-19-dashboard.
 Kaier K, Heister T, Wolff J, Wolkewitz M (2020) Mechanical ventilation and the
   daily cost of icu care. \emph{BMC health services research} 20(1):1--5.
 
+\bibitem[{Kluytmans et~al.(2020)Kluytmans, Buiting, Pas, Bentvelsen, van~den
+  Bijllaardt, van Oudheusden, van Rijen, Verweij, Koopmans, \protect\BIBand{}
+  Kluytmans}]{kluytmans2020sars}
+Kluytmans M, Buiting A, Pas S, Bentvelsen R, van~den Bijllaardt W, van
+  Oudheusden A, van Rijen M, Verweij J, Koopmans M, Kluytmans J (2020)
+  Sars-cov-2 infection in 86 healthcare workers in two dutch hospitals in march
+  2020. \emph{medRxiv} .
+
+\bibitem[{Krantz \protect\BIBand{} Rao(2020)}]{krantz2020level}
+Krantz SG, Rao ASS (2020) Level of under-reporting including under-diagnosis
+  before the first peak of covid-19 in various countries: Preliminary
+  retrospective results based on wavelets and deterministic modeling.
+  \emph{Infection Control \& Hospital Epidemiology} 1--8.
+
+\bibitem[{Lauer et~al.(2020)Lauer, Grantz, Bi, Jones, Zheng, Meredith, Azman,
+  Reich, \protect\BIBand{} Lessler}]{lauer2020incubation}
+Lauer SA, Grantz KH, Bi Q, Jones FK, Zheng Q, Meredith HR, Azman AS, Reich NG,
+  Lessler J (2020) The incubation period of coronavirus disease 2019 (covid-19)
+  from publicly reported confirmed cases: estimation and application.
+  \emph{Annals of internal medicine} 172(9):577--582.
+
 \bibitem[{Lee \protect\BIBand{} Seung(2001)}]{lee2001algorithms}
 Lee DD, Seung HS (2001) Algorithms for non-negative matrix factorization.
   \emph{Advances in Neural Information Processing Systems} 13.
@@ -271,11 +307,18 @@ Li ML, Bouardi HT, Lami OS, Trikalinos TA, Trichakis N, Bertsimas D (2023)
   Forecasting covid-19 and analyzing the effect of government interventions.
   \emph{Operations Research} 71(1):184--201.
 
-\bibitem[{Liu et~al.(2020)Liu, Zhang, Wong, Hyun et~al.}]{liu2020factorsapp}
-Liu CH, Zhang E, Wong GTF, Hyun S, et~al. (2020) Factors associated with
-  depression, anxiety, and ptsd symptomatology during the covid-19 pandemic:
-  Clinical implications for us young adult mental health. \emph{Psychiatry
-  research} 290:113172.
+\bibitem[{Liu et~al.(2020{\natexlab{a}})Liu, Zhang, Wong, Hyun
+  et~al.}]{liu2020factorsapp}
+Liu CH, Zhang E, Wong GTF, Hyun S, et~al. (2020{\natexlab{a}}) Factors
+  associated with depression, anxiety, and ptsd symptomatology during the
+  covid-19 pandemic: Clinical implications for us young adult mental health.
+  \emph{Psychiatry research} 290:113172.
+
+\bibitem[{Liu et~al.(2020{\natexlab{b}})Liu, Sun, Chen, Wang, Zhang,
+  \protect\BIBand{} Yu}]{liu2020clinical}
+Liu Y, Sun W, Chen L, Wang Y, Zhang L, Yu L (2020{\natexlab{b}}) Clinical
+  characteristics and progression of 2019 novel coronavirus-infected patients
+  concurrent acute respiratory distress syndrome. \emph{medRxiv} .
 
 \bibitem[{Mardones \protect\BIBand{} Riquelme(2018)}]{mardones2018estimation}
 Mardones C, Riquelme M (2018) Estimation of the value of statistical life in
@@ -303,6 +346,12 @@ Moore MJ, Viscusi WK (1988) The quantity-adjusted value of life. \emph{Economic
 {New York, Department of Health} (2018) Estimated population by age, sex and
   region, new york state - 2018.
   \urlprefix\url{https://www.health.ny.gov/statistics/vital_statistics/2018/table01.htm}.
+
+\bibitem[{Niehus et~al.(2020)Niehus, Martinez~de Salazar~Munoz, Taylor,
+  \protect\BIBand{} Lipsitch}]{niehus2020quantifying}
+Niehus R, Martinez~de Salazar~Munoz P, Taylor A, Lipsitch M (2020) Quantifying
+  bias of covid-19 prevalence in wuhan, china that depend on reported cases in
+  international travelers. \emph{medRxiv} .
 
 \bibitem[{{NIMH}(2021)}]{nimhusptsd}
 {NIMH} (2021) Post-traumatic stress disorder (ptsd).
@@ -382,6 +431,12 @@ Vieta E, Alonso J, P{\'e}rez-Sola V, Roca M, Hernando T, Sicras-Mainar A,
   50:93--103, ISSN 0924-977X,
   \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.euroneuro.2021.04.022}.
 
+\bibitem[{Wang et~al.(2020)Wang, Liu, Hao, Guo, Wang, Huang, He, Yu, Lin, Pan
+  et~al.}]{wang2020evolving}
+Wang C, Liu L, Hao X, Guo H, Wang Q, Huang J, He N, Yu H, Lin X, Pan A, et~al.
+  (2020) Evolving epidemiology and impact of non-pharmaceutical interventions
+  on the outbreak of coronavirus disease 2019 in wuhan, china. \emph{medRxiv} .
+
 \bibitem[{Wittchen et~al.(2011)Wittchen, Jacobi, Rehm, Gustavsson, Svensson,
   J{\"o}nsson, Olesen, Allgulander, Alonso, Faravelli
   et~al.}]{wittchen2011size}
@@ -424,6 +479,12 @@ Worldometer (2024{\natexlab{a}}) Brazil demographics 2024.
 \bibitem[{Worldometer(2024{\natexlab{b}})}]{spain2024}
 Worldometer (2024{\natexlab{b}}) Spain demographics 2024.
   \url{https://www.worldometers.info}.
+
+\bibitem[{Xu et~al.(2020)Xu, Huang, Liu, Deng, Jiao, Ai, Xiao, Yan,
+  \protect\BIBand{} Li}]{xu2020evaluation}
+Xu H, Huang S, Liu S, Deng J, Jiao B, Ai L, Xiao Y, Yan L, Li S (2020)
+  Evaluation of the clinical characteristics of suspected or confirmed cases of
+  covid-19 during home care with isolation. \emph{Available at SSRN 3548746} .
 
 \bibitem[{Xu et~al.(2012)Xu, Yin, Wen, \protect\BIBand{}
   Zhang}]{xu2012alternating}
