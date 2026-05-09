@@ -124,19 +124,19 @@ Thank you for your thoughtful comments and for carefully reviewing our manuscrip
 \addcontentsline{toc}{section}{\protect\numberline{}Overview of Major Improvements}
 \label{sec:overview}
 
-\textbf{Revised estimation and stronger counterfactual validation.}
+\noindent\textbf{Revised estimation and stronger counterfactual validation.}
 
 We updated the earlier implementation that fixed policy effects using historical averages with a joint rank-$1$ estimation procedure for policy and region effects. We then broadened the empirical validation program substantially. The revised manuscript now includes repeated holdout tests across regions and time periods, comparisons to higher-rank and simpler benchmark specifications, a finer 9-category policy partition, time-transfer validation across pandemic periods, and sensitivity analyses that quantify how much unmeasured confounding would be required to overturn the induced policy rankings.
 
-\textbf{More actionable prescriptive output.}
+\noindent\textbf{More actionable prescriptive output.}
 
 The original submission documented frontier trade-offs but did not yet translate those trade-offs into operational guidance. The revision now adds two complementary prescriptive outputs. First, we develop a state-action decision tree that summarizes the optimal policy map. Second, we implement Online THEMIS as a sequential one-step-look-ahead decision procedure and show that it moves three of the four focal regions substantially closer to the hindsight frontier.
 
-\textbf{Sharper interpretation of the policy menu and sensitivity of cost assumptions.}
+\noindent\textbf{Sharper interpretation of the policy menu and sensitivity of cost assumptions.}
 
 We now make explicit that the seven policy categories are bundle-level interventions rather than additive combinations of separately estimated NPI effects, and we document the OxCGRT mapping that induces those bundles. We also add sensitivity analyses for nonlinear mental-health costs and within-block adherence decay. In this response, we further discuss the policy-optimization horizon so that the role of that modeling choice is transparent.
 
-\textbf{Clearer framing of contribution and scope.}
+\noindent\textbf{Clearer framing of contribution and scope.}
 
 The revision positions the core estimation problem as a partially observed low-rank counterfactual matrix problem and connects it more directly to the relevant literature. At the same time, the paper now states its scope more precisely: THEMIS is not a day-zero oracle for a completely novel pathogen, but it can be deployed as an online decision-support tool once limited early-wave data begin to accumulate. We also make the limitations around omitted channels, variants, and external validity more explicit.
 
@@ -334,7 +334,7 @@ For each value of $f$, we re-simulate all $7^3 = 343$ hypothetical policy sequen
 Table \ref{tab:ranking_stability} reports the results for the four focal regions in the paper:
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|l|c|c|cc|}
+	\begin{tabular}{|l|c|c|c|c|}
 		\hline
 		& & $f=0.50$ & \multicolumn{2}{c|}{First $f$ at which} \\
 		Region & Optimal policy & $\rho$ & optimal changes & $\rho < 0.80$ \\\hline

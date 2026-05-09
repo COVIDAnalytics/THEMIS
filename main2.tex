@@ -1254,7 +1254,13 @@ Table \ref{tab:time_transfer_main} shows that in each of the four regions, THEMI
 }
 
 {\color{blue}
-To further validate our $\gamma_{R,i}$ estimation, we repeat the same experiment on a broader random set of 40 global regions.
+To further validate our $\gamma_{R,i}$ estimation, we repeat the same experiment on a broader random set of 40 global regions, namely - Andorra, Australia (Australian Capital Territory), Australia (New South Wales), Australia (South
+  Australia), Australia (Tasmania), Australia (Western Australia), Belarus, Canada (New Brunswick),
+  Canada (Newfoundland and Labrador), Canada (Ontario), Canada (Quebec), Cyprus, Czechia, Denmark,      
+  Dominican Republic, Estonia, Finland, Germany, Ireland, Italy, Latvia, Malaysia, Monaco, New Zealand,
+  Norway, San Marino, Spain, Sweden, Switzerland, Thailand, Turkey, US (Illinois), US (Massachusetts),  
+  US (New Hampshire), US (New Jersey), US (North Dakota), US (Pennsylvania), US (Rhode Island), and US
+  (South Dakota).
 }
 
 \begin{table}[htbp!]
@@ -1280,7 +1286,7 @@ Table \ref{tab:time_transfer_expanded} shows that in the 40 regions, THEMIS outp
 \section{\rev{Sensitivity to Granular Policy Partition}}
 \label{app:granular}
 
-Utilizing the more granular split defined in \ref{tab:granular_policies}, we re-run DELPHI for the four focal regions under their actual policy sequences during March 15--June 15, 2020. Where a granular category is directly observed in a region, we use the observed estimate; where only the parent category is observed, we retain the parent-category estimate; ALS-imputed values are used only when neither level is observed.
+Utilizing the more granular split defined in Table \ref{tab:granular_policies}, we re-run DELPHI for the four focal regions under their actual policy sequences during March 15--June 15, 2020. Where a granular category is directly observed in a region, we use the observed estimate; where only the parent category is observed, we retain the parent-category estimate; ALS-imputed values are used only when neither level is observed.
 
 \begin{table}[htbp!]
 \centering
@@ -1363,7 +1369,7 @@ At $f=0$, the original estimates are used. At $f=1$, all policies share the same
 \begin{table}[htbp!]
 \centering
 {\color{blue}
-\begin{tabular}{|l|c|c|cc|}
+\begin{tabular}{|l|c|c|c|c|}
 \hline
 & & $f=0.50$ & \multicolumn{2}{c|}{First $f$ at which} \\
 Region & Optimal policy & $\rho$ & optimal changes & $\rho < 0.80$ \\\hline
@@ -1384,7 +1390,7 @@ Table~\ref{tab:ranking_stability} shows that the conclusions are highly stable. 
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=0.9\textwidth]{simulation_results/robustness_values/ranking_stability.pdf}
-\caption{\rev{Policy ranking stability as the differential NPI effects are attenuated toward the cross-policy mean. The top panel reports Spearman rank correlation relative to the baseline ranking; the bottom panel reports top-20 set overlap. The qualitative ordering remains highly stable until almost all differential policy contrast is removed.}}
+\caption{\rev{Policy ranking stability as the differential NPI effects are attenuated toward the cross-policy mean. The right panel reports Spearman rank correlation relative to the baseline ranking; the left panel reports top-20 set overlap. The qualitative ordering remains highly stable until almost all differential policy contrast is removed.}}
 \label{fig:ranking_stability}
 \end{figure}
 
