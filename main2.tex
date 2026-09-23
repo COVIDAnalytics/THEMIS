@@ -544,7 +544,7 @@ By integrating these two sources of uncertainty, we can enable decision-makers t
 Figure \ref{fig:human_econ_costs_mar15} presents the results of simulating all valid policies $\bm{P}$ across the specified regions. The graph depicts the trade-offs between humanitarian costs $C_R^{\mathrm{hum}}(\bm{P})$ and economic costs $C_R^{\mathrm{eco}}(\bm{P})$. We set $\alpha = 5\%$, with the resulting heuristic uncertainty bands represented as gray bars. For reference, the cost associated with the actual implemented policy, as estimated by DELPHI, is shown in blue, while the most stringent policy (a ``7-7-7" three-month lockdown) is indicated by a red diamond.
 
 {\color{blue}
-We immediately observe that the different regions exhibit markedly dissimilar tradeoff curves, emphasizing that a policy effective in one area may be suboptimal in another. This variation underscores significant differences in cultural, governmental, and infrastructural capabilities across the analyzed regions. While the coordinated lockdowns implemented globally in late March represented an impressive collaborative policy effort, the results from THEMIS suggest that a universally identical response may neither have been necessary nor ideal for managing the pandemic. 
+We observe that the different regions exhibit markedly dissimilar tradeoff curves, emphasizing that a policy effective in one area may be suboptimal in another. This variation underscores significant differences in cultural, governmental, and infrastructural capabilities across the analyzed regions. While the coordinated lockdowns implemented globally in late March represented an impressive collaborative policy effort, the results from THEMIS suggest that a universally identical response may neither have been necessary nor ideal for managing the pandemic. 
 
 For Brazil, the feasible set exhibits a non-monotone relationship between intervention intensity and economic cost. Policies with minimal intervention generate high economic cost due to uncontrolled spread and associated productivity losses. As intervention intensity increases, economic cost initially declines as the epidemic is stabilized. Beyond this range, further tightening of NPIs increases economic cost through direct suppression of economic activity. This generates an interior minimum, which appears in the figure as a “twin peak” pattern in economic outcomes.
 
@@ -646,15 +646,6 @@ Finally, lockdown (NPI 7) appears only in a single leaf (L6) as an early-stage i
 	\label{fig:state_action_pooled_tree}
 \end{figure}
 }
-% \begin{figure*}
-%     \centering
-%    \includegraphics[width=\textwidth]{simulation_results/best_policies_v7.pdf}
-%     \caption{The 20 minimum total cost policies for different regions, starting on March 15th and continuing for 3 months. All costs are expressed as \% of 2019 GDP to enable cross-country comparison. The purple bar is mental health costs, the red bar is loss of life costs, the green bar is hospitalization costs, while the blue bar is economic costs.}
-%     \label{fig:best_policies_mar15}
-% \end{figure*}
-% }
-% {\color{blue}
-% Figure \ref{fig:best_policies_mar15} illustrates the 20 lowest-cost policies in each region and highlights a pattern that is more structured than the earlier draft suggested. In all four regions, the top-ranked policies begin with a strong intervention in the first month, but the preferred \emph{duration} of that intervention differs sharply across regions. Germany and New York concentrate around policies such as 6-6-1 and 6-6-2, indicating that two months of strong restrictions followed by a substantial relaxation dominates both prolonged lockdown and very early reopening. Brazil's top set is centered around policies such as 6-6-5 and 6-5-5, which again favor strong early action, but without maintaining the most restrictive policy for the full three-month horizon. Spain is different: its best policies begin with a strong first month and then taper quickly, with 6-1-1 emerging as the lowest-cost sequence in the updated figure.
 
 % \rev{At the same time, the relaxed end of the policy menu is supported less directly by the first-wave sample than the strong-intervention categories. Appendix~\ref{app:granular} shows that the weakest granular categories are thinly observed in the focal estimation window. For that reason, the exact identity of the most relaxed month in sequences such as 6-6-1 or 6-1-1 should be interpreted with more caution than the broader managerial pattern that these figures support: act strongly early, then taper once the epidemiological pressure has subsided.}
 
@@ -667,7 +658,7 @@ Finally, lockdown (NPI 7) appears only in a single leaf (L6) as an early-stage i
 {\color{blue}
 In Section \ref{sec:experiment}, we evaluate all policies in $\mathcal{P}=\mathcal{I}^3$ using a DELPHI prediction curve calibrated on the full first-wave data. We now examine whether THEMIS could have been deployed sequentially as information about COVID-19 arrived.
 
-We use the same decision dates as in the main analysis, denoted by $\tau_1=$ March 15, $\tau_2=$ April 15, and $\tau_3=$ May 15. At each date $\tau_s$, the DELPHI model is estimated using only data available up to $\tau_s$. The policy effects are also re-estimated from the date-restricted region--policy panel once that panel contains enough support for the rank-$1$ procedure. At the first decision date, when the observed policy matrix is too sparse, we use the baseline rank-$1$ estimate as a warm start. We treat the non-COVID parameters, including the value of a statistical life year, GDP, and total working days, in Appendix \ref{app:region_specific_params} as given. Although some sources postdate 2020, these quantities are stable and small changes do not significantly change our outcomes. For COVID-19 parameters, we use estimates constructed from data available up to $\tau_s$. Long COVID was not characterized during this period, so the corresponding parameters are set to zero.
+We use the same decision dates as in the main analysis, denoted by $\tau_1=$ March 15, $\tau_2=$ April 15, and $\tau_3=$ May 15. At each date $\tau_s$, the DELPHI model is estimated using only data available up to $\tau_s$. The policy effects are also re-estimated from the date-restricted region--policy panel once that panel contains enough support for the rank-$1$ procedure. At the first decision date, when the observed policy matrix is too sparse for matrix completion, we use the historical policy averages up to that point as a warm-start. We treat the non-COVID parameters, including the value of a statistical life year, GDP, and total working days, in Appendix \ref{app:region_specific_params} as given. Although some sources postdate 2020, these quantities are stable and small changes do not significantly change our outcomes. For COVID-19 parameters, we use estimates constructed from data available up to $\tau_s$. Long COVID was not characterized during this period, so the corresponding parameters are set to zero.
 
 At decision date $\tau_s$, the planner has already implemented the prefix $\bm{P}_{R,1:s-1}^{\mathrm{on}}=(i_{R,1}^{\mathrm{on}},\ldots,i_{R,s-1}^{\mathrm{on}})$. The DELPHI parameters for region $R$ are given by the archived estimate $\hat{\theta}_R^{(s)}$ fitted on data up to $\tau_s$. The policy-effect matrix is re-estimated on the corresponding date-restricted region--policy panel, yielding
 \[
@@ -704,7 +695,7 @@ We compare $\bm{P}_R^{\mathrm{on}}$ with two benchmarks. The first is the realiz
     \arg\min_{\bm{P}\in\mathcal{P}}
     c_R\!\left(\bm{P};\hat{\theta}_R^{\mathrm{full}},\hat{\Gamma}^{\mathrm{full}}\right),
 \]
-where $\hat{\theta}_R^{\mathrm{full}}$ and $\hat{\Gamma}^{\mathrm{full}}$ are estimated using the full data. Although infeasible at the time of decision, this policy provides a lower bound within the same policy class. For comparability, Table~\ref{tab:rolling_advisor_v2} evaluates the online, realized, and hindsight policies under the full data.
+where $\hat{\theta}_R^{\mathrm{full}}$ and $\hat{\Gamma}^{\mathrm{full}}$ are estimated using the full data. Although infeasible at the time of decision, this policy provides a lower bound within the same policy class. In Appendix \ref{app:best_policies}, we provide the top 20 hindsight-optimal policies for each region. For comparability, Table~\ref{tab:rolling_advisor_v2} then evaluates the cost of the online, realized, and hindsight policies under the full data.
 
 \begin{table}[htbp!]
 \centering\footnotesize
@@ -1353,7 +1344,16 @@ New York & $0.10$ \\\hline
 \end{table}
 
 
-
+\section{\rev{Best Policy Graph}}
+\label{app:best_policies}
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{simulation_results/best_policies_v7.pdf}
+	\caption{The 20 minimum total cost policies for different regions, starting on March 15th and continuing for 3 months. All costs are expressed as \% of 2019 GDP to enable cross-country comparison. The purple bar is mental health costs, the red bar is loss of life costs, the green bar is hospitalization costs, while the blue bar is economic costs.}
+	\label{fig:best_policies_mar15}
+\end{figure*}
+{\color{blue}
+	Figure \ref{fig:best_policies_mar15} illustrates the 20 lowest-cost policies in each region and highlights a pattern that is more structured than the earlier draft suggested. In all four regions, the top-ranked policies begin with a strong intervention in the first month, but the preferred \emph{duration} of that intervention differs sharply across regions. Germany and New York concentrate around policies such as 6-6-1 and 6-6-2, indicating that two months of strong restrictions followed by a substantial relaxation dominates both prolonged lockdown and very early reopening. Brazil's top set is centered around policies such as 6-6-5 and 6-5-5, which again favor strong early action, but without maintaining the most restrictive policy for the full three-month horizon. Spain is different: its best policies begin with a strong first month and then taper quickly, with 6-1-1 emerging as the lowest-cost sequence in the updated figure.}
 
 \section{\rev{Sensitivity Analysis for Unmeasured Confounding}}
 \label{app:confounding}
@@ -1533,6 +1533,6 @@ Across all four regions and all decay rates tested, the rank correlation exceeds
 % \end{figure}
 
 \bibliographystyleapp{informs2014}
-\bibliographyapp{bibliography,Paper/bibliography}
+\bibliographyapp{bibliography}
 \end{APPENDICES}
 \end{document}
