@@ -3,192 +3,100 @@
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
-\bibitem[{Athey et~al.(2021)Athey, Bayati, Doudchenko, Imbens,
-  \protect\BIBand{} Khosravi}]{athey2021matrix}
-Athey S, Bayati M, Doudchenko N, Imbens G, Khosravi K (2021) Matrix completion
-  methods for causal panel data models. \emph{Journal of the American
-  Statistical Association} 116(536):1716--1730,
-  \urlprefix\url{http://dx.doi.org/10.1080/01621459.2021.1891924}.
+\bibitem[{Athey et~al.(2021)Athey, Bayati, Doudchenko, Imbens, \protect\BIBand{} Khosravi}]{athey2021matrix}
+Athey S, Bayati M, Doudchenko N, Imbens G, Khosravi K (2021) Matrix completion methods for causal panel data models. \emph{Journal of the American Statistical Association} 116(536):1716--1730, \urlprefix\url{http://dx.doi.org/10.1080/01621459.2021.1891924}.
 
 \bibitem[{Bai(2009)}]{bai2009panel}
-Bai J (2009) Panel data models with interactive fixed effects.
-  \emph{Econometrica} 77(4):1229--1279,
-  \urlprefix\url{http://dx.doi.org/10.3982/ECTA6135}.
+Bai J (2009) Panel data models with interactive fixed effects. \emph{Econometrica} 77(4):1229--1279, \urlprefix\url{http://dx.doi.org/10.3982/ECTA6135}.
 
-\bibitem[{Bertsimas et~al.(2020)Bertsimas, Boussioux, Wright, Delarue,
-  Digalakis~Jr, Jacquillat, Kitane, Lukin, Li, Mingardi et~al.}]{bertsimas:20}
-Bertsimas D, Boussioux L, Wright RC, Delarue A, Digalakis~Jr V, Jacquillat A,
-  Kitane DL, Lukin G, Li ML, Mingardi L, et~al. (2020) {From predictions to
-  prescriptions: A data-driven response to COVID-19}. \emph{arXiv preprint
-  arXiv:2006.16509} .
+\bibitem[{Bertsimas et~al.(2020)Bertsimas, Boussioux, Wright, Delarue, Digalakis~Jr, Jacquillat, Kitane, Lukin, Li, Mingardi et~al.}]{bertsimas:20}
+Bertsimas D, Boussioux L, Wright RC, Delarue A, Digalakis~Jr V, Jacquillat A, Kitane DL, Lukin G, Li ML, Mingardi L, et~al. (2020) {From predictions to prescriptions: A data-driven response to COVID-19}. \emph{arXiv preprint arXiv:2006.16509} .
 
 \bibitem[{Broughel \protect\BIBand{} Kotrous(2021)}]{broughel2021benefits}
-Broughel J, Kotrous M (2021) The benefits of coronavirus suppression: A
-  cost-benefit analysis of the response to the first wave of covid-19 in the
-  united states. \emph{PloS one} 16(6):e0252729.
+Broughel J, Kotrous M (2021) The benefits of coronavirus suppression: A cost-benefit analysis of the response to the first wave of covid-19 in the united states. \emph{PloS one} 16(6):e0252729.
 
-\bibitem[{Carmassi et~al.(2020)Carmassi, Foghi, Dell'Oste, Cordone, Bertelloni,
-  Bui, \protect\BIBand{} Dell'Osso}]{carmassi2020ptsd}
-Carmassi C, Foghi C, Dell'Oste V, Cordone A, Bertelloni CA, Bui E, Dell'Osso L
-  (2020) Ptsd symptoms in healthcare workers facing the three coronavirus
-  outbreaks: What can we expect after the covid-19 pandemic. \emph{Psychiatry
-  research} 113312.
+\bibitem[{Carmassi et~al.(2020)Carmassi, Foghi, Dell'Oste, Cordone, Bertelloni, Bui, \protect\BIBand{} Dell'Osso}]{carmassi2020ptsd}
+Carmassi C, Foghi C, Dell'Oste V, Cordone A, Bertelloni CA, Bui E, Dell'Osso L (2020) Ptsd symptoms in healthcare workers facing the three coronavirus outbreaks: What can we expect after the covid-19 pandemic. \emph{Psychiatry research} 113312.
 
 \bibitem[{Cinelli \protect\BIBand{} Hazlett(2020)}]{cinelli2020making}
-Cinelli C, Hazlett C (2020) Making sense of sensitivity: Extending omitted
-  variable bias. \emph{Journal of the Royal Statistical Society: Series B
-  (Statistical Methodology)} 82(1):39--67.
+Cinelli C, Hazlett C (2020) Making sense of sensitivity: Extending omitted variable bias. \emph{Journal of the Royal Statistical Society: Series B (Statistical Methodology)} 82(1):39--67.
 
 \bibitem[{Cutler \protect\BIBand{} Summers(2020)}]{cutler2020covid}
-Cutler DM, Summers LH (2020) The covid-19 pandemic and the \$16 trillion virus.
-  \emph{Jama} 324(15):1495--1496.
+Cutler DM, Summers LH (2020) The covid-19 pandemic and the \$16 trillion virus. \emph{Jama} 324(15):1495--1496.
 
 \bibitem[{Di~Pietro(2023)}]{di2023impact}
-Di~Pietro G (2023) The impact of covid-19 on student achievement.
-  \emph{Educational Research Review} 39:100530.
+Di~Pietro G (2023) The impact of covid-19 on student achievement. \emph{Educational Research Review} 39:100530.
 
-\bibitem[{Ferguson et~al.(2020)Ferguson, Laydon, Nedjati-Gilani, Imai, Ainslie,
-  Baguelin, Bhatia, Boonyasiri, Cucunub{\'a}, Cuomo-Dannenburg
-  et~al.}]{ferguson2020impact}
-Ferguson NM, Laydon D, Nedjati-Gilani G, Imai N, Ainslie K, Baguelin M, Bhatia
-  S, Boonyasiri A, Cucunub{\'a} Z, Cuomo-Dannenburg G, et~al. (2020) Impact of
-  non-pharmaceutical interventions (npis) to reduce covid-19 mortality and
-  healthcare demand. \emph{Imperial College COVID-19 Response Team}
-  20(10.25561):77482.
+\bibitem[{Ferguson et~al.(2020)Ferguson, Laydon, Nedjati-Gilani, Imai, Ainslie, Baguelin, Bhatia, Boonyasiri, Cucunub{\'a}, Cuomo-Dannenburg et~al.}]{ferguson2020impact}
+Ferguson NM, Laydon D, Nedjati-Gilani G, Imai N, Ainslie K, Baguelin M, Bhatia S, Boonyasiri A, Cucunub{\'a} Z, Cuomo-Dannenburg G, et~al. (2020) Impact of non-pharmaceutical interventions (npis) to reduce covid-19 mortality and healthcare demand. \emph{Imperial College COVID-19 Response Team} 20(10.25561):77482.
 
 \bibitem[{Gros et~al.(2020)}]{gros2020great}
-Gros D, et~al. (2020) The great lockdown: was it worth it. \emph{CEPS Policy
-  Insights} 11.
+Gros D, et~al. (2020) The great lockdown: was it worth it. \emph{CEPS Policy Insights} 11.
 
-\bibitem[{Hale et~al.(2021)Hale, Angrist, Goldszmidt, Kira, Petherick,
-  Phillips, Webster, Cameron-Blake, Hallas, Majumdar, \protect\BIBand{}
-  Tatlow}]{hale2021global}
-Hale T, Angrist N, Goldszmidt R, Kira B, Petherick A, Phillips T, Webster S,
-  Cameron-Blake E, Hallas L, Majumdar S, Tatlow H (2021) A global panel
-  database of pandemic policies ({Oxford COVID-19 Government Response
-  Tracker}). \emph{Nature Human Behaviour} 5(4):529--538,
-  \urlprefix\url{http://dx.doi.org/10.1038/s41562-021-01079-8}.
+\bibitem[{Hale et~al.(2021)Hale, Angrist, Goldszmidt, Kira, Petherick, Phillips, Webster, Cameron-Blake, Hallas, Majumdar, \protect\BIBand{} Tatlow}]{hale2021global}
+Hale T, Angrist N, Goldszmidt R, Kira B, Petherick A, Phillips T, Webster S, Cameron-Blake E, Hallas L, Majumdar S, Tatlow H (2021) A global panel database of pandemic policies ({Oxford COVID-19 Government Response Tracker}). \emph{Nature Human Behaviour} 5(4):529--538, \urlprefix\url{http://dx.doi.org/10.1038/s41562-021-01079-8}.
 
-\bibitem[{Haug et~al.(2020)Haug, Geyrhofer, Londei, Dervic, Desvars-Larrive,
-  Loreto, Pinior, Thurner, \protect\BIBand{} Klimek}]{haug2020ranking}
-Haug N, Geyrhofer L, Londei A, Dervic E, Desvars-Larrive A, Loreto V, Pinior B,
-  Thurner S, Klimek P (2020) Ranking the effectiveness of worldwide covid-19
-  government interventions. \emph{Nature human behaviour} 4(12):1303--1312.
+\bibitem[{Haug et~al.(2020)Haug, Geyrhofer, Londei, Dervic, Desvars-Larrive, Loreto, Pinior, Thurner, \protect\BIBand{} Klimek}]{haug2020ranking}
+Haug N, Geyrhofer L, Londei A, Dervic E, Desvars-Larrive A, Loreto V, Pinior B, Thurner S, Klimek P (2020) Ranking the effectiveness of worldwide covid-19 government interventions. \emph{Nature human behaviour} 4(12):1303--1312.
 
 \bibitem[{Holmdahl \protect\BIBand{} Buckee(2020)}]{holmdahl2020}
-Holmdahl I, Buckee C (2020) Wrong but useful — what covid-19 epidemiologic
-  models can and cannot tell us. \emph{New England Journal of Medicine}
-  383(4):303--305, \urlprefix\url{http://dx.doi.org/10.1056/NEJMp2016822}.
+Holmdahl I, Buckee C (2020) Wrong but useful — what covid-19 epidemiologic models can and cannot tell us. \emph{New England Journal of Medicine} 383(4):303--305, \urlprefix\url{http://dx.doi.org/10.1056/NEJMp2016822}.
 
-\bibitem[{Hui et~al.(2020)Hui, Azhar, Madani, Ntoumi, Kock, Dar, Ippolito,
-  Mchugh, Memish, Drosten et~al.}]{hui2020continuing}
-Hui DS, Azhar EI, Madani TA, Ntoumi F, Kock R, Dar O, Ippolito G, Mchugh TD,
-  Memish ZA, Drosten C, et~al. (2020) {The continuing 2019-nCoV epidemic threat
-  of novel coronaviruses to global health—The latest 2019 novel coronavirus
-  outbreak in Wuhan, China}. \emph{International Journal of Infectious
-  Diseases} 91:264--266.
+\bibitem[{Hui et~al.(2020)Hui, Azhar, Madani, Ntoumi, Kock, Dar, Ippolito, Mchugh, Memish, Drosten et~al.}]{hui2020continuing}
+Hui DS, Azhar EI, Madani TA, Ntoumi F, Kock R, Dar O, Ippolito G, Mchugh TD, Memish ZA, Drosten C, et~al. (2020) {The continuing 2019-nCoV epidemic threat of novel coronaviruses to global health—The latest 2019 novel coronavirus outbreak in Wuhan, China}. \emph{International Journal of Infectious Diseases} 91:264--266.
 
-\bibitem[{Kissler et~al.(2020)Kissler, Tedijanto, Goldstein, Grad,
-  \protect\BIBand{} Lipsitch}]{kissler:20}
-Kissler SM, Tedijanto C, Goldstein E, Grad YH, Lipsitch M (2020) {Projecting
-  the transmission dynamics of SARS-CoV-2 through the postpandemic period}.
-  \emph{Science} .
+\bibitem[{Kissler et~al.(2020)Kissler, Tedijanto, Goldstein, Grad, \protect\BIBand{} Lipsitch}]{kissler:20}
+Kissler SM, Tedijanto C, Goldstein E, Grad YH, Lipsitch M (2020) {Projecting the transmission dynamics of SARS-CoV-2 through the postpandemic period}. \emph{Science} .
 
-\bibitem[{Layard et~al.(2020)Layard, Clark, De~Neve, Krekel, Fancourt, Hey,
-  \protect\BIBand{} O'Donnell}]{layard2020release}
-Layard R, Clark A, De~Neve JE, Krekel C, Fancourt D, Hey N, O'Donnell G (2020)
-  When to release the lockdown? a wellbeing framework for analysing costs and
-  benefits. \emph{IZA Discussion Paper} .
+\bibitem[{Layard et~al.(2020)Layard, Clark, De~Neve, Krekel, Fancourt, Hey, \protect\BIBand{} O'Donnell}]{layard2020release}
+Layard R, Clark A, De~Neve JE, Krekel C, Fancourt D, Hey N, O'Donnell G (2020) When to release the lockdown? a wellbeing framework for analysing costs and benefits. \emph{IZA Discussion Paper} .
 
-\bibitem[{Li et~al.(2023)Li, Bouardi, Lami, Trikalinos, Trichakis,
-  \protect\BIBand{} Bertsimas}]{li:20}
-Li ML, Bouardi HT, Lami OS, Trikalinos TA, Trichakis N, Bertsimas D (2023)
-  Forecasting covid-19 and analyzing the effect of government interventions.
-  \emph{Operations Research} 71(1):184--201.
+\bibitem[{Li et~al.(2023)Li, Bouardi, Lami, Trikalinos, Trichakis, \protect\BIBand{} Bertsimas}]{li:20}
+Li ML, Bouardi HT, Lami OS, Trikalinos TA, Trichakis N, Bertsimas D (2023) Forecasting covid-19 and analyzing the effect of government interventions. \emph{Operations Research} 71(1):184--201.
 
 \bibitem[{Liu et~al.(2020)Liu, Zhang, Wong, Hyun et~al.}]{liu2020factors}
-Liu CH, Zhang E, Wong GTF, Hyun S, et~al. (2020) Factors associated with
-  depression, anxiety, and ptsd symptomatology during the covid-19 pandemic:
-  Clinical implications for us young adult mental health. \emph{Psychiatry
-  research} 290:113172.
+Liu CH, Zhang E, Wong GTF, Hyun S, et~al. (2020) Factors associated with depression, anxiety, and ptsd symptomatology during the covid-19 pandemic: Clinical implications for us young adult mental health. \emph{Psychiatry research} 290:113172.
 
-\bibitem[{Miles et~al.(2021)Miles, Stedman, \protect\BIBand{}
-  Heald}]{miles2021stay}
-Miles DK, Stedman M, Heald AH (2021) “stay at home, protect the national
-  health service, save lives”: A cost benefit analysis of the lockdown in the
-  united kingdom. \emph{International Journal of Clinical Practice}
-  75(3):e13674.
+\bibitem[{Miles et~al.(2021)Miles, Stedman, \protect\BIBand{} Heald}]{miles2021stay}
+Miles DK, Stedman M, Heald AH (2021) “stay at home, protect the national health service, save lives”: A cost benefit analysis of the lockdown in the united kingdom. \emph{International Journal of Clinical Practice} 75(3):e13674.
 
 \bibitem[{Monitor(2020)}]{monitor2020covid}
-Monitor I (2020) Covid-19 and the world of work. \emph{Updated estimates and
-  analysis} .
+Monitor I (2020) Covid-19 and the world of work. \emph{Updated estimates and analysis} .
 
 \bibitem[{Nocedal \protect\BIBand{} Wright(2006)}]{nocedal2006numerical}
-Nocedal J, Wright S (2006) \emph{Numerical optimization} (Springer Science \&
-  Business Media).
+Nocedal J, Wright S (2006) \emph{Numerical optimization} (Springer Science \& Business Media).
 
 \bibitem[{Pfefferbaum \protect\BIBand{} North(2020)}]{pfefferbaum2020mental}
-Pfefferbaum B, North CS (2020) Mental health and the covid-19 pandemic.
-  \emph{New England Journal of Medicine} 383(6):510--512.
+Pfefferbaum B, North CS (2020) Mental health and the covid-19 pandemic. \emph{New England Journal of Medicine} 383(6):510--512.
 
 \bibitem[{Rowthorn \protect\BIBand{} Maciejowski(2020)}]{rowthorn2020cost}
-Rowthorn R, Maciejowski J (2020) A cost--benefit analysis of the covid-19
-  disease. \emph{Oxford Review of Economic Policy} 36(Supplement1):S38--S55.
+Rowthorn R, Maciejowski J (2020) A cost--benefit analysis of the covid-19 disease. \emph{Oxford Review of Economic Policy} 36(Supplement1):S38--S55.
 
-\bibitem[{Serra et~al.(2022)Serra, Borrazzo, Vassalini, Di~Nicolantonio,
-  Koukopoulos, Tosato, Cherubini, Alessandri, Ceccarelli, Mastroianni
-  et~al.}]{serra2022post}
-Serra R, Borrazzo C, Vassalini P, Di~Nicolantonio C, Koukopoulos AE, Tosato C,
-  Cherubini F, Alessandri F, Ceccarelli G, Mastroianni CM, et~al. (2022)
-  Post-traumatic stress disorder trajectories the year after covid-19
-  hospitalization. \emph{International journal of environmental research and
-  public health} 19(14):8452.
+\bibitem[{Serra et~al.(2022)Serra, Borrazzo, Vassalini, Di~Nicolantonio, Koukopoulos, Tosato, Cherubini, Alessandri, Ceccarelli, Mastroianni et~al.}]{serra2022post}
+Serra R, Borrazzo C, Vassalini P, Di~Nicolantonio C, Koukopoulos AE, Tosato C, Cherubini F, Alessandri F, Ceccarelli G, Mastroianni CM, et~al. (2022) Post-traumatic stress disorder trajectories the year after covid-19 hospitalization. \emph{International journal of environmental research and public health} 19(14):8452.
 
-\bibitem[{Shlomai et~al.(2021)Shlomai, Leshno, Sklan, \protect\BIBand{}
-  Leshno}]{shlomai2021modeling}
-Shlomai A, Leshno A, Sklan EH, Leshno M (2021) Modeling social distancing
-  strategies to prevent sars-cov-2 spread in israel: a cost-effectiveness
-  analysis. \emph{Value in Health} 24(5):607--614.
+\bibitem[{Shlomai et~al.(2021)Shlomai, Leshno, Sklan, \protect\BIBand{} Leshno}]{shlomai2021modeling}
+Shlomai A, Leshno A, Sklan EH, Leshno M (2021) Modeling social distancing strategies to prevent sars-cov-2 spread in israel: a cost-effectiveness analysis. \emph{Value in Health} 24(5):607--614.
 
-\bibitem[{Usher et~al.(2020)Usher, Durkin, \protect\BIBand{}
-  Bhullar}]{usher2020covid}
-Usher K, Durkin J, Bhullar N (2020) The covid-19 pandemic and mental health
-  impacts. \emph{International Journal of Mental Health Nursing} 29(3):315.
+\bibitem[{Usher et~al.(2020)Usher, Durkin, \protect\BIBand{} Bhullar}]{usher2020covid}
+Usher K, Durkin J, Bhullar N (2020) The covid-19 pandemic and mental health impacts. \emph{International Journal of Mental Health Nursing} 29(3):315.
 
-\bibitem[{Wieler et~al.(2020)Wieler, Rexroth, \protect\BIBand{}
-  Gottschalk}]{wieler2020covid}
-Wieler LH, Rexroth U, Gottschalk R (2020) Emerging covid-19 success story:
-  Germany’s strong enabling environment. \emph{Euro Surveillance}
-  25(18):2000946.
+\bibitem[{Wieler et~al.(2020)Wieler, Rexroth, \protect\BIBand{} Gottschalk}]{wieler2020covid}
+Wieler LH, Rexroth U, Gottschalk R (2020) Emerging covid-19 success story: Germany’s strong enabling environment. \emph{Euro Surveillance} 25(18):2000946.
 
 \bibitem[{WTTC(2021)}]{wttc}
-WTTC (2021) Economic impact reports. \emph{World Travel and Tourism Council}
-  \urlprefix\url{https://wttc.org/Research/Economic-Impact}.
+WTTC (2021) Economic impact reports. \emph{World Travel and Tourism Council} \urlprefix\url{https://wttc.org/Research/Economic-Impact}.
 
-\bibitem[{Xiang et~al.(1997)Xiang, Sun, Fan, \protect\BIBand{}
-  Gong}]{xiang1997generalized}
-Xiang Y, Sun D, Fan W, Gong X (1997) Generalized simulated annealing algorithm
-  and its application to the thomson model. \emph{Physics Letters A}
-  233(3):216--220.
+\bibitem[{Xiang et~al.(1997)Xiang, Sun, Fan, \protect\BIBand{} Gong}]{xiang1997generalized}
+Xiang Y, Sun D, Fan W, Gong X (1997) Generalized simulated annealing algorithm and its application to the thomson model. \emph{Physics Letters A} 233(3):216--220.
 
-\bibitem[{Xiong et~al.(2020)Xiong, Lipsitz, Nasri, Lui, Gill, Phan, Chen-Li,
-  Iacobucci, Ho, Majeed, \protect\BIBand{} McIntyre}]{XIONG202055}
-Xiong J, Lipsitz O, Nasri F, Lui LM, Gill H, Phan L, Chen-Li D, Iacobucci M, Ho
-  R, Majeed A, McIntyre RS (2020) Impact of covid-19 pandemic on mental health
-  in the general population: A systematic review. \emph{Journal of Affective
-  Disorders} 277:55--64, ISSN 0165-0327,
-  \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.jad.2020.08.001}.
+\bibitem[{Xiong et~al.(2020)Xiong, Lipsitz, Nasri, Lui, Gill, Phan, Chen-Li, Iacobucci, Ho, Majeed, \protect\BIBand{} McIntyre}]{XIONG202055}
+Xiong J, Lipsitz O, Nasri F, Lui LM, Gill H, Phan L, Chen-Li D, Iacobucci M, Ho R, Majeed A, McIntyre RS (2020) Impact of covid-19 pandemic on mental health in the general population: A systematic review. \emph{Journal of Affective Disorders} 277:55--64, ISSN 0165-0327, \urlprefix\url{http://dx.doi.org/https://doi.org/10.1016/j.jad.2020.08.001}.
 
-\bibitem[{Zhao et~al.(2021)Zhao, Jin, Li, Jia, Zhang, Zhao, Ma, Wang, He, Lee
-  et~al.}]{zhao2021disease}
-Zhao J, Jin H, Li X, Jia J, Zhang C, Zhao H, Ma W, Wang Z, He Y, Lee J, et~al.
-  (2021) Disease burden attributable to the first wave of covid-19 in china and
-  the effect of timing on the cost-effectiveness of movement restriction
-  policies. \emph{Value in Health} 24(5):615--624.
+\bibitem[{Zhao et~al.(2021)Zhao, Jin, Li, Jia, Zhang, Zhao, Ma, Wang, He, Lee et~al.}]{zhao2021disease}
+Zhao J, Jin H, Li X, Jia J, Zhang C, Zhao H, Ma W, Wang Z, He Y, Lee J, et~al. (2021) Disease burden attributable to the first wave of covid-19 in china and the effect of timing on the cost-effectiveness of movement restriction policies. \emph{Value in Health} 24(5):615--624.
 
-\bibitem[{Zhong et~al.(2021)Zhong, Huang, \protect\BIBand{}
-  Liu}]{zhong2021mental}
-Zhong B, Huang Y, Liu Q (2021) Mental health toll from the coronavirus.
-  \emph{Computers in human behavior} 114:106524.
+\bibitem[{Zhong et~al.(2021)Zhong, Huang, \protect\BIBand{} Liu}]{zhong2021mental}
+Zhong B, Huang Y, Liu Q (2021) Mental health toll from the coronavirus. \emph{Computers in human behavior} 114:106524.
 
 \end{thebibliography}
