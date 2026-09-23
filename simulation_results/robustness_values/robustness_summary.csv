@@ -1,0 +1,8 @@
+region,comparison,policy_a,policy_b,RV,interpretation,status
+DE,optimal_vs_lockdown,Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure,Lockdown-Lockdown-Lockdown,1.0,EXTREMELY robust,never_reversed
+DE,optimal_vs_no_action,Restrict_Mass_Gatherings_and_Schools-No_Measure-No_Measure,No_Measure-No_Measure-No_Measure,0.34375,MODERATE robustness,found
+BR,optimal_vs_lockdown,Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure,Lockdown-Lockdown-Lockdown,1.0,EXTREMELY robust,never_reversed
+BR,optimal_vs_no_action,Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure,No_Measure-No_Measure-No_Measure,0.859375,STRONG robustness,found
+ES,optimal_vs_no_action,Lockdown-Lockdown-Lockdown,No_Measure-No_Measure-No_Measure,0.99969482421875,STRONG robustness,found
+US-NY,optimal_vs_lockdown,Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure,Lockdown-Lockdown-Lockdown,1.0,EXTREMELY robust,never_reversed
+US-NY,optimal_vs_no_action,Restrict_Mass_Gatherings_and_Schools_and_Others-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure,No_Measure-No_Measure-No_Measure,0.98046875,STRONG robustness,found

@@ -1,0 +1,29 @@
+region,country,province,cap_ratio,eval_days,capped_days,capped_fraction,mean_policy_over_arctan_ratio
+Australia - Western Australia,Australia,Western Australia,2.5,93,93,1.0,4.311182704751225
+Azerbaijan,Azerbaijan,None,2.5,93,93,1.0,5.198956831562351
+Bangladesh,Bangladesh,None,2.5,93,93,1.0,5.627690515479333
+Bosnia and Herzegovina,Bosnia and Herzegovina,None,2.5,93,93,1.0,4.764241222209277
+Canada - Manitoba,Canada,Manitoba,2.5,93,93,1.0,3.84583609217773
+Canada - New Brunswick,Canada,New Brunswick,2.5,93,89,0.956989247311828,3.546908022613174
+Hungary,Hungary,None,2.5,93,93,1.0,11.670943026366736
+Japan,Japan,None,2.5,93,93,1.0,4.775953356070552
+Kosovo,Kosovo,None,2.5,93,92,0.989247311827957,6.367559053443863
+Romania,Romania,None,2.5,93,93,1.0,3.98169096296442
+Russia,Russia,None,2.5,93,93,1.0,3.784415420731862
+San Marino,San Marino,None,2.5,93,93,1.0,6.414267161076257
+Spain,Spain,None,2.5,93,93,1.0,15.230617475600164
+Sweden,Sweden,None,2.5,93,93,1.0,5.12129968421133
+Switzerland,Switzerland,None,2.5,93,46,0.4946236559139785,2.484151931055434
+Turkey,Turkey,None,2.5,93,93,1.0,8.606407426853133
+United Kingdom,United Kingdom,None,2.5,93,93,1.0,11.265074341016419
+US - Connecticut,US,Connecticut,2.5,93,93,1.0,4.9324956692746555
+US - Delaware,US,Delaware,2.5,93,93,1.0,5.231772893582059
+US - Illinois,US,Illinois,2.5,93,93,1.0,3.9194008034091454
+US - Indiana,US,Indiana,2.5,93,73,0.7849462365591398,3.1074524674451776
+US - Kansas,US,Kansas,2.5,93,18,0.1935483870967742,2.0528640033054253
+US - Louisiana,US,Louisiana,2.5,93,0,0.0,1.802925212274093
+US - Nebraska,US,Nebraska,2.5,93,73,0.7849462365591398,3.1183761394636274
+US - New Jersey,US,New Jersey,2.5,93,93,1.0,8.703204594604767
+US - Virginia,US,Virginia,2.5,93,93,1.0,6.091704152014784
+US - Washington,US,Washington,2.5,93,91,0.978494623655914,3.5988832184915953
+US - Wyoming,US,Wyoming,2.5,93,0,0.0,1.8214886980292344

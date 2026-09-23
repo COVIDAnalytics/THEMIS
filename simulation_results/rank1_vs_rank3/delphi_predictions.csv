@@ -1,0 +1,73 @@
+region_id,display_name,scenario,method,pred_cases,pred_deaths,actual_cases,actual_deaths
+Brazil__None,Brazil,Historical,rank1,284081.0,13262.0,888109.0,43959.0
+Brazil__None,Brazil,Historical,rank3,284108.0,13263.0,888109.0,43959.0
+Brazil__None,Brazil,Historical,rank3_hybrid,284081.0,13262.0,888109.0,43959.0
+Brazil__None,Brazil,Full Lockdown,rank1,4584.0,249.0,,
+Brazil__None,Brazil,Full Lockdown,rank3,8429.0,443.0,,
+Brazil__None,Brazil,Full Lockdown,rank3_hybrid,8429.0,443.0,,
+Brazil__None,Brazil,Full Restrict All,rank1,16124.0,819.0,,
+Brazil__None,Brazil,Full Restrict All,rank3,24704.0,1230.0,,
+Brazil__None,Brazil,Full Restrict All,rank3_hybrid,24704.0,1230.0,,
+Brazil__None,Brazil,Lock->Restr.All->Restr.Gath.,rank1,9731.0,483.0,,
+Brazil__None,Brazil,Lock->Restr.All->Restr.Gath.,rank3,21322.0,1027.0,,
+Brazil__None,Brazil,Lock->Restr.All->Restr.Gath.,rank3_hybrid,21322.0,1027.0,,
+Brazil__None,Brazil,None->Restr.Gath.->Lockdown,rank1,1649517.0,78849.0,,
+Brazil__None,Brazil,None->Restr.Gath.->Lockdown,rank3,3500051.0,166478.0,,
+Brazil__None,Brazil,None->Restr.Gath.->Lockdown,rank3_hybrid,3500051.0,166478.0,,
+Brazil__None,Brazil,Lock->Restr.G+S->None,rank1,15974.0,763.0,,
+Brazil__None,Brazil,Lock->Restr.G+S->None,rank3,105249.0,4766.0,,
+Brazil__None,Brazil,Lock->Restr.G+S->None,rank3_hybrid,105249.0,4766.0,,
+Germany__None,Germany,Historical,rank1,9173365.0,236112.0,181887.0,8796.0
+Germany__None,Germany,Historical,rank3,93185.0,4676.0,181887.0,8796.0
+Germany__None,Germany,Historical,rank3_hybrid,83132.0,4243.0,181887.0,8796.0
+Germany__None,Germany,Full Lockdown,rank1,184610.0,8394.0,,
+Germany__None,Germany,Full Lockdown,rank3,149538.0,7041.0,,
+Germany__None,Germany,Full Lockdown,rank3_hybrid,149538.0,7041.0,,
+Germany__None,Germany,Full Restrict All,rank1,4068660.0,128683.0,,
+Germany__None,Germany,Full Restrict All,rank3,89921.0,4603.0,,
+Germany__None,Germany,Full Restrict All,rank3_hybrid,80100.0,4177.0,,
+Germany__None,Germany,Lock->Restr.All->Restr.Gath.,rank1,4898634.0,91992.0,,
+Germany__None,Germany,Lock->Restr.All->Restr.Gath.,rank3,1090061.0,18511.0,,
+Germany__None,Germany,Lock->Restr.All->Restr.Gath.,rank3_hybrid,958771.0,16684.0,,
+Germany__None,Germany,None->Restr.Gath.->Lockdown,rank1,15811451.0,737597.0,,
+Germany__None,Germany,None->Restr.Gath.->Lockdown,rank3,16448945.0,789255.0,,
+Germany__None,Germany,None->Restr.Gath.->Lockdown,rank3_hybrid,16448945.0,789255.0,,
+Germany__None,Germany,Lock->Restr.G+S->None,rank1,8341350.0,167176.0,,
+Germany__None,Germany,Lock->Restr.G+S->None,rank3,15916973.0,578258.0,,
+Germany__None,Germany,Lock->Restr.G+S->None,rank3_hybrid,15916973.0,578258.0,,
+Spain__None,Spain,Historical,rank1,78054.0,9439.0,236311.0,26847.0
+Spain__None,Spain,Historical,rank3,129817.0,15137.0,236311.0,26847.0
+Spain__None,Spain,Historical,rank3_hybrid,128451.0,14990.0,236311.0,26847.0
+Spain__None,Spain,Full Lockdown,rank1,76481.0,9315.0,,
+Spain__None,Spain,Full Lockdown,rank3,138693.0,15866.0,,
+Spain__None,Spain,Full Lockdown,rank3_hybrid,136961.0,15689.0,,
+Spain__None,Spain,Full Restrict All,rank1,233086.0,25276.0,,
+Spain__None,Spain,Full Restrict All,rank3,46438.0,5962.0,,
+Spain__None,Spain,Full Restrict All,rank3_hybrid,46648.0,5986.0,,
+Spain__None,Spain,Lock->Restr.All->Restr.Gath.,rank1,138447.0,14043.0,,
+Spain__None,Spain,Lock->Restr.All->Restr.Gath.,rank3,104340.0,12524.0,,
+Spain__None,Spain,Lock->Restr.All->Restr.Gath.,rank3_hybrid,103702.0,12452.0,,
+Spain__None,Spain,None->Restr.Gath.->Lockdown,rank1,5376520.0,558860.0,,
+Spain__None,Spain,None->Restr.Gath.->Lockdown,rank3,37328.0,4910.0,,
+Spain__None,Spain,None->Restr.Gath.->Lockdown,rank3_hybrid,37327.0,4910.0,,
+Spain__None,Spain,Lock->Restr.G+S->None,rank1,205278.0,18641.0,,
+Spain__None,Spain,Lock->Restr.G+S->None,rank3,308363.0,33213.0,,
+Spain__None,Spain,Lock->Restr.G+S->None,rank3_hybrid,301386.0,32518.0,,
+US__New_York,New York (US),Historical,rank1,897973.0,37376.0,383311.0,31618.0
+US__New_York,New York (US),Historical,rank3,113941.0,10449.0,383311.0,31618.0
+US__New_York,New York (US),Historical,rank3_hybrid,116868.0,10638.0,383311.0,31618.0
+US__New_York,New York (US),Full Lockdown,rank1,510400.0,28993.0,,
+US__New_York,New York (US),Full Lockdown,rank3,119211.0,10588.0,,
+US__New_York,New York (US),Full Lockdown,rank3_hybrid,122823.0,10796.0,,
+US__New_York,New York (US),Full Restrict All,rank1,3055910.0,167884.0,,
+US__New_York,New York (US),Full Restrict All,rank3,52704.0,6201.0,,
+US__New_York,New York (US),Full Restrict All,rank3_hybrid,51938.0,6140.0,,
+US__New_York,New York (US),Lock->Restr.All->Restr.Gath.,rank1,3373341.0,128079.0,,
+US__New_York,New York (US),Lock->Restr.All->Restr.Gath.,rank3,498991.0,15449.0,,
+US__New_York,New York (US),Lock->Restr.All->Restr.Gath.,rank3_hybrid,556081.0,16499.0,,
+US__New_York,New York (US),None->Restr.Gath.->Lockdown,rank1,3854538.0,310632.0,,
+US__New_York,New York (US),None->Restr.Gath.->Lockdown,rank3,3871436.0,325794.0,,
+US__New_York,New York (US),None->Restr.Gath.->Lockdown,rank3_hybrid,3871466.0,325836.0,,
+US__New_York,New York (US),Lock->Restr.G+S->None,rank1,3563199.0,143175.0,,
+US__New_York,New York (US),Lock->Restr.G+S->None,rank3,3767417.0,166580.0,,
+US__New_York,New York (US),Lock->Restr.G+S->None,rank3_hybrid,3768056.0,166912.0,,

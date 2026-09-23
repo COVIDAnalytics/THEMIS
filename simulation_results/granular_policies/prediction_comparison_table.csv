@@ -1,0 +1,5 @@
+region,display_name,orig_cases,gran_cases,case_pct_diff,orig_deaths,gran_deaths,death_pct_diff
+DE,Germany,144063,152288,5.71,6044,6386,5.66
+ES,Spain,118075,117999,0.06,13784,13778,0.04
+BR,Brazil,582815,582815,0.0,26949,26949,0.0
+US-NY,New York,130855,116747,10.78,11501,10392,9.64

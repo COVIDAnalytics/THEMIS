@@ -1,0 +1,29 @@
+region,country,province,policy,gamma_region_policy,gamma_observed,is_observed,train_policy_days,k_R
+Brazil,Brazil,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.2319394778440503,,False,0,0.6365139940478901
+Brazil,Brazil,None,Lockdown,0.19894266718155562,,False,0,0.6365139940478901
+Brazil,Brazil,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.6166282545131442,0.6166282545131442,True,0,0.6365139940478901
+Brazil,Brazil,None,No_Measure,0.6365139940478901,,False,0,0.6365139940478901
+Brazil,Brazil,None,Restrict_Mass_Gatherings,0.555676716803808,,False,0,0.6365139940478901
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools,0.3662464556573422,,False,0,0.6365139940478901
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.2331043975998496,,False,0,0.6365139940478901
+Germany,Germany,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.1412290101106959,0.1412290101106959,True,0,0.6063624814963295
+Germany,Germany,None,Lockdown,0.18951880159076342,,False,0,0.6063624814963295
+Germany,Germany,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.5874187246624433,,False,0,0.6063624814963295
+Germany,Germany,None,No_Measure,0.6063624814963295,,False,0,0.6063624814963295
+Germany,Germany,None,Restrict_Mass_Gatherings,0.5293544463462957,,False,0,0.6063624814963295
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools,0.34889745043832093,,False,0,0.6063624814963295
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.30138743867793855,0.30138743867793855,True,0,0.6063624814963295
+US - New York,US,New York,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.3692489192459198,,False,0,1.0133337652209269
+US - New York,US,New York,Lockdown,0.276010360394519,0.276010360394519,True,0,1.0133337652209269
+US - New York,US,New York,Mass_Gatherings_Authorized_But_Others_Restricted,0.9816755590724519,,False,0,1.0133337652209269
+US - New York,US,New York,No_Measure,1.0133337652209269,,False,0,1.0133337652209269
+US - New York,US,New York,Restrict_Mass_Gatherings,0.8846403770378691,,False,0,1.0133337652209269
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools,0.583066363631513,,False,0,1.0133337652209269
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools_and_Others,0.4058452067638687,0.4058452067638687,True,0,1.0133337652209269
+US - Texas,US,Texas,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.4770979432322931,,False,0,1.3093049972415913
+US - Texas,US,Texas,Lockdown,0.4890878349739911,0.4890878349739911,True,0,1.3093049972415913
+US - Texas,US,Texas,Mass_Gatherings_Authorized_But_Others_Restricted,1.2684001651551309,,False,0,1.3093049972415913
+US - Texas,US,Texas,No_Measure,1.3093049972415913,,False,0,1.3093049972415913
+US - Texas,US,Texas,Restrict_Mass_Gatherings,1.1430232625919092,,False,0,1.3093049972415913
+US - Texas,US,Texas,Restrict_Mass_Gatherings_and_Schools,0.753366491700574,,False,0,1.3093049972415913
+US - Texas,US,Texas,Restrict_Mass_Gatherings_and_Schools_and_Others,0.4113342478242218,0.4113342478242218,True,0,1.3093049972415913

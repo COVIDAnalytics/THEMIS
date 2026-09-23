@@ -1,0 +1,29 @@
+region,country,province,policy,gamma_region_policy,train_policy_days,z_mean
+Brazil,Brazil,None,No_Measure,0.7311855051064645,0,0.7311855051064645
+Brazil,Brazil,None,Restrict_Mass_Gatherings,0.6383249459579435,0,0.7311855051064645
+Brazil,Brazil,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.48843191741111835,93,0.7311855051064645
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools,0.3502378569459965,0,0.7311855051064645
+Brazil,Brazil,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.5805612910545328,0,0.7311855051064645
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.3092914686600345,0,0.7311855051064645
+Brazil,Brazil,None,Lockdown,0.17475333572044502,0,0.7311855051064645
+Germany,Germany,None,No_Measure,0.5632847391787005,0,0.5632847391787005
+Germany,Germany,None,Restrict_Mass_Gatherings,0.4917475773030055,0,0.5632847391787005
+Germany,Germany,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.37627420577137194,5,0.5632847391787005
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools,0.2698133900665975,0,0.5632847391787005
+Germany,Germany,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.14128252162147806,28,0.5632847391787005
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.3143369532342242,60,0.5632847391787005
+Germany,Germany,None,Lockdown,0.13462505266370942,0,0.5632847391787005
+Spain,Spain,None,No_Measure,1.0,0,1.4197331051578672
+Spain,Spain,None,Restrict_Mass_Gatherings,1.0,0,1.4197331051578672
+Spain,Spain,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.9483817142454554,5,1.4197331051578672
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools,0.6800521573706184,0,1.4197331051578672
+Spain,Spain,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.0,0,1.4197331051578672
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.6005471034817779,15,1.4197331051578672
+Spain,Spain,None,Lockdown,0.3393162121327302,73,1.4197331051578672
+US - New York,US,New York,No_Measure,1.0,0,1.087309673921216
+US - New York,US,New York,Restrict_Mass_Gatherings,0.9492213453332216,1,1.087309673921216
+US - New York,US,New York,Mass_Gatherings_Authorized_But_Others_Restricted,0.7263228621793724,0,1.087309673921216
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools,0.5208213338082625,0,1.087309673921216
+US - New York,US,New York,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.8633238810934456,2,1.087309673921216
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools_and_Others,0.3542922724130104,22,1.087309673921216
+US - New York,US,New York,Lockdown,0.27917773540013824,68,1.087309673921216

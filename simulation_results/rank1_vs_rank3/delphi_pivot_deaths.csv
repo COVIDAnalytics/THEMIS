@@ -1,0 +1,21 @@
+display_name,scenario,rank1,rank3,diff_pct
+Brazil,Full Lockdown,1577.0,3472.0,120.16486993014276
+Brazil,Full Restrict All,2103.0,30503.0,1350.4517349736323
+Brazil,Lock->Restr.All->Restr.Gath.,7267.0,57188.0,686.9547267528616
+Brazil,Lock->Restr.G+S->None,32451.0,104231.0,221.1950325037381
+Brazil,None->Restr.Gath.->Lockdown,876020.0,1428261.0,63.03977078141705
+Germany,Full Lockdown,38318.0,64133.0,67.37042642968395
+Germany,Full Restrict All,4177.0,4177.0,0.0
+Germany,Lock->Restr.All->Restr.Gath.,29637.0,29204.0,1.461011573321827
+Germany,Lock->Restr.G+S->None,259401.0,218422.0,15.797548968524417
+Germany,None->Restr.Gath.->Lockdown,717426.0,644450.0,10.171920170149713
+New York (US),Full Lockdown,10796.0,10796.0,0.0
+New York (US),Full Restrict All,9166.0,9166.0,0.0
+New York (US),Lock->Restr.All->Restr.Gath.,11029.0,10990.0,0.35361320152746273
+New York (US),Lock->Restr.G+S->None,14809.0,14346.0,3.126477142067224
+New York (US),None->Restr.Gath.->Lockdown,121305.0,108241.0,10.769547833883438
+Spain,Full Lockdown,13841.0,13841.0,0.0
+Spain,Full Restrict All,5959.0,5959.0,0.0
+Spain,Lock->Restr.All->Restr.Gath.,11618.0,11704.0,0.7402306764726949
+Spain,Lock->Restr.G+S->None,13720.0,18162.0,32.37609329210087
+Spain,None->Restr.Gath.->Lockdown,44440.0,118074.0,165.69306930320224

@@ -1,0 +1,41 @@
+region_id,display_name,scenario,method,pred_cases,pred_deaths
+Brazil__None,Brazil,Full Lockdown,rank1,31985.0,1577.0
+Brazil__None,Brazil,Full Lockdown,rank3,72313.0,3472.0
+Brazil__None,Brazil,Full Restrict All,rank1,43107.0,2103.0
+Brazil__None,Brazil,Full Restrict All,rank3,660615.0,30503.0
+Brazil__None,Brazil,Lock->Restr.All->Restr.Gath.,rank1,160023.0,7267.0
+Brazil__None,Brazil,Lock->Restr.All->Restr.Gath.,rank3,1282011.0,57188.0
+Brazil__None,Brazil,None->Restr.Gath.->Lockdown,rank1,18530857.0,876020.0
+Brazil__None,Brazil,None->Restr.Gath.->Lockdown,rank3,29883948.0,1428261.0
+Brazil__None,Brazil,Lock->Restr.G+S->None,rank1,727469.0,32451.0
+Brazil__None,Brazil,Lock->Restr.G+S->None,rank3,2348748.0,104231.0
+Germany__None,Germany,Full Lockdown,rank1,1098011.0,38318.0
+Germany__None,Germany,Full Lockdown,rank3,1950820.0,64133.0
+Germany__None,Germany,Full Restrict All,rank1,80100.0,4177.0
+Germany__None,Germany,Full Restrict All,rank3,80100.0,4177.0
+Germany__None,Germany,Lock->Restr.All->Restr.Gath.,rank1,1307624.0,29637.0
+Germany__None,Germany,Lock->Restr.All->Restr.Gath.,rank3,1061508.0,29204.0
+Germany__None,Germany,None->Restr.Gath.->Lockdown,rank1,15528506.0,717426.0
+Germany__None,Germany,None->Restr.Gath.->Lockdown,rank3,14456822.0,644450.0
+Germany__None,Germany,Lock->Restr.G+S->None,rank1,10563229.0,259401.0
+Germany__None,Germany,Lock->Restr.G+S->None,rank3,8777094.0,218422.0
+Spain__None,Spain,Full Lockdown,rank1,119063.0,13841.0
+Spain__None,Spain,Full Lockdown,rank3,119063.0,13841.0
+Spain__None,Spain,Full Restrict All,rank1,46410.0,5959.0
+Spain__None,Spain,Full Restrict All,rank3,46410.0,5959.0
+Spain__None,Spain,Lock->Restr.All->Restr.Gath.,rank1,96657.0,11618.0
+Spain__None,Spain,Lock->Restr.All->Restr.Gath.,rank3,97813.0,11704.0
+Spain__None,Spain,None->Restr.Gath.->Lockdown,rank1,416273.0,44440.0
+Spain__None,Spain,None->Restr.Gath.->Lockdown,rank3,1151597.0,118074.0
+Spain__None,Spain,Lock->Restr.G+S->None,rank1,119343.0,13720.0
+Spain__None,Spain,Lock->Restr.G+S->None,rank3,172740.0,18162.0
+US__New_York,New York (US),Full Lockdown,rank1,122823.0,10796.0
+US__New_York,New York (US),Full Lockdown,rank3,122823.0,10796.0
+US__New_York,New York (US),Full Restrict All,rank1,95437.0,9166.0
+US__New_York,New York (US),Full Restrict All,rank3,95437.0,9166.0
+US__New_York,New York (US),Lock->Restr.All->Restr.Gath.,rank1,142288.0,11029.0
+US__New_York,New York (US),Lock->Restr.All->Restr.Gath.,rank3,140357.0,10990.0
+US__New_York,New York (US),None->Restr.Gath.->Lockdown,rank1,2141200.0,121305.0
+US__New_York,New York (US),None->Restr.Gath.->Lockdown,rank3,1930446.0,108241.0
+US__New_York,New York (US),Lock->Restr.G+S->None,rank1,282189.0,14809.0
+US__New_York,New York (US),Lock->Restr.G+S->None,rank3,259305.0,14346.0

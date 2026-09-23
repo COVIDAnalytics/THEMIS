@@ -1,0 +1,17 @@
+conditions,recommendation,npi_number,purity,n_samples,w
+"['Econ. cost (% GDP) <= 16.874', 'w <= 0.342', 'Cum. deaths (% pop.) <= 0.002', 'w <= 0.026']",None,1,0.703,37,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w <= 0.342', 'Cum. deaths (% pop.) <= 0.002', 'w > 0.026']",MG+T+W,5,0.739,222,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w <= 0.342', 'Cum. deaths (% pop.) > 0.002', 'Hum. cost (% GDP) <= 55.498']",MG+Sch+T+W,6,0.452,553,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w <= 0.342', 'Cum. deaths (% pop.) > 0.002', 'Hum. cost (% GDP) > 55.498']",MG+T+W,5,0.447,385,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w > 0.342', 'Econ. cost (% GDP) <= 6.572', 'Active cases (% pop.) <= 0.016']",MG+Sch+T+W,6,0.582,208,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w > 0.342', 'Econ. cost (% GDP) <= 6.572', 'Active cases (% pop.) > 0.016']",Lock,7,0.604,624,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w > 0.342', 'Econ. cost (% GDP) > 6.572', 'Active cases (% pop.) <= 0.27']",MG+Sch+T+W,6,0.428,650,pooled
+"['Econ. cost (% GDP) <= 16.874', 'w > 0.342', 'Econ. cost (% GDP) > 6.572', 'Active cases (% pop.) > 0.27']",MG+Sch+T+W,6,0.924,741,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) <= 0.019', 'w <= 0.921', 'w <= 0.711']",None,1,0.974,546,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) <= 0.019', 'w <= 0.921', 'w > 0.711']",None,1,0.712,156,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) <= 0.019', 'w > 0.921', 'w <= 0.974']",MG+T+W,5,0.538,39,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) <= 0.019', 'w > 0.921', 'w > 0.974']",MG+Sch+T+W,6,0.718,39,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) > 0.019', 'w <= 0.342', 'w <= 0.237']",None,1,0.867,90,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) > 0.019', 'w <= 0.342', 'w > 0.237']",None,1,0.528,36,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) > 0.019', 'w > 0.342', 'Active cases (% pop.) <= 0.173']",MG+T+W,5,0.683,104,pooled
+"['Econ. cost (% GDP) > 16.874', 'Active hosp. (% pop.) > 0.019', 'w > 0.342', 'Active cases (% pop.) > 0.173']",MG+Sch+T+W,6,0.738,130,pooled

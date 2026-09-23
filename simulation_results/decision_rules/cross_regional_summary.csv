@@ -1,0 +1,5 @@
+region,optimal_month1,optimal_month2,optimal_month3,optimal_total_cost,cv_accuracy,n_rules
+DE,MG+Sch,None,None,50675806463.52881,0.8658562367864693,1
+BR,Lock,MG+Sch,None,92692501918.18762,0.772832980972516,2
+ES,Lock,Lock,Lock,2501210645761.27,0.7867864693446089,2
+US-NY,MG+Sch+Oth,MG+Sch+Oth,None,180825765342.6853,0.8472515856236786,1

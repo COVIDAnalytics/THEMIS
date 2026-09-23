@@ -1,0 +1,5 @@
+Region,Distinct M1 NPIs,Total Distinct NPIs,w=0,w=0.5,w=1
+DE,4,4,None,MG+Sch,Lock
+BR,2,6,Sch+MG+Oth,Lock,Lock
+ES,2,2,None,Lock,Lock
+US-NY,1,4,MG+Sch+Oth,MG+Sch+Oth,MG+Sch+Oth

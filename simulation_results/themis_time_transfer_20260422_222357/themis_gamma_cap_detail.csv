@@ -1,0 +1,5 @@
+region,country,province,cap_ratio,eval_days,capped_days,capped_fraction,mean_policy_over_arctan_ratio
+Brazil,Brazil,None,0.0,0,0,0.0,0.0
+Germany,Germany,None,0.0,0,0,0.0,0.0
+US - New York,US,New York,0.0,0,0,0.0,0.0
+US - Texas,US,Texas,0.0,0,0,0.0,0.0

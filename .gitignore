@@ -27,7 +27,6 @@ logs/
 # HTML
 *.html
 
-*.csv
 *.pdf
 !simulation_results/*.pdf
 !simulation_results/**/*.pdf

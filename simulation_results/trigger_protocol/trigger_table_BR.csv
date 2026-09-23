@@ -1,0 +1,10 @@
+death_bin,econ_bin,death_bin_idx,econ_bin_idx,recommended_npi,recommended_short,recommended_severity,min_total_cost,n_simulations_in_bin,region
+<2,<0.5%,0,0,No_Measure,None,0,0.0,0,BR
+<2,0.5-0.7%,0,1,Lockdown,Lock,5,95010464353.71371,16,BR
+<2,>0.7%,0,2,Lockdown,Lock,5,108140544894.58356,55,BR
+2-10,<0.5%,1,0,Lockdown,Lock,5,103162950898.53789,17,BR
+2-10,0.5-0.7%,1,1,Lockdown,Lock,5,95909929374.44078,41,BR
+2-10,>0.7%,1,2,Lockdown,Lock,5,114307718020.44601,16,BR
+>10,<0.5%,2,0,Lockdown,Lock,5,201921927632.2554,54,BR
+>10,0.5-0.7%,2,1,Lockdown,Lock,5,233744362021.8154,17,BR
+>10,>0.7%,2,2,Lockdown,Lock,5,0.0,0,BR

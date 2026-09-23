@@ -1,0 +1,10 @@
+death_bin,econ_bin,death_bin_idx,econ_bin_idx,recommended_npi,recommended_short,recommended_severity,min_total_cost,n_simulations_in_bin,region
+<112,<1.7%,0,0,Restrict_Mass_Gatherings_and_Schools_and_Others,MG+Sch+Oth,4,220173468897.44022,15,US-NY
+<112,1.7-2.0%,0,1,Restrict_Mass_Gatherings_and_Schools_and_Others,MG+Sch+Oth,4,200374963165.14584,19,US-NY
+<112,>2.0%,0,2,Restrict_Mass_Gatherings_and_Schools_and_Others,MG+Sch+Oth,4,197598418137.3434,37,US-NY
+112-376,<1.7%,1,0,Restrict_Mass_Gatherings_and_Schools_and_Others,MG+Sch+Oth,4,287329414170.6022,23,US-NY
+112-376,1.7-2.0%,1,1,Lockdown,Lock,5,391851976049.1358,30,US-NY
+112-376,>2.0%,1,2,Lockdown,Lock,5,313465412693.2562,21,US-NY
+>376,<1.7%,2,0,Restrict_Mass_Gatherings_and_Schools_and_Others,MG+Sch+Oth,4,622623657419.8403,33,US-NY
+>376,1.7-2.0%,2,1,Lockdown,Lock,5,811713691372.0405,25,US-NY
+>376,>2.0%,2,2,Lockdown,Lock,5,814414883852.271,13,US-NY

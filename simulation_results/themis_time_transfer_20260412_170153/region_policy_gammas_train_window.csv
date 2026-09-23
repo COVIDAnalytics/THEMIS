@@ -1,0 +1,43 @@
+region,country,province,policy,gamma_region_policy,train_policy_days,z_mean
+BR,Brazil,None,No_Measure,0.694269181245443,0,0.694269181245443
+BR,Brazil,None,Restrict_Mass_Gatherings,0.6060969952272718,0,0.694269181245443
+BR,Brazil,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.46377181307195586,93,0.694269181245443
+BR,Brazil,None,Restrict_Mass_Gatherings_and_Schools,0.3325549378165672,0,0.694269181245443
+BR,Brazil,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.5512497299088818,0,0.694269181245443
+BR,Brazil,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.2936758636668224,0,0.694269181245443
+BR,Brazil,None,Lockdown,0.16593033431766088,0,0.694269181245443
+DE,Germany,None,No_Measure,0.5196904532869372,0,0.5196904532869372
+DE,Germany,None,Restrict_Mass_Gatherings,0.45368976571949615,0,0.5196904532869372
+DE,Germany,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.34715322279567407,5,0.5196904532869372
+DE,Germany,None,Restrict_Mass_Gatherings_and_Schools,0.2489317271244429,0,0.5196904532869372
+DE,Germany,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.13427759584035584,28,0.5196904532869372
+DE,Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.28903258515512736,60,0.5196904532869372
+DE,Germany,None,Lockdown,0.12420601833557798,0,0.5196904532869372
+ES,Spain,None,No_Measure,1.26312588245525,0,1.26312588245525
+ES,Spain,None,Restrict_Mass_Gatherings,1.1027088953834332,0,1.26312588245525
+ES,Spain,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.8437680894801071,5,1.26312588245525
+ES,Spain,None,Restrict_Mass_Gatherings_and_Schools,0.6050372976960647,0,1.26312588245525
+ES,Spain,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.0029219506694687,0,1.26312588245525
+ES,Spain,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.5343022482785708,15,1.26312588245525
+ES,Spain,None,Lockdown,0.30188708590680474,73,1.26312588245525
+SG,Singapore,None,No_Measure,0.8920447123611545,0,0.8920447123611545
+SG,Singapore,None,Restrict_Mass_Gatherings,0.7787550338912879,0,0.8920447123611545
+SG,Singapore,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.5958858678572512,0,0.8920447123611545
+SG,Singapore,None,Restrict_Mass_Gatherings_and_Schools,0.42728941722099295,0,0.8920447123611545
+SG,Singapore,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.6210788051996823,24,0.8920447123611545
+SG,Singapore,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.37733491332876834,0,0.8920447123611545
+SG,Singapore,None,Lockdown,0.2223288680277045,69,0.8920447123611545
+US-FL,US,Florida,No_Measure,1.1259721378312972,2,1.1259721378312972
+US-FL,US,Florida,Restrict_Mass_Gatherings,0.9829736763267225,0,1.1259721378312972
+US-FL,US,Florida,Mass_Gatherings_Authorized_But_Others_Restricted,0.5234162236362438,27,1.1259721378312972
+US-FL,US,Florida,Restrict_Mass_Gatherings_and_Schools,0.5393406540211914,0,1.1259721378312972
+US-FL,US,Florida,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.8940218774380501,0,1.1259721378312972
+US-FL,US,Florida,Restrict_Mass_Gatherings_and_Schools_and_Others,0.47628621430263873,18,1.1259721378312972
+US-FL,US,Florida,Lockdown,0.31714219872934807,46,1.1259721378312972
+US-NY,US,New York,No_Measure,1.0967672144781058,0,1.0967672144781058
+US-NY,US,New York,Restrict_Mass_Gatherings,0.9574777782393863,1,1.0967672144781058
+US-NY,US,New York,Mass_Gatherings_Authorized_But_Others_Restricted,0.7326404992713746,0,1.0967672144781058
+US-NY,US,New York,Restrict_Mass_Gatherings_and_Schools,0.5253514957350126,0,1.0967672144781058
+US-NY,US,New York,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.870833168295616,2,1.0967672144781058
+US-NY,US,New York,Restrict_Mass_Gatherings_and_Schools_and_Others,0.395935007397912,22,1.0967672144781058
+US-NY,US,New York,Lockdown,0.2745571717594964,68,1.0967672144781058

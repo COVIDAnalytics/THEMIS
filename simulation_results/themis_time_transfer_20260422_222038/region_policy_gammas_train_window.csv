@@ -1,0 +1,274 @@
+region,country,province,policy,gamma_region_policy,gamma_observed,is_observed,train_policy_days,k_R
+Andorra,Andorra,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.21398971851633738,,False,0,0.40505930161983056
+Andorra,Andorra,None,Lockdown,0.1505119214861659,,False,0,0.40505930161983056
+Andorra,Andorra,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.22217802541448528,0.22217802541448528,True,0,0.40505930161983056
+Andorra,Andorra,None,No_Measure,0.40505930161983056,,False,0,0.40505930161983056
+Andorra,Andorra,None,Restrict_Mass_Gatherings,0.3536167703141121,,False,0,0.40505930161983056
+Andorra,Andorra,None,Restrict_Mass_Gatherings_and_Schools,0.21469443274909636,,False,0,0.40505930161983056
+Andorra,Andorra,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.1586394268870403,,False,0,0.40505930161983056
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.197682749685558,0.197682749685558,True,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Lockdown,0.13904224326877632,,False,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Mass_Gatherings_Authorized_But_Others_Restricted,0.2052470711414755,,False,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,No_Measure,0.37419198026304995,,False,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Restrict_Mass_Gatherings,0.32666959876964263,,False,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Restrict_Mass_Gatherings_and_Schools,0.1983337615518752,,False,0,0.37419198026304995
+Australia - Australian Capital Territory,Australia,Australian Capital Territory,Restrict_Mass_Gatherings_and_Schools_and_Others,0.14655039658951202,,False,0,0.37419198026304995
+Australia - New South Wales,Australia,New South Wales,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.01746269360961121,0.01746269360961121,True,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,Lockdown,0.012282569404046753,,False,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,Mass_Gatherings_Authorized_But_Others_Restricted,0.0181309027890131,,False,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,No_Measure,0.03305498285966379,,False,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,Restrict_Mass_Gatherings,0.028857000036486488,,False,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,Restrict_Mass_Gatherings_and_Schools,0.01752020202031372,,False,0,0.03305498285966379
+Australia - New South Wales,Australia,New South Wales,Restrict_Mass_Gatherings_and_Schools_and_Others,0.012945816861007695,,False,0,0.03305498285966379
+Australia - South Australia,Australia,South Australia,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.00040316709004086215,0.00040316709004086215,True,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,Lockdown,0.00028357181747316385,,False,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,Mass_Gatherings_Authorized_But_Others_Restricted,0.00041859426046603513,,False,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,No_Measure,0.0007631515245475312,,False,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,Restrict_Mass_Gatherings,0.0006662312809299947,,False,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,Restrict_Mass_Gatherings_and_Schools,0.00040449480609166914,,False,0,0.0007631515245475312
+Australia - South Australia,Australia,South Australia,Restrict_Mass_Gatherings_and_Schools_and_Others,0.00029888443494088216,,False,0,0.0007631515245475312
+Australia - Tasmania,Australia,Tasmania,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.0009152406902349793,0.0009152406902349793,True,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,Lockdown,0.0006437441754708235,,False,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,Mass_Gatherings_Authorized_But_Others_Restricted,0.0009502623337596949,,False,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,No_Measure,0.0017324512474715323,,False,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,Restrict_Mass_Gatherings,0.0015124299390426477,,False,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,Restrict_Mass_Gatherings_and_Schools,0.0009182547749278879,,False,0,0.0017324512474715323
+Australia - Tasmania,Australia,Tasmania,Restrict_Mass_Gatherings_and_Schools_and_Others,0.0006785057691788771,,False,0,0.0017324512474715323
+Australia - Western Australia,Australia,Western Australia,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.3381406274012001,0.3381406274012001,True,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,Lockdown,0.23783477035279785,,False,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,Mass_Gatherings_Authorized_But_Others_Restricted,0.35107956318106376,,False,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,No_Measure,0.640063491508025,,False,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,Restrict_Mass_Gatherings,0.5587754280865058,,False,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,Restrict_Mass_Gatherings_and_Schools,0.33925419730688117,,False,0,0.640063491508025
+Australia - Western Australia,Australia,Western Australia,Restrict_Mass_Gatherings_and_Schools_and_Others,0.2506776293201904,,False,0,0.640063491508025
+Belarus,Belarus,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.579205047160073,0.579205047160073,True,0,1.542534455444336
+Belarus,Belarus,None,Lockdown,0.5731749003642118,,False,0,1.542534455444336
+Belarus,Belarus,None,Mass_Gatherings_Authorized_But_Others_Restricted,1.040981639386395,1.040981639386395,True,0,1.542534455444336
+Belarus,Belarus,None,No_Measure,1.542534455444336,,False,0,1.542534455444336
+Belarus,Belarus,None,Restrict_Mass_Gatherings,1.3466325796029055,,False,0,1.542534455444336
+Belarus,Belarus,None,Restrict_Mass_Gatherings_and_Schools,0.8508398175653284,0.8508398175653284,True,0,1.542534455444336
+Belarus,Belarus,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.6041258180879215,,False,0,1.542534455444336
+Canada - New Brunswick,Canada,New Brunswick,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.11316083215092246,,False,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,Lockdown,0.07959286269498271,,False,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,Mass_Gatherings_Authorized_But_Others_Restricted,0.11749092627378944,0.11749092627378944,True,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,No_Measure,0.21420116797934866,,False,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,Restrict_Mass_Gatherings,0.18699761964597136,,False,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,Restrict_Mass_Gatherings_and_Schools,0.11353349514408172,,False,0,0.21420116797934866
+Canada - New Brunswick,Canada,New Brunswick,Restrict_Mass_Gatherings_and_Schools_and_Others,0.08389080411408806,,False,0,0.21420116797934866
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.0008616165667839399,,False,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Lockdown,0.0006060270836846925,,False,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Mass_Gatherings_Authorized_But_Others_Restricted,0.0008945862857324548,0.0008945862857324548,True,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,No_Measure,0.0016309466044693798,,False,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Restrict_Mass_Gatherings,0.0014238163857017685,,False,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Restrict_Mass_Gatherings_and_Schools,0.0008644540557156674,,False,0,0.0016309466044693798
+Canada - Newfoundland and Labrador,Canada,Newfoundland and Labrador,Restrict_Mass_Gatherings_and_Schools_and_Others,0.0006387519891080561,,False,0,0.0016309466044693798
+Canada - Ontario,Canada,Ontario,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.6217762449158538,,False,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,Lockdown,0.4373328681657814,,False,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,Mass_Gatherings_Authorized_But_Others_Restricted,0.6455684847984454,0.6455684847984454,True,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,No_Measure,1.1769549176269798,,False,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,Restrict_Mass_Gatherings,1.0274816430883533,,False,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,Restrict_Mass_Gatherings_and_Schools,0.6238238880102119,,False,0,1.1769549176269798
+Canada - Ontario,Canada,Ontario,Restrict_Mass_Gatherings_and_Schools_and_Others,0.4609484410247325,,False,0,1.1769549176269798
+Canada - Quebec,Canada,Quebec,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.3589103671556535,,False,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,Lockdown,0.25244338548806694,,False,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,Mass_Gatherings_Authorized_But_Others_Restricted,0.3726440561177849,0.3726440561177849,True,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,No_Measure,0.6793783536524757,,False,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,Restrict_Mass_Gatherings,0.5930973027386113,,False,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,Restrict_Mass_Gatherings_and_Schools,0.36009233629778326,,False,0,0.6793783536524757
+Canada - Quebec,Canada,Quebec,Restrict_Mass_Gatherings_and_Schools_and_Others,0.2660750962436689,,False,0,0.6793783536524757
+Cyprus,Cyprus,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.13133554216069734,,False,0,0.24860392057299868
+Cyprus,Cyprus,None,Lockdown,0.06855265261873414,0.06855265261873414,True,0,0.24860392057299868
+Cyprus,Cyprus,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.13636109073215893,,False,0,0.24860392057299868
+Cyprus,Cyprus,None,No_Measure,0.24860392057299868,,False,0,0.24860392057299868
+Cyprus,Cyprus,None,Restrict_Mass_Gatherings,0.21703122266022784,,False,0,0.24860392057299868
+Cyprus,Cyprus,None,Restrict_Mass_Gatherings_and_Schools,0.13176805838843703,,False,0,0.24860392057299868
+Cyprus,Cyprus,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.11996750848522088,0.11996750848522088,True,0,0.24860392057299868
+Czechia,Czechia,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.1199305804384905,,False,0,2.119906983944524
+Czechia,Czechia,None,Lockdown,0.684617487166864,0.684617487166864,True,0,2.119906983944524
+Czechia,Czechia,None,Mass_Gatherings_Authorized_But_Others_Restricted,1.1627846733676708,,False,0,2.119906983944524
+Czechia,Czechia,None,No_Measure,2.119906983944524,,False,0,2.119906983944524
+Czechia,Czechia,None,Restrict_Mass_Gatherings,1.8506787969835694,,False,0,2.119906983944524
+Czechia,Czechia,None,Restrict_Mass_Gatherings_and_Schools,1.1236187530535535,,False,0,2.119906983944524
+Czechia,Czechia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.9280663777851279,0.9280663777851279,True,0,2.119906983944524
+Denmark,Denmark,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.7664943794606609,,False,0,1.4508906324681994
+Denmark,Denmark,None,Lockdown,0.5391218917471617,,False,0,1.4508906324681994
+Denmark,Denmark,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.7958242521695932,,False,0,1.4508906324681994
+Denmark,Denmark,None,No_Measure,1.4508906324681994,,False,0,1.4508906324681994
+Denmark,Denmark,None,Restrict_Mass_Gatherings,1.266627522144738,,False,0,1.4508906324681994
+Denmark,Denmark,None,Restrict_Mass_Gatherings_and_Schools,0.7690186105418586,,False,0,1.4508906324681994
+Denmark,Denmark,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.5682339783004857,0.5682339783004857,True,0,1.4508906324681994
+Dominican Republic,Dominican Republic,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.8358890986920693,,False,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,Lockdown,0.5873875712543766,0.5873875712543766,True,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.8678743571889072,,False,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,No_Measure,1.5822473009234295,,False,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,Restrict_Mass_Gatherings,1.3813018937061539,,False,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,Restrict_Mass_Gatherings_and_Schools,0.8386418615301185,,False,0,1.5822473009234295
+Dominican Republic,Dominican Republic,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.6201951183833673,0.6201951183833673,True,0,1.5822473009234295
+Estonia,Estonia,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.13981782613895924,0.13981782613895924,True,0,0.3505581115161977
+Estonia,Estonia,None,Lockdown,0.130260371125573,,False,0,0.3505581115161977
+Estonia,Estonia,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.19228371918341516,,False,0,0.3505581115161977
+Estonia,Estonia,None,No_Measure,0.3505581115161977,,False,0,0.3505581115161977
+Estonia,Estonia,None,Restrict_Mass_Gatherings,0.3060372313536406,,False,0,0.3505581115161977
+Estonia,Estonia,None,Restrict_Mass_Gatherings_and_Schools,0.18580705244044166,,False,0,0.3505581115161977
+Estonia,Estonia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.19850677738808495,0.19850677738808495,True,0,0.3505581115161977
+Finland,Finland,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.0791533060161132,0.0791533060161132,True,0,0.21481583183782887
+Finland,Finland,None,Lockdown,0.07982125947056098,,False,0,0.21481583183782887
+Finland,Finland,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.11782807394359289,,False,0,0.21481583183782887
+Finland,Finland,None,No_Measure,0.21481583183782887,,False,0,0.21481583183782887
+Finland,Finland,None,Restrict_Mass_Gatherings,0.18753422119442462,,False,0,0.21481583183782887
+Finland,Finland,None,Restrict_Mass_Gatherings_and_Schools,0.1138592867205251,,False,0,0.21481583183782887
+Finland,Finland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.130442519346871,0.130442519346871,True,0,0.21481583183782887
+Germany,Germany,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.3091612850831213,0.3091612850831213,True,0,0.4504893155814246
+Germany,Germany,None,Lockdown,0.1673928045251646,,False,0,0.4504893155814246
+Germany,Germany,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.24709672435688354,,False,0,0.4504893155814246
+Germany,Germany,None,No_Measure,0.4504893155814246,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings,0.39327717250258365,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools,0.23877379850681002,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.08042853107496599,0.08042853107496599,True,0,0.4504893155814246
+Ireland,Ireland,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.6788800405740789,,False,0,1.2850462023369797
+Ireland,Ireland,None,Lockdown,0.4275499076284913,0.4275499076284913,True,0,1.2850462023369797
+Ireland,Ireland,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.7048573545743239,,False,0,1.2850462023369797
+Ireland,Ireland,None,No_Measure,1.2850462023369797,,False,0,1.2850462023369797
+Ireland,Ireland,None,Restrict_Mass_Gatherings,1.1218453346401833,,False,0,1.2850462023369797
+Ireland,Ireland,None,Restrict_Mass_Gatherings_and_Schools,0.6811157387667097,,False,0,1.2850462023369797
+Ireland,Ireland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.5506704228305681,0.5506704228305681,True,0,1.2850462023369797
+Italy,Italy,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.2635530686317123,,False,0,0.4988773416773961
+Italy,Italy,None,Lockdown,0.18537282560897178,0.18537282560897178,True,0,0.4988773416773961
+Italy,Italy,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.27363791486431716,,False,0,0.4988773416773961
+Italy,Italy,None,No_Measure,0.4988773416773961,,False,0,0.4988773416773961
+Italy,Italy,None,Restrict_Mass_Gatherings,0.4355199192843668,,False,0,0.4988773416773961
+Italy,Italy,None,Restrict_Mass_Gatherings_and_Schools,0.2644210056514897,,False,0,0.4988773416773961
+Italy,Italy,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.19538278778970214,,False,0,0.4988773416773961
+Latvia,Latvia,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.5128713238859656,,False,0,0.9708097272824191
+Latvia,Latvia,None,Lockdown,0.36073344536567986,,False,0,0.9708097272824191
+Latvia,Latvia,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.5324963218621039,,False,0,0.9708097272824191
+Latvia,Latvia,None,No_Measure,0.9708097272824191,,False,0,0.9708097272824191
+Latvia,Latvia,None,Restrict_Mass_Gatherings,0.8475168919175519,,False,0,0.9708097272824191
+Latvia,Latvia,None,Restrict_Mass_Gatherings_and_Schools,0.5145603196191357,,False,0,0.9708097272824191
+Latvia,Latvia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.38021271980235877,0.38021271980235877,True,0,0.9708097272824191
+Malaysia,Malaysia,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.47306664241872015,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,Lockdown,0.33273640357639184,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.49116851606161116,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,No_Measure,0.8954637873554442,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,Restrict_Mass_Gatherings,0.7817398863613028,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,Restrict_Mass_Gatherings_and_Schools,0.47462455276257864,,False,0,0.8954637873554442
+Malaysia,Malaysia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.35070386349341653,0.35070386349341653,True,0,0.8954637873554442
+Monaco,Monaco,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,2.5909502631807464,,False,0,4.904387516429134
+Monaco,Monaco,None,Lockdown,1.9405519302563352,1.9405519302563352,True,0,4.904387516429134
+Monaco,Monaco,None,Mass_Gatherings_Authorized_But_Others_Restricted,2.6900928576349123,,False,0,4.904387516429134
+Monaco,Monaco,None,No_Measure,4.904387516429134,,False,0,4.904387516429134
+Monaco,Monaco,None,Restrict_Mass_Gatherings,4.281530301842634,,False,0,4.904387516429134
+Monaco,Monaco,None,Restrict_Mass_Gatherings_and_Schools,2.59948282044328,,False,0,4.904387516429134
+Monaco,Monaco,None,Restrict_Mass_Gatherings_and_Schools_and_Others,1.8086534365995142,1.8086534365995142,True,0,4.904387516429134
+New Zealand,New Zealand,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.4015600501173572,0.4015600501173572,True,0,0.5112239083114104
+New Zealand,New Zealand,None,Lockdown,0.003023167106000518,0.003023167106000518,True,0,0.5112239083114104
+New Zealand,New Zealand,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.2804100980588984,,False,0,0.5112239083114104
+New Zealand,New Zealand,None,No_Measure,0.5112239083114104,,False,0,0.5112239083114104
+New Zealand,New Zealand,None,Restrict_Mass_Gatherings,0.44629847195586125,,False,0,0.5112239083114104
+New Zealand,New Zealand,None,Restrict_Mass_Gatherings_and_Schools,0.27096508230715055,,False,0,0.5112239083114104
+New Zealand,New Zealand,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.20021825816900224,,False,0,0.5112239083114104
+Norway,Norway,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.011899743043290431,0.011899743043290431,True,0,0.034810252575117995
+Norway,Norway,None,Lockdown,0.012934792465072625,,False,0,0.034810252575117995
+Norway,Norway,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.019093681221375673,,False,0,0.034810252575117995
+Norway,Norway,None,No_Measure,0.034810252575117995,,False,0,0.034810252575117995
+Norway,Norway,None,Restrict_Mass_Gatherings,0.03038935049807801,,False,0,0.034810252575117995
+Norway,Norway,None,Restrict_Mass_Gatherings_and_Schools,0.01845055131577268,,False,0,0.034810252575117995
+Norway,Norway,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.02238799303396625,0.02238799303396625,True,0,0.034810252575117995
+San Marino,San Marino,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.5703583131343583,,False,0,1.079626355850501
+San Marino,San Marino,None,Lockdown,0.3763884556482444,0.3763884556482444,True,0,1.079626355850501
+San Marino,San Marino,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.5921830481500058,,False,0,1.079626355850501
+San Marino,San Marino,None,No_Measure,1.079626355850501,,False,0,1.079626355850501
+San Marino,San Marino,None,Restrict_Mass_Gatherings,0.9425138086574875,,False,0,1.079626355850501
+San Marino,San Marino,None,Restrict_Mass_Gatherings_and_Schools,0.5722366259048267,,False,0,1.079626355850501
+San Marino,San Marino,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.44633977552586684,0.44633977552586684,True,0,1.079626355850501
+Spain,Spain,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.09810518740221978,,False,0,0.18570246724910688
+Spain,Spain,None,Lockdown,0.11344261720683742,0.11344261720683742,True,0,0.18570246724910688
+Spain,Spain,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.1018591779541371,,False,0,0.18570246724910688
+Spain,Spain,None,No_Measure,0.18570246724910688,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings,0.16211825390847032,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools,0.09842826891449605,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.03056687089295535,0.03056687089295535,True,0,0.18570246724910688
+Sweden,Sweden,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.3127379828812202,,False,0,2.484870461265156
+Sweden,Sweden,None,Lockdown,0.9233280812799484,,False,0,2.484870461265156
+Sweden,Sweden,None,Mass_Gatherings_Authorized_But_Others_Restricted,1.3629698423309644,,False,0,2.484870461265156
+Sweden,Sweden,None,No_Measure,2.484870461265156,,False,0,2.484870461265156
+Sweden,Sweden,None,Restrict_Mass_Gatherings,2.169291912684481,,False,0,2.484870461265156
+Sweden,Sweden,None,Restrict_Mass_Gatherings_and_Schools,1.3170611117999076,,False,0,2.484870461265156
+Sweden,Sweden,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.9731869488770792,0.9731869488770792,True,0,2.484870461265156
+Switzerland,Switzerland,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.010441709023794389,0.010441709023794389,True,0,0.03559340432098423
+Switzerland,Switzerland,None,Lockdown,0.013225795964101523,,False,0,0.03559340432098423
+Switzerland,Switzerland,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.019523245751287246,,False,0,0.03559340432098423
+Switzerland,Switzerland,None,No_Measure,0.03559340432098423,,False,0,0.03559340432098423
+Switzerland,Switzerland,None,Restrict_Mass_Gatherings,0.03107304197221923,,False,0,0.03559340432098423
+Switzerland,Switzerland,None,Restrict_Mass_Gatherings_and_Schools,0.018865646881194416,,False,0,0.03559340432098423
+Switzerland,Switzerland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.025219548805968356,0.025219548805968356,True,0,0.03559340432098423
+Thailand,Thailand,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.0207590710102156,,False,0,0.03929466735119066
+Thailand,Thailand,None,Lockdown,0.014601111154678065,,False,0,0.03929466735119066
+Thailand,Thailand,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.02931264997518292,0.02931264997518292,True,0,0.03929466735119066
+Thailand,Thailand,None,No_Measure,0.03929466735119066,,False,0,0.03929466735119066
+Thailand,Thailand,None,Restrict_Mass_Gatherings,0.03430424459758945,,False,0,0.03929466735119066
+Thailand,Thailand,None,Restrict_Mass_Gatherings_and_Schools,0.020827435102197134,,False,0,0.03929466735119066
+Thailand,Thailand,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.004522578861602349,0.004522578861602349,True,0,0.03929466735119066
+Turkey,Turkey,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.0855178651049617,,False,0,2.0547674504356888
+Turkey,Turkey,None,Lockdown,0.7635104191661564,0.7635104191661564,True,0,2.0547674504356888
+Turkey,Turkey,None,Mass_Gatherings_Authorized_But_Others_Restricted,1.1270551570407528,,False,0,2.0547674504356888
+Turkey,Turkey,None,No_Measure,2.0547674504356888,,False,0,2.0547674504356888
+Turkey,Turkey,None,Restrict_Mass_Gatherings,1.7938119842303564,,False,0,2.0547674504356888
+Turkey,Turkey,None,Restrict_Mass_Gatherings_and_Schools,1.089092709236528,,False,0,2.0547674504356888
+Turkey,Turkey,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.804739279951655,,False,0,2.0547674504356888
+US - Illinois,US,Illinois,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.1710897465330878,,False,0,2.2167457303731215
+US - Illinois,US,Illinois,Lockdown,0.823698302901914,0.823698302901914,True,0,2.2167457303731215
+US - Illinois,US,Illinois,Mass_Gatherings_Authorized_But_Others_Restricted,1.2159014426354389,,False,0,2.2167457303731215
+US - Illinois,US,Illinois,No_Measure,2.2167457303731215,,False,0,2.2167457303731215
+US - Illinois,US,Illinois,Restrict_Mass_Gatherings,1.935219022615735,,False,0,2.2167457303731215
+US - Illinois,US,Illinois,Restrict_Mass_Gatherings_and_Schools,1.1749463973009002,,False,0,2.2167457303731215
+US - Illinois,US,Illinois,Restrict_Mass_Gatherings_and_Schools_and_Others,0.8681772540820208,,False,0,2.2167457303731215
+US - Massachusetts,US,Massachusetts,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.29296499464130915,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,Lockdown,0.2060600134313521,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,Mass_Gatherings_Authorized_But_Others_Restricted,0.30417528689035184,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,No_Measure,0.5545509239940711,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,Restrict_Mass_Gatherings,0.4841229566468241,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,Restrict_Mass_Gatherings_and_Schools,0.2939297914682564,,False,0,0.5545509239940711
+US - Massachusetts,US,Massachusetts,Restrict_Mass_Gatherings_and_Schools_and_Others,0.21718706473092345,0.21718706473092345,True,0,0.5545509239940711
+US - New Hampshire,US,New Hampshire,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,1.0421539343943038,,False,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,Lockdown,0.5612827138930194,0.5612827138930194,True,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,Mass_Gatherings_Authorized_But_Others_Restricted,1.0820319074857774,,False,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,No_Measure,1.9726842381629983,,False,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,Restrict_Mass_Gatherings,1.7221533399162976,,False,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,Restrict_Mass_Gatherings_and_Schools,1.0455859717621991,,False,0,1.9726842381629983
+US - New Hampshire,US,New Hampshire,Restrict_Mass_Gatherings_and_Schools_and_Others,0.9355210059670064,0.9355210059670064,True,0,1.9726842381629983
+US - New Jersey,US,New Jersey,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.6881324126188898,,False,0,1.3025599379724226
+US - New Jersey,US,New Jersey,Lockdown,0.48400517733502707,0.48400517733502707,True,0,1.3025599379724226
+US - New Jersey,US,New Jersey,Mass_Gatherings_Authorized_But_Others_Restricted,0.71446376821631,,False,0,1.3025599379724226
+US - New Jersey,US,New Jersey,No_Measure,1.3025599379724226,,False,0,1.3025599379724226
+US - New Jersey,US,New Jersey,Restrict_Mass_Gatherings,1.137134825849925,,False,0,1.3025599379724226
+US - New Jersey,US,New Jersey,Restrict_Mass_Gatherings_and_Schools,0.6903985808654651,,False,0,1.3025599379724226
+US - New Jersey,US,New Jersey,Restrict_Mass_Gatherings_and_Schools_and_Others,0.5101410119941003,,False,0,1.3025599379724226
+US - North Dakota,US,North Dakota,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.5548216698735621,,False,0,1.0502171771648714
+US - North Dakota,US,North Dakota,Lockdown,0.3902396628857547,,False,0,1.0502171771648714
+US - North Dakota,US,North Dakota,Mass_Gatherings_Authorized_But_Others_Restricted,0.5760518959711808,0.5760518959711808,True,0,1.0502171771648714
+US - North Dakota,US,North Dakota,No_Measure,1.0502171771648714,,False,0,1.0502171771648714
+US - North Dakota,US,North Dakota,Restrict_Mass_Gatherings,0.9168395956649327,,False,0,1.0502171771648714
+US - North Dakota,US,North Dakota,Restrict_Mass_Gatherings_and_Schools,0.5566488171314485,,False,0,1.0502171771648714
+US - North Dakota,US,North Dakota,Restrict_Mass_Gatherings_and_Schools_and_Others,0.41131224595041843,,False,0,1.0502171771648714
+US - Pennsylvania,US,Pennsylvania,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.7833779787884978,,False,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,Lockdown,0.5889883919514984,0.5889883919514984,True,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,Mass_Gatherings_Authorized_But_Others_Restricted,0.9268952319176899,0.9268952319176899,True,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,No_Measure,1.4828494527329241,,False,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,Restrict_Mass_Gatherings,1.2945275722358427,,False,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,Restrict_Mass_Gatherings_and_Schools,0.7859578111987174,,False,0,1.4828494527329241
+US - Pennsylvania,US,Pennsylvania,Restrict_Mass_Gatherings_and_Schools_and_Others,0.3856884909821071,0.3856884909821071,True,0,1.4828494527329241
+US - Rhode Island,US,Rhode Island,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.644409478128632,,False,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,Lockdown,0.5204121664027361,0.5204121664027361,True,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,Mass_Gatherings_Authorized_But_Others_Restricted,0.6690677776183706,,False,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,No_Measure,1.2197971705264656,,False,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,Restrict_Mass_Gatherings,1.0648829298696045,,False,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,Restrict_Mass_Gatherings_and_Schools,0.6465316573347669,,False,0,1.2197971705264656
+US - Rhode Island,US,Rhode Island,Restrict_Mass_Gatherings_and_Schools_and_Others,0.41400819539686623,0.41400819539686623,True,0,1.2197971705264656
+US - South Dakota,US,South Dakota,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.8963333511670697,,False,0,1.696661707672542
+US - South Dakota,US,South Dakota,Lockdown,0.6304454994924914,,False,0,1.696661707672542
+US - South Dakota,US,South Dakota,Mass_Gatherings_Authorized_But_Others_Restricted,0.8882638417326539,0.8882638417326539,True,0,1.696661707672542
+US - South Dakota,US,South Dakota,No_Measure,1.696661707672542,,False,0,1.696661707672542
+US - South Dakota,US,South Dakota,Restrict_Mass_Gatherings,1.4811856707981292,,False,0,1.696661707672542
+US - South Dakota,US,South Dakota,Restrict_Mass_Gatherings_and_Schools,0.9431296420183045,0.9431296420183045,True,0,1.696661707672542
+US - South Dakota,US,South Dakota,Restrict_Mass_Gatherings_and_Schools_and_Others,0.6644889769226373,,False,0,1.696661707672542

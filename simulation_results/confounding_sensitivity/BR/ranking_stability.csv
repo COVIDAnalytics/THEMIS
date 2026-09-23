@@ -1,0 +1,8 @@
+delta,top1_policy,top1_matches_baseline,top20_overlap_with_baseline,top20_overlap_pct,spearman_rank_corr
+0.8,Lockdown-No_Measure-No_Measure,False,13,65.0,0.8758582502768547
+0.9,Lockdown-Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others-No_Measure,False,17,85.0,0.9740244584955763
+1.0,Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure,True,20,100.0,0.9999999999999999
+1.1,Lockdown-Restrict_Mass_Gatherings_and_Schools-No_Measure,True,14,70.0,0.9850153014444085
+1.2,Lockdown-Restrict_Mass_Gatherings_and_Schools_and_Others-No_Measure,False,9,45.0,0.9567058431274484
+1.3,Lockdown-Lockdown-No_Measure,False,6,30.0,0.9246192500506077
+1.5,Lockdown-Lockdown-No_Measure,False,4,20.0,0.8872182331297109

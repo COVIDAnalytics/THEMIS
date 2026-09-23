@@ -1,0 +1,107 @@
+test_region_id,country,province,n_evals,baseline_ape_cases_pct,baseline_ape_deaths_pct
+Afghanistan__None,Afghanistan,None,6,2550.6932619800536,320.23809523809524
+Albania__None,Albania,None,7,54.89593995223473,75.49019607843137
+Algeria__None,Algeria,None,6,81.81898376852506,47.35099337748344
+Andorra__None,Andorra,None,7,98.80952380952381,
+Angola__None,Angola,None,4,28.75751503006012,40.0
+Argentina__None,Argentina,None,2,59.43333405713707,53.16253002401922
+Australia__Australian_Capital_Territory,Australia,Australian Capital Territory,4,100.0,
+Australia__New_South_Wales,Australia,New South Wales,3,357635.6608478803,784100.0
+Australia__Queensland,Australia,Queensland,13,100.0,
+Australia__South_Australia,Australia,South Australia,7,100.0,
+Australia__Tasmania,Australia,Tasmania,8,100.0,
+Australia__Victoria,Australia,Victoria,4,96.59491380131442,97.1830985915493
+Australia__Western_Australia,Australia,Western Australia,8,98.27586206896551,
+Austria__None,Austria,None,8,25496.170084439083,46053.57142857143
+Azerbaijan__None,Azerbaijan,None,6,2.921656876954764,10.775862068965518
+Bahrain__None,Bahrain,None,11,24.015065913370996,10.909090909090908
+Bangladesh__None,Bangladesh,None,6,3.738395323745272,19.644300727566694
+Belarus__None,Belarus,None,3,3.3734939759036147,76.28205128205127
+Belgium__None,Belgium,None,8,94.1827468785471,23.45679012345679
+Benin__None,Benin,None,5,100.0,64.70588235294117
+Bolivia__None,Bolivia,None,5,12.446456171340252,29.093717816683828
+Bosnia_and_Herzegovina__None,Bosnia and Herzegovina,None,2,78.40765138079554,53.84615384615385
+Brazil__None,Brazil,None,4,47.1786251639907,15.761868542815492
+Bulgaria__None,Bulgaria,None,5,25.308000593736086,8.620689655172415
+Burkina_Faso__None,Burkina Faso,None,10,36.445783132530124,200.0
+Burundi__None,Burundi,None,5,78.92156862745098,
+Cambodia__None,Cambodia,None,4,52.94117647058824,
+Cameroon__None,Cameroon,None,5,122.1615294576668,206.41025641025644
+Canada__Alberta,Canada,Alberta,6,22605.3342570142,21247.82608695652
+Canada__British_Columbia,Canada,British Columbia,6,88.69047619047619,44.44444444444444
+Canada__Manitoba,Canada,Manitoba,8,93.22033898305084,100.0
+Canada__New_Brunswick,Canada,New Brunswick,3,8380.0,
+Canada__Newfoundland_and_Labrador,Canada,Newfoundland and Labrador,4,100.0,
+Canada__Nova_Scotia,Canada,Nova Scotia,8,2515400.0,540850.0
+Canada__Ontario,Canada,Ontario,2,32.12846347607053,144.04761904761904
+Canada__Quebec,Canada,Quebec,4,78.53976852991873,88.65546218487395
+Canada__Saskatchewan,Canada,Saskatchewan,8,88.72377622377623,25.0
+Central_African_Republic__None,Central African Republic,None,2,48.07395993836671,18.181818181818183
+Chad__None,Chad,None,4,92.53731343283582,100.0
+Chile__None,Chile,None,4,20.960416227237573,50.25330706445257
+Colombia__None,Colombia,None,9,63.90811859740963,60.396039603960396
+Congo_(Kinshasa)__None,Congo (Kinshasa),None,6,175.31962201222902,189.39393939393938
+Costa_Rica__None,Costa Rica,None,6,72.25617770767613,80.98159509202453
+Cote_d'Ivoire__None,Cote d'Ivoire,None,7,10.324129651860744,38.70967741935484
+Croatia__None,Croatia,None,10,174.66276978417267,39.024390243902445
+Cuba__None,Cuba,None,4,8.734939759036145,350.0
+Cyprus__None,Cyprus,None,6,16.85393258426966,
+Czechia__None,Czechia,None,6,75.0,56.25
+Denmark__None,Denmark,None,6,68.77518130539886,80.0
+Djibouti__None,Djibouti,None,6,218.75,975.0
+Ecuador__None,Ecuador,None,10,14.272741032238535,70.5004812319538
+Egypt__None,Egypt,None,3,120.278032533668,16.237745098039216
+El_Salvador__None,El Salvador,None,8,55.05811250581125,21.557971014492754
+Estonia__None,Estonia,None,7,90.81632653061224,
+Ethiopia__None,Ethiopia,None,6,3687.196208395695,1312.2916666666667
+Finland__None,Finland,None,7,192.3404255319149,950.0
+France__None,France,None,7,71.40975586810292,242.93478260869566
+Gabon__None,Gabon,None,7,100.69101678183614,342.85714285714283
+Georgia__None,Georgia,None,9,83.76068376068376,50.0
+Germany__None,Germany,None,5,62.76391554702495,167.83216783216784
+Ghana__None,Ghana,None,5,19.63200173686496,33.78378378378378
+Greece__None,Greece,None,4,88.31845238095238,35.294117647058826
+Guatemala__None,Guatemala,None,6,170.60172783284222,137.8692927484333
+Guinea__None,Guinea,None,5,3530.224075039083,2585.714285714286
+Guyana__None,Guyana,None,5,48.0,75.0
+Haiti__None,Haiti,None,8,22.678718159408383,54.71698113207547
+Honduras__None,Honduras,None,5,97.8903545701188,38.91050583657588
+Hungary__None,Hungary,None,8,827.8364116094987,1872.2222222222222
+Iceland__None,Iceland,None,6,67723.86363636365,
+India__None,India,None,4,63.46251160847518,32.17956837336192
+Indonesia__None,Indonesia,None,5,58.600748384170544,56.54632448890822
+"Korea,_South__None","Korea, South",None,7,98.02197802197801,84.21052631578947
+Kosovo__None,Kosovo,None,8,91.35498687664042,5.687203791469194
+Kuwait__None,Kuwait,None,6,511.39643572492423,694.5
+Latvia__None,Latvia,None,6,85.31746031746032,100.0
+Lebanon__None,Lebanon,None,6,86.9816027439975,76.66666666666667
+Liberia__None,Liberia,None,9,49.279538904899134,58.536585365853654
+Libya__None,Libya,None,6,79.39721792890262,68.11594202898551
+Lithuania__None,Lithuania,None,7,90.52287581699346,200.0
+Luxembourg__None,Luxembourg,None,6,99.11921343711595,75.0
+Madagascar__None,Madagascar,None,6,403.2017017562998,42.55319148936171
+Malawi__None,Malawi,None,3,26.89228529839884,75.67567567567568
+Malaysia__None,Malaysia,None,10,17.587209302325583,25.0
+Mali__None,Mali,None,4,138.125,316.6666666666667
+Malta__None,Malta,None,3,93.11926605504587,
+Mauritania__None,Mauritania,None,7,136.89503456945317,307.14285714285717
+Mauritius__None,Mauritius,None,6,100.0,
+Mexico__None,Mexico,None,5,35.236809642257676,72.17748473220558
+Moldova__None,Moldova,None,5,29.464505035617783,16.956521739130434
+Monaco__None,Monaco,None,5,0.0,
+Mongolia__None,Mongolia,None,7,52.054794520547944,
+Morocco__None,Morocco,None,4,76.60321015304218,71.89189189189189
+Mozambique__None,Mozambique,None,7,79.90566037735849,50.0
+Namibia__None,Namibia,None,5,43.81861575178998,33.33333333333333
+Nepal__None,Nepal,None,9,15397.227256252265,7729.166666666667
+Netherlands__None,Netherlands,None,9,97.66968744220455,33.33333333333333
+New_Zealand__None,New Zealand,None,6,2023887.5,
+Nicaragua__None,Nicaragua,None,7,52.7114967462039,60.0
+Niger__None,Niger,None,4,18.571428571428573,500.0
+Nigeria__None,Nigeria,None,6,55.763555883437846,92.3913043478261
+Norway__None,Norway,None,6,63419.95412844037,34790.0
+Oman__None,Oman,None,6,18.26417643085778,42.201834862385326
+Pakistan__None,Pakistan,None,4,140.22164630831128,97.89855072463767
+Panama__None,Panama,None,7,44.92463240960513,60.59850374064838
+Peru__None,Peru,None,4,64.0831617072651,81.76133402813966
+South_Sudan__None,South Sudan,None,3,81.97115384615384,88.88888888888889

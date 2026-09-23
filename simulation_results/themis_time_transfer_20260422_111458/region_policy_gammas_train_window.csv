@@ -1,0 +1,29 @@
+region,country,province,policy,gamma_region_policy,gamma_observed,is_observed,train_policy_days,k_R
+Brazil,Brazil,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.7268602012448708,,False,0,1.3758674366825656
+Brazil,Brazil,None,Lockdown,0.5112447752149099,,False,0,1.3758674366825656
+Brazil,Brazil,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.7546734739624015,0.7546734739624015,True,0,1.3758674366825656
+Brazil,Brazil,None,No_Measure,1.3758674366825656,,False,0,1.3758674366825656
+Brazil,Brazil,None,Restrict_Mass_Gatherings,1.2011322722238797,,False,0,1.3758674366825656
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools,0.7292539084406874,,False,0,1.3758674366825656
+Brazil,Brazil,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.5388515231103576,,False,0,1.3758674366825656
+Germany,Germany,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.3091612850831213,0.3091612850831213,True,0,0.4504893155814246
+Germany,Germany,None,Lockdown,0.1673928045251646,,False,0,0.4504893155814246
+Germany,Germany,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.24709672435688354,,False,0,0.4504893155814246
+Germany,Germany,None,No_Measure,0.4504893155814246,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings,0.39327717250258365,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools,0.23877379850681002,,False,0,0.4504893155814246
+Germany,Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.08042853107496599,0.08042853107496599,True,0,0.4504893155814246
+Spain,Spain,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.09810518740221978,,False,0,0.18570246724910688
+Spain,Spain,None,Lockdown,0.11344261720683742,0.11344261720683742,True,0,0.18570246724910688
+Spain,Spain,None,Mass_Gatherings_Authorized_But_Others_Restricted,0.1018591779541371,,False,0,0.18570246724910688
+Spain,Spain,None,No_Measure,0.18570246724910688,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings,0.16211825390847032,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools,0.09842826891449605,,False,0,0.18570246724910688
+Spain,Spain,None,Restrict_Mass_Gatherings_and_Schools_and_Others,0.03056687089295535,0.03056687089295535,True,0,0.18570246724910688
+US - New York,US,New York,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,0.23500278420520876,,False,0,0.44483475331834776
+US - New York,US,New York,Lockdown,0.18044320951013926,0.18044320951013926,True,0,0.44483475331834776
+US - New York,US,New York,Mass_Gatherings_Authorized_But_Others_Restricted,0.24399515509752162,,False,0,0.44483475331834776
+US - New York,US,New York,No_Measure,0.44483475331834776,,False,0,0.44483475331834776
+US - New York,US,New York,Restrict_Mass_Gatherings,0.3883407396469176,,False,0,0.44483475331834776
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools,0.23577669898913217,,False,0,0.44483475331834776
+US - New York,US,New York,Restrict_Mass_Gatherings_and_Schools_and_Others,0.1598420059927145,0.1598420059927145,True,0,0.44483475331834776
